@@ -3,6 +3,9 @@ $(document).ready(function() {
 	$.ajax({
 	url: 'https://api.spotify.com/v1/users/'+ userID + '/playlists',
 	type: "POST",
+	xhrFields: {
+        withCredentials: false
+      	},
 	headers: {
 		'Accept': 'application/json',
 	  'Content-Type': 'application/json',
