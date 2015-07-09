@@ -17,7 +17,7 @@ $(document).ready(function() {
 	console.log("Document ready");
   // This function is anonymous, is executed immediately and 
   // the return value is assigned to QueryString!
-   var vars = window.location.href.split("&");
+  var vars = window.location.href.split("&");
 	console.log(vars);
   for (var i=0;i<vars.length;i++) {
 	  var pair = vars[i].split("=");
@@ -39,7 +39,7 @@ $(document).ready(function() {
 			console.log("State = " + state);
 		}
 	}
-	if(accessToken != "") {
+	if(vars.length == 4) {
 		$.ajax({
 			url: 'https://api.spotify.com/v1/me',
 			headers: {
