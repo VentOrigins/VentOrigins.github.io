@@ -1,0 +1,64 @@
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+
+h1 {
+  /* Empty */
+}
+
+h2 {
+  /* Empty */
+}
+
+h3 {
+  /* Empty */
+}
+
+h4 {
+  /* Empty */
+}
+
+h5 {
+  /* Empty */
+}
+
+h6 {
+  /* Empty */
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+body {
+  background-color: black;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0px
+}
+
+body button {
+  outline: none;
+}
+
+body input {
+  outline: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.input-group-addon i {
+
+  font-size: 25px;
+  color: white;
+}

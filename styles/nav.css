@@ -1,0 +1,92 @@
+/*Entire playlist bar*/
+#nav {
+  width: 20vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+
+  /*Background color of the playlist bar*/
+  background-color: #222226;
+
+  /*Keeps the playlist bar to the left of the Splash Screen*/
+  float: left;
+
+  border: none;
+}
+
+/*Used for the playlist's list button*/
+/*Currently not used*/
+/*#nav-button {
+  width: 50px;
+  height: 40px;
+  margin: 0px;
+  padding: 0px;
+  border: 1px solid yellow;
+  background: white 10px 10px / 20px 20px no-repeat;
+  background-image: -webkit-repeating-linear-gradient(#ccc, #ccc 2px, #fff 2px, #fff 4px);
+  background-image: repeating-linear-gradient(#ccc, #ccc 2px, #fff 2px, #fff 4px);
+}*/
+
+/*The category title in the playlist bar*/
+#nav-playlist-head h1 {
+  /*Added spacing to the title's top*/
+  margin-top: 2.5vh;
+  margin-bottom: 1.2vh;
+
+  /*Added spacing to titles left and right*/
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+
+  /*Font*/
+  font-size: 1.8vmin;
+  color: #A2A7B1; 
+  border: none;
+}
+
+/*For each individual playlist names, these are actual buttons*/
+#nav-playlist {
+  /*Set width of the playlist nav bar, goes to 100% of the full height of screen*/
+  width: 20vw;
+  height: 100vh;
+  
+  /*margins and padding*/
+  margin: 0px;
+  padding: 0px;
+
+  border: none;
+}
+
+/*For each individual playlist names, these are actual buttons*/
+#nav-playlist button {
+  /*Size of the entire list*/
+  width: 20vw;
+  height: 2.5vh;
+
+  /*Added spacing between the playlist's names*/
+  margin-top: 0.9vh;
+  margin-bottom: 0.9vh;
+
+  /*Moves positions of the playlists a bit to the right of the left side of screen*/
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+
+  /*Font*/
+  text-align: left;
+  font-size: 1.8vmin;
+  color: #A2A7B1;
+  background-color: #222226;
+
+  border: none;
+}
+
+/*When hovering over a playlist name, lights up white*/
+#nav-playlist button:hover{
+  color: white;
+}
+
+/*For the icon*/
+.fa {
+  /*Gives space between music icon and the words*/
+  margin-right: 1.5vw;
+}
+

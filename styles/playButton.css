@@ -1,0 +1,13 @@
+#play-button {
+  width: 100%;
+  height: 80px;
+  margin-top: 8px;
+  display: none;
+}
+
+#play-button iframe,
+#play-button object,
+#play-button embed {
+  width: 100%;
+  height: 80px;
+}

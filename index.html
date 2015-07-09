@@ -1,20 +1,126 @@
+<!-- 
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Vent Origins</title>
+  <title>Vent Spotify</title>
 
   <!-- JQUERY -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
   <!-- Parse -->
-  <script type="text/javascript" src="test.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+  
+  <!-- Login to Spotify -->
+  <script type="text/javascript" src="scripts/spotify.js"></script>
+
+  <!-- References -->
+  <link rel="stylesheet" type="text/css" href="styles/spotify.css">
+  <link rel="stylesheet" type="text/css" href="styles/splashScreen.css">}
+  <link rel="stylesheet" type="text/css" href="styles/searchBox.css">
+  <link rel="stylesheet" type="text/css" href="styles/displayTracks.css">
+  <link rel="stylesheet" type="text/css" href="styles/addHT.css">
+  <link rel="stylesheet" type="text/css" href="styles/changePage.css">
+  <link rel="stylesheet" type="text/css" href="styles/nav.css">
+  <link rel="stylesheet" type="text/css" href="styles/playButton.css">
+
+  <!-- FONTS -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+  <!-- For icons -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
+  <!-- 
+    SplashScreen
+    --> 
+  <div id="splash-screen">
+    <!-- 
+    Nav Bar
+    -->
+    <div id="nav">
+        <div id="nav-list">
+          <!-- <ul id="nav-button"> -->
+          </ul>
+          <ul id="nav-playlist">
+          </ul>
+        </div>
 
-<h1>Vent Origins</h1>
+    </div>
+  
+    <!-- 
+      SearchBox
+      -->
+    <div id="search-box">
+      <form id="query-box" action="javascript:search();">
+        <div id='title-splash-screen'>
+          <h1>Spotify </h1><h1 id="hash-tag">#</h1> 
+        </div>
+        <div class="input-group">
+          <!-- The hex value is the Search -->
+          <input type="text" id="input-query-box" placeholder="&#xF002; Search">
+        </div>
+
+        <br>
+        <input type="submit" id="button-query-box" value="Submit">  
+      </form>
+    </div>  
+
+  </div>
+  
+	<!-- 
+	Track Splash Screen
+	 -->
+	<div id="splash-track-list">
+
+		<!--
+			Track List 
+		 -->
+		<div id="track-list">
+			
+			<!-- 
+			Table for Track
+			 -->
+			<table id="list-of-tracks" cellspacing="0">
+			</table>
+			
+			<!--
+			Div for pages 
+			 -->
+			<div id="pages">
+
+			</div>
+
+		</div>
+
+
+	</div>
+
+  <div id="play-button">
+    <iframe id='play-iframe' src='https://embed.spotify.com/?uri=spotify:track:24lMtPOCzP5g4hrg3NklLa' frameborder='0' allowtransparency='true'></iframe>
+  </div>
+  
+  <!-- Scripts -->
+  <script type="text/javascript" src="scripts/search.js"></script>
+  <script type="text/javascript" src="scripts/displayTracks.js"></script>
+  <script type="text/javascript" src="scripts/addHT.js"></script>
+  <script type="text/javascript" src="scripts/changePage.js"></script>
+  <script type="text/javascript" src="scripts/parse.js"></script>
+  <script type="text/javascript" src="scripts/hashtag.js"></script>
+  <script type="text/javascript" src="scripts/playlist.js"></script>
+  <script type="text/javascript" src="scripts/nav.js"></script>
+  <script type="text/javascript" src="scripts/playButton.js"></script>
+
+  <!-- Classes -->
+  <script type="text/javascript" src="classes/tracks.js"></script>
 
 </body>
 
 </html>
-
-
