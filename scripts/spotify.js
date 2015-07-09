@@ -18,6 +18,7 @@ $(document).ready(function() {
   // This function is anonymous, is executed immediately and 
   // the return value is assigned to QueryString!
   var vars = window.location.href.split("&");
+  console.log(vars.length);
 	if(vars.length == 4) {
 		console.log(vars);
 	  for (var i=0;i<vars.length;i++) {
