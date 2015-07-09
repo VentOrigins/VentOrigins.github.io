@@ -18,28 +18,28 @@ $(document).ready(function() {
   // This function is anonymous, is executed immediately and 
   // the return value is assigned to QueryString!
   var vars = window.location.href.split("&");
-	console.log(vars);
-  for (var i=0;i<vars.length;i++) {
-	  var pair = vars[i].split("=");
-		if(i == 0) {
-			if(pair[1].indexOf("access_denied") < 0) {	
-	  		accessToken = pair[1];
-	  		console.log("Access Token = " + accessToken);	
-			}
-			else {
-				console.log("ACCESS DENIDED");
-			}
-		}
-		else if(i == 1) {
-			bear = pair[1];
-			console.log("Bear = " + bear);
-		}
-		else if(i == 3) {
-			state = pair[1];
-			console.log("State = " + state);
-		}
-	}
 	if(vars.length == 4) {
+		console.log(vars);
+	  for (var i=0;i<vars.length;i++) {
+		  var pair = vars[i].split("=");
+			if(i == 0) {
+				if(pair[1].indexOf("access_denied") < 0) {	
+		  		accessToken = pair[1];
+		  		console.log("Access Token = " + accessToken);	
+				}
+				else {
+					console.log("ACCESS DENIDED");
+				}
+			}
+			else if(i == 1) {
+				bear = pair[1];
+				console.log("Bear = " + bear);
+			}
+			else if(i == 3) {
+				state = pair[1];
+				console.log("State = " + state);
+			}
+		}
 		$.ajax({
 			url: 'https://api.spotify.com/v1/me',
 			headers: {
