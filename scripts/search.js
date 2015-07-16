@@ -41,7 +41,7 @@ var currJSON = "";
 function search() {
   //Takes input from the form submit box
   var query = document.getElementById("input-query-box").value;
-  $("#list-of-tracks").empty();
+  $("#track-list").empty();
   document.getElementById("list-of-tracks").style.height = '250px';
   console.log("The query input is: " + query);
   if(query.charAt(0) == "#") {
