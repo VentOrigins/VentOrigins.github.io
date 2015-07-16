@@ -158,6 +158,7 @@ function displayTable() {
 		var num = tracksHTML.length - 5;
 		bottomOfPage = $('#trackName'+ num).position().top;
 	}
+	tracksHTML = [];
 	
 }
 
