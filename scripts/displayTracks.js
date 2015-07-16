@@ -154,7 +154,8 @@ function displayTable() {
 	// $("#pages").append("<input type='button' class='page-number-button' value='" + currentPage + "'disabled>");
 	// $("#pages").append("<input type='button' class='next-page-button' onclick='nextPage()' value='>' >");
 	finishedLoading("#track-list");
-	if(tracksHTML > 5) {
+	if(tracksHTML.length > 5) {
+		var num = tracksHTML.length - 5;
 		bottomOfPage = $('#trackName'+ num).position().top;
 	}
 	
