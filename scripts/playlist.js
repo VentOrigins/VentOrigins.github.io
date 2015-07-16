@@ -73,13 +73,17 @@ function searchPlaylistTracks(playlist) {
 			console.log("Error couldn't find playlist");
 		},
     statusCode: {
-      401: function() {// CHANGE to scopes and redirect to playlist
+      401: function() {
+        var scopes = 'playlist-modify playlist-read-private playlist-modify-public playlist-modify-private user-read-private';
+        var my_client_id = 'f516a166c50d43dfae1800141104d748'
+        var redirect_uri = 'http://ventorigins.github.io/playlist.html'
+        var uri = 'https://accounts.spotify.com/authorize?' + 
+          '&client_id=' + my_client_id +
+          (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
+          '&redirect_uri=' + encodeURIComponent(redirect_uri)
+          + '&response_type=token&state=444'
+        window.location = uri;
 
-
-
-
-
-        window.location.assign("http://ventorigins.github.io");
       }
     }
 	});	
@@ -132,7 +136,15 @@ function goToPlayList(json) {
       },
       statusCode: {
         401: function() {// CHANGE to scopes and redirect to playlis
-          window.location.assign("http://ventorigins.github.io");
+          var scopes = 'playlist-modify playlist-read-private playlist-modify-public playlist-modify-private user-read-private';
+          var my_client_id = 'f516a166c50d43dfae1800141104d748'
+          var redirect_uri = 'http://ventorigins.github.io/playlist.html'
+          var uri = 'https://accounts.spotify.com/authorize?' + 
+            '&client_id=' + my_client_id +
+            (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
+            '&redirect_uri=' + encodeURIComponent(redirect_uri)
+            + '&response_type=token&state=444'
+          window.location = uri;
         }
       }
     }); 
@@ -142,10 +154,8 @@ function goToPlayList(json) {
     //Store the tracks into cookies and then go to new html page
     localStorage.tracks = JSON.stringify(tracks);
 
-    //Mandee
-    window.location.assign("file:///Users/MANDEE/ventorigins/spotify/playlist.html");
-    //Randy
-    // window.location.assign("file:///Users/Randy/VentOrigins/spotify/playlist.html"); 
+    window.location.assign("http://ventorigins.github.io/playlist.html");
+
   }
 
 

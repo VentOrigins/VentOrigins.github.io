@@ -1,3 +1,10 @@
+/*  =============================================================================
+    Spotify Playlists
+
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+
 var vars = window.location.href.split("&");
 console.log(vars);
 if(vars.length < 2) {
