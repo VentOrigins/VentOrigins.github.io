@@ -8,12 +8,13 @@
 
 /*The entire button, input bar, and submit button for hash tags*/
 #ht-form {
-  width: 180px;
-  height: 26px;
+  width: 160px;
+  height: 40px;
+  
   /*To vertically center form*/
   padding: 0px;
-  padding-top: 0px;
-  padding-bottom: 7px;
+  padding-top: 6px;
+  
   margin: 0px;
   position: relative;
 }
@@ -102,6 +103,8 @@
 .button-add-HT {
   width: 24px;
   height: 24px;
+
+  padding-right: 6px; 
 
   /*Font*/
   color: #FFFFFF;

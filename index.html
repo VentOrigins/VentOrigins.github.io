@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Vent Spotify</title>
+  <title>Vent Tag</title>
 
   <!-- JQUERY -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
@@ -21,13 +21,15 @@
 
   <!-- References -->
   <link rel="stylesheet" type="text/css" href="styles/spotify.css">
-  <link rel="stylesheet" type="text/css" href="styles/splashScreen.css">}
+  <link rel="stylesheet" type="text/css" href="styles/splashScreen.css">
   <link rel="stylesheet" type="text/css" href="styles/searchBox.css">
   <link rel="stylesheet" type="text/css" href="styles/displayTracks.css">
   <link rel="stylesheet" type="text/css" href="styles/addHT.css">
   <link rel="stylesheet" type="text/css" href="styles/changePage.css">
   <link rel="stylesheet" type="text/css" href="styles/nav.css">
   <link rel="stylesheet" type="text/css" href="styles/playButton.css">
+  <link rel="stylesheet" type="text/css" href="styles/loadingIcon.css">
+  <link rel="stylesheet" type="text/css" href="styles/hashtag.css">
 
   <!-- FONTS -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -38,6 +40,8 @@
 </head>
 
 <body>
+<div id='index-page'>
+  
   <!-- 
     SplashScreen
     --> 
@@ -61,15 +65,16 @@
     <div id="search-box">
       <form id="query-box" action="javascript:search();">
         <div id='title-splash-screen'>
-          <h1>Spotify </h1><h1 id="hash-tag">#</h1> 
+          <h1>Vent </h1><h1 id="hash-tag"> Tag</h1> 
         </div>
-        <div class="input-group">
+        <div id="input-group">
           <!-- The hex value is the Search -->
           <input type="text" id="input-query-box" placeholder="&#xF002; Search">
+          <br>
+          <input type="submit" id="button-query-box" value="Submit">  
         </div>
 
-        <br>
-        <input type="submit" id="button-query-box" value="Submit">  
+       
       </form>
     </div>  
 
@@ -94,7 +99,7 @@
 			<!--
 			Div for pages 
 			 -->
-			<div id="pages">
+			<div id="test">
 
 			</div>
 
@@ -106,6 +111,9 @@
   <div id="play-button">
     <iframe id='play-iframe' src='https://embed.spotify.com/?uri=spotify:track:24lMtPOCzP5g4hrg3NklLa' frameborder='0' allowtransparency='true'></iframe>
   </div>
+
+<!-- End of index page -->
+</div>
   
   <!-- Scripts -->
   <script type="text/javascript" src="scripts/search.js"></script>
@@ -116,7 +124,11 @@
   <script type="text/javascript" src="scripts/hashtag.js"></script>
   <script type="text/javascript" src="scripts/playlist.js"></script>
   <script type="text/javascript" src="scripts/nav.js"></script>
+  <!--  
   <script type="text/javascript" src="scripts/playButton.js"></script>
+  -->
+  <script type="text/javascript" src="scripts/loadingScreen.js"></script>
+  <script type="text/javascript" src="scripts/rowSelection.js"></script>
 
   <!-- Classes -->
   <script type="text/javascript" src="classes/tracks.js"></script>

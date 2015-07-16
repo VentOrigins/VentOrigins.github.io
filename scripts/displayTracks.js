@@ -34,7 +34,7 @@ var rowTrackHashTag;
 var tracksHTML = [];
 
 var tracksHashTagArray = [];
-
+var bottomOfPage = "";
 //Keeps track of how many rows checked so far when going through the HTML
 var rowCount;
 
@@ -46,14 +46,25 @@ var rowCount;
 		@return			none
 		========================================================================== */
 function displayTracks() {
+	// Document ready for the css
+	// Sets the width for the track's table to the screen minus the width of the nav bar
+  var splashScreenSize = screen.width - document.getElementById('nav').offsetWidth;
+  $('#track-list table').width(splashScreenSize);
+
 	//Check if track list is made, if made, just update the values of trackName and artists and HT instead of replacing everything
 	if(!$.trim($('#list-of-tracks').html()).length == 0 ) {
+		//Changes height of splash-track-list to track-list to correctly overlay the loading screen
+	  document.getElementById("splash-track-list").style.height = $("#track-list").outerHeight() + 'px';
+		//Sets up the loading screen when waiting to display the tracks
+		loadingScreen("#track-list");
 		//Update track list
 		changeTrackList();
 		//Scroll up to beginning of track
-		scrollToTracks();
 		return;
 	}
+
+	//Scroll to beginning of tracks only if in index.html
+	scrollToTracks('#splash-screen');
 
 	//Fills the tracksHTML array to have same length as the tracks array, but emptied
 	for (var i = 0; i < tracks.length; ++i) {
@@ -69,7 +80,10 @@ function displayTracks() {
 	rowCount = 1;
 
 	//Append the header of table
-	$("#list-of-tracks").append("<tr> <th>ADD</th> <th>TRACK</th> <th>ARTIST</th> <th>#</th> </tr>");
+	$("#list-of-tracks").append("<tr> <th class='class-addHT-column'>ADD #</th> <th class='class-tracks-column'>TRACK</th> <th class='class-artists-column'>ARTIST</th> <th class='class-hashtag-column'>#</th> </tr>");
+
+	//Sets up the loading screen when waiting to display the tracks
+	loadingScreen("#track-list");
 
 	//Append each tracks and their artists while accounting for the hash tags
 	for (var i = 0; i < tracks.length; ++i) {
@@ -83,28 +97,36 @@ function displayTracks() {
 
 		@param  		i 			The row #
 		@return			none
-		========================================================================== */
-function storeRow(i) {
+		========================================================================= */
+function storeRow(i, trackHashTag) {
 	console.log("INCREMENT: displayRow: " + i);
 
 	//Forms the html of the inner table to append
-	buttonID = "<div> <td id='add-col' class-buttons ='active'>  <form id='ht-form'><button class='class-button' onclick='addHT(this)' id='add-button" + i + "'> <h1>+</h1> </button>";
+	buttonID = "<div> <td class='class-addHT-column' id='add-col' class-buttons='active'>  <form id='ht-form'><button class='class-button' onclick='addHT(this)' id='add-button" + i + "'> <h1>+</h1> </button>";
 	slideID = "<div id='slide-input" + i + "' class='class-input'> </form> <form id='ht-form2' > <input class='input-add-HT' id='input-ht" + i + "' type='text'/> <input class='button-add-HT' id='submit-ht" + i + "' type='submit' onclick='submitHT(this)' value='#'/> </div> </form> </td> </div>";
-	rowTrackName = "<td id='trackName" + i + "''> <a href='" + tracks[i].getTrackNameURI() + "' " + "id='link" + i + "' onclick='playButton(this)'>" + tracks[i].getTrackName() + "</a></td>";
-	rowTrackArtists = "<td id=trackArtist" + i + ">";
+	rowTrackName = "<td class='class-track-column' id='trackName" + i + "''> <a href='" + tracks[i].getTrackNameURI() + "' " + "id='link" + i + "' onclick='playButton(this)'>" + tracks[i].getTrackName() + "</a></td>";
+	rowTrackArtists = "<td class='class-artists-column' id=trackArtist" + i + ">";
 
 	//Appends the links of every Artist's URI for each row
 	for(z = 0; z<tracks[i].getTrackArtist().length; ++z){
-		rowTrackArtists += "<a href='" + tracks[i].getTrackArtistURI()[z] + "'>" + tracks[i].getTrackArtist()[z] + "</a>" + ", ";
+		if (z == (tracks[i].getTrackArtist().length) - 1) {
+			//If traversed to the last track artist, do not append a comma
+			rowTrackArtists += "<a href='" + tracks[i].getTrackArtistURI()[z] + "'>" + tracks[i].getTrackArtist()[z] + "</a>";
+		}
+		else {
+			//If not the last track artist, then do append a comma
+			rowTrackArtists += "<a href='" + tracks[i].getTrackArtistURI()[z] + "'>" + tracks[i].getTrackArtist()[z] + "</a>" + ", ";
+		}
 	}
 	rowTrackArtists += "</td>";
 
 	//Stores the HTML of the entire row accordingly to the index of that row's number
-	tracksHTML[i] = "<tr class='not-header-row'>" + buttonID + slideID + rowTrackName + rowTrackArtists + rowTrackHashTag + "</tr>";
+	tracksHTML[i] = "<tr class='not-header-row' onmousedown='rowClick(this,false);'>" + buttonID + slideID + rowTrackName + rowTrackArtists + trackHashTag + "</tr>";
 
 	//Once all tracks HTML are stored into the array, display the table
 	if (rowCount == tracks.length) {
 		displayTable();
+		getTRS();
 	}
 
 	//Increments rowCount
@@ -128,25 +150,35 @@ function displayTable() {
 	//Set left and right arrow
 	//Navigates through the different pages
 	currentPage = 1;
-	$("#pages").append("<input type='button' class='previous-page-button' onclick='previousPage()' value='<' >");
-	$("#pages").append("<input type='button' class='page-number-button' value='" + currentPage + "'disabled>");
-	$("#pages").append("<input type='button' class='next-page-button' onclick='nextPage()' value='>' >");
-
-	//Scroll to beginning of tracks
-	scrollToTracks();
+	// $("#pages").append("<input type='button' class='previous-page-button' onclick='previousPage()' value='<' >");
+	// $("#pages").append("<input type='button' class='page-number-button' value='" + currentPage + "'disabled>");
+	// $("#pages").append("<input type='button' class='next-page-button' onclick='nextPage()' value='>' >");
+	finishedLoading("#track-list");
+	if(tracksHTML > 5) {
+		bottomOfPage = $('#trackName'+ num).position().top;
+	}
+	
 }
 
 /*  =============================================================================
-    Scroll the screen down from splash screen to the Track list
+    Scroll the screen down from splash screen to the Track list only if the div exists
 
-		@param  		none
+		@param  		div 		The div where the screen will scroll down only if this div exists
 		@return			none
 		========================================================================== */
-function scrollToTracks() {
+function scrollToTracks(div) {
 	//Sets the div splash-track-list to show up after submitting
   document.getElementById("splash-track-list").style.display = "inline-block";
-  //Scrolls page to the track list
-	$('html, body').animate({scrollTop:$('#splash-track-list').position().top}, 'slow');
+
+  //Scrolls page to the track list only if the div exists (Would be splash-track-list)
+  //This means it is currently in the main index.html page
+  if ($(div).length > 0) {
+		$('html, body').animate({scrollTop:$('#splash-track-list').position().top}, 'slow');
+	}
+	//If it is a playlist loading the tracks, then set this height to be value 250px
+	else {
+	  document.getElementById("splash-track-list").style.height = '250px';
+	}
 }
 
 /*  =============================================================================
@@ -163,10 +195,11 @@ function changeTrackList() {
 	for (var i = 0; i < tracks.length; ++i) {
 		tracksHashTagArray.push("");
 	}
-
+	var currentLength = $('#list-of-tracks tr').length - 1;
 	//Find Track 
 	for (var i = 0; i < tracks.length; ++i) {
-		findChangePageTrackHT(tracks[i].getTrackName(), i);
+		var tableID = i + currentLength;
+		findChangePageTrackHT(tracks[i].getTrackName(), tableID);
 	}
 }
 
@@ -178,26 +211,73 @@ function changeTrackList() {
 		========================================================================== */
 function changeDisplayTable() {
 	console.log("rowCount in changeTrackList: " + rowCount);
-
+	var currentLength = $('#list-of-tracks tr').length - 1;
 	if (rowCount >= tracks.length) {
 		console.log("REACHED THE ENDING, should append EVERYTHING \n\n");
 		//Clear ht table
-		$('.hash-tag-table').empty();
-		
 		//For every track object
 		for(i = 0; i < tracks.length; ++i) {
-			$('#trackName'+i).empty();
-			$('#trackArtist'+i).empty();
+			var tableID = i + currentLength;
+			buttonID = "<div> <td class='class-addHT-column' id='add-col' class-buttons='active'>  <form id='ht-form'><button class='class-button' onclick='addHT(this)' id='add-button" + tableID + "'> <h1>+</h1> </button>";
+			slideID = "<div id='slide-input" + tableID + "' class='class-input'> </form> <form id='ht-form2' > <input class='input-add-HT' id='input-ht" + tableID + "' type='text'/> <input class='button-add-HT' id='submit-ht" + tableID + "' type='submit' onclick='submitHT(this)' value='#'/> </div> </form> </td> </div>";
+			rowTrackName = "<td class='class-track-column' id='trackName" + tableID + "''> <a href='" + tracks[i].getTrackNameURI() + "' " + "id='link" + tableID + "' onclick='playButton(this)'>" + tracks[i].getTrackName() + "</a></td>";
+			rowTrackArtists = "<td class='class-artists-column' id=trackArtist" + tableID + ">";
 
-			//Add TrackName and Artist
-			$('#trackName'+i).append("<a href='" + tracks[i].getTrackNameURI() + "''>" + tracks[i].getTrackName() + "</a>");
-			for(z = 0; z < tracks[i].getTrackArtist().length; ++z) {
-				$('#trackArtist'+i).append("<a href='" + tracks[i].getTrackArtistURI()[z] + "'>" + tracks[i].getTrackArtist()[z] + "</a>");
+			//Appends the links of every Artist's URI for each row
+			for(z = 0; z<tracks[i].getTrackArtist().length; ++z){
+				if (z == (tracks[i].getTrackArtist().length) - 1) {
+					//If traversed to the last track artist, do not append a comma
+					rowTrackArtists += "<a href='" + tracks[i].getTrackArtistURI()[z] + "'>" + tracks[i].getTrackArtist()[z] + "</a>";
+				}
+				else {
+					//If not the last track artist, then do append a comma
+					rowTrackArtists += "<a href='" + tracks[i].getTrackArtistURI()[z] + "'>" + tracks[i].getTrackArtist()[z] + "</a>" + ", ";
+				}
 			}
+			rowTrackArtists += "</td>";
+			$("#list-of-tracks").append("<tr class='not-header-row' onmousedown='rowClick(this,false);'>" + buttonID + slideID + rowTrackName + rowTrackArtists + tracksHashTagArray[tableID] + "</tr>");	
+		}
+
+			
+			// $('#trackName'+ tableID).empty();
+			// $('#trackArtist'+tableID).empty();
+
+			// //Add TrackName
+			// $('#trackName'+tableID).append("<a href='" + tracks[i].getTrackNameURI() + "''>" + tracks[i].getTrackName() + "</a>");
+
+			// // Adds all the track Artists for that track
+			// for(z = 0; z < tracks[i].getTrackArtist().length; ++z) {
+			// 	//If traversed to the last track artist, do not append a comma
+			// 	if (z == (tracks[i].getTrackArtist().length) - 1) {
+			// 		$('#trackArtist'+tableID).append("<a href='" + tracks[i].getTrackArtistURI()[z] + "'>" + tracks[i].getTrackArtist()[z] + "</a>");
+			// 	}
+			// 	//If not the last track artist, then do append a comma
+			// 	else {
+			// 		$('#trackArtist'+tableID).append("<a href='" + tracks[i].getTrackArtistURI()[z] + "'>" + tracks[i].getTrackArtist()[z] + "</a>" + ", ");
+			// 	}
+			// }
 
 			//appends the hashtag column
-			$("#hash-tag-id"+i).append(tracksHashTagArray[i]);
-		}
+			// $("#hash-tag-id"+tableID).append(tracksHashTagArray[tableID]);
+		console.log("REMOVED TRACKS AND ADDED NEW ONES, REMOVE LOAD SCREEN");
+		//Finishes the loading overlay
+		finishedLoading("#track-list");
+		var num = tableID - 5;	
+		bottomOfPage = $('#trackName' + num).position().top;
 	}
 	++rowCount;
 }
+$(document).scroll(function() {
+  if(bottomOfPage != "") {
+  	if($(document).scrollTop() >= bottomOfPage){
+			bottomOfPage = "";
+			setTimeout(
+	    	function() {
+	      	nextPage();
+	    	}, 300
+	  	);
+		}
+	}
+});
+
+

@@ -13,47 +13,51 @@
 
   <!-- JQUERY -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+  
   <!-- Parse -->
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
-  
   
   <!-- References -->
   <link rel="stylesheet" type="text/css" href="styles/addHT.css">
   <link rel="stylesheet" type="text/css" href="styles/playlist.css">
+  <link rel="stylesheet" type="text/css" href="styles/displayTracks.css">
   <link rel="stylesheet" type="text/css" href="styles/spotify.css">
+  <link rel="stylesheet" type="text/css" href="styles/loadingIcon.css">
+  <link rel="stylesheet" type="text/css" href="styles/nav.css">
+
   <!-- FONTS -->
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-
-  
+  <!-- For icons -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
 </head>
 
 <body>
+<div id='playlist-page'>
 
   <!-- 
-    Nav Bar
-    -->
-<!--   <div id="nav">
-      <div id="nav-list">
-        <ul id="nav-button">
-        </ul>
-        <ul id="nav-playlist">
-        </ul>
-      </div>
-
+  Nav Bar
+  -->
+  <div id="nav">
+    <div id="nav-list">
+      <!-- <ul id="nav-button"> -->
+      </ul>
+      <ul id="nav-playlist">
+      </ul>
+    </div>
   </div>
 
- -->
+  <!-- Title of playlist -->
+  <div id="playlist-name">
+    
+  </div>
+
 	<!-- 
 	Track Splash Screen
 	 -->
-
 	<div id="splash-track-list">
-
-    <div id="playlist-name">
-
-    </div>
+    
     <!--
       Track List 
      -->
@@ -71,7 +75,8 @@
 
   </div>
 
-
+<!-- End of playlist page -->
+</div>
   
   <!-- Scripts -->
   <script type="text/javascript" src="scripts/search.js"></script>
@@ -81,8 +86,14 @@
   <script type="text/javascript" src="scripts/hashtag.js"></script>
   <script type="text/javascript" src="scripts/playlist.js"></script>
   <script type="text/javascript" src="scripts/nav.js"></script>
+  <!--
   <script type="text/javascript" src="scripts/playButton.js"></script>
+  -->
   <script type="text/javascript" src="scripts/displayPlaylist.js"></script>
+  <script type="text/javascript" src="scripts/loadingScreen.js"></script>
+  <script type="text/javascript" src="scripts/rowSelection.js"></script>
+  <script type="text/javascript" src="scripts/spotifyPlaylist.js"></script>
+
 
   <!-- Classes -->
   <script type="text/javascript" src="classes/tracks.js"></script>

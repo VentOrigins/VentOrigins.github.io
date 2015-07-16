@@ -6,90 +6,37 @@
     By Adrian Mandee and Randy Truong
     ========================================================================== */
 
-/*Splash Screen for track*/
-#splash-track-list{
-	width: 100vw;
-	height: 100vh;
-  color: white;
-  text-align: center;
-	background-color: black;
-	position: relative;
-}
-
+/*The playlist name div*/
 #playlist-name {
-  height: 15vh;
-  width: 100vw;
+  height: 330px;
+
+  position: relative;
+  left: 250px;
+
+  /*Background*/
   background-color: black;
-  display: inline-block;
+
+  border-bottom: 2px solid #222226;
 }
 
+/*Handles the font of the title*/
 #playlist-name h1 {
-  width: 50vw;
-  height: 10vh;
-  margin-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 10px;
-  background-color: black;
-  text-align: center;
-}
-#playlist-name a {
-  font-size: 30px;
-  font-weight: 900;
-  color: #71B500;
-}
-
-/*Track list div*/
-#track-list {
-  height: 100vh;
-  background-color: black;
-  z-index: 1;
+  font-size: 40px;
+  font-weight: 100;
   display: inline-block;
+  margin-top: 15px;
+  float: left;
 }
 
-/*Table for tracks*/
-#track-list table {
-	width: 100vw;
-	text-align: left;
-  background-color: #0F1010;
-  border-bottom: solid 2px #222226;
-}
-
-/*Used for first row of track list*/
-#track-list th { 
-  padding: 8px;
-  padding-left: 15px;
-  color: #757679; 
-  font-size: 12px;
-  border-top: solid 2px #222226;
-}
-
-/*Every column in the track list*/
-#track-list td {
-  margin: 0px;
-  padding: 8px;
-  padding-left: 15px;
+/*Color of the title of playlist*/
+#playlist-name a {
   color: white;
-  font-size: 12px;
-  border-top: solid 2px #222226;
 }
 
-/*When hovering over a row, the background color changes*/
-#track-list .not-header-row:hover {
-  background-color: #202024;
-}
-
-/*When hovering over a row, the color of the Add HT button changes with the row*/
-#track-list .not-header-row:hover button {
-  background-color: #202024;
-}
-
-/*When mouse hovers over the row, hashtags are white*/
-#track-list .not-header-row:hover .class-ht-button {
-  background-color: #FFFFFF;
-}
-
-/*When mouse hovers over the hashtags, hashtags are spotify green*/
-#track-list .not-header-row:hover .class-ht-button:hover {
-  background-color: #71B500;
+/*For images in the splash screen*/
+#playlist-name .image-cover {
+  width: 300px;
+  height: 300px;
+  margin: 15px;
+  float: left;
 }

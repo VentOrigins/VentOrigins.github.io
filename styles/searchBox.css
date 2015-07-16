@@ -13,20 +13,22 @@
 }
 
 #title-splash-screen {
-  width: 60vw;
-  height: 50vh;
+  width: 800px;
+  height: 200px;
+  text-align: center;
 }
 
 /*Title of the splash screen*/
 #title-splash-screen h1 {
   /*Displays the h1's in line*/
   display: inline;
-
+  /*To see the left side of the V in vent*/
+  padding-left: 10px; 
   /*Font*/
   color: white;
-  font-size: 20vmin;
+  font-size: 150px;
   font-weight: 1000;
-  text-shadow: -2px 0px 2px #71B500, 2px 0px 2px #71B500, 0px -2px 2px #71B500, 0px 2px 2px #71B500;
+
   
   /*Transparency*/
   opacity: .95;
@@ -36,9 +38,9 @@
 #title-splash-screen #hash-tag {
   /*Font*/
   color: #71B500;
-  font-size: 25vmin;
+  font-size: 150px;
   font-weight: 1000;
-  text-shadow: -1px 0px 5px #71FF00, 1px 0px 5px #71FF00, 0px -1px 5px #71FF00, 0px 1px 5px #71FF00;
+  
 
   /*Transparency*/
   opacity: .7
@@ -46,29 +48,30 @@
 
 /* FORMS */
 #query-box {
-  width: 60vw;
-  height: 50vh;
+  width: 800px;
+  height: 300px;
+  top:20%;
+  left:30%;
+  position:absolute;
 
-  /*Places the entire query box into the center*/
-  top: 60%;
-  left: 60%;
-  transform: translate(-110%, -90%);
-  float: right;
-  position: relative;
+}
+/*Both submit and query box*/
+#input-group {
+  padding-left: 20px;
 }
 
 /*SEARCH BOX*/
 #input-query-box {
-  width: 40vw;
-  height: 5vh;
-  margin-top: 0px;
+  width: 500px;
+  height: 30px;
+  margin-top: 30px;
 
   /*Adds spacing for the text inside the search box*/
   padding-left: 15px;
   padding-right: 15px;
 
   /*Font*/
-  font-size: 3vmin;
+  font-size: 18px;
 
   /*Border*/
   border: none;
@@ -89,15 +92,15 @@
 
 /*SUBMIT BUTTON*/
 #button-query-box {
-  width: 10vw;
-  height: 5vh;
-  margin-top: 3vh;
+  width: 80px;
+  height: 25px;
+  margin-top: 15px;
 
   /*Submit button color*/
   background-color: #71B500;
 
   /*Font*/
-  font-size: 2.2vmin;
+  font-size: 14px;
   color: white;
   text-shadow: -1px 0px 1px black, 1px 0px 1px black, 2px 2px 2px black;
 

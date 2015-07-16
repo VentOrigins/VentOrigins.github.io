@@ -37,12 +37,17 @@ a:hover {
   text-decoration: underline;
 }
 
+/*The default styles for all of body*/
 body {
-  background-color: black;
   margin: 0px;
   padding: 0px;
+  
+  background-color: black;
+
+  /*To ensure fonts are defaulted to this unless changed*/
+  color: white;
+  font-size: 10px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 0px
 }
 
 body button {
@@ -57,8 +62,12 @@ ul {
   list-style-type: none;
 }
 
-.input-group-addon i {
-
-  font-size: 25px;
+/*Default for all font awesomes, used to ensure they work properly*/
+/*body .fa {
+  width: 50px;
+  height: 50px;
   color: white;
+  font-size: 55px;
+  font-family: Arial, FontAwesome;
+  border: 1px solid white;
 }

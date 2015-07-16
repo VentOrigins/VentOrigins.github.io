@@ -50,7 +50,7 @@ function checkTrackHT(trackName,htValue, trackURI) {
 	//Query track and hashtag db equal to the user's name
 	trackDB.equalTo("user",localStorage.userID);
 	hashTagDB.equalTo("user",localStorage.userID);
-
+	
 	hashTagDB.find({
 	  success: function(results) {
 
@@ -65,7 +65,7 @@ function checkTrackHT(trackName,htValue, trackURI) {
 	  		newHT.set("tracks",[trackName]);
 	  		newHT.set("user",localStorage.userID);
 	  		newHT.set("trackURI",[trackURI]);
-	  		newHT.set("playlist", "empty");
+	  		newHT.set("playlist", []);
 	  		newHT.save();
 	  	}
 	    //Add track to the ht
@@ -133,33 +133,32 @@ function findHashTagsInTracks(trackName, num) {
 	  success: function(results) {
 	    if(results[0] == undefined) {
 				//If it is empty, have an empty HashTag list
-				rowTrackHashTag = "<td class='hash-tag-table' id='hash-tag-id" + num + "'>";	
+				rowTrackHashTag = "<td class='class-hashtag-column' id='hash-tag-id" + num + "'>";	
 				rowTrackHashTag += "</td>";
 
 				//Store the row with the hashtag
-	    	storeRow(num);
+	    	storeRow(num, rowTrackHashTag);
 	    	return;
 	    }
 
 	    //Should never get to this if statement
 	    if(results.length > 1) {
-	    	alert("Error more than one track object of that track findHashTagsInTracks");
+	    	console.log("Error more than one track object of that track findHashTagsInTracks");
 	    }
 	    //And if all is well so far, this else statement will execute
-	    else {
 	    	var hashtags = results[0].get("hashtags");
 	    	//Creates the column of hashtags
-				rowTrackHashTag = "<td class='hash-tag-table' id='hash-tag-id" + num + "'>";
+				rowTrackHashTag = "<td class='class-hashtag-column' id='hash-tag-id" + num + "'>";
 
 				//Adds the hashtags onto the html with each having their own ID's
 				for(var j = 0; j < hashtags.length; ++j) {
-					rowTrackHashTag += "<button class='class-ht-button' id='ht-button" + num + j + "' onclick='showTracks(this)'>#" + hashtags[j]+ "</button> ";
+					rowTrackHashTag += "<button class='class-ht-button' id='ht-button" + num + 'r' +  j + "' onclick='showTracks(this)'>#" + hashtags[j]+ "</button> ";
 				} 
 				rowTrackHashTag += "</td>";
 
 				//Stores the row with the hashtag
-	    	storeRow(num);
-	    }
+	    	storeRow(num, rowTrackHashTag);
+	    
 	  },
 		error: function(error) {
 			console.log("Error in return trackHT find hashHT: " + error);
@@ -186,35 +185,32 @@ function findChangePageTrackHT(trackName, num) {
 	  success: function(results) {
 	    if(results[0] == undefined) {
 	    	//If it is empty, have an empty HashTag list
-				rowTrackHashTag = "<td class='hash-tag-table' id='hash-tag-id" + num + "'>";	
+				rowTrackHashTag = "<td class='class-hashtag-column' id='hash-tag-id" + num + "'>";	
 				rowTrackHashTag += "</td>";
-
+				console.log("num in findChangePageTrackHT" + num);
 				tracksHashTagArray[num] = rowTrackHashTag;
 				changeDisplayTable();
 				return;
 	    }
 	    //Should never get to this if statement
 	    if(results.length > 1) {
-	    	alert("Error more than one track object of that track findChangePageTrackHT");
+	    	console.log("Error more than one track object of that track findChangePageTrackHT");
 	    }
 	    //And if all is well so far, this else statement will execute
-	    else {
-	    	var hashtags = results[0].get("hashtags");
-	    	console.log("The Hashtags " + num + ": " + hashtags);
+    	var hashtags = results[0].get("hashtags");
+    	console.log("The Hashtags " + num + ": " + hashtags);
 
-	    	//Creates the column of hashtags
-				rowTrackHashTag = "<td class='hash-tag-table' id='hash-tag-id" + num + "'>";
+    	//Creates the column of hashtags
+			rowTrackHashTag = "<td class='class-hashtag-column' id='hash-tag-id" + num + "'>";
 
-				//Adds the hashtags onto the html with each having their own ID's
-				for(var j = 0; j < hashtags.length; ++j) {
-					rowTrackHashTag += "<button class='class-ht-button' id='ht-button" + num + j + "' onclick='showTracks(this)'>#" + hashtags[j]+ "</button> ";
-				} 
-				rowTrackHashTag += "</td>";
-				console.log(rowTrackHashTag + "\n\n");
-				tracksHashTagArray[num] = rowTrackHashTag;
-				console.log("rowCount: " + rowCount);
-				changeDisplayTable();
-	    }
+			//Adds the hashtags onto the html with each having their own ID's
+			for(var j = 0; j < hashtags.length; ++j) {
+				rowTrackHashTag += "<button class='class-ht-button' id='ht-button" + num + 'r' + j + "' onclick='showTracks(this)'>#" + hashtags[j]+ "</button> ";
+			} 
+			rowTrackHashTag += "</td>";
+			tracksHashTagArray[num] = rowTrackHashTag;
+			console.log("rowCount: " + rowCount);
+			changeDisplayTable();
 	  },
 		error: function(error) {
 
@@ -274,42 +270,46 @@ function addHTtoDB(trackName,htObject,trackURI) {
 		@return			none
 		========================================================================== */
 function getTracksFromHT(hashtag, userIDs) {
-	if(localStorage.userID != "pawngypsy" || localStorage.userID != "mesorandeee")  {
+	if(localStorage.userID == "pawngypsy" || localStorage.userID == "mesorandeee")  {
 		userIDs = ["pawngypsy", "mesorandeee"];
 	}
 	else {
 		userIDs = [localStorage.userID];
 	}
-	hashTagDB2 = new Parse.Query(HashTagParse);
-	hashTagDB.equalTo("hashtags", hashtag);
+	var allHash = hashtag.split("#");
+	var name = "";
+	hashTagDBArray = [];
+	for(var i = 1; i< allHash.length; i++) {
+		name += '#' + allHash[i];
+		for(var j = 0; j< userIDs.length; j++) {
+			hashTagDB2 = new Parse.Query(HashTagParse);
+			hashTagDB2.equalTo("hashtags", allHash[i]);
+			hashTagDB2.equalTo("user", userIDs[j]);
+			hashTagDBArray.push(hashTagDB2);	
+		}
+	}
+	var mainQuery = Parse.Query.or.apply(this, hashTagDBArray);
 	var tracksURI = [];
 	var singleURI = "";
-	hashTagDB.find({
+	mainQuery.find({
 	  success: function(results) {
+
 	  	if(results.length < 1) {
 	  		alert("No such hashtag in database please search again");
+	  		return;
 	  	}
-	  	else if(results.length > 1) {
-	  		for(var j = 0; j< userIDs.length; j++) {
-	  			for (var i = 0; i < results[j].get('trackURI').length; i++) {
-			      var object = results[j].get('trackURI')[i];
-			      var singleURI = "spotify:track:" + object.substring(12,object.length);
-			      tracksURI.push(singleURI);
-			  	}
-	  		}	
-	  		tracksURI = checkDuplicates(tracksURI);
-	  		createPlaylist("VO" + hashtag, tracksURI);
-	  		console.log("Multiple users");
-	  	}
-	  	else {
-	  		for (var i = 0; i < results[0].get('trackURI').length; i++) {
-		      var object = results[0].get('trackURI')[i];
+	  	//Go through every result
+	  	for(var j = 0; j< results.length; j++) {
+	  		//For each result get the trackURI length and add each one
+  			for (var i = 0; i < results[j].get('trackURI').length; i++) {
+		      var object = results[j].get('trackURI')[i];
 		      var singleURI = "spotify:track:" + object.substring(12,object.length);
 		      tracksURI.push(singleURI);
-			  }
-			  tracksURI = checkDuplicates(tracksURI);
-			  createPlaylist("VO" + hashtag, tracksURI);
-	  	}
+		  	}
+  		}	
+	  	tracksURI = checkDuplicates(tracksURI);
+	  	createPlaylist("VO" + name, tracksURI);
+	  	
 	  	
 	  },
 		error: function(error) {
@@ -364,19 +364,24 @@ function findPlaylistID(trackURI, htValue) {
 function addPlaylistToDB(data,name) {
 	//Get rid of the VO
 	var hashtag = name.substring(2,name.length);
-	hashTagDB.equalTo("hashtags", hashtag);
-	hashTagDB.equalTo("user", localStorage.userID);
-	hashTagDB.find({
+	var allHash = hashtag.split("#");
+	hashTagDBArray = [];
+	for(var i = 1; i< allHash.length; i++) {
+			hashTagDB2 = new Parse.Query(HashTagParse);
+			hashTagDB2.equalTo("hashtags", allHash[i]);
+			hashTagDB2.equalTo("user", localStorage.userID);
+			hashTagDBArray.push(hashTagDB2);	
+	}
+	var mainQuery = Parse.Query.or.apply(this, hashTagDBArray);
+	mainQuery.find({
 	  success: function(results) {
 	  	if(results.length < 1) {
-	  		alert("No such hashtag in database please search again");
+	  		console.log("No such hashtag in database please search again in addPlaylistToDB");
+	  		return;
 	  	}
-	  	else if(results.length > 1) {
-	  		console.log("Error in database more than two hashtags of same name")
-	  	}
-	  	else {
-	  		results[0].set("playlist", data.id);
-	  		results[0].save();
+	  	for(var i = 0; i< results.length; i++) {
+	  		results[i].add("playlist", data.id);
+	  		results[i].save();
 	  	}
 	  	
 	  },
@@ -388,9 +393,9 @@ function addPlaylistToDB(data,name) {
 }
 
 /*  =============================================================================
-	  From:		spotify.js (checkPlaylist)
-	  To:			none
-	  When playlist doesn't exist erase from parse database
+		From: spotify.js (checkPlaylist)
+		To:   none
+		When playlist doesn't exist, erase from parse database
 
 		@param			string		hashtag value
 
@@ -410,7 +415,10 @@ function erasePlaylist(htValue) {
 	  		console.log("Error in database more than two hashtags of same name")
 	  	}
 	  	else {
-	  		results[0].set("playlist","empty");
+	  		if(results[0].get('playlist').length == 0) {
+	  			return;
+	  		}
+	  		results[0].set("playlist",[]);
 	  		results[0].save();
 	  		console.log("Erased db playlst");
 	  	}

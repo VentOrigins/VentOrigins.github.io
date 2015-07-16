@@ -7,51 +7,84 @@
     ========================================================================== */
 
 /*Splash Screen for track*/
-#splash-track-list{
-	width: 100vw;
-	height: 100vh;
-  color: white;
-  text-align: center;
-	background-color: black;
-	position: relative;
-	z-index: 1;
-  display: none;
-}
-
-/*Track list div*/
-#track-list {
+#splash-track-list {
+  /*Given height in the*/
   height: 100vh;
+
+  /*For the page number on the bottom to be at the center*/
+  text-align: center;
+
+  /*Invisible at first*/
   display: none;
-  background-color: black;
-  z-index: 1;
-  display: inline-block;
+
+  /*Directly right of the nav bar*/
+  position: relative;
+  left: 250px;
 }
 
 /*Table for tracks*/
 #track-list table {
-	width: 100vw;
+  /*Keeps text at left side in the table*/
 	text-align: left;
+
+  /*Background color*/
   background-color: #0F1010;
+
+  /*Border at very bottom of table*/
   border-bottom: solid 2px #222226;
 }
 
 /*Used for first row of track list*/
 #track-list th { 
-  padding: 8px;
-  padding-left: 15px;
-  color: #757679; 
-  font-size: 12px;
-  border-top: solid 2px #222226;
+  height: 30px;
+  padding-left: 10px;
+
+  /*Font*/
+  color: #757679;
+  font-size: 13px;
 }
 
 /*Every column in the track list*/
 #track-list td {
-  margin: 0px;
-  padding: 8px;
-  padding-left: 15px;
+  height: 50px;
+  padding-left: 10px;
+
+  /*Font*/
   color: white;
-  font-size: 12px;
+  font-size: 13px;
+
+  /*Adds the line for each row*/
   border-top: solid 2px #222226;
+}
+
+/*
+These next css covers each individual column of the table.
+There are a total of 4 columns
+-Add #
+-Track Name
+-Artist(s)
+-#
+*/
+#track-list .class-addHT-column {
+  width: 160px;
+  overflow: hidden;
+}
+
+#track-list .class-track-column {
+  width: 280px;
+  overflow: hidden;
+}
+
+#track-list .class-artists-column {
+  width: 250px;
+  padding-left: 30px; 
+  overflow: hidden;
+}
+
+.class-hashtag-column {
+  width: 200px;
+  padding-left: 30px; 
+  overflow: hidden;
 }
 
 /*When hovering over a row, the background color changes*/
@@ -73,3 +106,15 @@
 #track-list .not-header-row:hover .class-ht-button:hover {
   background-color: #71B500;
 }
+
+/*Rows that are selected are in this background color*/
+.selected {
+  background-color: #303034;
+}
+
+/*Rows's add hashtag button are in this background color when row is selected*/
+.selected .class-button {
+  background-color: #303034;
+}
+
+

@@ -1,6 +1,6 @@
 /*Entire playlist bar*/
 #nav {
-  width: 20vw;
+  width: 250px;
   height: 100vh;
   margin: 0px;
   padding: 0px;
@@ -11,7 +11,14 @@
   /*Keeps the playlist bar to the left of the Splash Screen*/
   float: left;
 
+  /*Keeps the nav bar in place throughout entire page*/
+  position: fixed;
+
+  /*Adds a scrollbar to the playlist bar*/
+  overflow-y: auto; 
+
   border: none;
+  z-index: 1000;
 }
 
 /*Used for the playlist's list button*/
@@ -30,15 +37,15 @@
 /*The category title in the playlist bar*/
 #nav-playlist-head h1 {
   /*Added spacing to the title's top*/
-  margin-top: 2.5vh;
-  margin-bottom: 1.2vh;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
   /*Added spacing to titles left and right*/
-  padding-left: 1.5vw;
-  padding-right: 1.5vw;
+  padding-left: 20px;
+  padding-right: 20px;
 
   /*Font*/
-  font-size: 1.8vmin;
+  font-size: 13px;
   color: #A2A7B1; 
   border: none;
 }
@@ -46,7 +53,7 @@
 /*For each individual playlist names, these are actual buttons*/
 #nav-playlist {
   /*Set width of the playlist nav bar, goes to 100% of the full height of screen*/
-  width: 20vw;
+  width: 250px;
   height: 100vh;
   
   /*margins and padding*/
@@ -59,22 +66,38 @@
 /*For each individual playlist names, these are actual buttons*/
 #nav-playlist button {
   /*Size of the entire list*/
-  width: 20vw;
-  height: 2.5vh;
+  width: 250px;
+  height: 18px;
 
   /*Added spacing between the playlist's names*/
-  margin-top: 0.9vh;
-  margin-bottom: 0.9vh;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
   /*Moves positions of the playlists a bit to the right of the left side of screen*/
-  padding-left: 1.5vw;
-  padding-right: 1.5vw;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 1px;
+  padding-bottom: 10px;
 
   /*Font*/
   text-align: left;
-  font-size: 1.8vmin;
+  font-size: 13px;
   color: #A2A7B1;
   background-color: #222226;
+
+  border: none;
+}
+
+/*The music logo*/
+#nav-playlist button .fa {
+  /*Adjusts the size to the size of the icon*/
+  width: 0px;
+  height: 0px;
+  margin-right: 25px;
+
+  /*Font*/
+  font-size: 13px;
+  color: #A2A7B1;
 
   border: none;
 }
@@ -83,10 +106,3 @@
 #nav-playlist button:hover{
   color: white;
 }
-
-/*For the icon*/
-.fa {
-  /*Gives space between music icon and the words*/
-  margin-right: 1.5vw;
-}
-

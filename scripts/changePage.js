@@ -35,15 +35,17 @@ var currentPage = "";
     ========================================================================== */
 function changePage(){
 	//Get the URL of the api in consideration to the offset and limit
-	firstPartURL = currJSON.tracks.next.substring(0, (currJSON.tracks.next.indexOf("&offset") + 8));
-	offsetNum = (currentPage-1) * 20;
-	secondPartURL = currJSON.tracks.next.substring(currJSON.tracks.next.indexOf("&limit="), currJSON.tracks.next.length);
-	clickedPageURL = firstPartURL + offsetNum + secondPartURL;
+	if(currJSON.tracks.next != null) {
+		firstPartURL = currJSON.tracks.next.substring(0, (currJSON.tracks.next.indexOf("&offset") + 8));
+		offsetNum = (currentPage-1) * 20;
+		secondPartURL = currJSON.tracks.next.substring(currJSON.tracks.next.indexOf("&limit="), currJSON.tracks.next.length);
+		clickedPageURL = firstPartURL + offsetNum + secondPartURL;
 
-	//Update the page number
-	$(".page-number-button").val(currentPage);
-	//Query the new json
-	search_page(clickedPageURL);
+		//Update the page number
+		$(".page-number-button").val(currentPage);
+		//Query the new json
+		search_page(clickedPageURL);
+	}
 }
 
 /*  =============================================================================
