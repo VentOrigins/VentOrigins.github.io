@@ -19,7 +19,6 @@
 
   /*Directly right of the nav bar*/
   position: relative;
-  left: 250px;
 }
 
 /*Table for tracks*/
@@ -59,11 +58,11 @@
 
 /*
 These next css covers each individual column of the table.
-There are a total of 4 columns
--Add #
--Track Name
--Artist(s)
--#
+There are a total of 4 columns:;
+  -Add #
+  -Track Name
+  -Artist(s)
+  -#
 */
 #track-list .class-addHT-column {
   width: 160px;
@@ -81,7 +80,7 @@ There are a total of 4 columns
   overflow: hidden;
 }
 
-.class-hashtag-column {
+#track-list .class-hashtag-column {
   width: 200px;
   padding-left: 30px; 
   overflow: hidden;
@@ -115,6 +114,12 @@ There are a total of 4 columns
 /*Rows's add hashtag button are in this background color when row is selected*/
 .selected .class-button {
   background-color: #303034;
+}
+
+/*when appending more tracks, adds a loading screen at the bottom*/
+#appending-load-screen {
+  height: 30px;
+  position: relative;
 }
 
 

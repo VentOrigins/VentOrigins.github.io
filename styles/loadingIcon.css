@@ -14,6 +14,10 @@
   /*Needed*/
   position: absolute;
 
+  /*Center horizontally*/
+  left: 47%;
+  top: 48%;
+
   /*Same index as the overlay*/
   z-index: 1000;
 }
@@ -21,15 +25,17 @@
 /*The index page of the loading screen*/
 #index-page .loadingScreen .fa {
   /*Sets the position of the loading icon to the center*/
-  top: 300px;
-  left: 47%;
+  /*top: 300px;*/
 }
 
 /*The playlist page of the loading screen*/
 #playlist-page .loadingScreen .fa {
   /*Sets the position of the loading icon to the center*/
-  top: 150px;
-  left: 47%;
+  /*top: 150px;*/
+}
+
+#appending-load-screen .loadingScreen .fa {
+  /*top: 20px;*/
 }
 
 /*Used to make the entire background transparent when loading*/

@@ -6,10 +6,10 @@
 
 /*Overall search box of Splash Screen*/
 #search-box {
-  width: 100vw;
   height: 100vh;
   font-size: 0px;
   text-align: center;
+  position: relative;
 }
 
 #title-splash-screen {
@@ -50,9 +50,12 @@
 #query-box {
   width: 800px;
   height: 300px;
-  top:20%;
-  left:30%;
-  position:absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
 
 }
 /*Both submit and query box*/

@@ -1,9 +1,3 @@
-/*  =============================================================================
-
-
-    Copyright © Vent Origins 
-    By Adrian Mandee and Randy Truong
-    ========================================================================== */
 //Used for toggling and animating the playlist bar
 function togglePlaylist() {
 

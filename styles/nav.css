@@ -1,9 +1,3 @@
-/*  =============================================================================
-
-    Copyright © Vent Origins 
-    By Adrian Mandee and Randy Truong
-    ========================================================================== */
-    
 /*Entire playlist bar*/
 #nav {
   width: 250px;
@@ -11,7 +5,7 @@
   margin: 0px;
   padding: 0px;
 
-
+  /*Background color of the playlist bar*/
   background-color: #222226;
 
   /*Keeps the playlist bar to the left of the Splash Screen*/
@@ -26,22 +20,20 @@
   border: none;
   z-index: 1000;
 }
-
-/*Used for the playlist's list button*/
-/*Currently not used*/
-/*#nav-button {
-  width: 50px;
-  height: 40px;
+/*For each individual playlist names, these are actual buttons*/
+#nav-button {
+  /*Set width of the playlist nav bar, goes to 100% of the full height of screen*/
+  width: 250px;
+  
+  /*margins and padding*/
   margin: 0px;
   padding: 0px;
-  border: 1px solid yellow;
-  background: white 10px 10px / 20px 20px no-repeat;
-  background-image: -webkit-repeating-linear-gradient(#ccc, #ccc 2px, #fff 2px, #fff 4px);
-  background-image: repeating-linear-gradient(#ccc, #ccc 2px, #fff 2px, #fff 4px);
-}*/
 
-/*The category title in the playlist bar*/
-#nav-playlist-head h1 {
+  border: none;
+}
+
+/*The category title in the nav bar*/
+#nav-button h1 {
   /*Added spacing to the title's top*/
   margin-top: 10px;
   margin-bottom: 10px;
@@ -51,8 +43,47 @@
   padding-right: 20px;
 
   /*Font*/
-  font-size: 13px;
+  font-size: 18px;
   color: #A2A7B1; 
+  border: none;
+}
+
+/*For each individual navigation href names*/
+#nav-button a {
+  /*Size of the entire list*/
+  width: 250px;
+  height: 18px;
+
+  /*Added spacing between the navigation*/
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  /*Moves positions of the playlists a bit to the right of the left side of screen*/
+  padding-right: 20px;
+  padding-top: 1px;
+  padding-left: 5px;
+
+  /*Font*/
+  text-align: left;
+  font-size: 16px;
+  color: #A2A7B1;
+  background-color: #222226;
+
+  border: none;
+}
+
+/*The music logo*/
+#nav-button .fa {
+  /*Adjusts the size to the size of the icon*/
+
+  /*Moves positions of the playlists a bit to the right of the left side of screen*/
+  padding-left: 20px;
+
+  /*Font*/
+  font-size: 16px;
+  color: #A2A7B1;
+  background-color: #222226;
+
   border: none;
 }
 
@@ -64,8 +95,21 @@
   
   /*margins and padding*/
   margin: 0px;
-  padding: 0px;
+  padding-top: 20px;
+  padding-left: 0px;
 
+  border: none;
+}
+/*The category title in the playlist bar*/
+#nav-playlist-head a {
+
+  /*Added spacing to titles left and right*/
+  padding-left: 20px;
+  padding-right: 20px;
+
+  /*Font*/
+  font-size: 16px;
+  color: #A2A7B1; 
   border: none;
 }
 
@@ -111,4 +155,35 @@
 /*When hovering over a playlist name, lights up white*/
 #nav-playlist button:hover{
   color: white;
+}
+
+#footer {
+  display:inline-block;
+  width: 100%;
+  height: 80px;
+}
+
+#copyright {
+  text-align: center;
+}
+#copyright p{
+
+  font-size: 15px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  color: #505054;
+}
+#icon {
+  text-align: center;
+}
+#icon a{
+  font-size:20px;
+  padding-top: 0px;
+  margin-top: 0px;
+  color: #505054;
+  text-decoration: none;
+}
+
+#icon a:hover {
+  color:white;
 }
