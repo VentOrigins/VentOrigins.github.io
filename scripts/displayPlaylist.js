@@ -37,7 +37,7 @@ $(document).ready(function() {
     ========================================================================== */
 function displayPlaylistsInPlaylistBar() {
   // Appends the head of the playlist
-  $('#nav-playlist').append("<li id='nav-playlist-head'> <h1>PLAYLISTS</h1></li>")
+  $('#nav-playlist').append("<li id='nav-playlist-head'> <a href='playlist.html'>PLAYLISTS </a></li>")
 
   //Appends all of the user's playlists from local storage
   for(var i = 0; i < arrayPlaylists.items.length; ++i) {

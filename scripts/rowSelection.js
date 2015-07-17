@@ -1,10 +1,4 @@
-/*  =============================================================================
-    Row selection
-
-    Copyright © Vent Origins 
-    By Adrian Mandee and Randy Truong
-    ========================================================================== */
-    var lastSelectedRow;
+var lastSelectedRow;
 var trs;
 
 function getTRS() {

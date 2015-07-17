@@ -23,7 +23,7 @@ var playlistMap = {};
 function displayPlaylist(json) {
   //Currently not used
 	//$('#nav-button').append("<li> <button type='button' id='nav-button' onclick='togglePlaylist()'> </button> </li>");
-	$('#nav-playlist').append("<li id='nav-playlist-head'> <h1>PLAYLISTS</h1></li>")
+	$('#nav-playlist').append("<li id='nav-playlist-head'> <a href='playlist.html'>PLAYLISTS</a></li>")
   
   //Appends all of the user's playlists
 	for(var i = 0; i < json.items.length; i++) {
@@ -73,17 +73,9 @@ function searchPlaylistTracks(playlist) {
 			console.log("Error couldn't find playlist");
 		},
     statusCode: {
-      401: function() {
-        var scopes = 'playlist-modify playlist-read-private playlist-modify-public playlist-modify-private user-read-private';
-        var my_client_id = 'f516a166c50d43dfae1800141104d748'
-        var redirect_uri = 'http://ventorigins.github.io/playlist.html'
-        var uri = 'https://accounts.spotify.com/authorize?' + 
-          '&client_id=' + my_client_id +
-          (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
-          '&redirect_uri=' + encodeURIComponent(redirect_uri)
-          + '&response_type=token&state=444'
-        window.location = uri;
+      401: function() {// CHANGE to scopes and redirect to playlist
 
+        window.location.assign("http://ventorigins.github.io");
       }
     }
 	});	
@@ -136,15 +128,7 @@ function goToPlayList(json) {
       },
       statusCode: {
         401: function() {// CHANGE to scopes and redirect to playlis
-          var scopes = 'playlist-modify playlist-read-private playlist-modify-public playlist-modify-private user-read-private';
-          var my_client_id = 'f516a166c50d43dfae1800141104d748'
-          var redirect_uri = 'http://ventorigins.github.io/playlist.html'
-          var uri = 'https://accounts.spotify.com/authorize?' + 
-            '&client_id=' + my_client_id +
-            (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
-            '&redirect_uri=' + encodeURIComponent(redirect_uri)
-            + '&response_type=token&state=444'
-          window.location = uri;
+          window.location.assign("http://ventorigins.github.io");
         }
       }
     }); 
@@ -155,7 +139,6 @@ function goToPlayList(json) {
     localStorage.tracks = JSON.stringify(tracks);
 
     window.location.assign("http://ventorigins.github.io/playlist.html");
-
   }
 
 

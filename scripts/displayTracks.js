@@ -46,17 +46,11 @@ var rowCount;
 		@return			none
 		========================================================================== */
 function displayTracks() {
-	// Document ready for the css
-	// Sets the width for the track's table to the screen minus the width of the nav bar
-  var splashScreenSize = screen.width - document.getElementById('nav').offsetWidth;
-  $('#track-list table').width(splashScreenSize);
-
 	//Check if track list is made, if made, just update the values of trackName and artists and HT instead of replacing everything
 	if(!$.trim($('#list-of-tracks').html()).length == 0 ) {
-		//Changes height of splash-track-list to track-list to correctly overlay the loading screen
-	  document.getElementById("splash-track-list").style.height = $("#track-list").outerHeight() + 'px';
-		//Sets up the loading screen when waiting to display the tracks
-		loadingScreen("#track-list");
+		//Sets up the loading screen at bottom of the screen when waiting to display the tracks
+		$("#list-of-tracks").after("<div id='appending-load-screen'></div>");
+		loadingScreen('#appending-load-screen');
 		//Update track list
 		changeTrackList();
 		//Scroll up to beginning of track
@@ -159,7 +153,6 @@ function displayTable() {
 		bottomOfPage = $('#trackName'+ num).position().top;
 	}
 	tracksHTML = [];
-	
 }
 
 /*  =============================================================================
@@ -261,14 +254,18 @@ function changeDisplayTable() {
 
 			//appends the hashtag column
 			// $("#hash-tag-id"+tableID).append(tracksHashTagArray[tableID]);
+
+		finishedLoading('#appending-load-screen');
+		$("#appending-load-screen").remove();
+
 		console.log("REMOVED TRACKS AND ADDED NEW ONES, REMOVE LOAD SCREEN");
 		//Finishes the loading overlay
-		finishedLoading("#track-list");
 		var num = tableID - 5;	
 		bottomOfPage = $('#trackName' + num).position().top;
 	}
 	++rowCount;
 }
+
 $(document).scroll(function() {
   if(bottomOfPage != "") {
   	if($(document).scrollTop() >= bottomOfPage){
