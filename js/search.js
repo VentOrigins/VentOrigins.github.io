@@ -9,7 +9,7 @@ function search() {
 	var page_size = 50;
 	SC.get('/tracks', { q: query, limit: page_size, linked_partitioning: 1}, function(tracks) {
 	  console.log(tracks);
-	  console.log(tracks.length);
+	  console.log(tracks.collection.length);
 	  console.log(tracks.next_href);
 	});
 
