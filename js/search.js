@@ -10,6 +10,10 @@ function search() {
 	SC.get('/tracks', { q: query, limit: page_size, linked_partitioning: 1}, function(tracks) {
 	  console.log(tracks);
 	  console.log(tracks.collection.length);
+	  console.log(tracks.collection[0].title);
+	  console.log(tracks.collection[0].permalink_url);
+	  console.log(tracks.collection[0].user.username);
+	  console.log(tracks.collection[0].user.permalink_url);
 	  console.log(tracks.next_href);
 	});
 
