@@ -17,7 +17,7 @@ function search() {
 	  console.log(tracks.next_href);
 	  var track_url = tracks.collection[0].permalink_url;
 		SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
-		  console.log('oEmbed response: ' + oEmbed);
+		  console.log(oEmbed);
 		});
 
 	});
