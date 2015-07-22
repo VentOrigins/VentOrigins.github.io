@@ -6,7 +6,8 @@ function search() {
   client_id: 'bd791d329c430374438075140d3d3163'
 	});
 	// find all sounds of buskers licensed under 'creative commons share alike'
-	SC.get('/tracks', { q: query}, function(tracks) {
+	var page_size = 50;
+	SC.get('/tracks', { q: query, limit: page_size, linked_partitioning: 1}, function(tracks) {
 	  console.log(tracks);
 	});
 
