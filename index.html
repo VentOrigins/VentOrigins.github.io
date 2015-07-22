@@ -1,138 +1,1 @@
-<!-- 
-/*  =============================================================================
-    
-    Copyright © Vent Origins 
-    By Adrian Mandee and Randy Truong
-    ========================================================================== */
--->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Vent Tag</title>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-  <!-- JQUERY -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-  <!-- Parse -->
-  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
-  
-  <!-- Login to Spotify -->
-  <script type="text/javascript" src="scripts/spotify.js"></script>
-
-  <!-- References -->
-  <link rel="stylesheet" type="text/css" href="styles/spotify.css">
-  <link rel="stylesheet" type="text/css" href="styles/splashScreen.css">
-  <link rel="stylesheet" type="text/css" href="styles/searchBox.css">
-  <link rel="stylesheet" type="text/css" href="styles/displayTracks.css">
-  <link rel="stylesheet" type="text/css" href="styles/addHT.css">
-  <link rel="stylesheet" type="text/css" href="styles/changePage.css">
-  <link rel="stylesheet" type="text/css" href="styles/nav.css">
-  <link rel="stylesheet" type="text/css" href="styles/playButton.css">
-  <link rel="stylesheet" type="text/css" href="styles/loadingIcon.css">
-  <link rel="stylesheet" type="text/css" href="styles/hashtag.css">
-
-  <!-- FONTS -->
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-
-  <!-- For icons -->
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-</head>
-
-<body>
-<div id='index-page'>
-  
-  <!-- 
-    SplashScreen
-    --> 
-  <div id="splash-screen">
-    <!-- 
-    Nav Bar
-    -->
-    <div id="nav">
-        <div id="nav-list">
-          <ul id="nav-button">
-            <h1> MAIN </h1>
-            <li><i class="fa fa-home"></i> <a href="index.html">Home</a></li>
-            <li><i class="fa fa-question-circle"></i> <a href="about.html">About</a></li>
-          </ul>
-          <ul id="nav-playlist">
-          </ul>
-           <div id="footer">
-            <div id="copyright">
-              <p>Copyright © 2015 Vent Origins</p>
-            </div>
-            <div id="icon">
-              <a href="http://ventorigins.github.io"> <i class="fa fa-star"></i> </a>
-              <a href="https://github.com/ventorigins"> <i class="fa fa-github"></i> </a>
-              <a href="http://www.facebook.com/"> <i class="fa fa-facebook-official"></i> </a>
-              <a href="http://www.twitter.com/"> <i class="fa fa-twitter"></i> </a>
-            </div>
-           </div>   
-        </div>
-
-
-    </div>
-  
-    <!-- 
-      SearchBox
-      -->
-    <div id="search-box">
-      <form id="query-box" action="javascript:search();">
-        <div id='title-splash-screen'>
-          <h1>Vent </h1><h1 id="hash-tag"> Tag</h1> 
-        </div>
-        <div id="input-group">
-          <!-- The hex value is the Search -->
-          <input type="text" id="input-query-box" placeholder="&#xF002; Search">
-          <br>
-          <input type="submit" id="button-query-box" value="Submit">  
-        </div>
-
-       
-      </form>
-    </div>  
-
-  </div>
-  
-	<!-- 
-	Track Splash Screen
-	 -->
-	<div id="splash-track-list">
-
-		<!--
-			Track List 
-		 -->
-		<div id="track-list">
-			
-			<!-- 
-			Table for Track
-			 -->
-			<table id="list-of-tracks" cellspacing="0">
-			</table>
-
-		</div>
-
-	</div>
-
-<!-- End of index page -->
-</div>
-  
-  <!-- Scripts -->
-  <script type="text/javascript" src="scripts/search.js"></script>
-  <script type="text/javascript" src="scripts/displayTracks.js"></script>
-  <script type="text/javascript" src="scripts/addHT.js"></script>
-  <script type="text/javascript" src="scripts/changePage.js"></script>
-  <script type="text/javascript" src="scripts/parse.js"></script>
-  <script type="text/javascript" src="scripts/hashtag.js"></script>
-  <script type="text/javascript" src="scripts/playlist.js"></script>
-  <script type="text/javascript" src="scripts/nav.js"></script>
-  <script type="text/javascript" src="scripts/loadingScreen.js"></script>
-  <script type="text/javascript" src="scripts/rowSelection.js"></script>
-
-  <!-- Classes -->
-  <script type="text/javascript" src="classes/tracks.js"></script>
-
-</body>
-
-</html>
+<!--/*  =============================================================================        Copyright © Vent Origins     By Adrian Mandee and Randy Truong    ========================================================================== */--><!DOCTYPE html><html lang="en"><head>  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>  <title>Vent DJ</title>  <!-- Compiled and minified CSS of materialize-->  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">    <!-- Fonts -->  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">    <!-- Font Awesome / Icons -->  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"></head><body>  <!-- Nav Bar -->   <nav>    <div class="nav-wrapper  light-blue darken-4">      <a href="#!" class="brand-logo">Logo</a>      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>      <ul class="right hide-on-med-and-down">        <li><a href="index.html">Home</a></li>      </ul>      <ul class="side-nav" id="mobile-demo">        <li><a href="index.html">Home</a></li>      </ul>    </div>  </nav>  <br><br>  <!-- Splash Screen -->  <div style="background:black">  <div class="container">    <div class="row">      <div class="col s4 offset-s4"> <h1 style="opacity:0.8; color:white"> Vent DJ </h1> </div>    </div>      <div class="row">      <form class="col s6 offset-s3" onsubmit="javascript:search();">        <div class="row">          <div class="input-field col s12 ">            <input id="query-input" type="text" style="color:white" >            <label for="text">Query</label>            <button class="btn waves-effect waves-light" type="submit" id="submit-button">Submit              <i class="material-icons">send</i>            </button>          </div>        </div>      </form>    </div>  </div></div>  <br><br><br>  <!-- Page footer -->  <footer class="page-footer  light-blue darken-4">    <div class="container">      <div class="row">        <div class="col l6 s12">          <h5 class="white-text">About</h5>          <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>        </div>      </div>    </div>    <div class="footer-copyright">      <div class="container">        © 2015 Copyright Vent Origins        <a class="grey-text text-lighten-4 right" href="http://ventorigins.github.io"><i class="fa fa-home tiny material-icons"> </i></a>        <a class="grey-text text-lighten-4 right" href="https://github.com/ventorigins"> <i class="fa fa-github tiny material-icons"> </i> </a>        <a class="grey-text text-lighten-4 right" href="http://www.facebook.com/"> <i class="fa fa-facebook-official tiny material-icons"> </i> </a>        <a class="grey-text text-lighten-4 right" href="http://www.twitter.com/"> <i class="fa fa-twitter tiny material-icons"></i> </a>      </div>    </div>  </footer>  <!--  Scripts-->  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>  <!-- Soundcloud -->  <script src="https://connect.soundcloud.com/sdk-2.0.0.js"></script>  <!-- Compiled and minified JavaScript of materialize-->  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>  <!-- Scripts -->  <script type="text/javascript" src="js/search.js"></script></body></html>
