@@ -4,31 +4,17 @@
     By Adrian Mandee and Randy Truong
     ========================================================================== */
 
-h1 {
+/*The queue bar*/
+#queue-bar {
+  /*Size*/
+  width: 400px;
+  height: 100vh;
+  
+  /*background*/
+  /*background-color: white;*/
 
-}
+  /*border: 1px solid black;*/
 
-h2 {
-
-}
-
-h3 {
-
-}
-
-h4 {
-
-}
-
-h5 {
-
-}
-
-h6 {
-
-}
-
-/*Default entire body is black*/
-body {
-  background-color: white;
+  /*Have it over everything*/
+  z-index: 1001;
 }

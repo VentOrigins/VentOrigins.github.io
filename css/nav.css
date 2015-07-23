@@ -4,31 +4,18 @@
     By Adrian Mandee and Randy Truong
     ========================================================================== */
 
-h1 {
-
+/*nav {
+  position: fixed;
+  z-index: 1002;
 }
 
-h2 {
+nav.nav-wrapper {
+  margin: 0px;
+  padding: 0px;
+}*/
 
-}
-
-h3 {
-
-}
-
-h4 {
-
-}
-
-h5 {
-
-}
-
-h6 {
-
-}
-
-/*Default entire body is black*/
-body {
-  background-color: white;
+#nav-bar {
+  height: 100px;
+  margin-top: 0px;
+  position: relative;
 }

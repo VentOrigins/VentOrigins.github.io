@@ -4,31 +4,14 @@
     By Adrian Mandee and Randy Truong
     ========================================================================== */
 
-h1 {
-
+/*Removes the margin between footer and splash screen*/
+footer.page-footer {
+  position: relative;
+  margin-top: 0px;
+  margin-right: 0px;
 }
 
-h2 {
-
-}
-
-h3 {
-
-}
-
-h4 {
-
-}
-
-h5 {
-
-}
-
-h6 {
-
-}
-
-/*Default entire body is black*/
-body {
-  background-color: white;
+/*Handles the icons in the footers*/
+.page-footer .fa {
+  padding: 3px;
 }

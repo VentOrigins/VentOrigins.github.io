@@ -1,0 +1,25 @@
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+
+#splash-screen {
+  height: 100vh;
+  background-color: white;
+  position: relative;
+}
+
+#splash-screen-title {
+  padding-top: 15vh;
+  text-align: center;
+}
+
+#splash-screen-title h1 {
+  /*Font*/
+  color: black;
+  font-size: 10vmin;
+  opacity: 0.5;
+
+  text-shadow: 3px 3px 3px #000000;
+}

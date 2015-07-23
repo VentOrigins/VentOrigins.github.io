@@ -1,0 +1,26 @@
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+
+.overlay {
+  
+  /*Needed to be over another div*/
+  position: absolute;
+  
+  /*Used to get the entire div*/
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+  /*Color of overlay*/
+  background: black;
+
+  /*How transparent the overlay would be when loading*/
+  opacity: .50;
+
+  /*Over everything else*/
+  z-index: 1000;
+}
