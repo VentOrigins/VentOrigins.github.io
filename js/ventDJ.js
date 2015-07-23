@@ -11,7 +11,7 @@ $(document).ready(function() {
 
   // Initialize side nav
   $('.button-collapse').sideNav({
-    menuWidth: 350, // Default is 240
+    menuWidth: 300, // Default is 240
     edge: 'left', // Choose the horizontal origin
     closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
   });
@@ -26,6 +26,7 @@ function checkSize() {
     // Moves the divs to the very left when theres no queue-bar
     document.getElementById("nav-bar").style.left = '0px';
     document.getElementById("splash-screen").style.left = '0px';
+    document.getElementById("page-footer-id").style.left = '0px';
     document.getElementById("page-footer-id").style.left = '0px';
 
     // Adds the queue bar width to the divs
