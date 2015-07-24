@@ -4,22 +4,26 @@
     By Adrian Mandee and Randy Truong
     ========================================================================== */
 
+/*  =============================================================================
+    Called in: search.js
+    Overlays the tracks with a div
+
+    @param      div     The div to remove the overlay
+    @return     none
+    ========================================================================== */
 function overlayTracks(divToOverlay) {
   console.log("Overlaying tracks");
   $(divToOverlay).append("<div class='overlay'>" );
+  $(divToOverlay).append("  <div id='youtubeTracks'></div>");
+  $(divToOverlay).append("  <div id='soundCloudTracks'></div>");
   $(divToOverlay).append("</div>");
 }
 
-function displayTracksOnOverlay(tracks) {
-
-}
-
-
 /*  =============================================================================
-    Called in: displayTracks.js and displayPlaylist.js
-    Ends the loading screen for the given div given by the arguments
-    @param      div     The div to remove the overlayn
-    
+    Called in: search.js
+    Removes the overlay once done
+
+    @param      div     The div to remove the overlay
     @return     none
     ========================================================================== */
 function finishedOverlaying(divToOverlay) {

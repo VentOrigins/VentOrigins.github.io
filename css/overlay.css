@@ -19,7 +19,7 @@
   background: black;
 
   /*How transparent the overlay would be when loading*/
-  opacity: .50;
+  opacity: .80;
 
   /*Over everything else*/
   z-index: 1000;
@@ -30,4 +30,24 @@
 
   /*For scrollbar*/
   overflow: auto;
+
+  display: inline-block;
+}
+
+#youTubeTracks {
+  width: 50%;
+  float: left;
+
+  overflow: auto;
+
+  background-color: yellow;
+}
+
+#soundCloudTracks {
+  width: 50%;
+  float: right;
+
+  overflow: auto;
+
+  background-color: red;
 }

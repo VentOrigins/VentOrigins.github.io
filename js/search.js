@@ -110,15 +110,31 @@ function soundCloudMakeRequest() {
   });
 }
 
+/*  =============================================================================
+    Displays the Youtube list on the overlay
+    From: youTubeMakeRequest
+    To: none
+
+    @param        none
+    @return       none
+    ========================================================================== */
 function displayYoutubeOnOverlay(videos) {
   var str = JSON.stringify(videos.result);
-  $('.overlay').append('<pre>' + str + '</pre>');
+  $('#youTubeTracks').append('<pre>' + str + '</pre>');
 }
 
+/*  =============================================================================
+    Displays the SoundCloud list on the overlay
+    From: soundCloudMakeRequest
+    To: none
+
+    @param        none
+    @return       none
+    ========================================================================== */
 function displaySoundCloudOnOverlay(tracks) {
   for (var i = 0; i < tracks.collection.length; ++i) {
     var str = JSON.stringify(tracks.collection[i]);
-    $('.overlay').append('<pre>' + str + '</pre>');
+    $('#soundCloudTracks').append('<pre>' + str + '</pre>');
   }
 }
 
