@@ -36,18 +36,25 @@
 
 #youTubeTracks {
   width: 50%;
+
+  position: absolute;
   float: left;
 
-  overflow: auto;
+  color: white;
 
-  background-color: yellow;
+  overflow: auto;
+  border-right: 1px solid white;
+
 }
 
 #soundCloudTracks {
   width: 50%;
+
   float: right;
+  position: absolute;
+
+  color: white;
 
   overflow: auto;
-
-  background-color: red;
+  border-left: 1px solid white;
 }
