@@ -116,9 +116,10 @@ function displayYoutubeOnOverlay(videos) {
 }
 
 function displaySoundCloudOnOverlay(tracks) {
-  for (var i = 0)
-  var str = JSON.stringify(tracks.collection);
-  $('#splash-screen').append('<pre>' + str + '</pre>');
+  for (var i = 0; i < tracks.collection.length; ++i) {
+    var str = JSON.stringify(tracks.collection[i]);
+    $('#splash-screen').append('<pre>' + str + '</pre>');
+  }
 }
 
 
