@@ -91,7 +91,7 @@ function soundCloudMakeRequest() {
   SC.get(
     '/tracks', 
     { 
-      q: query,
+      q: q,
       limit: page_size, 
       linked_partitioning: 1
     }, 
