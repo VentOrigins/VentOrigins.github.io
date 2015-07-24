@@ -112,13 +112,13 @@ function soundCloudMakeRequest() {
 
 function displayYoutubeOnOverlay(videos) {
   var str = JSON.stringify(videos.result);
-  $('#splash-screen').append('<pre>' + str + '</pre>');
+  $('.overlay').append('<pre>' + str + '</pre>');
 }
 
 function displaySoundCloudOnOverlay(tracks) {
   for (var i = 0; i < tracks.collection.length; ++i) {
     var str = JSON.stringify(tracks.collection[i]);
-    $('#splash-screen').append('<pre>' + str + '</pre>');
+    $('.overlay').append('<pre>' + str + '</pre>');
   }
 }
 
