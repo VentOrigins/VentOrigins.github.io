@@ -37,24 +37,35 @@
 #youTubeTracks {
   width: 50%;
 
+  /*Moves to top and left side of overlay*/
   position: absolute;
-  float: left;
+  top: 0px;
 
+  /*Font*/
   color: white;
+  font-size: 20px;
 
   overflow: auto;
   border-right: 1px solid white;
+
+  z-index: 1000;
 
 }
 
 #soundCloudTracks {
   width: 50%;
 
-  float: right;
+  /*Moves to right and top side of overlay*/
   position: absolute;
+  top: 0px;
+  left: 50%;
 
+  /*FOnt*/
   color: white;
+  font-size: 20px;
 
   overflow: auto;
   border-left: 1px solid white;
+
+  z-index: 1000;
 }
