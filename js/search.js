@@ -112,12 +112,12 @@ function soundCloudMakeRequest() {
 
 function displayYoutubeOnOverlay(videos) {
   var str = JSON.stringify(videos.result);
-  $('#splash-screen').html('<pre>' + str + '</pre>');
+  $('#splash-screen').append('<pre>' + str + '</pre>');
 }
 
 function displaySoundCloudOnOverlay(tracks) {
   var str = JSON.stringify(tracks.result);
-  $('#splash-screen').html('<pre>' + str + '</pre>');
+  $('#splash-screen').append('<pre>' + str + '</pre>');
 }
 
 
