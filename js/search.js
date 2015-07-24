@@ -84,6 +84,7 @@ function soundCloudSearch() {
     @return       none
     ========================================================================== */
 function soundCloudMakeRequest() {
+  console.log("Making request to SoundCloud's API");
   var q = $("#query-input").val();
   var page_size = 30;
 
@@ -94,8 +95,8 @@ function soundCloudMakeRequest() {
       limit: page_size, 
       linked_partitioning: 1
     }, 
-    function(tracks) {
-      displaySoundCloudOnOverlay();
+  function(tracks) {
+      displaySoundCloudOnOverlay(tracks);
       console.log(tracks.collection.length);
       console.log(tracks.collection[0].title);
       console.log(tracks.collection[0].uri);
