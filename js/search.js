@@ -1,4 +1,6 @@
 function search() {
+  keyWordsearch();
+
 	event.preventDefault();
 	console.log("Hello");
 	var query = $("#query-input").val();
