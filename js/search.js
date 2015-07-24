@@ -30,6 +30,28 @@ function search() {
 
 }
 
+
+function keyWordsearch(){
+            console.log("asd");
+            gapi.client.setApiKey('AIzaSyDJckImr2TEKtJepdGvM0rFU8vlTw-Pufw');
+            gapi.client.load('youtube', 'v3', function() {
+                    makeRequest();
+            });
+    }
+    function makeRequest() {
+            console.log("test2")
+            var q = $('#query-input').val();
+            var request = gapi.client.youtube.search.list({
+                       q: q,
+                    part: 'snippet'                        
+            });
+            request.execute(function(response) {
+                    var str = JSON.stringify(response.result);
+                    $('#splash-screen').html('<pre>' + str + '</pre>');
+            });
+    }
+
+
 $(document).ready(function() {
 	var soundCloud = true;
 var widgetIframe = document.getElementById('sc-widget'),
