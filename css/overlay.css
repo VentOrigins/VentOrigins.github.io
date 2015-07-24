@@ -23,4 +23,11 @@
 
   /*Over everything else*/
   z-index: 1000;
+
+  /*Font*/
+  color: white;
+  font-size: 20px;
+
+  /*For scrollbar*/
+  overflow: auto;
 }
