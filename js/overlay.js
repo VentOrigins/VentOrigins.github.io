@@ -14,6 +14,8 @@
 
 function overlayTracks(divToOverlay) {
   $('.overlay').remove();
+  $("#query-form").hide();
+  $("#title").hide();
   if(!$('#top-title').length) {
     var top_title = "<div id='top-title'> Vent DJ </div>";
     var top_search_form = "<div id='top-search-form'> <form onsubmit='javascript:search();'> <input id='top-search-box' type='search'> </form>";
@@ -45,8 +47,7 @@ function overlayTracks(divToOverlay) {
 
 function finishedOverlaying() {
   $("#splash-screen > div[class='overlay']").remove();
-  $("#query-form").hide();
-  $("#title").hide();
+
   if(!$('#top-title').length) {
     displaySoundCloudPlayer(); // Don't append new soundCloud player
   }
