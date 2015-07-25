@@ -22,7 +22,7 @@
   opacity: .80;
 
   /*Over everything else*/
-  z-index: 1001;
+  z-index: 1000;
 
   /*Font*/
   color: white;
