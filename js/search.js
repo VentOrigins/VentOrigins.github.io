@@ -137,9 +137,19 @@ function soundCloudMakeRequest() {
     @return       none
     ========================================================================== */
 function displayYoutubeOnOverlay(videos) {
-  var str = JSON.stringify(videos.result);
+  var videoID;
+  var title;
+  var thumbnail;
+  var str;
   console.log(videos.result);
-  $('#youTubeTracks').append('<pre>' + str + '</pre>');
+  for(var i = 0; i < videos.result.items.length) {
+    videoID = videos.result.items[i].id.videoId;
+    title = videos.result.items[i].snippet.title;
+    thumbnail = videos.result.items[i].snippet.thumbnails.default.url;
+    str = videoID + title + thumbnail;
+    $('#youTubeTracks').append('<pre>' + str + '</pre>');
+  }
+  
 }
 
 /*  =============================================================================
