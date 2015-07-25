@@ -61,7 +61,8 @@ function youTubeMakeRequest() {
   console.log("Q is " + q);
   var request = gapi.client.youtube.search.list({
     q: q,
-    part: 'snippet'                        
+    part: 'snippet',  
+    maxResults: 50                      
   });
   request.execute(function(videos) {
     displayYoutubeOnOverlay(videos);
