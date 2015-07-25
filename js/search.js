@@ -166,6 +166,7 @@ function displaySoundCloudOnOverlay(tracks) {
   var username;
   var usernameURL;
   var str;
+  var artwork_url;
   var next_href;
   console.log(tracks)
   for (var i = 0; i < tracks.collection.length; ++i) {  
@@ -173,10 +174,11 @@ function displaySoundCloudOnOverlay(tracks) {
     uri = tracks.collection[i].uri;
     username = tracks.collection[i].user.username;
     usernameURL = tracks.collection[i].user.permalink_url;
-    next_href = tracks.next_href;
-    str = title + uri + username + usernameURL;
+    artwork_url = tracks.collection[i].artwork_url;
+    str = title + uri + username + usernameURL + artwork_url;
     $('#soundCloudTracks').append('<pre>' + str + '</pre>');
   }
+  next_href = tracks.next_href;
 }
 
 
