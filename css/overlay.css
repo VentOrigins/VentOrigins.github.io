@@ -33,18 +33,14 @@
 
   display: inline-block;
 }
-#close-overlay {
-  z-index: 1000;
+
+#close-button {
   width: 24px;
   height: 24px;
   color: #FFFFFF;
   position: absolute;
   right: 8px;
   top: 3px;
-}
-
-
-#close-button {
   font-size: 14px;
   opacity: 1.0;
   font-weight: normal;
