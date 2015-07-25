@@ -97,12 +97,12 @@ function soundCloudMakeRequest() {
     }, 
   function(tracks) {
       displaySoundCloudOnOverlay(tracks);
-      console.log(tracks.collection.length);
-      console.log(tracks.collection[0].title);
-      console.log(tracks.collection[0].uri);
-      console.log(tracks.collection[0].user.username);
-      console.log(tracks.collection[0].user.permalink_url);
-      console.log(tracks.next_href);
+      // console.log(tracks.collection.length);
+      // console.log(tracks.collection[0].title);
+      // console.log(tracks.collection[0].uri);
+      // console.log(tracks.collection[0].user.username);
+      // console.log(tracks.collection[0].user.permalink_url);
+      // console.log(tracks.next_href);
       var track_url = tracks.collection[0].permalink_url;
       SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
         console.log(oEmbed);
@@ -120,6 +120,7 @@ function soundCloudMakeRequest() {
     ========================================================================== */
 function displayYoutubeOnOverlay(videos) {
   var str = JSON.stringify(videos.result);
+  console.log("Youtube" + str);
   $('#youTubeTracks').append('<pre>' + str + '</pre>');
 }
 
@@ -135,6 +136,7 @@ function displaySoundCloudOnOverlay(tracks) {
   for (var i = 0; i < tracks.collection.length; ++i) {
     var str = JSON.stringify(tracks.collection[i]);
     $('#soundCloudTracks').append('<pre>' + str + '</pre>');
+    console.log("Sound cloud" + str);
   }
 }
 
