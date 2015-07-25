@@ -143,13 +143,13 @@ function displayYoutubeOnOverlay(videos) {
   var str;
   console.log(videos.result);
   for(var i = 0; i < videos.result.items.length; i++) {
-    title = "<div class='youTubeTracksText'>" + videos.result.items[i].snippet.title + "</div>";
+    // VIDEO ID TO THE URL LINK
+    videoID = videos.result.items[i].id.videoId;
+    title = "<div class='youTubeTracksText'>" + "<a href='" + "http://www.youtube.com/watch?v=" + videoID + "'>" + videos.result.items[i].snippet.title + "</a>"+ "</div>";
     thumbnail = "<img class='image-thumbnail' src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt=playlist-image'>";
     str = title + thumbnail;
     $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
 
-    // VIDEO ID TO THE URL LINK
-    videoID = videos.result.items[i].id.videoId;
   }
   checkSize();
 }

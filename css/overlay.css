@@ -72,7 +72,6 @@
   border-right: 1px solid white;
 
   z-index: 1000;
-
 }
 
 .youTubeTracksRow {
@@ -80,6 +79,10 @@
   height: 100px;
   /*Displays the track with thumbnail in line*/
   display: inline-flex;
+}
+
+.youTubeTracksRow:hover {
+  background-color: #B8B8B8;
 }
 
 .youTubeTracksText {
