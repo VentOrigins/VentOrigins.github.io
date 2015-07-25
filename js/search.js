@@ -15,6 +15,7 @@
 function search() {
   // Removes defaults
   event.preventDefault();
+  console.log("Searched");
   // Puts an overlay over the splash screen to display tracks
   overlayTracks("#splash-screen");
 
