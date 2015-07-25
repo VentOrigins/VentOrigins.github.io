@@ -13,7 +13,7 @@
     ========================================================================== */
 
 function overlayTracks(divToOverlay) {
-  console.log("Overlaying tracks");
+  $('.overlay').remove();
   var overlay = "<div class='overlay'>";
   var button = "<button id='close-button' onclick='finishedOverlaying()'> x </button>";
   var youTubeTracks = "<div id='youTubeTracks'></div>";
@@ -38,7 +38,7 @@ function overlayTracks(divToOverlay) {
 // }
 
 function finishedOverlaying() {
-  $("#splash-screen > div[class='overlay']").hide();
+  $("#splash-screen > div[class='overlay']").remove();
   $("#query-form").hide();
   $("#title").hide();
   if(!$('#top-title').length) {
