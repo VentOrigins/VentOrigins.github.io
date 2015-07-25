@@ -8,12 +8,82 @@
 #queue-bar {
   /*Size*/
   height: 100vh;
-  
-  /*background*/
-  /*background-color: white;*/
 
   /*border: 1px solid black;*/
 
-  /*Have it over everything*/
+
+
+  /*Background*/
+  background-color: black;
+
+  border-bottom: 2px solid #222226;
+  padding: 0;
   z-index: 1001;
 }
+
+
+
+#queue-logo {
+  height: 10%;
+  width: 100%;
+
+}
+#queue-logo li {
+  color: white;
+}
+
+#queues {
+  width: 100%;
+  border: 1px solid white;
+  height: 80%;
+  overflow:auto;
+
+}
+#queues li {
+  
+  font-size: 14px;
+  padding-left: 25px;
+  color: white;
+}
+#queues i {
+  font-size: 16px;
+  color: white;
+}
+
+#queues .fa-youtube {
+  font-size: 24px;
+}
+
+#queues .fa-soundcloud {
+
+}
+
+#queue-buttons-all {
+  height: 10%;
+  width: 100%;
+  bottom: 0;
+  position: absolute;
+
+}
+#queue-buttons {
+  top: 30%;
+  left: 18%;
+  position: absolute;
+}
+
+#queue-buttons li{
+  display: inline;
+
+}
+
+#queue-buttons:hover li {
+  background-color: black;
+}
+
+
+
+
+
+
+
+
