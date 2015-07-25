@@ -82,7 +82,7 @@
 }
 
 .youTubeTracksRow:hover {
-  background-color: #B8B8B8;
+  background-color: #0099FF;
 }
 
 .youTubeTracksText {
@@ -95,6 +95,14 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+
+.youTubeTracksText a{
+  color: white;
+}
+
+.youTubeTracksText a:hover {
+  text-decoration: underline;
 }
 
 /*Thumbnail*/
