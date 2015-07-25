@@ -49,6 +49,7 @@
   color: black;
   vertical-align: middle;
 
+  /*Stays in one line and does not overflow*/
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

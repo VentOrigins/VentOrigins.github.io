@@ -143,10 +143,10 @@ function displayYoutubeOnOverlay(videos) {
   var str;
   console.log(videos.result);
   for(var i = 0; i < videos.result.items.length; i++) {
-    title = videos.result.items[i].snippet.title;
-    thumbnail = "<img class='image-cover' src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt=playlist-image'>";
+    title = "<div class='youTubeTracksText'>" + videos.result.items[i].snippet.title + "</div>";
+    thumbnail = "<img class='image-thumbnail' src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt=playlist-image'>";
     str = title + thumbnail;
-    $('#youTubeTracks').append('<pre>' + str + '</pre>');
+    $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
 
     // VIDEO ID TO THE URL LINK
     videoID = videos.result.items[i].id.videoId;

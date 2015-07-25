@@ -75,6 +75,27 @@
 
 }
 
+.youTubeTracksRow {
+
+}
+
+.youTubeTracksText {
+  /*Stays in one line and does not overflow*/
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.image-thumbnail {
+  width: 100px;
+  height: 80px;
+
+  position: relative;
+  float: right;
+}
+
+
+
 #soundCloudTracks {
   width: 50%;
 
