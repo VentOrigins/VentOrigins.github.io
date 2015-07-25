@@ -19,28 +19,76 @@
   background: black;
 
   /*How transparent the overlay would be when loading*/
-  opacity: .50;
+  opacity: .80;
 
   /*Over everything else*/
   z-index: 1000;
+
+  /*Font*/
+  color: white;
+  font-size: 20px;
+
+  /*For scrollbar*/
+  overflow: auto;
+
+  display: inline-block;
 }
 
 #close {
-    width: 24px;
-    height: 24px;
-    color: #FFFFFF;
-    position: absolute;
-    right: 8px;
-    top: 3px;
-    font-size: 14px;
-    opacity: 1.0;
-    font-weight: normal;
-    background-color: #3F3F41;
-    border: none;
-    border-top-right-radius: 50px 50px;
-    border-top-left-radius: 50px 50px;
-    border-bottom-right-radius: 50px 50px;
-    border-bottom-left-radius: 50px 50px;
-    
+  width: 24px;
+  height: 24px;
+  color: #FFFFFF;
+  position: absolute;
+  right: 8px;
+  top: 3px;
+  font-size: 14px;
+  opacity: 1.0;
+  font-weight: normal;
+  background-color: #3F3F41;
+  border: none;
+  border-top-right-radius: 50px 50px;
+  border-top-left-radius: 50px 50px;
+  border-bottom-right-radius: 50px 50px;
+  border-bottom-left-radius: 50px 50px;
+}
 
+#youTubeTracks {
+  width: 50%;
+
+  /*Moves to top and left side of overlay*/
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 50%;
+  bottom: 0px;
+
+  /*Font*/
+  color: white;
+  font-size: 20px;
+
+  overflow: auto;
+  border-right: 1px solid white;
+
+  z-index: 1000;
+
+}
+
+#soundCloudTracks {
+  width: 50%;
+
+  /*Moves to right and top side of overlay*/
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  right: 0px;
+  bottom: 0px;
+
+  /*FOnt*/
+  color: white;
+  font-size: 20px;
+
+  overflow: auto;
+  border-left: 1px solid white;
+
+  z-index: 1000;
 }

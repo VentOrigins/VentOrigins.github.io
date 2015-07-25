@@ -27,7 +27,6 @@ function checkSize() {
     document.getElementById("nav-bar").style.left = '0px';
     document.getElementById("splash-screen").style.left = '0px';
     document.getElementById("page-footer-id").style.left = '0px';
-    document.getElementById("page-footer-id").style.left = '0px';
 
     // Adds the queue bar width to the divs
     document.getElementById("nav-bar").style.width = $(window).width() + 'px';;
