@@ -46,6 +46,11 @@ function onPlayerStateChange(event) {
 function stopVideo() {
   player.stopVideo();
 }
-function changeYouTubeSize() {
-  var scWidth = $("#sc-widget").width();
+function hideYTPlayer() {
+  $("#youTubePlayer").hide();
 }
+
+
+
+
+

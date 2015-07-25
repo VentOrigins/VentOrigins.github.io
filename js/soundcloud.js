@@ -1,5 +1,5 @@
 function displaySoundCloudPlayer() {
-	$("#youTubePlayer").hide();
+	
 	$("#soundCloudPlayer").append("<iframe id='sc-widget' src='https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/1539950/favorites' width='100%' height='200' scrolling='no' frameborder='no'></iframe>");
 }
 
@@ -34,4 +34,8 @@ function playSC() {
     });
 	    
 	});
+}
+
+function hideSCPlayer() {
+	$("#soundCloudPlayer").hide();
 }
