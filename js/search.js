@@ -51,6 +51,9 @@ function youTubeSearch() {
 function youTubeMakeRequest() {
   console.log("Making request to Google's API");
   var q = $('#query-input').val();
+  if(q == "") {
+    q = $('#top-search-box').val();
+  }
   var request = gapi.client.youtube.search.list({
     q: q,
     part: 'snippet'                        
@@ -87,6 +90,9 @@ function soundCloudSearch() {
 function soundCloudMakeRequest() {
   console.log("Making request to SoundCloud's API");
   var q = $("#query-input").val();
+  if(q == "") {
+    q = $('#top-search-box').val();
+  }
   var page_size = 30;
 
   SC.get(
