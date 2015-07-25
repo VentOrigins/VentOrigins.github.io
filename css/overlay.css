@@ -76,20 +76,30 @@
 }
 
 .youTubeTracksRow {
-
+  width: 100%;
+  height: 100px;
+  /*Displays the track with thumbnail in line*/
+  display: inline-flex;
 }
 
 .youTubeTracksText {
+  width: 80%;
+
+  /*Keeps the text vertically centered in row*/
+  margin-top: 36px;
+
   /*Stays in one line and does not overflow*/
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 
+/*Thumbnail*/
 .image-thumbnail {
-  width: 100px;
-  height: 80px;
+  width: 20%;
+  height: 100px;
 
+  /*To keep it on the right of div*/
   position: relative;
   float: right;
 }
