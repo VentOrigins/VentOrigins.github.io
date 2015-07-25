@@ -142,7 +142,7 @@ function displayYoutubeOnOverlay(videos) {
   var thumbnail;
   var str;
   console.log(videos.result);
-  for(var i = 0; i < videos.result.items.length) {
+  for(var i = 0; i < videos.result.items.length; i++) {
     videoID = videos.result.items[i].id.videoId;
     title = videos.result.items[i].snippet.title;
     thumbnail = videos.result.items[i].snippet.thumbnails.default.url;
