@@ -14,6 +14,12 @@
 
 function overlayTracks(divToOverlay) {
   $('.overlay').remove();
+  if(!$('#top-title').length) {
+    var top_title = "<div id='top-title'> Vent DJ </div>";
+    var top_search_form = "<div id='top-search-form'> <form onsubmit='javascript:search();'> <input id='top-search-box' type='search'> </form>";
+    var top_search_button = "<button  onclick='search();'id='top-search-button'><i class='fa fa-search'></i></button></div>";
+    $("#top-nav").append(top_title + top_search_form + top_search_button);
+  }
   var overlay = "<div class='overlay'>";
   var button = "<button id='close-button' onclick='finishedOverlaying()'> x </button>";
   var youTubeTracks = "<div id='youTubeTracks'></div>";
@@ -42,10 +48,6 @@ function finishedOverlaying() {
   $("#query-form").hide();
   $("#title").hide();
   if(!$('#top-title').length) {
-    var top_title = "<div id='top-title'> Vent DJ </div>";
-    var top_search_form = "<div id='top-search-form'> <form onsubmit='javascript:search();'> <input id='top-search-box' type='search'> </form>";
-    var top_search_button = "<button  onclick='search();'id='top-search-button'><i class='fa fa-search'></i></button></div>";
-    $("#top-nav").append(top_title + top_search_form + top_search_button);
     displaySoundCloudPlayer(); // Don't append new soundCloud player
   }
   
