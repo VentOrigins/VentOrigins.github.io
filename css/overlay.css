@@ -81,8 +81,9 @@
   display: inline-flex;
 }
 
-.youTubeTracksRow:hover {
-  background-color: #0099FF;
+/*When hovering over a row*/
+.youTubeTracksRow:hover, .youTubeTracksRow:hover image-thumbnail{
+  background-color: #000066;
 }
 
 .youTubeTracksText {
@@ -108,7 +109,7 @@
 /*Thumbnail*/
 .image-thumbnail {
   width: 20%;
-  height: 100px;
+  height: 120px;
 
   /*To keep it on the right of div*/
   position: relative;
