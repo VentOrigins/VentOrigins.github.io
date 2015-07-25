@@ -9,75 +9,105 @@
   /*Size*/
   height: 100vh;
 
-  /*border: 1px solid black;*/
-
-
-
   /*Background*/
-  background-color: black;
+  background-color: white;
 
   border-bottom: 2px solid #222226;
   padding: 0;
   z-index: 1001;
 }
 
-
-
+/*Logo in queue bar*/
 #queue-logo {
   height: 10%;
   width: 100%;
-
 }
+
+/**/
 #queue-logo li {
-  color: white;
+  color: black;
 }
 
+/*Actual queue lists in the queue bar*/
 #queues {
   width: 100%;
-  border: 1px solid white;
   height: 80%;
+
   overflow:auto;
-
 }
+
+/*Handles the li's for the queues*/
 #queues li {
-  
-  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  padding-top: 6px;
   padding-left: 25px;
-  color: white;
+
+  /*Font*/
+  font-size: 14px;
+  color: black;
+  vertical-align: middle;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
 }
+
+.queue-text {
+  display: inline-block;
+  vertical-align: middle;
+  padding-bottom: 12px;
+  padding-left: 5px;
+
+}
+
+/*Font awesome*/
 #queues i {
-  font-size: 16px;
-  color: white;
+  color: black;
 }
 
+/*Youtube Font awesome*/
 #queues .fa-youtube {
-  font-size: 24px;
+  font-size: 40px;
+  margin-left: 5px;
+  margin-right: 25px;
 }
 
+/*SoundCloud Font awesome*/
 #queues .fa-soundcloud {
-
+  font-size: 34px;
+  margin-right: 20px;
+  padding-top: 5px;
 }
 
+/*Entire button div*/
 #queue-buttons-all {
-  height: 10%;
   width: 100%;
-  bottom: 0;
-  position: absolute;
+  height: 10%;
 
+  /*Exact location*/
+  position: absolute;
+  bottom: 0;
 }
+
+/*Buttons */
 #queue-buttons {
+  /*Positions*/
   top: 30%;
   left: 18%;
   position: absolute;
 }
 
+/*Handles the 3 buttons in line order*/
 #queue-buttons li{
   display: inline;
-
 }
 
+/*Handles the hover when hovering over the buttons*/
 #queue-buttons:hover li {
-  background-color: black;
+  background-color: white;
 }
 
 
