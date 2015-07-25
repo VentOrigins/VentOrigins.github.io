@@ -37,7 +37,7 @@ function overlayTracks(divToOverlay) {
 // }
 
 function finishedOverlaying() {
-  $("#splash-screen > div[class='overlay']").remove();
+  $("#splash-screen > div[class='overlay']").hide();
   $("#query-form").hide();
   $("#title").hide();
   var top_title = "<div id='top-title'> Vent DJ </div>";
