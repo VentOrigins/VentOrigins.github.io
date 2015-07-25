@@ -137,7 +137,7 @@ function soundCloudMakeRequest() {
     ========================================================================== */
 function displayYoutubeOnOverlay(videos) {
   var str = JSON.stringify(videos.result);
-  console.log("Youtube" + str);
+  console.log("Youtube" + str.items);
   $('#youTubeTracks').append('<pre>' + str + '</pre>');
 }
 
@@ -152,8 +152,8 @@ function displayYoutubeOnOverlay(videos) {
 function displaySoundCloudOnOverlay(tracks) {
   for (var i = 0; i < tracks.collection.length; ++i) {
     var str = JSON.stringify(tracks.collection[i]);
-    // $('#soundCloudTracks').append('<pre>' + str + '</pre>');
-    console.log("Sound cloud" + str);
+    $('#soundCloudTracks').append('<pre>' + str + '</pre>');
+    // console.log("Sound cloud" + str);
   }
 }
 
