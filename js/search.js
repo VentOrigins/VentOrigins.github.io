@@ -137,7 +137,7 @@ function soundCloudMakeRequest() {
     ========================================================================== */
 function displayYoutubeOnOverlay(videos) {
   var str = JSON.stringify(videos.result);
-  console.log("Youtube" + videos.result);
+  console.log(videos.result);
   $('#youTubeTracks').append('<pre>' + str + '</pre>');
 }
 
