@@ -14,9 +14,10 @@
 
 function overlayTracks(divToOverlay) {
   console.log("Overlaying tracks");
-  $(divToOverlay).append("<div class='overlay'> <button id='close' onclick='finishedOverlaying()'> x </button>");
-  $(divToOverlay).append("  <div id='youTubeTracks'></div>");
-  $(divToOverlay).append("  <div id='soundCloudTracks'></div>");
+  $(divToOverlay).append("<div class='overlay'>");
+  $(divToOverlay).append("<div id='close-overlay'> <button id='close-button' onclick='finishedOverlaying()'> x </button> </div>");
+  $(divToOverlay).append("<div id='youTubeTracks'></div>");
+  $(divToOverlay).append("<div id='soundCloudTracks'></div>");
   $(divToOverlay).append("</div>");
 
   
