@@ -151,6 +151,7 @@ function displayYoutubeOnOverlay(videos) {
     // VIDEO ID TO THE URL LINK
     videoID = videos.result.items[i].id.videoId;
   }
+  checksize();
 }
 
 /*  =============================================================================
@@ -180,6 +181,7 @@ function displaySoundCloudOnOverlay(tracks) {
     $('#soundCloudTracks').append('<pre>' + str + '</pre>');
   }
   next_href = tracks.next_href;
+  checksize();
 }
 
 
