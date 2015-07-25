@@ -50,10 +50,15 @@ function youTubeSearch() {
     ========================================================================== */
 function youTubeMakeRequest() {
   console.log("Making request to Google's API");
-  var q = $('#query-input').val();
-  if(q == "") {
+  var q;
+  if ($('#query-form').css('display') == 'none') {
     q = $('#top-search-box').val();
   }
+  else {
+    q = $("#query-input").val();  
+  }
+  
+  console.log("Q is " + q);
   var request = gapi.client.youtube.search.list({
     q: q,
     part: 'snippet'                        
@@ -89,10 +94,15 @@ function soundCloudSearch() {
     ========================================================================== */
 function soundCloudMakeRequest() {
   console.log("Making request to SoundCloud's API");
-  var q = $("#query-input").val();
-  if(q == "") {
+  var q;
+  if ($('#query-form').css('display') == 'none') {
     q = $('#top-search-box').val();
   }
+  else {
+    q = $("#query-input").val();  
+  }
+  
+  console.log("Q is " + q);
   var page_size = 30;
 
   SC.get(
@@ -127,7 +137,7 @@ function soundCloudMakeRequest() {
     ========================================================================== */
 function displayYoutubeOnOverlay(videos) {
   var str = JSON.stringify(videos.result);
-  console.log("Youtube" + str.items[0]);
+  console.log("Youtube" + str);
   $('#youTubeTracks').append('<pre>' + str + '</pre>');
 }
 
@@ -142,7 +152,7 @@ function displayYoutubeOnOverlay(videos) {
 function displaySoundCloudOnOverlay(tracks) {
   for (var i = 0; i < tracks.collection.length; ++i) {
     var str = JSON.stringify(tracks.collection[i]);
-    $('#soundCloudTracks').append('<pre>' + str + '</pre>');
+    // $('#soundCloudTracks').append('<pre>' + str + '</pre>');
     console.log("Sound cloud" + str);
   }
 }
