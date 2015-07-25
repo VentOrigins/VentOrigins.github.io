@@ -146,7 +146,7 @@ function displayYoutubeOnOverlay(videos) {
     // VIDEO ID TO THE URL LINK
     videoID = videos.result.items[i].id.videoId;
     title = "<div class='youTubeTracksText'>" + "<a href='" + "http://www.youtube.com/watch?v=" + videoID + "'>" + videos.result.items[i].snippet.title + "</a>"+ "</div>";
-    thumbnail = "<img class='image-thumbnail' src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt=playlist-image'>";
+    thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
     str = title + thumbnail;
     $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
 
