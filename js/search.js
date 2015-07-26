@@ -174,7 +174,7 @@ function displaySoundCloudOnOverlay(tracks) {
     username = tracks.collection[i].user.username;
     usernameURL = tracks.collection[i].user.permalink_url;
     artwork_url = "<div class='image-thumbnail'><img src='" + tracks.collection[i].artwork_url + "' alt='playlist-image'></div>";;
-    str = title + artwork_url;
+    str = button + title + artwork_url;
     $('#soundCloudTracks').append("<div class='soundCloudTracksRow'>" + str + "<div>");
   }
   next_href = tracks.next_href;
