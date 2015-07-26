@@ -63,9 +63,6 @@ function youTubeSearch() {
     ========================================================================== */
 function youTubeMakeRequest() {
   console.log("Making request to Google's API");
-  var q;
-  
-  
   console.log("Q is " + q);
   var request = gapi.client.youtube.search.list({
     q: q,
