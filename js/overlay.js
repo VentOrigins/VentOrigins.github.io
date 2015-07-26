@@ -13,8 +13,7 @@
     ========================================================================== */
 
 function overlayTracks(divToOverlay) {
-  $("#query-form").hide();
-  $("#title").hide();
+  
   
   var overlay = "<div class='overlay'>";
   var button = "<button id='close-button' onclick='finishedOverlaying()'> x </button>";
@@ -31,7 +30,8 @@ function overlayTracks(divToOverlay) {
     ========================================================================== */
 
 function insertTopSearchBar() {
-  
+  $("#query-form").hide();
+  $("#title").hide();
   var top_title = "<div id='top-title'> Vent DJ </div>";
   var top_search_form = "<div id='top-search-form'> <form onsubmit='javascript:search();'> <input id='top-search-box' type='search'> </form>";
   var top_search_button = "<button  onclick='search();'id='top-search-button'><i class='fa fa-search'></i></button></div>";
