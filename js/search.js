@@ -3,7 +3,7 @@
     Copyright © Vent Origins 
     By Adrian Mandee and Randy Truong
     ========================================================================== */
-
+var q;
 /*  =============================================================================
     Searches through youtube and soundcloud to return the list of tracks
     From: OnSubmit of query-input
@@ -19,7 +19,14 @@ function search() {
   // Puts an overlay over the splash screen to display tracks
   overlayTracks("#splash-screen");
 
+  if ($('#query-form').css('display') == 'none') {
+    q = $('#top-search-box').val();
+  }
+  else {
+    q = $("#query-input").val();  
+  }
   // Begins Youtube and SoundCloud search
+  
   youTubeSearch();
   soundCloudSearch();
   if(!$('#top-title').length) {
@@ -57,12 +64,7 @@ function youTubeSearch() {
 function youTubeMakeRequest() {
   console.log("Making request to Google's API");
   var q;
-  if ($('#query-form').css('display') == 'none') {
-    q = $('#top-search-box').val();
-  }
-  else {
-    q = $("#query-input").val();  
-  }
+  
   
   console.log("Q is " + q);
   var request = gapi.client.youtube.search.list({
@@ -101,14 +103,6 @@ function soundCloudSearch() {
     ========================================================================== */
 function soundCloudMakeRequest() {
   console.log("Making request to SoundCloud's API");
-  var q;
-  if ($('#query-form').css('display') == 'none') {
-    q = $('#top-search-box').val();
-  }
-  else {
-    q = $("#query-input").val();  
-  }
-  
   console.log("Q is " + q);
   var page_size = 30;
 
