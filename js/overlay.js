@@ -13,23 +13,47 @@
     ========================================================================== */
 
 function overlayTracks(divToOverlay) {
-  $('.overlay').remove();
   $("#query-form").hide();
   $("#title").hide();
-  if(!$('#top-title').length) {
-    var top_title = "<div id='top-title'> Vent DJ </div>";
-    var top_search_form = "<div id='top-search-form'> <form onsubmit='javascript:search();'> <input id='top-search-box' type='search'> </form>";
-    var top_search_button = "<button  onclick='search();'id='top-search-button'><i class='fa fa-search'></i></button></div>";
-    $("#top-nav").append(top_title + top_search_form + top_search_button);
-  }
+  
   var overlay = "<div class='overlay'>";
   var button = "<button id='close-button' onclick='finishedOverlaying()'> x </button>";
   var youTubeTracks = "<div id='youTubeTracks'></div>";
   var soundCloudTracks = "<div id='soundCloudTracks'>  </div> </div>"; 
   $(divToOverlay).append(overlay + button + youTubeTracks + soundCloudTracks);
 }
+/*  =============================================================================
+    Called in: search.js
+    Inserts the new query box after overlaying
 
+    @param      none
+    @return     none
+    ========================================================================== */
 
+function insertTopSearchBar() {
+  
+  var top_title = "<div id='top-title'> Vent DJ </div>";
+  var top_search_form = "<div id='top-search-form'> <form onsubmit='javascript:search();'> <input id='top-search-box' type='search'> </form>";
+  var top_search_button = "<button  onclick='search();'id='top-search-button'><i class='fa fa-search'></i></button></div>";
+  $("#top-nav").append(top_title + top_search_form + top_search_button);
+  
+
+}
+/*  =============================================================================
+    Called in: overlay.js
+    Inserts the new query into splash screen if no playlist
+
+    @param      none
+    @return     none
+    ========================================================================== */
+
+function insertSplashSearchBar() {
+  $("#top-title").remove();
+  $("#top-search-form").remove();
+  $("#query-form").show();
+  $("#title").show();
+
+}
 
 /*  =============================================================================
     Called in: search.js
@@ -51,7 +75,9 @@ function finishedOverlaying() {
   if(!$('#top-title').length) {
     displaySoundCloudPlayer(); // Don't append new soundCloud player
   }
+  // If no playlist
   
+  insertSplashSearchBar();
 
   
   // displayYouTubePlayer();

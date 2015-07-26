@@ -22,6 +22,11 @@ function search() {
   // Begins Youtube and SoundCloud search
   youTubeSearch();
   soundCloudSearch();
+  if(!$('#top-title').length) {
+    insertTopSearchBar();
+  }
+
+
 }
 
 /*  =============================================================================
@@ -141,13 +146,15 @@ function displayYoutubeOnOverlay(videos) {
   var title;
   var thumbnail;
   var str;
+  var button;
   console.log(videos.result);
   for(var i = 0; i < videos.result.items.length; i++) {
     // VIDEO ID TO THE URL LINK
     videoID = videos.result.items[i].id.videoId;
+    button = "<button class='addButton' onclick='addToQueue(this)'> + </button> "
     title = "<div class='youTubeTracksText'>" + "<a href='" + "http://www.youtube.com/watch?v=" + videoID + "'>" + videos.result.items[i].snippet.title + "</a>"+ "</div>";
     thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
-    str = title + thumbnail;
+    str = button + title + thumbnail;
     $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
 
   }
