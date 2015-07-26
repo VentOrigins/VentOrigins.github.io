@@ -19,7 +19,7 @@
   background: black;
 
   /*How transparent the overlay would be when loading*/
-  opacity: .80;
+  opacity: .50;
 
   /*Over everything else*/
   z-index: 1000;
@@ -82,7 +82,7 @@
 }
 
 /*When hovering over a row*/
-.youTubeTracksRow:hover, .youTubeTracksRow:hover image-thumbnail{
+.youTubeTracksRow:hover, .youTubeTracksRow:hover .image-thumbnail{
   background-color: #000066;
 }
 
@@ -127,7 +127,6 @@
   bottom: 0;
 }
 
-
 #soundCloudTracks {
   width: 50%;
 
@@ -146,4 +145,38 @@
   border-left: 1px solid white;
 
   z-index: 1000;
+}
+
+
+
+.soundCloudTracksRow {
+  width: 100%;
+  height: 100px;
+  /*Displays the track with thumbnail in line*/
+  display: inline-flex;
+}
+
+/*When hovering over a row*/
+.soundCloudTracksRow:hover, .soundCloudTracksRow:hover .image-thumbnail{
+  background-color: #000066;
+}
+
+.soundCloudTracksText {
+  width: 80%;
+
+  /*Keeps the text vertically centered in row*/
+  margin-top: 36px;
+
+  /*Stays in one line and does not overflow*/
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.soundCloudTracksText a{
+  color: white;
+}
+
+.soundCloudTracksText a:hover {
+  text-decoration: underline;
 }

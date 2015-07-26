@@ -26,15 +26,11 @@ function search() {
     q = $("#query-input").val();  
   }
   // Begins Youtube and SoundCloud search
-  
   youTubeSearch();
   soundCloudSearch();
   if(!$('#top-title').length) {
     insertTopSearchBar();
   }
-  
-
-
 }
 
 /*  =============================================================================
@@ -171,13 +167,15 @@ function displaySoundCloudOnOverlay(tracks) {
   var next_href;
   console.log(tracks)
   for (var i = 0; i < tracks.collection.length; ++i) {  
-    title = tracks.collection[i].title;
     uri = tracks.collection[i].uri;
+    button = "<button id='" + uri + "' class='addButton' onclick='addToQueue(this)'> + </button>"
+
+    title = "<div class='soundCloudTracksText'>" + "<a href='" + uri + "'>" + tracks.collection[i].title + "</a>" + "</div>";
     username = tracks.collection[i].user.username;
     usernameURL = tracks.collection[i].user.permalink_url;
-    artwork_url = tracks.collection[i].artwork_url;
-    str = title + uri + username + usernameURL + artwork_url;
-    $('#soundCloudTracks').append('<pre>' + str + '</pre>');
+    artwork_url = "<div class='image-thumbnail'><img src='" + tracks.collection[i].artwork_url + "' alt='playlist-image'></div>";;
+    str = title + artwork_url;
+    $('#soundCloudTracks').append("<div class='soundCloudTracksRow'>" + str + "<div>");
   }
   next_href = tracks.next_href;
   checkSize();
