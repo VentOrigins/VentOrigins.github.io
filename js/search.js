@@ -22,6 +22,9 @@ function search() {
   // Begins Youtube and SoundCloud search
   youTubeSearch();
   soundCloudSearch();
+  if(!$('#top-title').length) {
+    insertTopSearchBar();
+  }
   
 
 
@@ -188,9 +191,7 @@ function displaySoundCloudOnOverlay(tracks) {
   next_href = tracks.next_href;
   checkSize();
   //Remove splash screen title
-  if(!$('#top-title').length) {
-    insertTopSearchBar();
-  }
+  
 }
 
 

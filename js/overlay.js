@@ -12,9 +12,7 @@
     @return     none
     ========================================================================== */
 
-function overlayTracks(divToOverlay) {
-  
-  
+function overlayTracks(divToOverlay) {  
   var overlay = "<div class='overlay'>";
   var button = "<button id='close-button' onclick='finishedOverlaying()'> x </button>";
   var youTubeTracks = "<div id='youTubeTracks'></div>";
