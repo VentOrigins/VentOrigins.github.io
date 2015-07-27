@@ -50,7 +50,8 @@ function getLocalStorageSize() {
 }
 
 function incrementLocalStorageSize(currentSize) {
-  localStorage["length"] = currentSize++;
+  var newSize = currentSize++;
+  localStorage["length"] = newSize;
 }
 
 
