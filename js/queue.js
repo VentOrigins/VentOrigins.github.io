@@ -10,3 +10,13 @@ function addToQueue(buttonClicked, youtubeOrSoundCloud) {
     $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'>" + videoID + "</div></li>")
   }
 }
+
+function addYoutubeToQueue(buttonClicked) {
+  var videoID = $(buttonClicked).attr('id');
+  $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'>" + videoID + "</div></li>")
+}
+
+function addSoundCloudToQueue(buttonClicked) {
+  var videoID = $(buttonClicked).attr('id');
+  $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'>" + videoID + "</div></li>")
+}
