@@ -11,7 +11,6 @@
     @param      div     The div to remove the overlay
     @return     none
     ========================================================================== */
-
 function overlayTracks(divToOverlay) {  
   var overlay = "<div class='overlay'>";
   var button = "<button id='close-button' onclick='finishedOverlaying()'> x </button>";
@@ -19,6 +18,7 @@ function overlayTracks(divToOverlay) {
   var soundCloudTracks = "<div id='soundCloudTracks'>  </div> </div>"; 
   $(divToOverlay).append(overlay + button + youTubeTracks + soundCloudTracks);
 }
+
 /*  =============================================================================
     Called in: search.js
     Inserts the new query box after overlaying
@@ -26,7 +26,6 @@ function overlayTracks(divToOverlay) {
     @param      none
     @return     none
     ========================================================================== */
-
 function insertTopSearchBar() {
   $("#query-form").hide();
   $("#title").hide();
@@ -34,9 +33,9 @@ function insertTopSearchBar() {
   var top_search_form = "<div id='top-search-form'> <form onsubmit='javascript:search();'> <input id='top-search-box' type='search'> </form>";
   var top_search_button = "<button  onclick='search();'id='top-search-button'><i class='fa fa-search'></i></button></div>";
   $("#top-nav").append(top_title + top_search_form + top_search_button);
-  
 
 }
+
 /*  =============================================================================
     Called in: overlay.js
     Inserts the new query into splash screen if no playlist
@@ -44,7 +43,6 @@ function insertTopSearchBar() {
     @param      none
     @return     none
     ========================================================================== */
-
 function insertSplashSearchBar() {
   $("#top-title").remove();
   $("#top-search-form").remove();
