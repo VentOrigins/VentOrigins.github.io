@@ -21,6 +21,10 @@ $(document).ready(function() {
 $(window).resize(checkSize);
 
 function checkSize() {
+  // Sets the actual height of the queues in the queue-bar
+  var divHeight = document.getElementById("queue-bar").offsetHeight - (document.getElementById("queue-logo").offsetHeight + document.getElementById("queue-buttons-all").offsetHeight);
+  document.getElementById("queues").style.height = divHeight + 'px';
+
   // When screen is smaller than 992 pixels, this would move all the divs to the 0 position
   if ($(window).width() < 992) {
     // Moves the divs to the very left when theres no queue-bar
@@ -29,7 +33,7 @@ function checkSize() {
     document.getElementById("page-footer-id").style.left = '0px';
 
     // Adds the queue bar width to the divs
-    document.getElementById("nav-bar").style.width = $(window).width() + 'px';;
+    document.getElementById("nav-bar").style.width = $(window).width() + 'px';
     document.getElementById("splash-screen").style.width = $(window).width() + 'px';
     document.getElementById("page-footer-id").style.width = $(window).width() + 'px';
   }
