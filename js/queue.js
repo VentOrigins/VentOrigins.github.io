@@ -21,7 +21,8 @@ function addYoutubeToQueue(buttonClicked) {
   //Returns the size of the queue list and increments the size by 1
   var queueLength = getLocalStorageSize();  
   incrementLocalStorageSize(queueLength);
-
+  
+  var ytIDandTitle = $(buttonClicked).attr('id');
   var split = getIndexOfSplit(buttonClicked);
   var ytID = ytIDandTitle.substring(0,split);
   var ytTitle = ytIDandTitle(split+2,ytIDandTitle.length);
@@ -43,6 +44,7 @@ function addSoundCloudToQueue(buttonClicked) {
   var queueLength = getLocalStorageSize();  
   incrementLocalStorageSize(queueLength);
 
+  var scIDandTitle = $(buttonClicked).attr('id');
   var split = getIndexOfSplit(buttonClicked);
   var scID = scIDandTitle.substring(0,split);
   var scTitle = scIDandTitle(split+2,scIDandTitle.length);
