@@ -42,15 +42,18 @@ function addSoundCloudToQueue(buttonClicked) {
 
 function getLocalStorageSize() {
   if (localStorage.getItem("length") === null) {
+    console.log("Is 0");
     return 0;
   }
   else {
+    console.log("Not nul");
     return localStorage.getItem("length");
   }
 }
 
 function incrementLocalStorageSize(currentSize) {
-  var newSize = currentSize++;
+  console.log("Current size is " + currentSize);
+  var newSize = currentSize + 1;
   localStorage.setItem("length", newSize);
   console.log("newSize" + newSize);
 }
