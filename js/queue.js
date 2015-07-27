@@ -21,11 +21,11 @@ function addYoutubeToQueue(buttonClicked) {
   //Returns the size of the queue list and increments the size by 1
   var queueLength = getLocalStorageSize();  
   incrementLocalStorageSize(queueLength);
-  
+
   var ytIDandTitle = $(buttonClicked).attr('id');
   var split = getIndexOfSplit(buttonClicked);
   var ytID = ytIDandTitle.substring(0,split);
-  var ytTitle = ytIDandTitle(split+2,ytIDandTitle.length);
+  var ytTitle = ytIDandTitle.substring(split+2,ytIDandTitle.length);
 
   localStorage[queueLength] = ytID;
   $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'>" + queueLength + ytID + "/" +  scTitle + "</div></li>");
@@ -47,7 +47,7 @@ function addSoundCloudToQueue(buttonClicked) {
   var scIDandTitle = $(buttonClicked).attr('id');
   var split = getIndexOfSplit(buttonClicked);
   var scID = scIDandTitle.substring(0,split);
-  var scTitle = scIDandTitle(split+2,scIDandTitle.length);
+  var scTitle = scIDandTitle.substring(split+2,scIDandTitle.length);
 
   localStorage[queueLength] = scID;
   $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'>" + queueLength + scID + "/" +  scTitle + "</div></li>");
