@@ -176,7 +176,7 @@
 
 /*Thumbnail*/
 .image-thumbnail {
-  width: 10%;
+  width: 20%;
   height: 100px;
 
   /*To keep it on the right of div*/
@@ -190,4 +190,5 @@
   
   padding-top: 5px;
   padding-bottom: 5px;
+  padding-right: 10px;
 }
