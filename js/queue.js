@@ -52,10 +52,10 @@ function getLocalStorageSize() {
 }
 
 function incrementLocalStorageSize(currentSize) {
-  console.log("Current size is " + currentSize);
-  var newSize = currentSize + 1;
+  var intCurrentSize = parseInt(currentSize);
+  var newSize = (intCurrentSize + 1).toString();
+  console.log(newSize);
   localStorage.setItem("length", newSize);
-  console.log("newSize" + newSize);
 }
 
 
