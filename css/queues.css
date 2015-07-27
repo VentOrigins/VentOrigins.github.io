@@ -12,7 +12,6 @@
   /*Background*/
   background-color: white;
 
-  border-bottom: 2px solid #222226;
   padding: 0;
   z-index: 1001;
 }
@@ -31,7 +30,7 @@
 /*Actual queue lists in the queue bar*/
 #queues {
   width: 100%;
-  height: 80%;
+  height: 500px;
 
   overflow:auto;
 }
@@ -61,7 +60,7 @@
   vertical-align: middle;
   padding-bottom: 17px;
   padding-left: 5px;
-
+  z-index: 1000;
 }
 
 /*Font awesome*/
@@ -75,6 +74,7 @@
   margin-left: 5px;
   margin-right: 25px;
   margin-top: 2px;
+  z-index: 1000;
 }
 
 /*SoundCloud Font awesome*/
@@ -83,24 +83,27 @@
   margin-right: 20px;
   margin-top: 7px;
   margin-bottom: 7px;
+  z-index: 1000;
 }
 
 /*Entire button div*/
 #queue-buttons-all {
   width: 100%;
-  height: 10%;
+  height: 60px;
 
   /*Exact location*/
   position: absolute;
   bottom: 0;
+
+  box-shadow: 0px 0px 1px #000000;
+  z-index: 1001;
 }
 
 /*Buttons */
 #queue-buttons {
   /*Positions*/
-  top: 30%;
-  left: 18%;
-  position: absolute;
+  margin-left: 40px;
+  margin-top: 10px;
 }
 
 /*Handles the 3 buttons in line order*/
@@ -113,8 +116,18 @@
   background-color: white;
 }
 
+#queue-buttons button {
+  width: 40px;
+  height: 40px;
 
+  background-color: white;
+  border: none;
+}
 
+#queue-buttons button:active {
+  background-color: white;
+  border: none;
+}
 
 
 
