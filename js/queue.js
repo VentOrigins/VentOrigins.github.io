@@ -18,12 +18,19 @@
     @return     none
     ========================================================================== */
 function addYoutubeToQueue(buttonClicked) {
+  //Returns the size of the queue list and increments the size by 1
   var queueLength = getLocalStorageSize();  
   incrementLocalStorageSize(queueLength);
-  var videoID = $(buttonClicked).attr('id');
-  $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'>" + videoID + "</div></li>");
-  console.log(queueLength);
+
+  var split = getIndexOfSplit();
+  var ytID = ytIDandTitle.substring(0,split);
+  var ytTitle = ytIDandTitle(split+2,ytIDandTitle.length);
+
+  localStorage[queueLength] = ytID;
+  $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'>" + queueLength + ytID + "/" +  scTitle + "</div></li>");
 }
+
+
 
 /*  =============================================================================
     
@@ -32,31 +39,58 @@ function addYoutubeToQueue(buttonClicked) {
     @return     none
     ========================================================================== */
 function addSoundCloudToQueue(buttonClicked) {
-  localStorage.clear();
+  //Returns the size of the queue list and increments the size by 1
   var queueLength = getLocalStorageSize();  
   incrementLocalStorageSize(queueLength);
-  var videoID = $(buttonClicked).attr('id');
-  $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'>" + videoID + "</div></li>");
-  console.log(queueLength);
+
+  var split = getIndexOfSplit();
+  var scID = scIDandTitle.substring(0,split);
+  var scTitle = scIDandTitle(split+2,scIDandTitle.length);
+
+  localStorage[queueLength] = scID;
+  $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'>" + queueLength + scID + "/" +  scTitle + "</div></li>");
 }
 
+function getIndexOfSplit(buttonClicked) {
+  var idAndTitle = $(buttonClicked).attr('id');
+  var split = idAndTitle.indexOf("/|");
+  return split;
+}
 
+/*  =============================================================================
+    
+
+    @param      
+    @return     none
+    ========================================================================== */
 function getLocalStorageSize() {
   if (localStorage.getItem("length") === null) {
-    console.log("Is 0");
-    return 0;
+    return "0";
   }
   else {
-    console.log("Not nul");
     return localStorage.getItem("length");
   }
 }
+/*  =============================================================================
+    
 
+    @param      
+    @return     none
+    ========================================================================== */
 function incrementLocalStorageSize(currentSize) {
   var intCurrentSize = parseInt(currentSize);
   var newSize = (intCurrentSize + 1).toString();
-  console.log(newSize);
   localStorage.setItem("length", newSize);
+}
+
+/*  =============================================================================
+    
+
+    @param      
+    @return     none
+    ========================================================================== */
+function localStorageClear() {
+  localStorage.clear();
 }
 
 
