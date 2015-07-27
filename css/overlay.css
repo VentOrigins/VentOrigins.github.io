@@ -54,6 +54,17 @@
   
 }
 
+/*When hovering over a row*/
+.youTubeTracksRow:hover, 
+.youTubeTracksRow:hover .addButton,
+.youTubeTracksRow:hover .image-thumbnail,
+.soundCloudTracksRow:hover, 
+.soundCloudTracksRow:hover .addButton, 
+.soundCloudTracksRow:hover .image-thumbnail {
+  background-color: #ebfefa;
+}
+
+/*Left side for youtube tracks*/
 #youTubeTracks {
   width: 50%;
 
@@ -81,11 +92,6 @@
   display: inline-flex;
 }
 
-/*When hovering over a row*/
-.youTubeTracksRow:hover, .youTubeTracksRow:hover .image-thumbnail{
-  background-color: #ebfefa;
-}
-
 .youTubeTracksText {
   width: 80%;
 
@@ -106,6 +112,7 @@
   text-decoration: underline;
 }
 
+/*Right side of overlay of sound cloud tracks*/
 #soundCloudTracks {
   width: 50%;
 
@@ -131,11 +138,6 @@
   height: 100px;
   /*Displays the track with thumbnail in line*/
   display: inline-flex;
-}
-
-/*When hovering over a row*/
-.soundCloudTracksRow:hover, .soundCloudTracksRow:hover .image-thumbnail{
-  background-color: #ebfefa;
 }
 
 .soundCloudTracksText {
@@ -178,8 +180,8 @@
 }
 
 .image-thumbnail img {
-  width: 100%;
-  height: 100%;
+  width: 90%;
+  height: 90%;
   
   position: absolute;
   top: 0;
