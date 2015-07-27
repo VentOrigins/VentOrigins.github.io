@@ -32,6 +32,7 @@ function addYoutubeToQueue(buttonClicked) {
     @return     none
     ========================================================================== */
 function addSoundCloudToQueue(buttonClicked) {
+  localStorage.clear();
   var queueLength = getLocalStorageSize();  
   incrementLocalStorageSize(queueLength);
   var videoID = $(buttonClicked).attr('id');
