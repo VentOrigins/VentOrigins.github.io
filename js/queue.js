@@ -51,7 +51,8 @@ function getLocalStorageSize() {
 
 function incrementLocalStorageSize(currentSize) {
   var newSize = currentSize++;
-  localStorage["length"] = newSize;
+  localStorage.setItem("length", newSize);
+  console.log("newSize" + newSize);
 }
 
 

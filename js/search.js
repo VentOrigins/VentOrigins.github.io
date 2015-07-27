@@ -136,7 +136,6 @@ function displayYoutubeOnOverlay(videos) {
   var str;
   var button;
   console.log(videos.result);
-  $('#youTubeTracks').append("Youtube");
   for(var i = 0; i < videos.result.items.length; i++) {
     // VIDEO ID TO THE URL LINK
     videoID = videos.result.items[i].id.videoId;
@@ -165,8 +164,7 @@ function displaySoundCloudOnOverlay(tracks) {
   var str;
   var artwork_url;
   var next_href;
-  console.log(tracks)
-  $("#soundCloudTracks").append("<h1> SoundCloud </h1>");
+  console.log(tracks);
   for (var i = 0; i < tracks.collection.length; ++i) {  
     uri = tracks.collection[i].uri;
     button = "<button id='" + uri + "' class='addButton' onclick='addSoundCloudToQueue(this)'> + </button>"
