@@ -61,7 +61,7 @@
 .soundCloudTracksRow:hover, 
 .soundCloudTracksRow:hover .addButton, 
 .soundCloudTracksRow:hover .image-thumbnail {
-  background-color: #ebfefa;
+  background-color: #DCDCDC;
 }
 
 /*Left side for youtube tracks*/
@@ -183,9 +183,6 @@
   width: 90%;
   height: 90%;
   
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
