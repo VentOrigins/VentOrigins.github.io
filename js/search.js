@@ -139,12 +139,11 @@ function displayYoutubeOnOverlay(videos) {
   for(var i = 0; i < videos.result.items.length; i++) {
     // VIDEO ID TO THE URL LINK
     videoID = videos.result.items[i].id.videoId;
-    button = "<button id='" + videoID + "' class='addButton' onclick='addToQueue(this)'> + </button> "
+    button = "<button id='" + videoID + "' class='addButton' onclick='addToQueue(this, 'youtube')'> + </button> "
     title = "<div class='youTubeTracksText'>" + "<a href='" + "http://www.youtube.com/watch?v=" + videoID + "'>" + videos.result.items[i].snippet.title + "</a>"+ "</div>";
     thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
     str = button + title + thumbnail;
     $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
-
   }
   checkSize();
 }
@@ -168,7 +167,7 @@ function displaySoundCloudOnOverlay(tracks) {
   console.log(tracks)
   for (var i = 0; i < tracks.collection.length; ++i) {  
     uri = tracks.collection[i].uri;
-    button = "<button id='" + uri + "' class='addButton' onclick='addToQueue(this)'> + </button>"
+    button = "<button id='" + uri + "' class='addButton' onclick='addToQueue(this, 'soundcloud')'> + </button>"
 
     title = "<div class='soundCloudTracksText'>" + "<a href='" + uri + "'>" + tracks.collection[i].title + "</a>" + "</div>";
     username = tracks.collection[i].user.username;
