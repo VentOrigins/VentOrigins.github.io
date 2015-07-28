@@ -113,7 +113,7 @@ function displayVideoOrTrack(idAndTitle) {
     @return     none
     ========================================================================== */
 function displayYoutube () {
-
+  console.log($.trim($('#youTubePlayer').text()).length);
   if(!$.trim($('#youTubePlayer').text()).length) {
     console.log("Showing YT");
     showYTPlayer();
