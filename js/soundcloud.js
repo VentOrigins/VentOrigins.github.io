@@ -21,8 +21,6 @@ function playSC() {
 	  // set new volume level
 	  widget.setVolume(50);
 	  // get the value of the current position
-	  var newSoundUrl = localStorage.getItem('currPlaying');
-	      // load new widget      
   	widget.bind(SC.Widget.Events.FINISH, function() {
 			hideSCPlayer();
     });
