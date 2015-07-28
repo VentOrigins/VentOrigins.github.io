@@ -41,6 +41,10 @@ function showSCPlayer() {
 	widget.load(newSoundUrl, {
           show_artwork: false,
         });
-	widget.play();
+	widget.bind(SC.Widget.Events.READY, function() {
+
+	  // get current level of volume
+	  widget.play();
+	});
 
 }
