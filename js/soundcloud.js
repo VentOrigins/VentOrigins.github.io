@@ -1,4 +1,4 @@
-var widget;
+
 function displaySoundCloudPlayer() {
 
 	console.log(localStorage.getItem('currPlaying'));
