@@ -74,11 +74,13 @@ function finishedOverlaying() {
     displaySoundCloudPlayer(); // Don't append new soundCloud player
   }
   
+  
+  // console.log("HTML: " + $('#queues').html());
+  // console.log("length: " + $('#queues').length);
+  console.log("text: " + $('#queues').text().length);
+
   // If the queue list is empty
-  console.log("HTML: " + $('#queues').html());
-  console.log("length: " + $('#queues').length);
-  console.log("text: " + $('#queues').text());
-  if ($('#queues').length) {
+  if ($('#queues').text) {
     console.log($('#queues').length);
     insertSplashSearchBar();
   }
