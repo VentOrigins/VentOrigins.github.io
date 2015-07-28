@@ -39,7 +39,9 @@ function showSCPlayer() {
 	 widget       = SC.Widget(widgetIframe);
 	newSoundUrl = localStorage.getItem('currPlaying');
 	widget.load(newSoundUrl, {
-          show_artwork: false
+          show_artwork: false,
+          auto
         });
+	widget.play();
 
 }
