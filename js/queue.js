@@ -27,10 +27,8 @@ function addYoutubeToQueue(buttonClicked) {
   var ytTitle = getTitle(ytIDandTitle);
 
   localStorage[queueLength] = ytIDandTitle;
-  $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'>" + queueLength + ytID + "/" +  ytTitle + "</div></li>");
+  $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'> <button id='" + ytID + "/|" + queueLength + "'>" + ytTitle + "</button> </div></li>");
 }
-
-
 
 /*  =============================================================================
     
@@ -48,15 +46,27 @@ function addSoundCloudToQueue(buttonClicked) {
   var scTitle = getTitle(scIDandTitle);
 
   localStorage[queueLength] = scIDandTitle;
-  $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'>" + queueLength + scID + "/" +  scTitle + "</div></li>");
+  $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'> <button id='" + scID + "/|" + queueLength + "'>" + scTitle + "</button> </div></li>");
 }
 
+/*  =============================================================================
+    
+
+    @param      
+    @return     none
+    ========================================================================== */
 function getID(idAndTitle) {
   var split = idAndTitle.indexOf("/|");
   var id = idAndTitle.substring(0,split);
   return id;
 }
 
+/*  =============================================================================
+    
+
+    @param      
+    @return     none
+    ========================================================================== */
 function getTitle(idAndTitle) {
   var split = idAndTitle.indexOf("/|");
   var title = idAndTitle.substring(split+2,idAndTitle.length);
@@ -106,14 +116,16 @@ function localStorageClear() {
     @return     none
     ========================================================================== */
 function appendSongsIntoQueue() {
+  // IF the queue list is empty, don't do any appending
   if (localStorage.getItem("length") === null) {
     return;
   }
 
+  // Incrememnts through every song to queue in the list
   for (var i = 0; i < parseInt(localStorage.getItem("length")); ++i) {
     var strI = i.toString();
     if (localStorage.getItem(strI) == 'undefined') {
-
+      
     }
     else {
       var id = getID(localStorage.getItem(strI));
