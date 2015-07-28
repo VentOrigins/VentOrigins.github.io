@@ -1,14 +1,16 @@
 function displaySoundCloudPlayer() {
-	
-	$("#soundCloudPlayer").append("<iframe id='sc-widget' src='https://w.soundcloud.com/player/?url=" + localStorage.getItem('currPlaying') + " width='100%' height='200' scrolling='no' frameborder='no'></iframe>");
+
+	console.log(localStorage.getItem('currPlaying'));
+	checkSize();
+	$("#soundCloudPlayer").append("<iframe id='sc-widget' src='https://w.soundcloud.com/player/?url=http://" + localStorage.getItem('currPlaying') + "width='100%' height='200' scrolling='no' frameborder='no'></iframe>");
 }
 
 
 function playSC() {
 	var soundCloud = true;
 	var widgetIframe = document.getElementById('sc-widget'),
-	widget = SC.Widget(widgetIframe);
-	widget.play();
+	 widget       = SC.Widget(widgetIframe);
+
 	widget.bind(SC.Widget.Events.READY, function() {
 
 	  // get current level of volume
