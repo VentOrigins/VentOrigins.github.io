@@ -9,7 +9,7 @@ $(document).ready(function() {
   // FIrst check initial window size and adjusts sizes of divs
   checkSize();
 
-  appendSongsIntoQueue()
+  appendSongsIntoQueue();
 
   // Initialize side nav
   $('.button-collapse').sideNav({

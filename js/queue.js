@@ -74,7 +74,7 @@ function getLocalStorageSize() {
     return "0";
   }
   else {
-    return localStorage.getItem("length");]
+    return localStorage.getItem("length");
   }
 }
 /*  =============================================================================
