@@ -25,7 +25,7 @@ function onYouTubeIframeAPIReady() {
       'onStateChange': onPlayerStateChange
     }
   });
-  changeYouTubeSize();
+  checkSize();
 }
 
 // 4. The API will call this function when the video player is ready.
