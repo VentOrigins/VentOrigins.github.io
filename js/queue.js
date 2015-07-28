@@ -110,7 +110,7 @@ function appendSongsIntoQueue() {
     return;
   }
 
-  for (var i = 0; i < parseInt(localStorage.getItem("length")), ++i) {
+  for (var i = 0; i < parseInt(localStorage.getItem("length")); ++i) {
     var strI = i.toString();
     if (localStorage.getItem(strI) == 'undefined') {
 
