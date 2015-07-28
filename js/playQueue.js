@@ -114,7 +114,7 @@ function displayVideoOrTrack(idAndTitle) {
     ========================================================================== */
 function displayYoutube () {
   console.log($.trim($('#youTubePlayer').html()).length);
-  if($.trim($('#youTubePlayer').html()).length) {
+  if(player == undefined) {
     console.log("Showing YT");
     showYTPlayer();
   }
@@ -131,7 +131,7 @@ function displayYoutube () {
     @return     none
     ========================================================================== */
 function displaySoundCloud () {
-  if($.trim($('#soundCloudPlayer').html()).length) {
+  if($('#sc-widget').length) {
     showSCPlayer();
     console.log("WTF");
   }
