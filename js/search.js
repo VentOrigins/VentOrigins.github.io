@@ -15,11 +15,10 @@ var q;
 function search() {
   // Removes defaults
   event.preventDefault();
+  
   console.log("Searched");
   // Puts an overlay over the splash screen to display tracks
-  if($('#youTubeTracks').length) {
-    return;
-  }
+
   overlayTracks("#splash-screen");
 
   if ($('#query-form').css('display') == 'none') {
