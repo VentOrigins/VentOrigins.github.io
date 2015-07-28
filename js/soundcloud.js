@@ -7,7 +7,7 @@ function displaySoundCloudPlayer() {
 function playSC() {
 	var soundCloud = true;
 	var widgetIframe = document.getElementById('sc-widget'),
-	var widget = SC.Widget(widgetIframe);
+	widget = SC.Widget(widgetIframe);
 	widget.play();
 	widget.bind(SC.Widget.Events.READY, function() {
 
