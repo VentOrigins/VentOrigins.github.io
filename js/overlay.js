@@ -78,10 +78,6 @@ function removeNavBarQuery() {
 function finishedOverlaying() {
   $("#splash-screen > div[class='overlay']").remove();
 
-  if(!$('#top-title').length) {
-    displaySoundCloudPlayer(); // Don't append new soundCloud player
-  }
-
   // If the queue list is empty
   if (!$.trim($('#queues').text()).length) {
     insertSplashSearchBar();

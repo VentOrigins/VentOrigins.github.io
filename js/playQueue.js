@@ -12,12 +12,18 @@
     @return     none
     ========================================================================== */
 function playQueue(position) {
-  // If emptpy queue, just return
+  //If empty queue, just return
   if (localStorage.getItem("length") === null) {
     return;
   }
+  //If there is a song currently playing
   if(localStorage.getItem('currPlaying') != null) {
+    console.log("Has Curr Playing");
     return;
+  }
+  //If top title doesn't exist insert it
+  if(!$('#top-title').length) {
+    insertTopSearchBar();
   }
 
   //Gets top of list on queue
@@ -32,12 +38,12 @@ function playQueue(position) {
       return;
 
     if (localStorage.getItem(i.toString()) != 'undefined') {
+
       found = true;  
 
       // Go to displaying song if youtube or soundcloud
       setCurrentPosition(i.toString());
       displayVideoOrTrack(localStorage.getItem(i.toString()));
-
 
       // Highlights top list on queue or etc.
       
