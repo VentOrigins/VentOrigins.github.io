@@ -19,6 +19,7 @@ function playQueue(position) {
 
   //Gets top of list on queue
   var found = false;
+  console.log(position + " Playqueue");
   var i = position;
 
   while (!found) {
@@ -149,6 +150,7 @@ function setCurrentlyPlaying(id) {
 }
 
 function setCurrentPosition(position) {
+  console.log("Position: " + position);
   localStorage.setItem('currPosition', position); 
 }
 
