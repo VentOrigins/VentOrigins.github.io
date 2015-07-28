@@ -90,6 +90,7 @@ function displayVideoOrTrack(idAndTitle) {
   setCurrentlyPlaying(id);
 
   // Display youtube video
+  console.log("TITLEEEEE:" + title);
   if (id.indexOf('soundcloud') == -1) {
     hideSCPlayer();
     displayYoutube();
