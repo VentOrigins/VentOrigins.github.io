@@ -108,7 +108,7 @@ function localStorageClear() {
 function appendSongsIntoQueue() {
   if (localStorage.getItem("length") === null) {
     return;
-  )
+  }
 
   for (var i = 0; i < parseInt(localStorage.getItem("length")), ++i) {
     var strI = i.toString();
