@@ -11,7 +11,7 @@
     @param      
     @return     none
     ========================================================================== */
-function playQueue() {
+function playQueue(position) {
   // If emptpy queue, just return
   if (localStorage.getItem("length") === null) {
     return;
@@ -19,19 +19,26 @@ function playQueue() {
 
   //Gets top of list on queue
   var found = false;
-  var i = 0;
+  var i = position;
 
   while (!found) {
-    console.log(localStorage.getItem(i.toString()));
+
+    //At the end of length
+    if(i == parseInt(localStorage.getItem('length')))
+      return;
+
     if (localStorage.getItem(i.toString()) != 'undefined') {
       found = true;  
 
       // Go to displaying song if youtube or soundcloud
+      setCurrentPosition(i.toString());
       displayVideoOrTrack(localStorage.getItem(i.toString()));
 
+
       // Highlights top list on queue or etc.
-   
+      
     }
+
     ++i;
   }
 }
@@ -44,11 +51,12 @@ function playQueue() {
     ========================================================================== */
 function nextOnQueue() {
   //Get next on list of queue
+  var currPos = parseInt(localStorage.getItem('currPosition'));
+  if(parseInt(localStorage.getItem('length')) == currPos) {
+    currPos = 0;
+  }
+  playQueue(currPos);
 
-  // Deletes top track on queue
-
-  // Go to displaying song if youtube or soundcloud
-  displayVideoOrTrack()
 }
 
 // DO NOT KNOW IF WE NEED TO USE THIS FUNCTIONALITY YET
@@ -82,10 +90,12 @@ function displayVideoOrTrack(idAndTitle) {
 
   // Display youtube video
   if (id.indexOf('soundcloud') == -1) {
+    hideSCPlayer();
     displayYoutube();
   }
   // Display soundcloud track
   else if (id.indexOf('soundcloud') > -1) {
+    hideYTPlayer();
     displaySoundCloud();
     playSC();
   }
@@ -102,7 +112,13 @@ function displayVideoOrTrack(idAndTitle) {
     @return     none
     ========================================================================== */
 function displayYoutube () {
-  displayYouTubePlayer()
+  if($("#youTubePlayer").css('display') == 'none') {
+    showYTPlayer();
+  }
+  else {
+    displayYouTubePlayer();
+  }
+  
 }
 
 /*  =============================================================================
@@ -112,7 +128,13 @@ function displayYoutube () {
     @return     none
     ========================================================================== */
 function displaySoundCloud () {
-  displaySoundCloudPlayer();
+  if($("#soundCloudPlayer").css('display') == 'none') {
+    showSCPlayer();
+  }
+  else {
+    displaySoundCloudPlayer();
+  }
+  
 }
 
 /*  =============================================================================
@@ -125,5 +147,7 @@ function setCurrentlyPlaying(id) {
   localStorage.setItem('currPlaying', id);
 }
 
-
+function setCurrentPosition(position) {
+  localStorage.setItem('currPosition', position); 
+}
 

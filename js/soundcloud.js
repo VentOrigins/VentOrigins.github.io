@@ -34,4 +34,8 @@ function hideSCPlayer() {
 
 function showSCPlayer() {
 	$("#soundCloudPlayer").show();
+	widget.load(localStorage.getItem('currPlaying'), {
+          show_artwork: true
+        });
+
 }

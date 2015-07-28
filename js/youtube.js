@@ -39,7 +39,7 @@ function onPlayerReady(event) {
 //    the player should play for six seconds and then stop.
 function onPlayerStateChange(event) {
   if (event.data == YT.PlayerState.ENDED) {
-    hideYTPlayer();
+    nextQueue();
   }
 }
 
@@ -53,6 +53,7 @@ function hideYTPlayer() {
 
 function showYTPlayer() {
   $("#youTubePlayer").show();
+  player.loadVideoById(localStorage.getItem('currPlaying'),0,large);
 }
 
 
