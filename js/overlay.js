@@ -73,10 +73,13 @@ function finishedOverlaying() {
   if(!$('#top-title').length) {
     displaySoundCloudPlayer(); // Don't append new soundCloud player
   }
-  // If no playlist
   
   // If the queue list is empty
+  console.log("HTML: " + $('#queues').html());
+  console.log("length: " + $('#queues').length);
+  console.log("text: " + $('#queues').text());
   if ($('#queues').length) {
+    console.log($('#queues').length);
     insertSplashSearchBar();
   }
   
