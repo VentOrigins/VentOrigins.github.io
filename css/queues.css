@@ -57,15 +57,19 @@
 .queue-text {
   display: inline-block;
   vertical-align: middle;
-  padding-bottom: 17px;
   padding-left: 5px;
   z-index: 1000;
 }
+.queue-text a {
+  padding: 0;
+}
+
 
 /*Font awesome*/
 #queues i {
   color: black;
 }
+
 
 /*Youtube Font awesome*/
 #queues .fa-youtube {
