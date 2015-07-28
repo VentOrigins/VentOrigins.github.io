@@ -113,8 +113,8 @@ function displayVideoOrTrack(idAndTitle) {
     @return     none
     ========================================================================== */
 function displayYoutube () {
-  console.log($.trim($('#youTubePlayer').text()).length);
-  if($.trim($('#youTubePlayer').text()).length) {
+  console.log($.trim($('#youTubePlayer').html()).length);
+  if($.trim($('#youTubePlayer').html()).length) {
     console.log("Showing YT");
     showYTPlayer();
   }
@@ -131,7 +131,7 @@ function displayYoutube () {
     @return     none
     ========================================================================== */
 function displaySoundCloud () {
-  if($.trim($('#soundCloudPlayer').text()).length) {
+  if($.trim($('#soundCloudPlayer').html()).length) {
     showSCPlayer();
     console.log("WTF");
   }
