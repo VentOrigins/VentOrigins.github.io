@@ -53,6 +53,11 @@
 
 }
 
+#queues li:hover, 
+#queues li:hover button {
+  background-color: #DCDCDC;
+}
+
 /*The text and song*/
 .queue-text {
   position: relative;
