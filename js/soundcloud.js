@@ -15,12 +15,13 @@ function playSC() {
 
 	widget.bind(SC.Widget.Events.READY, function() {
 
-	  // get current level of volume
+	 
 	  widget.getVolume(function(volume) {
 	    console.log('current volume value is ' + volume);
 	  });
 	  // set new volume level
 	  widget.setVolume(50);
+	  widget.play();
 	  // get the value of the current position
   	widget.bind(SC.Widget.Events.FINISH, function() {
 			nextQueue();
