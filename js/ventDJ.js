@@ -33,11 +33,15 @@ function checkSize() {
     document.getElementById("nav-bar").style.left = '0px';
     document.getElementById("splash-screen").style.left = '0px';
     document.getElementById("page-footer-id").style.left = '0px';
+    document.getElementById("soundCloudPlayer").style.left = '0px';
+    document.getElementById("youTubePlayer").style.left = '0px';
 
     // Adds the queue bar width to the divs
     document.getElementById("nav-bar").style.width = $(window).width() + 'px';
     document.getElementById("splash-screen").style.width = $(window).width() + 'px';
     document.getElementById("page-footer-id").style.width = $(window).width() + 'px';
+    document.getElementById("soundCloudPlayer").style.width = $(window).width() + 'px';
+    document.getElementById("youTubePlayer").style.width = $(window).width() + 'px';
   }
 
   // When screen is big, starts the div after the queue-bar
@@ -46,12 +50,16 @@ function checkSize() {
     document.getElementById("nav-bar").style.left = document.getElementById('queue-bar').offsetWidth + 'px';
     document.getElementById("splash-screen").style.left = document.getElementById('queue-bar').offsetWidth + 'px';
     document.getElementById("page-footer-id").style.left = document.getElementById('queue-bar').offsetWidth + 'px';
-
+    document.getElementById("youTubePlayer").style.left = document.getElementById('queue-bar').offsetWidth + 'px';
+    document.getElementById("soundCloudPlayer").style.left = document.getElementById('queue-bar').offsetWidth + 'px';
+    
     // Sets the width of each div to be the non queue-bar width
     var divWidth = $(window).width() - document.getElementById('queue-bar').offsetWidth;
     document.getElementById("nav-bar").style.width = divWidth + 'px';
     document.getElementById("splash-screen").style.width = divWidth + 'px';
     document.getElementById("page-footer-id").style.width = divWidth + 'px';
+    document.getElementById("youTubePlayer").style.width = divWidth + 'px';
+    document.getElementById("soundCloudPlayer").style.width = divWidth + 'px';
   }
 }
 
