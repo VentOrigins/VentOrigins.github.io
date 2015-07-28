@@ -16,6 +16,9 @@ function playQueue(position) {
   if (localStorage.getItem("length") === null) {
     return;
   }
+  if(localStorage.getItem('currPlaying') != null) {
+    return;
+  }
 
   //Gets top of list on queue
   var found = false;
