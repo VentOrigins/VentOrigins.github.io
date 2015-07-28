@@ -8,7 +8,9 @@ $(document).ready(function() {
   console.log("Document Ready");
   // FIrst check initial window size and adjusts sizes of divs
   checkSize();
-
+  // Removes the current position and current playing
+  localStorage.removeItem('currPlaying');
+  localStorage.removeItem('currPosition');
   appendSongsIntoQueue();
 
   // Initialize side nav
