@@ -14,8 +14,8 @@ function displayYouTubePlayer() {
   // 3. This function creates an <iframe> (and YouTube player)
   //    after the API code downloads.
 function onYouTubeIframeAPIReady() {
-  var splashHeight = $("#splash-screen").height();
-  var splashWidth = $("#splash-screen").width();
+  var splashHeight = document.getElementById("splash-screen").offsetHeight;
+  var splashWidth = document.getElementById("splash-screen").offsetWidth;
   player = new YT.Player('youTubePlayer', {
     height: splashHeight,
     width: splashWidth,
