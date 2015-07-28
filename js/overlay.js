@@ -12,10 +12,14 @@
     @return     none
     ========================================================================== */
 function overlayTracks(divToOverlay) {  
+  //Check if overlay is made already
+  if($('#youTubeTracks').length) {
+    return;
+  }
   var overlay = "<div class='overlay'>";
   var button = "<button id='close-button' onclick='finishedOverlaying()'> x </button>";
   var youTubeTracks = "<div id='youTubeTracks'></div>";
-  var soundCloudTracks = "<div id='soundCloudTracks'>  </div> </div>"; 
+  var soundCloudTracks = "<div id='soundCloudTracks'>  </div> </div>";
   $(divToOverlay).append(overlay + button + youTubeTracks + soundCloudTracks);
 }
 

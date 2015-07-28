@@ -49,6 +49,8 @@ function addSoundCloudToQueue(buttonClicked) {
   $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'> <button id='" + scID + "/|" + queueLength + "'>" + scTitle + "</button> </div></li>");
 }
 
+
+
 /*  =============================================================================
     
 
@@ -112,7 +114,7 @@ function localStorageClear() {
 
 /*  =============================================================================
     From: ventDJ.js
-
+    Append songs at the start of website if there are any songs
     @param      
     @return     none
     ========================================================================== */
