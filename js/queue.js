@@ -106,6 +106,7 @@ function incrementLocalStorageSize(currentSize) {
     @return     none
     ========================================================================== */
 function localStorageClear() {
+  $('#queues').empty();
   localStorage.clear();
 }
 
@@ -125,7 +126,7 @@ function appendSongsIntoQueue() {
   for (var i = 0; i < parseInt(localStorage.getItem("length")); ++i) {
     var strI = i.toString();
     if (localStorage.getItem(strI) == 'undefined') {
-      
+
     }
     else {
       var id = getID(localStorage.getItem(strI));
