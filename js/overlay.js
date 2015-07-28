@@ -77,7 +77,7 @@ function finishedOverlaying() {
   
   // console.log("HTML: " + $('#queues').html());
   // console.log("length: " + $('#queues').length);
-  console.log("text: " + $('#queues').text().length);
+  console.log("text: " + $.trim($('#queues').text()).length);
 
   // If the queue list is empty
   if ($('#queues').text) {
