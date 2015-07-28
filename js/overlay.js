@@ -12,8 +12,11 @@
     @return     none
     ========================================================================== */
 function overlayTracks(divToOverlay) {  
-  //Check if overlay is made already
+  
+  //Check if overlay is made already and empty tracks
   if($('#youTubeTracks').length) {
+    $('#youTubeTracks').empty();
+    $('#soundCloudTracks').empty();
     return;
   }
   var overlay = "<div class='overlay'>";
