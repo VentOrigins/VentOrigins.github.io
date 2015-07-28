@@ -22,7 +22,8 @@ function playQueue() {
   var i = 0;
 
   while (!found) {
-    if (localStorage.getItem(i.toString()) != 'undefined')) {
+    console.log(localStorage.getItem(i.toString()));
+    if (localStorage.getItem(i.toString()) != 'undefined') {
       found = true;  
 
       // Go to displaying song if youtube or soundcloud
