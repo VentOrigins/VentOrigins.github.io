@@ -87,6 +87,7 @@ function displayVideoOrTrack(idAndTitle) {
   // Display soundcloud track
   else if (id.indexOf('soundcloud') > -1) {
     displaySoundCloud();
+    playSC();
   }
   else {
     // ERROR, never should get here
@@ -111,7 +112,7 @@ function displayYoutube () {
     @return     none
     ========================================================================== */
 function displaySoundCloud () {
-  // displaySoundCloudPlayer();
+  displaySoundCloudPlayer();
 }
 
 /*  =============================================================================
