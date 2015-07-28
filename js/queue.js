@@ -26,7 +26,7 @@ function addYoutubeToQueue(buttonClicked) {
   var ytID = getID(ytIDandTitle);
   var ytTitle = getTitle(ytIDandTitle);
 
-  localStorage[queueLength] = ytID;
+  localStorage[queueLength] = ytIDandTitle;
   $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'>" + queueLength + ytID + "/" +  ytTitle + "</div></li>");
 }
 
@@ -47,7 +47,7 @@ function addSoundCloudToQueue(buttonClicked) {
   var scID = getID(scIDandTitle);
   var scTitle = getTitle(scIDandTitle);
 
-  localStorage[queueLength] = scID;
+  localStorage[queueLength] = scIDandTitle;
   $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'>" + queueLength + scID + "/" +  scTitle + "</div></li>");
 }
 
@@ -74,7 +74,7 @@ function getLocalStorageSize() {
     return "0";
   }
   else {
-    return localStorage.getItem("length");
+    return localStorage.getItem("length");]
   }
 }
 /*  =============================================================================
@@ -97,6 +97,39 @@ function incrementLocalStorageSize(currentSize) {
     ========================================================================== */
 function localStorageClear() {
   localStorage.clear();
+}
+
+/*  =============================================================================
+    From: ventDJ.js
+
+    @param      
+    @return     none
+    ========================================================================== */
+function appendSongsIntoQueue() {
+  if (localStorage.getItem("length") === null) {
+    return;
+  )
+
+  for (var i = 0; i < parseInt(localStorage.getItem("length")), ++i) {
+    var strI = i.toString();
+    if (localStorage.getItem(strI) == 'undefined') {
+
+    }
+    else {
+      var id = getID(localStorage.getItem(strI));
+      var title = getTitle(localStorage.getItem(strI));
+
+      if (id.indexOf('soundcloud') == -1) {
+        $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'> <button id='" + id + "/|" + strI "'>" + title + "</button> </div></li>");
+      }
+      else if (id.indexOf('soundcloud') > -1) {
+        $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'> <button id='" + id + "/|" + strI "'>" + title + "</button> </div></li>");
+      }
+      else {
+        // ERROR, never should get here
+      }
+    }
+  }
 }
 
 

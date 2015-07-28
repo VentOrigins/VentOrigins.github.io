@@ -9,6 +9,8 @@ $(document).ready(function() {
   // FIrst check initial window size and adjusts sizes of divs
   checkSize();
 
+  appendSongsIntoQueue()
+
   // Initialize side nav
   $('.button-collapse').sideNav({
     menuWidth: 300, // Default is 240
