@@ -36,10 +36,9 @@
 
 /*Handles the li's for the queues*/
 #queues li {
-  margin-top: 5px;
-  margin-bottom: 5px;
-
-  padding-top: 6px;
+  /*Center it in the row for hover*/
+  padding-top: 7px;
+  padding-bottom: 7px;
   padding-left: 25px;
 
   /*Font*/
@@ -54,16 +53,14 @@
 
 }
 
+/*The text and song*/
 .queue-text {
+  position: relative;
+  bottom: 9px;
+
   display: inline-block;
-  vertical-align: middle;
-  padding-left: 5px;
   z-index: 1000;
 }
-.queue-text a {
-  padding: 0;
-}
-
 
 /*Font awesome*/
 #queues i {
