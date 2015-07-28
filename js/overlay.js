@@ -65,6 +65,8 @@ function insertSplashSearchBar() {
 //   console.log("FINISHED REMOVING OVERLAY\n\n");
 // }
 
+
+
 function finishedOverlaying() {
   $("#splash-screen > div[class='overlay']").remove();
 
@@ -73,8 +75,10 @@ function finishedOverlaying() {
   }
   // If no playlist
   
-  insertSplashSearchBar();
-
+  // If the queue list is empty
+  if ($('#queues').length) {
+    insertSplashSearchBar();
+  }
   
   // displayYouTubePlayer();
   checkSize();

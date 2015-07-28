@@ -56,21 +56,21 @@ function prevOnQueue() {
     ========================================================================== */
 function displayVideoOrTrack() {
   //FIrst checks if overlay there, then removes it
-  if () {
+  if (true) {
 
   }
 
   // If there are stuff in splash screen, empty it
-  if () {
+  if (true) {
 
   }
 
   // Youtube
-  if () {
+  if (true) {
     displayYoutube();
   }
   // Soundcloud
-  else if () {
+  else if (true) {
     displaySoundCloud();
   }
   // Never gets here
