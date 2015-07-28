@@ -61,7 +61,7 @@
 /*The text and song*/
 .queue-text {
   position: relative;
-  bottom: 9px;
+  bottom: 8px;
 
   display: inline-block;
   z-index: 1000;
