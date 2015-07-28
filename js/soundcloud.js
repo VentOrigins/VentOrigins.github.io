@@ -22,7 +22,7 @@ function playSC() {
 	  widget.setVolume(50);
 	  // get the value of the current position
   	widget.bind(SC.Widget.Events.FINISH, function() {
-			hideSCPlayer();
+			nextQueue();
     });
 	    
 	});

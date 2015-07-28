@@ -49,7 +49,7 @@ function playQueue(position) {
     @param      
     @return     none
     ========================================================================== */
-function nextOnQueue() {
+function nextQueue() {
   //Get next on list of queue
   var currPos = parseInt(localStorage.getItem('currPosition'));
   if(parseInt(localStorage.getItem('length')) == currPos) {
