@@ -139,7 +139,7 @@ function displayYoutubeOnOverlay(videos) {
   for(var i = 0; i < videos.result.items.length; i++) {
     // VIDEO ID TO THE URL LINK
     videoID = videos.result.items[i].id.videoId;
-    if (videoId != undefined) {
+    if (videoID != undefined) {
       //Seperating URI and title to parse
       button = "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'> + </button> "
       title = "<div class='youTubeTracksText'>" + "<a href='" + "http://www.youtube.com/watch?v=" + videoID + "'>" + videos.result.items[i].snippet.title + "</a>"+ "</div>";
