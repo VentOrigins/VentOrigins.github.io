@@ -31,3 +31,7 @@ function playSC() {
 function hideSCPlayer() {
 	$("#soundCloudPlayer").hide();
 }
+
+function showSCPlayer() {
+	$("#soundCloudPlayer").show();
+}

@@ -39,7 +39,7 @@ function onPlayerReady(event) {
 //    the player should play for six seconds and then stop.
 function onPlayerStateChange(event) {
   if (event.data == YT.PlayerState.ENDED) {
-    player.destroy();
+    hideYTPlayer();
   }
 }
 
@@ -49,6 +49,10 @@ function stopVideo() {
 
 function hideYTPlayer() {
   $("#youTubePlayer").hide();
+}
+
+function showYTPlayer() {
+  $("#youTubePlayer").show();
 }
 
 
