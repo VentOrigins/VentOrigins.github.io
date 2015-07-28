@@ -40,7 +40,6 @@ function showSCPlayer() {
 	newSoundUrl = localStorage.getItem('currPlaying');
 	widget.load(newSoundUrl, {
           show_artwork: false,
-          auto
         });
 	widget.play();
 
