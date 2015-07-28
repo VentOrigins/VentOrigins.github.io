@@ -1,4 +1,4 @@
-var player;
+var player = null;
 var done = false;
 function displayYouTubePlayer() {
   // 2. This code loads the IFrame Player API code asynchronously.

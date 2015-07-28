@@ -114,7 +114,7 @@ function displayVideoOrTrack(idAndTitle) {
     ========================================================================== */
 function displayYoutube () {
   console.log($.trim($('#youTubePlayer').html()).length);
-  if(player == undefined) {
+  if(player == null) {
     console.log("Showing YT");
     showYTPlayer();
   }
