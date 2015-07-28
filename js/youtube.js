@@ -53,8 +53,10 @@ function hideYTPlayer() {
 
 function showYTPlayer() {
   $("#youTubePlayer").show();
-  console.log("Please play");
-  player.loadVideoById(localStorage.getItem('currPlaying'),0,"large");
+}
+
+function loadYTVideo() {
+   player.loadVideoById(localStorage.getItem('currPlaying'),0,"large");
 }
 
 

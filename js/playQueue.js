@@ -90,7 +90,7 @@ function displayVideoOrTrack(idAndTitle) {
   setCurrentlyPlaying(id);
 
   // Display youtube video
-  console.log("TITLEEEEE:" + title);
+  console.log("ID:" + id);
   if (id.indexOf('soundcloud') == -1) {
     hideSCPlayer();
     displayYoutube();
@@ -114,10 +114,9 @@ function displayVideoOrTrack(idAndTitle) {
     @return     none
     ========================================================================== */
 function displayYoutube () {
-  console.log($.trim($('#youTubePlayer').html()).length);
+  showYTPlayer();
   if(player != null) {
-    console.log("Showing YT");
-    showYTPlayer();
+    loadYTVideo();
   }
   else {
     displayYouTubePlayer();
@@ -132,9 +131,9 @@ function displayYoutube () {
     @return     none
     ========================================================================== */
 function displaySoundCloud () {
+  showSCPlayer();
   if($('#sc-widget').length) {
-    showSCPlayer();
-    console.log("WTF");
+    loadSCVideo();
   }
   else {
     displaySoundCloudPlayer();

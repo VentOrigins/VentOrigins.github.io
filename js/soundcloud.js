@@ -36,6 +36,10 @@ function hideSCPlayer() {
 
 function showSCPlayer() {
 	$("#soundCloudPlayer").show();
+	
+}
+
+function loadSCVideo() {
 	var widgetIframe = document.getElementById('sc-widget'),
 	 widget       = SC.Widget(widgetIframe);
 	newSoundUrl = localStorage.getItem('currPlaying');
@@ -47,5 +51,8 @@ function showSCPlayer() {
 	  // get current level of volume
 	  widget.play();
 	});
-
 }
+
+
+
+
