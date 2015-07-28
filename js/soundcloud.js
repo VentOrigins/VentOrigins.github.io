@@ -1,3 +1,4 @@
+var widget;
 function displaySoundCloudPlayer() {
 
 	console.log(localStorage.getItem('currPlaying'));
@@ -34,6 +35,8 @@ function hideSCPlayer() {
 
 function showSCPlayer() {
 	$("#soundCloudPlayer").show();
+	var widgetIframe = document.getElementById('sc-widget'),
+	 widget       = SC.Widget(widgetIframe);
 	newSoundUrl = localStorage.getItem('currPlaying');
 	widget.load(newSoundUrl, {
           show_artwork: false
