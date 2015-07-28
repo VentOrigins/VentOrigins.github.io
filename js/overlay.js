@@ -27,8 +27,7 @@ function overlayTracks(divToOverlay) {
     @return     none
     ========================================================================== */
 function insertTopSearchBar() {
-  $("#query-form").hide();
-  $("#title").hide();
+  hideSplashQuery();
   var top_title = "<div id='top-title'> Vent DJ </div>";
   var top_search_form = "<div id='top-search-form'> <form onsubmit='javascript:search();'> <input id='top-search-box' type='search'> </form>";
   var top_search_button = "<button  onclick='search();'id='top-search-button'><i class='fa fa-search'></i></button></div>";
@@ -44,11 +43,20 @@ function insertTopSearchBar() {
     @return     none
     ========================================================================== */
 function insertSplashSearchBar() {
-  $("#top-title").remove();
-  $("#top-search-form").remove();
+  removeNavBarQuery();
   $("#query-form").show();
   $("#title").show();
 
+}
+
+function hideSplashQuery() {
+  $("#query-form").hide();
+  $("#title").hide();
+}
+
+function removeNavBarQuery() {
+  $("#top-title").remove();
+  $("#top-search-form").remove();
 }
 
 /*  =============================================================================
@@ -77,6 +85,9 @@ function finishedOverlaying() {
   // If the queue list is empty
   if (!$.trim($('#queues').text()).length) {
     insertSplashSearchBar();
+  }
+  else {
+    playQueue();
   }
   
   // displayYouTubePlayer();
