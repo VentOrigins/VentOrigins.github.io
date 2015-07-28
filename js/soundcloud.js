@@ -2,7 +2,7 @@ function displaySoundCloudPlayer() {
 
 	console.log(localStorage.getItem('currPlaying'));
 	checkSize();
-	$("#soundCloudPlayer").append("<iframe id='sc-widget' src='https://w.soundcloud.com/player/?url=http://" + localStorage.getItem('currPlaying') + "width='100%' height='200' scrolling='no' frameborder='no'></iframe>");
+	$("#soundCloudPlayer").append("<iframe id='sc-widget' src='https://w.soundcloud.com/player/?url=" + localStorage.getItem('currPlaying') + "'width='100%' height='200' scrolling='no' frameborder='no'></iframe>");
 }
 
 
