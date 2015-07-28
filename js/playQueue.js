@@ -113,7 +113,8 @@ function displayVideoOrTrack(idAndTitle) {
     @return     none
     ========================================================================== */
 function displayYoutube () {
-  if($("#youTubePlayer").css('display') == 'none') {
+
+  if($("#youTubePlayer").length) {
     console.log("Showing YT");
     showYTPlayer();
   }
@@ -130,8 +131,9 @@ function displayYoutube () {
     @return     none
     ========================================================================== */
 function displaySoundCloud () {
-  if($("#soundCloudPlayer").css('display') == 'none') {
+  if($("#soundCloudPlayer").length) {
     showSCPlayer();
+    console.log("WTF");
   }
   else {
     displaySoundCloudPlayer();
