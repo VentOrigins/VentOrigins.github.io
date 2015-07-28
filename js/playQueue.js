@@ -51,7 +51,7 @@ function playQueue(position) {
     ========================================================================== */
 function nextQueue() {
   //Get next on list of queue
-  var currPos = parseInt(localStorage.getItem('currPosition'));
+  var currPos = parseInt(localStorage.getItem('currPosition')) + 1;
   if(parseInt(localStorage.getItem('length')) == currPos) {
     currPos = 0;
   }
@@ -113,6 +113,7 @@ function displayVideoOrTrack(idAndTitle) {
     ========================================================================== */
 function displayYoutube () {
   if($("#youTubePlayer").css('display') == 'none') {
+    console.log("Showing YT");
     showYTPlayer();
   }
   else {
