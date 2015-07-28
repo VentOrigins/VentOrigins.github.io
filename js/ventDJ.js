@@ -58,8 +58,11 @@ function checkSize() {
     document.getElementById("nav-bar").style.width = divWidth + 'px';
     document.getElementById("splash-screen").style.width = divWidth + 'px';
     document.getElementById("page-footer-id").style.width = divWidth + 'px';
-    document.getElementById("youTubePlayer").style.width = divWidth + 'px';
     document.getElementById("soundCloudPlayer").style.width = divWidth + 'px';
+
+    // Set the width and height of the youtubePlayer
+    document.getElementById("youTubePlayer").style.width = divWidth + 'px';
+    document.getElementById("youTubePlayer").style.height = document.getElementById("splash-screen").offsetHeight + 'px';
   }
 }
 
