@@ -33,7 +33,7 @@ function playQueue(position) {
     if(i == parseInt(localStorage.getItem('length')))
       return;
 
-    if (localStorage.getItem(i.toString()) === null) {
+    if (localStorage.getItem(i.toString()) != null) {
 
       found = true;  
 
