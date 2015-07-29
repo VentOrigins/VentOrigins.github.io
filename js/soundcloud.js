@@ -5,7 +5,6 @@ function displaySoundCloudPlayer() {
 	checkSize();
 	var uri = encodeURIComponent(localStorage.getItem('currPlaying'));
 	$("#soundCloudPlayer").append("<iframe id='sc-widget' src='https://w.soundcloud.com/player/?url=" + uri + "'width='100%' height='200' scrolling='no' frameborder='no'></iframe>");
-	$("#soundCloudPlayer").append("<form id='sound-cloud-volume' action='#'><p class='range-field'><input type='range' min='0' max='100'/></p></form>");
 	
 	var widgetIframe = document.getElementById('sc-widget'),
 	 widget       = SC.Widget(widgetIframe);
@@ -54,15 +53,18 @@ function loadSCVideo() {
   });
 }
 
-function setVolume() {
+$('#sound-cloud-volume').on('input', function() {
+	var volume = $('#sound-cloud-volume').val();
+	console.log('Volume: ' + volume);
+	setSCVolume(volume);
+});
+
+function setSCVolume(volume) {
+	var five = 5;
+	console.log('In setSCVolume: ' + volume + ' ' + five);
 	var soundCloudVolume = document.getElementById('sound-cloud-volume');
 	var widgetIframe = document.getElementById('sc-widget'),
 	widget = SC.Widget(widgetIframe);
-	widget.setVolume(20);
+	widget.setVolume(volume);
 }
-
-$('#sound-cloud-volume').on('input', function() {
-	console.log('Volume: ' + $('#sound-cloud-volume').val());
-});
-
 
