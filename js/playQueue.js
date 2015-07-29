@@ -30,14 +30,12 @@ function playQueue(position) {
 
   while (!found) {
 
-    console.log(localStorage.getItem(i.toString()));
     //At the end of length
-    if(i == parseInt(localStorage.getItem('length')))
-      console.log("IF1");
+    if(i == parseInt(localStorage.getItem('length'))) {
       hideSCPlayer();
       hideYTPlayer();
       return;
-
+    }
     if (localStorage.getItem(i.toString()) != null) {
       console.log("IF2");
       found = true;  
