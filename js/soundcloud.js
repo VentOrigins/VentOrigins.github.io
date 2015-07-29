@@ -24,16 +24,21 @@ function playSC() {
 }
 
 function hideSCPlayer() {
-	//Hide and pause the soundcloud player if made
+	//Hide the soundcloud player if made
 	$("#soundCloudPlayer").hide();
 	$("#sound-cloud-volume").hide();
-
+}
+	
+function stopSCPlayer() {
+	//Stop the SC player
 	if($('#sc-widget').length) {
 		var widgetIframe = document.getElementById('sc-widget'),
 		widget = SC.Widget(widgetIframe);
 		widget.pause();
 	}
+
 }
+
 
 function showSCPlayer() {
 	$("#soundCloudPlayer").show();

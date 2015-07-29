@@ -3,7 +3,10 @@
     Copyright © Vent Origins 
     By Adrian Mandee and Randy Truong
     ========================================================================== */
-
+var loop = false; //Check to see if loop is true or fals
+var shuffle = false; //Check if shuffle true or false
+var shuffle_position; //Check shuffle position
+var shuffle_array; //Array of numbers to shuffle through
 // When button is pressed to play queue
 /*  =============================================================================
     
@@ -63,11 +66,25 @@ function nextQueue() {
      playQueue(0);
      return;
   }
+  if(shuffle == true) {
+    shuffleQueue();
+    return;
+  }
   //Get next on list of queue
   var currPos = parseInt(localStorage.getItem('currPosition')) + 1;
   console.log("Next Queue currPos" + currPos);
-  if(parseInt(localStorage.getItem('length')) == currPos ) {
+  //check if loop is true then loop if not check if false then stop videos and return
+  if(parseInt(localStorage.getItem('length')) == currPos && loop == true) {
+    console.log("looptrue");
     currPos = 0;
+  }
+  else if(parseInt(localStorage.getItem('length')) == currPos && loop == false) {
+    console.log("loopfalse");
+    hideSCPlayer();
+    stopSCPlayer();
+    hideYTPlayer();
+    stopVideo();
+    return;
   }
   playQueue(currPos);
 
@@ -112,6 +129,53 @@ function removeQueue(position) {
 
  }
 
+ /*  =============================================================================
+    
+
+    @param      
+    @return     none
+    ========================================================================== */
+function shuffleQueue() {
+
+
+}
+
+/*  =============================================================================
+    
+
+    @param      
+    @return     none
+    ========================================================================== */
+function shuffle() {
+  if(shuffle == true) {
+    shuffle_position = 0;
+    shuffle_array = [0];
+    shuffle = false;
+  }
+  else {
+    shuffle = true;
+  }
+
+}
+
+
+/*  =============================================================================
+    
+
+    @param      
+    @return     none
+    ========================================================================== */
+function loop() {
+  if(loop == true) {
+    $('#loopButton').css('background-color','#FFFFFF');
+    loop = false;
+  }
+  else {
+    $('#loopButton').css('background-color','#71B500');
+    loop = true;
+  }
+  console.log(loop);
+}
 
 /*  =============================================================================
     Called when user clicks song on queue list
@@ -147,11 +211,13 @@ function displayVideoOrTrack(idAndTitle) {
   console.log("ID:" + id);
   if (id.indexOf('soundcloud') == -1) {
     hideSCPlayer();
+    stopSCPlayer();
     displayYoutube();
   }
   // Display soundcloud track
   else if (id.indexOf('soundcloud') > -1) {
     hideYTPlayer();
+    stopVideo();
     displaySoundCloud();
     playSC();
   }

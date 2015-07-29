@@ -45,13 +45,13 @@ function onPlayerStateChange(event) {
 }
 
 function stopVideo() {
-  player.stopVideo();
+  if(player != null) {
+    player.stopVideo();
+  }
 }
 
 function hideYTPlayer() {
-  if(player != null) {
-    stopVideo();
-  }
+  
   $("#youTubePlayer").hide();
 }
 
