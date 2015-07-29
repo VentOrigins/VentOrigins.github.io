@@ -65,8 +65,6 @@ function setSCVolume(volume) {
 	
 	var widgetIframe = document.getElementById('sc-widget'),
 	widget = SC.Widget(widgetIframe);
-	widget.bind(SC.Widget.Events.READY, function() {
-		widget.setVolume(volume / 100);
-	});
+	widget.setVolume(volume / 100);
 }
 
