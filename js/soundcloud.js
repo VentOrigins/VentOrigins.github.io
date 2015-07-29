@@ -53,15 +53,16 @@ function loadSCVideo() {
   });
 }
 
+$('#sound-cloud-volume').on('input', function() {
+	var volume = $('#sound-cloud-volume').val();
+	console.log('Volume: ' + volume);
+	setVolume(volume);
+});
+
 function setVolume(volume) {
 	var soundCloudVolume = document.getElementById('sound-cloud-volume');
 	var widgetIframe = document.getElementById('sc-widget'),
 	widget = SC.Widget(widgetIframe);
 	widget.setVolume(volume);
 }
-
-$('#sound-cloud-volume').on('input', function() {
-	setVolume($('#sound-cloud-volume').val());
-});
-
 
