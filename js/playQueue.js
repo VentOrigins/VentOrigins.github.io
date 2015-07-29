@@ -30,6 +30,7 @@ function playQueue(position) {
 
   while (!found) {
 
+    console.log(localStorage.getItem(i.toString()));
     //At the end of length
     if(i == parseInt(localStorage.getItem('length')))
       console.log("IF1");
