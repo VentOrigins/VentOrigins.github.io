@@ -56,6 +56,10 @@ function playQueue(position) {
     @return     none
     ========================================================================== */
 function nextQueue() {
+  if (localStorage.getItem("currPlaying") === null) {
+     playQueue(0);
+     return;
+  }
   //Get next on list of queue
   var currPos = parseInt(localStorage.getItem('currPosition')) + 1;
   console.log("Next Queue currPos" + currPos);
@@ -73,10 +77,19 @@ function nextQueue() {
     @param      
     @return     none
     ========================================================================== */
-function prevOnQueue() {
+function prevQueue() {
 
-  // Go to displaying song if youtube or soundcloud
-  displayVideoOrTrack()
+  if (localStorage.getItem("currPlaying") === null) {
+     playQueue(0);
+     return;
+  }
+  var currPos = parseInt(localStorage.getItem('currPosition')) - 1;
+  console.log("Prev Queue currPos" + currPos);
+  if(currPos <= 0) {
+    currPos = 0;
+  }
+  playQueue(currPos);
+
 }
 
 /*  =============================================================================
