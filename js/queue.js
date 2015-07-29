@@ -27,7 +27,7 @@ function addYoutubeToQueue(buttonClicked) {
   var ytTitle = getTitle(ytIDandTitle);
 
   localStorage[queueLength] = ytIDandTitle;
-  $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'> <button onclick='queueClick(this.id)' id='" + ytID + "/|" + queueLength + "'>" + ytTitle + "</button> </div></li>");
+  $("#queues").append("<li><button onclick=removeQueue(this.id) id='" + queueLength + "' <i class='fa fa-youtube'></i> <div class='queue-text'> <button onclick='queueClick(this.id)' id='" + ytID + "/|" + queueLength + "'>" + ytTitle + "</button> </div></li>");
 }
 
 /*  =============================================================================

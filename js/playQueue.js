@@ -16,7 +16,7 @@ function playQueue(position) {
   if (localStorage.getItem("length") === null) {
     return;
   }
-  
+
   //If top title doesn't exist insert it
   if(!$('#top-title').length) {
     insertTopSearchBar();
@@ -58,7 +58,8 @@ function playQueue(position) {
 function nextQueue() {
   //Get next on list of queue
   var currPos = parseInt(localStorage.getItem('currPosition')) + 1;
-  if(parseInt(localStorage.getItem('length')) == currPos) {
+  console.log("Next Queue currPos" + currPos);
+  if(parseInt(localStorage.getItem('length')) == currPos ) {
     currPos = 0;
   }
   playQueue(currPos);
