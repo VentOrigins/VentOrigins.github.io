@@ -31,10 +31,15 @@ function playSC() {
 }
 
 function hideSCPlayer() {
+	//Hide and pause the soundcloud player if made
 	$("#soundCloudPlayer").hide();
-	var widgetIframe = document.getElementById('sc-widget'),
-	widget       = SC.Widget(widgetIframe);
-	widget.pause();
+	
+	if($('#sc-widget').length) {
+		var widgetIframe = document.getElementById('sc-widget'),
+		widget       = SC.Widget(widgetIframe);
+		widget.pause();
+	}
+		
 }
 
 function showSCPlayer() {
