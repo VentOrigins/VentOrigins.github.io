@@ -20,7 +20,6 @@ function playSC() {
 	console.log("CALLED PLAY SC");
 	widget.bind(SC.Widget.Events.READY, function() {
 	  // set new volume level
-	  widget.setVolume(25);
 	  widget.play();
 	  // get the value of the current position
 
