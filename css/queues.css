@@ -152,6 +152,7 @@
 /*Handles the 3 buttons in line order*/
 #queue-buttons li{
   display: inline;
+  padding: 0;
 }
 
 /*Handles the hover when hovering over the buttons*/
