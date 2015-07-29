@@ -25,6 +25,7 @@ function playQueue(position) {
   //Gets top of list on queue
   var found = false;
   console.log(position + " Playqueue");
+  console.log(localStorage.getItem('length') + "Length");
   var i = position;
 
   while (!found) {
