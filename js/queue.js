@@ -135,7 +135,7 @@ function appendSongsIntoQueue() {
       var title = getTitle(localStorage.getItem(strI));
 
       if (id.indexOf('soundcloud') == -1) {
-        $("#queues").append("<li id='li" + strI + "'> <div class='remove-queue-button'> <button onclick=removeQueue(this.id) id='" + strI + "'> x </button> </div <i class='fa fa-youtube'></i> <div class='queue-text'> <button onclick='queueClick(this.id)' id='" + id + "/|" + strI + "'>" + title + "</button> </div></li>");
+        $("#queues").append("<li id='li" + strI + "'> <div class='remove-queue-button'> <button onclick=removeQueue(this.id) id='" + strI + "'> x </button> </div> <i class='fa fa-youtube'></i> <div class='queue-text'> <button onclick='queueClick(this.id)' id='" + id + "/|" + strI + "'>" + title + "</button> </div></li>");
       }
       else if (id.indexOf('soundcloud') > -1) {
         $("#queues").append("<li id='li" + strI + "'> <div class='remove-queue-button'> <button onclick=removeQueue(this.id) id='" + strI + "'> x </button> </div> <i class='fa fa-soundcloud'></i> <div class='queue-text'> <button onclick='queueClick(this.id)' id='" + id + "/|" + strI + "'>" + title + "</button> </div></li>");

@@ -59,6 +59,12 @@
 }
 
 /*Button to delete the track in queuew*/
+.remove-queue-button {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+}
+
 .remove-queue-button button {
   background-color: white;
   
