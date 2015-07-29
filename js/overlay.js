@@ -86,11 +86,8 @@ function finishedOverlaying() {
   $("#splash-screen > div[class='overlay']").remove();
 
   // If the queue list is empty
-  if (!$.trim($('#queues').text()).length) {
+  if(localStorage.getItem("currPlaying") === null) {
     insertSplashSearchBar();
-  }
-  else {
-    playQueue();
   }
   
   // displayYouTubePlayer();

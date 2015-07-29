@@ -49,7 +49,9 @@ function stopVideo() {
 }
 
 function hideYTPlayer() {
-  stopVideo();
+  if(player != null) {
+    stopVideo();
+  }
   $("#youTubePlayer").hide();
 }
 
