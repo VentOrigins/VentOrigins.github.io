@@ -26,6 +26,7 @@ function playSC() {
 function hideSCPlayer() {
 	//Hide and pause the soundcloud player if made
 	$("#soundCloudPlayer").hide();
+	$("#sound-cloud-volume").hide();
 
 	if($('#sc-widget').length) {
 		var widgetIframe = document.getElementById('sc-widget'),
@@ -36,7 +37,7 @@ function hideSCPlayer() {
 
 function showSCPlayer() {
 	$("#soundCloudPlayer").show();
-	
+	$("#sound-cloud-volume").show();
 }
 
 function loadSCVideo() {
