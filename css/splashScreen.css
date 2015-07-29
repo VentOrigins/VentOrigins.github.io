@@ -31,21 +31,22 @@
 #sound-cloud-logo-and-bar {
   width: 100%;
 
-  margin-left: 20px;
-  margin-right: 20px;
-
   display: inline-block;
 }
 
-#soundCloudPlayer form {
+#volume-logo {
+  width: 5%;
+
+  padding-left: 10px;
+  
+  display: inline-block;
+}
+
+#sound-cloud-bar-div {
   width: 95%;
   display: inline-block;
 }
 
 #sound-cloud-volume {
   width: 100%;
-}
-
-.fa .fa-volume-up {
-  margin-left: 10px;
 }
