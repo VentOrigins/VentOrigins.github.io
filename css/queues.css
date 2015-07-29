@@ -59,7 +59,7 @@
 }
 
 /*Button to delete the track in queuew*/
-#queues button {
+.remove-queue-button button {
   background-color: white;
   
   font-size: 20px;
