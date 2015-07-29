@@ -11,10 +11,9 @@ function displaySoundCloudPlayer() {
 function playSC() {
 	var soundCloud = true;
 	var widgetIframe = document.getElementById('sc-widget'),
-	 widget       = SC.Widget(widgetIframe);
+ 	widget       = SC.Widget(widgetIframe);
 	console.log("CALLED PLAY SC");
 	widget.bind(SC.Widget.Events.READY, function() {
-
 	 
 	  widget.getVolume(function(volume) {
 	    console.log('current volume value is ' + volume);
@@ -50,16 +49,21 @@ function showSCPlayer() {
 
 function loadSCVideo() {
 	var widgetIframe = document.getElementById('sc-widget'),
-	widget       = SC.Widget(widgetIframe);
+	widget = SC.Widget(widgetIframe);
 	newSoundUrl = localStorage.getItem('currPlaying');
 	widget.load(newSoundUrl, {
-          show_artwork: false,
-        });
+    show_artwork: false,
+  });
 	widget.bind(SC.Widget.Events.READY, function() {
-
 	  // get current level of volume
 	  widget.play();
 	});
+}
+
+function setVolume() {
+	var widgetIframe = document.getElementById('sc-widget'),
+	widget = SC.Widget(widgetIframe);
+	widget.setVolume(20);
 }
 
 
