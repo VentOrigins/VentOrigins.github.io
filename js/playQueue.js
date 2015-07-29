@@ -100,6 +100,7 @@ function prevQueue() {
     ========================================================================== */
 function deleteQueue(position) {
   console.log(position);
+  console.log(position.toString())
 }
 
 
