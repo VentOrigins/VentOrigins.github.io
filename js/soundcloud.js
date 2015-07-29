@@ -8,9 +8,8 @@ function displaySoundCloudPlayer() {
 	var widgetIframe = document.getElementById('sc-widget'),
 	 widget       = SC.Widget(widgetIframe);
 	widget.bind(SC.Widget.Events.FINISH, function() {
-  		console.log("Finish SC");
 			nextQueue();
-    });
+   });
 }
 
 
@@ -50,12 +49,8 @@ function loadSCVideo() {
 	newSoundUrl = localStorage.getItem('currPlaying');
 	widget.load(newSoundUrl, {
           show_artwork: false,
-        });
-	widget.bind(SC.Widget.Events.READY, function() {
+  });
 
-	  // get current level of volume
-	  widget.play();
-	});
 }
 
 
