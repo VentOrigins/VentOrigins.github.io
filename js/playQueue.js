@@ -139,7 +139,6 @@ function shuffleQueue() {
 
 
 }
-
 /*  =============================================================================
     
 
@@ -165,7 +164,7 @@ function shuffle() {
     @param      
     @return     none
     ========================================================================== */
-function loop() {
+function loopQueue() {
   if(loop == true) {
     $('#loopButton').css('background-color','#FFFFFF');
     loop = false;
