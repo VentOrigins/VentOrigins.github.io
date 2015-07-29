@@ -99,8 +99,8 @@ function prevQueue() {
     @return     none
     ========================================================================== */
 function removeQueue(position) {
-  console.log(position);
-  console.log(position.toString())
+  var pos = position.toString();
+  $("#li"+pos).remove();
 }
 
 
