@@ -28,17 +28,8 @@
   display: none;
 }
 
-#sound-cloud-logo-and-bar {
-  width: 100%;
-
-  display: inline-block;
-}
-
 #volume-logo {
-  width: 5%;
-
-  padding-left: 10px;
-  
+  width: 4%;
   display: inline-block;
 }
 
