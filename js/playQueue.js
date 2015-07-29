@@ -31,6 +31,8 @@ function playQueue(position) {
 
     //At the end of length
     if(i == parseInt(localStorage.getItem('length')))
+      hideSCPlayer();
+      hideYTPlayer();
       return;
 
     if (localStorage.getItem(i.toString()) != null) {
