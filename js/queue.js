@@ -27,7 +27,7 @@ function addYoutubeToQueue(buttonClicked) {
   var ytTitle = getTitle(ytIDandTitle);
 
   localStorage[queueLength] = ytIDandTitle;
-  $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'> <button onclick='queueClick(this)' id='" + ytID + "/|" + queueLength + "'>" + ytTitle + "</button> </div></li>");
+  $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'> <button onclick='queueClick(this.id)' id='" + ytID + "/|" + queueLength + "'>" + ytTitle + "</button> </div></li>");
 }
 
 /*  =============================================================================
@@ -46,7 +46,7 @@ function addSoundCloudToQueue(buttonClicked) {
   var scTitle = getTitle(scIDandTitle);
 
   localStorage[queueLength] = scIDandTitle;
-  $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'> <button onclick='queueClick(this)' id='" + scID + "/|" + queueLength + "'>" + scTitle + "</button> </div></li>");
+  $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'> <button onclick='queueClick(this.id)' id='" + scID + "/|" + queueLength + "'>" + scTitle + "</button> </div></li>");
 }
 
 
@@ -135,10 +135,10 @@ function appendSongsIntoQueue() {
       var title = getTitle(localStorage.getItem(strI));
 
       if (id.indexOf('soundcloud') == -1) {
-        $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'> <button onclick='queueClick(this)' id='" + id + "/|" + strI + "'>" + title + "</button> </div></li>");
+        $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'> <button onclick='queueClick(this.id)' id='" + id + "/|" + strI + "'>" + title + "</button> </div></li>");
       }
       else if (id.indexOf('soundcloud') > -1) {
-        $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'> <button onclick='queueClick(this)' id='" + id + "/|" + strI + "'>" + title + "</button> </div></li>");
+        $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'> <button onclick='queueClick(this.id)' id='" + id + "/|" + strI + "'>" + title + "</button> </div></li>");
       }
       else {
         // ERROR, never should get here
