@@ -60,13 +60,13 @@ $('#sound-cloud-volume').on('input', function() {
 
 function setSCVolume(volume) {
 	var five = 5;
-	console.log('In setSCVolume: ' + volume + ' ' + five);
+	console.log('In setSCVolume: ' + (volume / 100) + ' ' + five);
 	var soundCloudVolume = document.getElementById('sound-cloud-volume');
 	
 	var widgetIframe = document.getElementById('sc-widget'),
 	widget = SC.Widget(widgetIframe);
 	widget.bind(SC.Widget.Events.READY, function() {
-		widget.setVolume(volume);
+		widget.setVolume(volume / 100);
 	});
 }
 
