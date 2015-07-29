@@ -32,12 +32,13 @@ function playQueue(position) {
 
     //At the end of length
     if(i == parseInt(localStorage.getItem('length')))
+      console.log("IF1");
       hideSCPlayer();
       hideYTPlayer();
       return;
 
     if (localStorage.getItem(i.toString()) != null) {
-
+      console.log("IF2");
       found = true;  
 
       // Go to displaying song if youtube or soundcloud
