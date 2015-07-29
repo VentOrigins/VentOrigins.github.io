@@ -16,11 +16,7 @@ function playQueue(position) {
   if (localStorage.getItem("length") === null) {
     return;
   }
-  //If there is a song currently playing
-  if(localStorage.getItem('currPlaying') != null) {
-    console.log("Has Curr Playing");
-    return;
-  }
+  
   //If top title doesn't exist insert it
   if(!$('#top-title').length) {
     insertTopSearchBar();
