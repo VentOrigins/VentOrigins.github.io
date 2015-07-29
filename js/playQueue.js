@@ -99,7 +99,7 @@ function prevQueue() {
     @return     none
     ========================================================================== */
 function deleteQueue(id) {
-
+  
 
 }
 
@@ -144,6 +144,7 @@ function displayVideoOrTrack(idAndTitle) {
   else if (id.indexOf('soundcloud') > -1) {
     hideYTPlayer();
     displaySoundCloud();
+    playSC();
   }
   else {
     // ERROR, never should get here

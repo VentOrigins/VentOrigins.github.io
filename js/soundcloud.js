@@ -6,7 +6,16 @@ function displaySoundCloudPlayer() {
 	var uri = encodeURIComponent(localStorage.getItem('currPlaying'));
 	$("#soundCloudPlayer").append("<iframe id='sc-widget' src='https://w.soundcloud.com/player/?url=" + uri + "'width='100%' height='200' scrolling='no' frameborder='no'></iframe>");
 	var widgetIframe = document.getElementById('sc-widget'),
-	widget       = SC.Widget(widgetIframe);
+	 widget       = SC.Widget(widgetIframe);
+	widget.bind(SC.Widget.Events.FINISH, function() {
+			nextQueue();
+   });
+}
+
+
+function playSC() {
+	var widgetIframe = document.getElementById('sc-widget'),
+ 	widget       = SC.Widget(widgetIframe);
 	console.log("CALLED PLAY SC");
 	widget.bind(SC.Widget.Events.READY, function() {
 	  // set new volume level
@@ -15,11 +24,7 @@ function displaySoundCloudPlayer() {
 	  // get the value of the current position
 
 	});
-	widget.bind(SC.Widget.Events.FINISH, function() {
-			nextQueue();
-   });
 }
-
 
 function hideSCPlayer() {
 	//Hide and pause the soundcloud player if made
