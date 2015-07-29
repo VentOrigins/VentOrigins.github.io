@@ -70,7 +70,7 @@ function nextQueue() {
 
 }
 
-// DO NOT KNOW IF WE NEED TO USE THIS FUNCTIONALITY YET
+
 /*  =============================================================================
     
 
@@ -91,6 +91,18 @@ function prevQueue() {
   playQueue(currPos);
 
 }
+
+/*  =============================================================================
+    
+
+    @param      
+    @return     none
+    ========================================================================== */
+function deleteQueue(id) {
+
+
+}
+
 
 /*  =============================================================================
     Called when user clicks song on queue list
@@ -132,7 +144,6 @@ function displayVideoOrTrack(idAndTitle) {
   else if (id.indexOf('soundcloud') > -1) {
     hideYTPlayer();
     displaySoundCloud();
-    playSC();
   }
   else {
     // ERROR, never should get here
