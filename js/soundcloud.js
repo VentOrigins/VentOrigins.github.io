@@ -65,6 +65,8 @@ function setSCVolume(volume) {
 	var soundCloudVolume = document.getElementById('sound-cloud-volume');
 	var widgetIframe = document.getElementById('sc-widget'),
 	widget = SC.Widget(widgetIframe);
+	var currVolume = widget.getVolume(function(){});
+	console.log('Current volume' + currVolume);
 	widget.setVolume(volume);
 }
 
