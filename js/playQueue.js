@@ -73,10 +73,15 @@ function nextQueue() {
     @param      
     @return     none
     ========================================================================== */
-function prevOnQueue() {
+function prevQueue() {
 
-  // Go to displaying song if youtube or soundcloud
-  displayVideoOrTrack()
+  var currPos = parseInt(localStorage.getItem('currPosition')) - 1;
+  console.log("Prev Queue currPos" + currPos);
+  if(currPos <= 0) {
+    currPos = 0;
+  }
+  playQueue(currPos);
+
 }
 
 /*  =============================================================================
