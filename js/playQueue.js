@@ -83,6 +83,20 @@ function prevOnQueue() {
 }
 
 /*  =============================================================================
+    Called when user clicks song on queue list
+
+    @param      
+    @return     none
+    ========================================================================== */
+function queueClick(idAndPosition) {
+  //Get title is actually getting the position and not title
+  var position = getTitle(idAndPosition);
+  console.log(position); 
+  playQueue(position);
+}
+
+
+/*  =============================================================================
     
 
     @param      

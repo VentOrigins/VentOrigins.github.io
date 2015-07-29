@@ -48,6 +48,7 @@ function stopVideo() {
 }
 
 function hideYTPlayer() {
+  stopVideo();
   $("#youTubePlayer").hide();
 }
 

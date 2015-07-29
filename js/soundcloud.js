@@ -32,6 +32,9 @@ function playSC() {
 
 function hideSCPlayer() {
 	$("#soundCloudPlayer").hide();
+	var widgetIframe = document.getElementById('sc-widget'),
+	widget       = SC.Widget(widgetIframe);
+	widget.pause();
 }
 
 function showSCPlayer() {
@@ -41,7 +44,7 @@ function showSCPlayer() {
 
 function loadSCVideo() {
 	var widgetIframe = document.getElementById('sc-widget'),
-	 widget       = SC.Widget(widgetIframe);
+	widget       = SC.Widget(widgetIframe);
 	newSoundUrl = localStorage.getItem('currPlaying');
 	widget.load(newSoundUrl, {
           show_artwork: false,
