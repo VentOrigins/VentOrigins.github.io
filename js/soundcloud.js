@@ -62,7 +62,7 @@ function setVolume() {
 }
 
 $('sound-cloud-volume').on('input', function() {
-	console.log('Volume: 'this.value);
+	console.log('Volume: ' + this.value);
 });
 
 
