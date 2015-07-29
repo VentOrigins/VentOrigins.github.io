@@ -19,7 +19,7 @@ function playSC() {
 	console.log("CALLED PLAY SC");
 	widget.bind(SC.Widget.Events.READY, function() {
 	  widget.play();
-	  widget.setVolume($('#sound-cloud-volume').val());
+	  widget.setVolume($('#sound-cloud-volume').val() / 100);
 	});
 }
 
@@ -46,7 +46,7 @@ function loadSCVideo() {
 	widget.load(newSoundUrl, {
     show_artwork: false,
   });
-  widget.setVolume($('#sound-cloud-volume').val());
+  widget.setVolume($('#sound-cloud-volume').val() / 100);
 }
 
 $('#sound-cloud-volume').on('input', function() {
