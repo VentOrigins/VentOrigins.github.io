@@ -15,7 +15,7 @@ var q;
 function search() {
   // Removes defaults
   event.preventDefault();
-  
+
   console.log("Searched");
   // Puts an overlay over the splash screen to display tracks
 
@@ -99,7 +99,7 @@ function soundCloudSearch() {
 function soundCloudMakeRequest() {
   console.log("Making request to SoundCloud's API");
   console.log("Q is " + q);
-  var page_size = 30;
+  var page_size = 50;
 
   SC.get(
     '/tracks', 
