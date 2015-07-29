@@ -39,7 +39,7 @@
   /*Center it in the row for hover*/
   padding-top: 7px;
   padding-bottom: 7px;
-  padding-left: 25px;
+  padding-left: 10px;
 
   /*Font*/
   font-size: 14px;
@@ -50,12 +50,26 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-
 }
 
 #queues li:hover, 
-#queues li:hover button {
+#queues li:hover button, 
+#queues button li:hover {
   background-color: #DCDCDC;
+}
+
+/*Button to delete the track in queuew*/
+#queues button {
+  background-color: white;
+  
+  font-size: 20px;
+
+  position: relative;
+  bottom: 7px;
+
+  display: inline-block;
+
+  border: none;
 }
 
 /*The text and song*/
