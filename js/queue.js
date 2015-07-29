@@ -135,10 +135,10 @@ function appendSongsIntoQueue() {
       var title = getTitle(localStorage.getItem(strI));
 
       if (id.indexOf('soundcloud') == -1) {
-        $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'> <button id='" + id + "/|" + strI + "'>" + title + "</button> </div></li>");
+        $("#queues").append("<li><i class='fa fa-youtube'></i> <div class='queue-text'> <button onclick='queueClick(this)' id='" + id + "/|" + strI + "'>" + title + "</button> </div></li>");
       }
       else if (id.indexOf('soundcloud') > -1) {
-        $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'> <button id='" + id + "/|" + strI + "'>" + title + "</button> </div></li>");
+        $("#queues").append("<li><i class='fa fa-soundcloud'></i> <div class='queue-text'> <button onclick='queueClick(this)' id='" + id + "/|" + strI + "'>" + title + "</button> </div></li>");
       }
       else {
         // ERROR, never should get here
