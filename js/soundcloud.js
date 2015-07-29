@@ -24,6 +24,7 @@ function playSC() {
 	  widget.play();
 	  // get the value of the current position
   	widget.bind(SC.Widget.Events.FINISH, function() {
+  		console.log("Finish SC");
 			nextQueue();
     });
 	    
@@ -33,7 +34,7 @@ function playSC() {
 function hideSCPlayer() {
 	//Hide and pause the soundcloud player if made
 	$("#soundCloudPlayer").hide();
-	
+
 	if($('#sc-widget').length) {
 		var widgetIframe = document.getElementById('sc-widget'),
 		widget       = SC.Widget(widgetIframe);
