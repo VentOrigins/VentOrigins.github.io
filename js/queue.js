@@ -127,8 +127,8 @@ function appendSongsIntoQueue() {
   // Incrememnts through every song to queue in the list
   for (var i = 0; i < parseInt(localStorage.getItem("length")); ++i) {
     var strI = i.toString();
-    if (localStorage.getItem(strI) == 'undefined') {
-
+    if (localStorage.getItem(strI) ===  null) {
+      //If null don't add it
     }
     else {
       var id = getID(localStorage.getItem(strI));

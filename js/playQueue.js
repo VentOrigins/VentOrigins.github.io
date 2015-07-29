@@ -33,7 +33,7 @@ function playQueue(position) {
     if(i == parseInt(localStorage.getItem('length')))
       return;
 
-    if (localStorage.getItem(i.toString()) != 'undefined') {
+    if (localStorage.getItem(i.toString()) === null) {
 
       found = true;  
 
@@ -101,7 +101,13 @@ function prevQueue() {
 function removeQueue(position) {
   var pos = position.toString();
   $("#li"+pos).remove();
-}
+  localStorage.removeItem(pos);
+  console.log(localStorage.getItem(pos));
+  if(localStorage.getItem('currPosition') == pos) {
+    nextQueue();
+  }
+
+ }
 
 
 /*  =============================================================================
