@@ -84,6 +84,7 @@ function nextQueue() {
     stopSCPlayer();
     hideYTPlayer();
     stopVideo();
+    insertSplashSearchBar();
     return;
   }
   playQueue(currPos);
