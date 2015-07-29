@@ -61,7 +61,7 @@ function setVolume() {
 	widget.setVolume(20);
 }
 
-$('sound-cloud-volume').on('input', function() {
+$('#sound-cloud-volume').on('input', function() {
 	console.log('Volume: ' + this.value);
 });
 
