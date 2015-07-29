@@ -55,11 +55,14 @@ function loadSCVideo() {
 }
 
 function setVolume() {
+	var soundCloudVolume = document.getElementById('sound-cloud-volume');
 	var widgetIframe = document.getElementById('sc-widget'),
 	widget = SC.Widget(widgetIframe);
 	widget.setVolume(20);
 }
 
-
+$('sound-cloud-volume').on('input', function() {
+	console.log('Volume: 'this.value);
+});
 
 
