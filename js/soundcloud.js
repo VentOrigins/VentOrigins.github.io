@@ -56,10 +56,12 @@ function loadSCVideo() {
 $('#sound-cloud-volume').on('input', function() {
 	var volume = $('#sound-cloud-volume').val();
 	console.log('Volume: ' + volume);
-	setVolume(volume);
+	setSCVolume(volume);
 });
 
-function setVolume(volume) {
+function setSCVolume(volume) {
+	var five = 5;
+	console.log('In setSCVolume: ' + volume + ' ' + five);
 	var soundCloudVolume = document.getElementById('sound-cloud-volume');
 	var widgetIframe = document.getElementById('sc-widget'),
 	widget = SC.Widget(widgetIframe);
