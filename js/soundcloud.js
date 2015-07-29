@@ -5,7 +5,7 @@ function displaySoundCloudPlayer() {
 	checkSize();
 	var uri = encodeURIComponent(localStorage.getItem('currPlaying'));
 	$("#soundCloudPlayer").append("<iframe id='sc-widget' src='https://w.soundcloud.com/player/?url=" + uri + "'width='100%' height='200' scrolling='no' frameborder='no'></iframe>");
-	$("#soundCloudPlayer").append("<form id='sound-cloud-volume' action='#'><p class='range-field'><input type='range' min='0' max='100'/></p></form>");
+	$("#soundCloudPlayer").append("<form action='#''><p class='range-field'><input type='range' id='sound-cloud-volume' min='0' max='100'/></p></form>");
 	
 	var widgetIframe = document.getElementById('sc-widget'),
 	 widget       = SC.Widget(widgetIframe);
