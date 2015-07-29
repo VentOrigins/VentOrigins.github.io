@@ -98,7 +98,7 @@ function prevQueue() {
     @param      
     @return     none
     ========================================================================== */
-function deleteQueue(position) {
+function removeQueue(position) {
   console.log(position);
   console.log(position.toString())
 }
