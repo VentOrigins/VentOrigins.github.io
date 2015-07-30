@@ -235,7 +235,7 @@ function shuffleQueue() {
   var newPosition = shuffle_array[shuffle_position];
   console.log('POSITION: ' + newPosition);
   //Position increase
-  shuffle_position++;
+  // shuffle_position++;
   //Make sure song is not null
   while(localStorage.getItem(newPosition.toString()) == null) {
     newPosition = shuffle_array[shuffle_position];
