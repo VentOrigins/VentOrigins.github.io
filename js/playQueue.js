@@ -49,7 +49,7 @@ function playQueue(position) {
 
       // Go to displaying song if youtube or soundcloud
       $('#li' + i).css('background-color','#71B500');
-      $('#li' + i + ' .button').css('background-color','#71B500');
+      $('#li' + i + ' button').css('background-color','#71B500');
       setCurrentPosition(i.toString());
       displayVideoOrTrack(localStorage.getItem(i.toString()));
 
