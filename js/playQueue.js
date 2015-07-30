@@ -137,22 +137,41 @@ function removeQueue(position) {
     @return     none
     ========================================================================== */
 function shuffleQueue() {
+  var nextPosition = findNextShuffleQueue();
+  if()
+}
 
+function findNextShuffleQueue() {
+  var qLength = parseInt(localStorage.getItem('length'));
+  //Repeat from beginning
+  if(qLength == shuffle_array.size()) {
+    shuffle_array = [parseInt(localStorage.getItem('currPosition'))];
+
+  }
+   
+
+  var newMath.floor((Math.random() * qLength));
 
 }
+
 /*  =============================================================================
     
 
     @param      
     @return     none
     ========================================================================== */
-function shuffle() {
+function toggleShuffle() {
   if(shuffle == true) {
-    shuffle_position = 0;
-    shuffle_array = [0];
+    $('#shuffleButton').css('background-color','#FFFFFF');
+    
+    shuffle_array = [];
     shuffle = false;
   }
   else {
+    $('#shuffleButton').css('background-color','#71B500');
+    if (localStorage.getItem("currPosition") != null) {
+      shuffle_array = [parseInt(localStorage.getItem('currPosition'))]
+    }
     shuffle = true;
   }
 
