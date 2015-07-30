@@ -225,6 +225,8 @@ function shuffleQueue() {
     }
     else {
       closeAllVideo();
+      shuffle_array = [];
+      shuffle_position = 0;
       $("#ppQueue").empty();
       $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
       return;
