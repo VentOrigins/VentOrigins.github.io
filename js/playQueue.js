@@ -219,7 +219,7 @@ function removeQueue(position) {
 function shuffleQueue() {
   //Check if array at end if it is then shuffle new queue
   console.log('Shuffle_position: ' + shuffle_position)
-  if( (shuffle_array.length - 1) == shuffle_position - 1) {
+  if( (shuffle_array.length - 1) == shuffle_position) {
     if(loop == true) {
       shuffleAllQueue();
     }
@@ -231,18 +231,39 @@ function shuffleQueue() {
     }
   }
   //Get new position
-  console.log('SHUFFLE_POSITION: ' + shuffle_position);
-  var newPosition = shuffle_array[shuffle_position];
-  console.log('POSITION: ' + newPosition);
-  //Position increase
+  // console.log('SHUFFLE_POSITION: ' + shuffle_position);
+  // var newPosition = shuffle_array[shuffle_position];
+  // console.log('POSITION: ' + newPosition);
+  // //Position increase
   // shuffle_position++;
-  //Make sure song is not null
-  while(localStorage.getItem(newPosition.toString()) == null) {
+  // //Make sure song is not null
+  // while(localStorage.getItem(newPosition.toString()) == null) {
+  //   newPosition = shuffle_array[shuffle_position];
+  //   shuffle_position++;
+
+  //   //Error checking
+  //   if( (shuffle_array.length - 1) == shuffle_position - 1) {
+  //     if(loop == true) {
+  //       shuffleAllQueue();
+  //     }
+  //     else {
+  //       closeAllVideo();
+  //       $("#ppQueue").empty();
+  //       $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
+  //       return;
+  //     }
+  //   }
+  // }
+
+  var newPosition;
+
+  do {
+    console.log('SHUFFLE_POSITION: ' + shuffle_position);
     newPosition = shuffle_array[shuffle_position];
-    shuffle_position++;
+    console.log('NEWPOSITION: ' + newPosition);
 
     //Error checking
-    if( (shuffle_array.length - 1) == shuffle_position - 1) {
+    if( (shuffle_array.length - 1) == shuffle_position) {
       if(loop == true) {
         shuffleAllQueue();
       }
@@ -253,7 +274,10 @@ function shuffleQueue() {
         return;
       }
     }
+
+    ++shuffle_position;
   }
+  while (localStorage.getItem(newPosition.toString()) == null);
   playQueue(newPosition);
 }
 
