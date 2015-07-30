@@ -35,6 +35,7 @@ function playQueue(position) {
 
     //At the end of length
     if(i == parseInt(localStorage.getItem('length'))) {
+      setCurrentPosition(i.toString());
       nextQueue();
       return;
     }
