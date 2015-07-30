@@ -158,7 +158,6 @@ function nextQueue() {
 
 function closeAllVideo() {
   hideSCPlayer();
-  stopSCPlayer();
   hideYTPlayer();
   stopVideo();
   insertSplashSearchBar();
