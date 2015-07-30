@@ -310,8 +310,8 @@ function toggleShuffle() {
     shuffle = false;
   }
   else {
-
     shuffle_array = [];
+    shuffle_position = 0;
     shuffleAllQueue();
     $('#shuffleButton').css('background-color','#71B500');
     if (localStorage.getItem("currPosition") != null) {
