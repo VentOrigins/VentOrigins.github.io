@@ -67,6 +67,9 @@ function pauseQueue() {
 function resumeQueue() {
   playVideo();
   playSCPlayer();
+  $("#ppQueue").empty();
+  $("#ppQueue").append("<button onclick='resumeQueue()'><i class='fa fa-play'></i></button>'");
+}
 }
 /*  =============================================================================
     
