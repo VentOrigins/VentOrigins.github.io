@@ -110,10 +110,12 @@ function playShuffleOnClick(){
     @return     none
     ========================================================================== */
 function nextQueue() {
+
   if (localStorage.getItem("currPlaying") === null) {
      playQueue(0);
      return;
   }
+  $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
   if(shuffle == true) {
     shuffleQueue();
     return;
@@ -324,7 +326,7 @@ function displayVideoOrTrack(idAndTitle) {
 
   var id = getID(idAndTitle);
   var title = getTitle(idAndTitle);
-
+  $('#li' + id).css('background-color','#71B500');
   // Sets the currently playing
   setCurrentlyPlaying(id);
 
