@@ -116,6 +116,7 @@ function incrementLocalStorageSize(currentSize) {
 function localStorageClear() {
   $('#queues').empty();
   localStorage.clear();
+  closeAllVideo();
 }
 
 /*  =============================================================================
