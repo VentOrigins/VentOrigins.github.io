@@ -71,6 +71,7 @@ function resumeQueue() {
   $("#ppQueue").empty();
   $("#ppQueue").append("<button onclick='pauseQueue()'><i class='fa fa-pause'></i></button>");
 }
+
 /*  =============================================================================
     When user clicks on the play button, it goes to this function first, checking
     if the app is in shuffle mode or not. If it is not, start playing first song
