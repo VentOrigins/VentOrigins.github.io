@@ -35,8 +35,7 @@ function playQueue(position) {
 
     //At the end of length
     if(i == parseInt(localStorage.getItem('length'))) {
-      setCurrentPosition(i.toString());
-      nextQueue();
+      closeAllVideo();
       return;
     }
     if (localStorage.getItem(i.toString()) != null) {
@@ -80,17 +79,21 @@ function nextQueue() {
   }
   else if(parseInt(localStorage.getItem('length')) <= currPos && loop == false) {
     console.log("loopfalse");
-    hideSCPlayer();
-    stopSCPlayer();
-    hideYTPlayer();
-    stopVideo();
-    insertSplashSearchBar();
+    closeAllVideo();
     return;
   }
   playQueue(currPos);
-
 }
 
+
+function closeAllVideo() {
+  hideSCPlayer();
+  stopSCPlayer();
+  hideYTPlayer();
+  stopVideo();
+  insertSplashSearchBar();
+
+}
 
 /*  =============================================================================
     
