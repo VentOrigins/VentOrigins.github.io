@@ -5,13 +5,13 @@
     ========================================================================== */
 var loop = false; //Check to see if loop is true or fals
 var shuffle = false; //Check if shuffle true or false
-var shuffle_position; //Check shuffle position
+var shuffle_position;
 var shuffle_array; //Array of numbers to shuffle through
 // When button is pressed to play queue
 /*  =============================================================================
     
 
-    @param      
+    @param      int   position of next Song
     @return     none
     ========================================================================== */
 function playQueue(position) {
@@ -104,6 +104,17 @@ function prevQueue() {
      playQueue(0);
      return;
   }
+  if(shuffle == true) {
+    //Shuffle position is on next one so we need to minus 2
+    shuffle_position = shuffle_position - 2;
+    if(shuffle_position < 0) {
+      shuffle_position = shuffle_array[shuffle_array.size() - 1]
+    }
+      shuffle_position++;
+    playQueue(shuffle_position);
+    return;
+
+  }
   var currPos = parseInt(localStorage.getItem('currPosition')) - 1;
   console.log("Prev Queue currPos" + currPos);
   if(currPos <= 0) {
@@ -137,14 +148,43 @@ function removeQueue(position) {
     @return     none
     ========================================================================== */
 function shuffleQueue() {
-  var qLength = parseInt(localStorage.getItem('length'));
-  var newPosition = Math.floor((Math.random() * qLength));
-  //Repeat from beginning
-  if(qLength == shuffle_array.size()) {
-    shuffle_array = [parseInt(localStorage.getItem('currPosition'))];
+ 
+  //Check if array at end if it is then shuffle new queue
+  if( (shuffle_array.size()) == shuffle_position - 1) {
+    shuffleAllQueue();
   }
+  //Get new position
+  var newPosition = shuffle_array[shuffle_position];
+  //Position increase
+  shuffle_position++;
+  //Make sure song is not null
+  while(localStorage.getItem(newPosition.toString()) == null) {
+    newPosition = shuffle_array[shuffle_position];
+    shuffle_position++;
+
+    //Error checking
+    if( (shuffle_array.size() - 1) == shuffle_position) {
+      shuffleAllQueue();
+    }
+  }
+  playQueue(newPosition);
 }
 
+function shuffleAllQueue() {
+  var shuffle_array = [];
+  var shuffle_position = 0;
+  var qLength = parseInt(localStorage.getItem('length'));
+  for(var i=0; i<qLength; i++) {
+    var newPosition = Math.floor((Math.random() * qLength));
+    while(shuffle_array.indexOf(newPosition) >= 0) {
+      newPosition = Math.floor((Math.random() * qLength));
+    }
+    shuffle_array.push(newPosition);
+  }
+
+
+
+}
 /*  =============================================================================
     
 
@@ -155,10 +195,11 @@ function toggleShuffle() {
   if(shuffle == true) {
     $('#shuffleButton').css('background-color','#FFFFFF');
     
-    shuffle_array = [];
     shuffle = false;
   }
   else {
+    shuffle_array = [];
+    shuffleAllQueue();
     $('#shuffleButton').css('background-color','#71B500');
     if (localStorage.getItem("currPosition") != null) {
       shuffle_array = [parseInt(localStorage.getItem('currPosition'))]
