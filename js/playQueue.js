@@ -219,7 +219,7 @@ function removeQueue(position) {
 function shuffleQueue() {
   //Check if array at end if it is then shuffle new queue
   console.log('Shuffle_position: ' + shuffle_position)
-  if( (shuffle_array.length) == shuffle_position - 1) {
+  if( (shuffle_array.length - 1) == shuffle_position - 1) {
     if(loop == true) {
       shuffleAllQueue();
     }
@@ -268,6 +268,9 @@ function shuffleAllQueue() {
       newPosition = Math.floor((Math.random() * qLength));
     }
     shuffle_array.push(newPosition);
+  }
+  for (var i = 0; i < shuffle_array.length; ++i) {
+    console.log('i' + shuffle_array[i]);
   }
 
 }
