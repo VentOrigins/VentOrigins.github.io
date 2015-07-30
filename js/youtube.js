@@ -49,11 +49,19 @@ function stopVideo() {
     player.stopVideo();
   }
 }
+
 function pauseVideo() {
   if(player != null) {
     player.pauseVideo();
   }
 }
+
+function playVideo() {
+  if(player != null) {
+    player.playVideo();
+  }
+}
+
 
 function hideYTPlayer() {
   

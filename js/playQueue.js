@@ -60,6 +60,12 @@ function playQueue(position) {
 function pauseQueue() {
   stopSCPlayer();
   pauseVideo();
+  $("#ppQueue").empty();
+  $("#ppQueue").append("<button onclick='resumeQueue(0)'><i class='fa fa-play'></i></button>'");
+}
+
+function resumeQueue() {
+
 }
 /*  =============================================================================
     
