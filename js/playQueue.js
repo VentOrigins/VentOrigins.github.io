@@ -242,7 +242,7 @@ function shuffleQueue() {
     shuffle_position++;
 
     //Error checking
-    if( (shuffle_array.length - 1) == shuffle_position) {
+    if( (shuffle_array.length - 1) == shuffle_position - 1) {
       if(loop == true) {
         shuffleAllQueue();
       }
