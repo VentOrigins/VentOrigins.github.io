@@ -153,7 +153,13 @@ function shuffleQueue() {
  
   //Check if array at end if it is then shuffle new queue
   if( (shuffle_array.length - 1) == shuffle_position - 1) {
-    shuffleAllQueue();
+    if(loop == true) {
+      shuffleAllQueue();
+    }
+    else {
+      closeAllVideo();
+      return;
+    }
   }
   //Get new position
   var newPosition = shuffle_array[shuffle_position];
@@ -166,7 +172,13 @@ function shuffleQueue() {
 
     //Error checking
     if( (shuffle_array.length - 1) == shuffle_position) {
-      shuffleAllQueue();
+      if(loop == true) {
+        shuffleAllQueue();
+      }
+      else {
+        closeAllVideo();
+        return;
+      }
     }
   }
   playQueue(newPosition);
