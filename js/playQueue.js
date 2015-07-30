@@ -37,12 +37,17 @@ function playQueue(position) {
   while (!found) {
 
     //At the end of length
-    if(i == parseInt(localStorage.getItem('length'))) {
+    if(i == parseInt(localStorage.getItem('length')) && loop == false) {
       closeAllVideo();
       $("#ppQueue").empty();
       $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
       return;
     }
+    else if (i == parseInt(localStorage.getItem('length')) && loop == true) {
+      playQueue(0);
+      return;
+    }
+
     if (localStorage.getItem(i.toString()) != null) {
       console.log("IF2");
       found = true;  
