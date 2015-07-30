@@ -39,6 +39,14 @@ function stopSCPlayer() {
 
 }
 
+function playSCPlayer() {
+	//Stop the SC player
+	if($('#sc-widget').length) {
+		var widgetIframe = document.getElementById('sc-widget'),
+		widget = SC.Widget(widgetIframe);
+		widget.play();
+	}
+}
 
 function showSCPlayer() {
 	$("#soundCloudPlayer").show();
