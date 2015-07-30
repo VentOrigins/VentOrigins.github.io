@@ -48,6 +48,7 @@ function playQueue(position) {
       found = true;  
 
       // Go to displaying song if youtube or soundcloud
+      $('#li' + i).css('background-color','#71B500');
       setCurrentPosition(i.toString());
       displayVideoOrTrack(localStorage.getItem(i.toString()));
 
@@ -111,10 +112,12 @@ function playShuffleOnClick(){
     @return     none
     ========================================================================== */
 function nextQueue() {
+
   if (localStorage.getItem("currPlaying") === null) {
      playQueue(0);
      return;
   }
+  $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
   if(shuffle == true) {
     shuffleQueue();
     return;
@@ -325,7 +328,6 @@ function displayVideoOrTrack(idAndTitle) {
 
   var id = getID(idAndTitle);
   var title = getTitle(idAndTitle);
-
   // Sets the currently playing
   setCurrentlyPlaying(id);
 
