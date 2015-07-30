@@ -95,6 +95,9 @@ function playShuffleOnClick(){
   else {
     console.log("playSHuffleOnCLick SHUFFLE ON")
     var qLength = parseInt(localStorage.getItem('length'));
+    var randomized = Math.floor(Math.random() * qLength);
+    console.log('Randomized:' + randomized);
+    console.log('Randomized:' + Math.floor(Math.random() * qLength));
     playQueue(Math.floor(Math.random() * qLength));
   }
 }
