@@ -123,11 +123,11 @@ function nextQueue() {
     return; 
   }
   else if(shuffle == true) {
+    $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
+    $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
     shuffleQueue();
     return;
   }
-  $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
-  $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
 
   //Get next on list of queue
   var currPos = parseInt(localStorage.getItem('currPosition')) + 1;
