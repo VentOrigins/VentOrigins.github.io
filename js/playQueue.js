@@ -312,6 +312,11 @@ function loopQueue() {
     @return     none
     ========================================================================== */
 function queueClick(idAndPosition) {
+  // Unhighlights previous played song if there was one
+  if (localStorage.getItem('currPosition') != null) {   
+    $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
+    $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
+  }
   //Get title is actually getting the position and not title
   var position = getTitle(idAndPosition);
   console.log(position); 
