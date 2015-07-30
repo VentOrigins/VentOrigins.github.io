@@ -48,6 +48,7 @@ function playQueue(position) {
       found = true;  
 
       // Go to displaying song if youtube or soundcloud
+      $('#li' + i).css('background-color','#71B500');
       setCurrentPosition(i.toString());
       displayVideoOrTrack(localStorage.getItem(i.toString()));
 
@@ -326,7 +327,6 @@ function displayVideoOrTrack(idAndTitle) {
 
   var id = getID(idAndTitle);
   var title = getTitle(idAndTitle);
-  $('#li' + id).css('background-color','#71B500');
   // Sets the currently playing
   setCurrentlyPlaying(id);
 
