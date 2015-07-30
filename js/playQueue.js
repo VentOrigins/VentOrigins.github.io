@@ -84,12 +84,16 @@ function resumeQueue() {
     @return     none
     ========================================================================== */
 function playShuffleOnClick(){
+  console.log("playSHuffleOnCLick")
+
   // If the shuffle is off, starts the queue at top of queue
   if (shuffle == false) {
+    console.log("playSHuffleOnCLick SHUFFLE OFF")
     playQueue(0);
   }
   // If the shuffle is on, starts the queue at a random song
   else {
+    console.log("playSHuffleOnCLick SHUFFLE ON")
     var qLength = parseInt(localStorage.getItem('length'));
     playQueue(Math.floor(Math.random() * qLength));
   }
