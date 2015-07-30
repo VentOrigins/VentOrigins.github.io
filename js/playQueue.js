@@ -122,9 +122,12 @@ function nextQueue() {
     playQueue(0);
     return; 
   }
-  else if(shuffle == true) {
-    $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
-    $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
+  
+  // Unhighlights the previous track to emphasize change of current song
+  $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
+  $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
+  
+  if(shuffle == true) {
     shuffleQueue();
     return;
   }
