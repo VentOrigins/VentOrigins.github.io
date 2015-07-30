@@ -136,11 +136,11 @@ function nextQueue() {
   var currPos = parseInt(localStorage.getItem('currPosition')) + 1;
   console.log("Next Queue currPos" + currPos);
   //check if loop is true then loop if not check if false then stop videos and return
-  if(parseInt(localStorage.getItem('length')) <= currPos && loop == true) {
+  if(parseInt(localStorage.getItem('length')) > currPos && loop == true) {
     console.log("looptrue");
     currPos = 0;
   }
-  else if(parseInt(localStorage.getItem('length')) <= currPos && loop == false) {
+  else if(parseInt(localStorage.getItem('length')) > currPos && loop == false) {
     console.log("loopfalse");
     closeAllVideo();
     $("#ppQueue").empty();
