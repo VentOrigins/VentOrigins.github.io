@@ -70,7 +70,6 @@ function resumeQueue() {
   $("#ppQueue").empty();
   $("#ppQueue").append("<button onclick='resumeQueue()'><i class='fa fa-play'></i></button>'");
 }
-}
 /*  =============================================================================
     
 
