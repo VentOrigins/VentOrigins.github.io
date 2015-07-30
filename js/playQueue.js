@@ -138,16 +138,11 @@ function removeQueue(position) {
     ========================================================================== */
 function shuffleQueue() {
   var qLength = parseInt(localStorage.getItem('length'));
+  var newPosition = Math.floor((Math.random() * qLength));
   //Repeat from beginning
   if(qLength == shuffle_array.size()) {
     shuffle_array = [parseInt(localStorage.getItem('currPosition'))];
   }
-}
-
-function findNextShuffleQueue() {
-
-  var newMath.floor((Math.random() * qLength));
-
 }
 
 /*  =============================================================================
