@@ -92,7 +92,6 @@ function closeAllVideo() {
   hideYTPlayer();
   stopVideo();
   insertSplashSearchBar();
-
 }
 
 /*  =============================================================================
