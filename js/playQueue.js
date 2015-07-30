@@ -108,7 +108,7 @@ function prevQueue() {
     //Shuffle position is on next one so we need to minus 2
     shuffle_position = shuffle_position - 2;
     if(shuffle_position < 0) {
-      shuffle_position = shuffle_array[shuffle_array.size() - 1]
+      shuffle_position = shuffle_array[shuffle_array.length - 1]
     }
       shuffle_position++;
     playQueue(shuffle_position);
@@ -150,7 +150,7 @@ function removeQueue(position) {
 function shuffleQueue() {
  
   //Check if array at end if it is then shuffle new queue
-  if( (shuffle_array.size()) == shuffle_position - 1) {
+  if( (shuffle_array.length - 1) == shuffle_position - 1) {
     shuffleAllQueue();
   }
   //Get new position
@@ -163,7 +163,7 @@ function shuffleQueue() {
     shuffle_position++;
 
     //Error checking
-    if( (shuffle_array.size() - 1) == shuffle_position) {
+    if( (shuffle_array.length - 1) == shuffle_position) {
       shuffleAllQueue();
     }
   }
