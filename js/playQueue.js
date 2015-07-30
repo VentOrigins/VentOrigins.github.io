@@ -90,6 +90,7 @@ function playShuffleOnClick(){
   }
   // If the shuffle is on, starts the queue at a random song
   else {
+    var qLength = parseInt(localStorage.getItem('length'));
     playQueue(Math.floor(Math.random() * qLength));
   }
 }
