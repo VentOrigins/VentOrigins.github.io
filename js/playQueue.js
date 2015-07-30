@@ -62,11 +62,12 @@ function pauseQueue() {
   stopSCPlayer();
   pauseVideo();
   $("#ppQueue").empty();
-  $("#ppQueue").append("<button onclick='resumeQueue(0)'><i class='fa fa-play'></i></button>'");
+  $("#ppQueue").append("<button onclick='resumeQueue()'><i class='fa fa-play'></i></button>'");
 }
 
 function resumeQueue() {
-
+  playVideo();
+  playSCPlayer();
 }
 /*  =============================================================================
     When user clicks on the play button, it goes to this function first, checking
@@ -131,6 +132,8 @@ function closeAllVideo() {
   hideYTPlayer();
   stopVideo();
   insertSplashSearchBar();
+  localStorage.removeItem('currPlaying');
+  localStorage.removeItem('currPosition');
 }
 
 /*  =============================================================================
