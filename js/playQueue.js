@@ -24,7 +24,7 @@ function playQueue(position) {
   if(!$('#top-title').length) {
     insertTopSearchBar();
     $("#ppQueue").empty();
-    $("#ppQueue").append("<button onclick='pauseQueue(0)'><i class='fa fa-pause'></i></button>'");
+    $("#ppQueue").append("<button onclick='pauseQueue(0)'><i class='fa fa-pause'></i></button>");
   }
 
   //Gets top of list on queue
@@ -39,7 +39,7 @@ function playQueue(position) {
     if(i == parseInt(localStorage.getItem('length'))) {
       closeAllVideo();
       $("#ppQueue").empty();
-      $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
+      $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
       return;
     }
     if (localStorage.getItem(i.toString()) != null) {
@@ -61,14 +61,14 @@ function pauseQueue() {
   stopSCPlayer();
   pauseVideo();
   $("#ppQueue").empty();
-  $("#ppQueue").append("<button onclick='resumeQueue()'><i class='fa fa-play'></i></button>'");
+  $("#ppQueue").append("<button onclick='resumeQueue()'><i class='fa fa-play'></i></button>");
 }
 
 function resumeQueue() {
   playVideo();
   playSCPlayer();
   $("#ppQueue").empty();
-  $("#ppQueue").append("<button onclick='pauseQueue()'><i class='fa fa-pause'></i></button>'");
+  $("#ppQueue").append("<button onclick='pauseQueue()'><i class='fa fa-pause'></i></button>");
 }
 /*  =============================================================================
     
@@ -97,7 +97,7 @@ function nextQueue() {
     console.log("loopfalse");
     closeAllVideo();
     $("#ppQueue").empty();
-    $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
+    $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
     return;
   }
   playQueue(currPos);
@@ -179,7 +179,7 @@ function shuffleQueue() {
     else {
       closeAllVideo();
       $("#ppQueue").empty();
-      $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
+      $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
       return;
     }
   }
