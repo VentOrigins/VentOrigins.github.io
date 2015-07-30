@@ -119,6 +119,8 @@ function nextQueue() {
      return;
   }
   $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
+  $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
+
   if(shuffle == true) {
     shuffleQueue();
     return;
