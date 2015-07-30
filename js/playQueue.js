@@ -137,18 +137,14 @@ function removeQueue(position) {
     @return     none
     ========================================================================== */
 function shuffleQueue() {
-  var nextPosition = findNextShuffleQueue();
-  if()
-}
-
-function findNextShuffleQueue() {
   var qLength = parseInt(localStorage.getItem('length'));
   //Repeat from beginning
   if(qLength == shuffle_array.size()) {
     shuffle_array = [parseInt(localStorage.getItem('currPosition'))];
-
   }
-   
+}
+
+function findNextShuffleQueue() {
 
   var newMath.floor((Math.random() * qLength));
 
