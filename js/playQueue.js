@@ -214,8 +214,8 @@ function removeQueue(position) {
     @return     none
     ========================================================================== */
 function shuffleQueue() {
- 
   //Check if array at end if it is then shuffle new queue
+  console.log('Shuffle_position: ' + shuffle_position)
   if( (shuffle_array.length - 1) == shuffle_position - 1) {
     if(loop == true) {
       shuffleAllQueue();
@@ -228,7 +228,9 @@ function shuffleQueue() {
     }
   }
   //Get new position
+  console.log('SHUFFLE_POSITION: ' + shuffle_position);
   var newPosition = shuffle_array[shuffle_position];
+  console.log('POSITION: ' + newPosition);
   //Position increase
   shuffle_position++;
   //Make sure song is not null
