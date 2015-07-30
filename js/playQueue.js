@@ -174,8 +174,8 @@ function shuffleQueue() {
 }
 
 function shuffleAllQueue() {
-  var shuffle_array = [];
-  var shuffle_position = 0;
+  shuffle_array = [];
+  shuffle_position = 0;
   var qLength = parseInt(localStorage.getItem('length'));
   for(var i=0; i<qLength; i++) {
     var newPosition = Math.floor((Math.random() * qLength));
