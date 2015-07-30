@@ -24,6 +24,8 @@ function playQueue(position) {
   //If top title doesn't exist insert it
   if(!$('#top-title').length) {
     insertTopSearchBar();
+    $("ppQueue").empty();
+    $("ppQueue").append("<button onclick='pauseQueue(0)'><i class='fa fa-pause'></i></button>'");
   }
 
   //Gets top of list on queue
@@ -37,6 +39,8 @@ function playQueue(position) {
     //At the end of length
     if(i == parseInt(localStorage.getItem('length'))) {
       closeAllVideo();
+      $("ppQueue").empty();
+      $("ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
       return;
     }
     if (localStorage.getItem(i.toString()) != null) {
@@ -54,7 +58,10 @@ function playQueue(position) {
     ++i;
   }
 }
-
+function pauseQueue() {
+  stopSCPlayer();
+  pauseVideo();
+}
 /*  =============================================================================
     When user clicks on the play button, it goes to this function first, checking
     if the app is in shuffle mode or not. If it is not, start playing first song
@@ -104,6 +111,8 @@ function nextQueue() {
   else if(parseInt(localStorage.getItem('length')) <= currPos && loop == false) {
     console.log("loopfalse");
     closeAllVideo();
+    $("ppQueue").empty();
+    $("ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
     return;
   }
   playQueue(currPos);
@@ -177,7 +186,15 @@ function shuffleQueue() {
  
   //Check if array at end if it is then shuffle new queue
   if( (shuffle_array.length - 1) == shuffle_position - 1) {
-    shuffleAllQueue();
+    if(loop == true) {
+      shuffleAllQueue();
+    }
+    else {
+      closeAllVideo();
+      $("ppQueue").empty();
+      $("ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
+      return;
+    }
   }
   //Get new position
   var newPosition = shuffle_array[shuffle_position];
@@ -190,13 +207,22 @@ function shuffleQueue() {
 
     //Error checking
     if( (shuffle_array.length - 1) == shuffle_position) {
-      shuffleAllQueue();
+      if(loop == true) {
+        shuffleAllQueue();
+      }
+      else {
+        closeAllVideo();
+        $("ppQueue").empty();
+        $("ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
+        return;
+      }
     }
   }
   playQueue(newPosition);
 }
 
 function shuffleAllQueue() {
+
   shuffle_array = [];
   shuffle_position = 0;
   var qLength = parseInt(localStorage.getItem('length'));
@@ -208,8 +234,6 @@ function shuffleAllQueue() {
     shuffle_array.push(newPosition);
   }
 
-
-
 }
 /*  =============================================================================
     
@@ -220,10 +244,10 @@ function shuffleAllQueue() {
 function toggleShuffle() {
   if(shuffle == true) {
     $('#shuffleButton').css('background-color','#FFFFFF');
-    
     shuffle = false;
   }
   else {
+
     shuffle_array = [];
     shuffleAllQueue();
     $('#shuffleButton').css('background-color','#71B500');
