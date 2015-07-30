@@ -57,6 +57,7 @@
   background-color: white;
   border: none;
   border-left: 1px solid #999999;
+  border-bottom: 1px solid #999999;
 }
 
 #clear-queue-button:hover {
