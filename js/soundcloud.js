@@ -50,7 +50,11 @@ function playSCPlayer() {
 }
 
 function showSCPlayer() {
+	console.log(localStorage.getItem('currPlaying'));
+	checkSize();
+	var uri = encodeURIComponent(localStorage.getItem('currPlaying'));
 	$("#soundCloudPlayer").prepend("<iframe id='sc-widget' src='https://w.soundcloud.com/player/?url=" + uri + "'width='100%' height='200' scrolling='no' frameborder='no'></iframe>");
+	
 	var widgetIframe = document.getElementById('sc-widget'),
 	widget = SC.Widget(widgetIframe);
 	widget.bind(SC.Widget.Events.FINISH, function() {

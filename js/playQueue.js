@@ -66,7 +66,7 @@ function playQueue(position) {
   }
 }
 function pauseQueue() {
-  stopSCPlayer();
+  pauseSCPlayer();
   pauseVideo();
   $("#ppQueue").empty();
   $("#ppQueue").append("<button onclick='resumeQueue()'><i class='fa fa-play'></i></button>");
@@ -385,7 +385,6 @@ function displayVideoOrTrack(idAndTitle) {
   console.log("ID:" + id);
   if (id.indexOf('soundcloud') == -1) {
     hideSCPlayer();
-    stopSCPlayer();
     displayYoutube();
   }
   // Display soundcloud track
@@ -425,13 +424,8 @@ function displayYoutube () {
     @return     none
     ========================================================================== */
 function displaySoundCloud () {
-  showSCPlayer();
-  if($('#sc-widget').length) {
-    loadSCVideo();
-  }
-  else {
-    displaySoundCloudPlayer();
-  }
+  
+  displaySoundCloudPlayer();
   
 }
 
