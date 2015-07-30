@@ -98,7 +98,8 @@ function playShuffleOnClick(){
     var randomized = Math.floor(Math.random() * qLength);
     console.log('Randomized:' + randomized);
     console.log('Randomized:' + Math.floor(Math.random() * qLength));
-    playQueue(randomized);
+    // playQueue(randomized);
+    shuffleQueue();
   }
 }
 
