@@ -65,7 +65,8 @@ function pauseQueue() {
 }
 
 function resumeQueue() {
-
+  playVideo();
+  playSCPlayer();
 }
 /*  =============================================================================
     
@@ -107,6 +108,8 @@ function closeAllVideo() {
   hideYTPlayer();
   stopVideo();
   insertSplashSearchBar();
+  localStorage.removeItem('currPlaying');
+  localStorage.removeItem('currPosition');
 }
 
 /*  =============================================================================
