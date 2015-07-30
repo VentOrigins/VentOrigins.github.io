@@ -114,17 +114,21 @@ function playShuffleOnClick(){
     ========================================================================== */
 function nextQueue() {
 
-  if (localStorage.getItem("currPlaying") === null) {
-     playQueue(0);
-     return;
+  if (localStorage.getItem("currPlaying") == null && shuffle == true) {
+    shuffleQueue();
+    return;
+  }
+  else if (localStorage.getItem("currPlaying") == null && shuffle == false) {
+    playQueue(0);
+    return; 
+  }
+  else if(shuffle == true) {
+    shuffleQueue();
+    return;
   }
   $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
   $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
 
-  if(shuffle == true) {
-    shuffleQueue();
-    return;
-  }
   //Get next on list of queue
   var currPos = parseInt(localStorage.getItem('currPosition')) + 1;
   console.log("Next Queue currPos" + currPos);

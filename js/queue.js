@@ -28,7 +28,7 @@ function addYoutubeToQueue(buttonClicked) {
 
   localStorage[queueLength] = ytIDandTitle;
   if(shuffle == true) {
-    shuffle_array.add(parseInt(queueLength));
+    shuffle_array.push(parseInt(queueLength));
   }
   $("#queues").append("<li id='li" + queueLength + "'> <div class='remove-queue-button'> <button onclick=removeQueue(this.id) id='" + queueLength + "'> x </button> </div> <i class='fa fa-youtube'></i> <div class='queue-text'> <button onclick='queueClick(this.id)' id='" + ytID + "/|" + queueLength + "'>" + ytTitle + "</button> </div> </li>");
 }
@@ -49,7 +49,7 @@ function addSoundCloudToQueue(buttonClicked) {
   var scTitle = getTitle(scIDandTitle);
   
   if(shuffle == true) {
-    shuffle_array.add(parseInt(queueLength));
+    shuffle_array.push(parseInt(queueLength));
   }
   localStorage[queueLength] = scIDandTitle;
   $("#queues").append("<li id='li" + queueLength + "'> <div class='remove-queue-button'> <button onclick=removeQueue(this.id) id='" + queueLength + "'> x </button> </div> <i class='fa fa-soundcloud'></i> <div class='queue-text'> <button onclick='queueClick(this.id)' id='" + scID + "/|" + queueLength + "'>" + scTitle + "</button> </div></li>");
