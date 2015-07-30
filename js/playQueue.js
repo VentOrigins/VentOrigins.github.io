@@ -7,6 +7,7 @@ var loop = false; //Check to see if loop is true or fals
 var shuffle = false; //Check if shuffle true or false
 var shuffle_position;
 var shuffle_array; //Array of numbers to shuffle through
+
 // When button is pressed to play queue
 /*  =============================================================================
     
@@ -51,6 +52,29 @@ function playQueue(position) {
     }
 
     ++i;
+  }
+}
+
+/*  =============================================================================
+    When user clicks on the play button, it goes to this function first, checking
+    if the app is in shuffle mode or not. If it is not, start playing first song
+    in top of queue. If app is in shuffle mode, play a randomized song in the
+    queue.
+
+    From: Onclick: play-button
+    To: playQueue.js: playQueue()
+
+    @param      none
+    @return     none
+    ========================================================================== */
+function playShuffleOnClick(){
+  // If the shuffle is off, starts the queue at top of queue
+  if (shuffle == false) {
+    playQueue(0);
+  }
+  // If the shuffle is on, starts the queue at a random song
+  else {
+    playQueue(Math.floor(Math.random() * qLength));
   }
 }
 
