@@ -1,4 +1,18 @@
 
+function displaySoundCloudPlayer() {
+
+	console.log(localStorage.getItem('currPlaying'));
+	checkSize();
+	var uri = encodeURIComponent(localStorage.getItem('currPlaying'));
+	$("#soundCloudPlayer").prepend("<iframe id='sc-widget' src='https://w.soundcloud.com/player/?url=" + uri + "'width='100%' height='200' scrolling='no' frameborder='no'></iframe>");
+	
+	var widgetIframe = document.getElementById('sc-widget'),
+	widget = SC.Widget(widgetIframe);
+	widget.bind(SC.Widget.Events.FINISH, function() {
+			nextQueue();
+	});
+	$("#sound-cloud-volume").show();
+}
 
 function playSC() {
 	var widgetIframe = document.getElementById('sc-widget'),
@@ -36,21 +50,6 @@ function playSCPlayer() {
 	}
 }
 
-function showSCPlayer() {
-	console.log("WTF");
-	console.log(localStorage.getItem('currPlaying'));
-	checkSize();
-	var uri = encodeURIComponent(localStorage.getItem('currPlaying'));
-	$("#soundCloudPlayer").prepend("<iframe id='sc-widget' src='https://w.soundcloud.com/player/?url=" + uri + "'width='100%' height='200' scrolling='no' frameborder='no'></iframe>");
-	
-	var widgetIframe = document.getElementById('sc-widget'),
-	widget = SC.Widget(widgetIframe);
-	widget.bind(SC.Widget.Events.FINISH, function() {
-			nextQueue();
-	});
-	 widget.setVolume($('#sound-cloud-volume').val() / 100);
-	$("#sound-cloud-volume").show();
-}
 
 function loadSCVideo() {
 	var widgetIframe = document.getElementById('sc-widget'),
@@ -59,7 +58,7 @@ function loadSCVideo() {
 	widget.load(newSoundUrl, {
     show_artwork: false,
   });
- 
+  widget.setVolume($('#sound-cloud-volume').val() / 100);
 }
 
 $('#sound-cloud-volume').on('input', function() {
