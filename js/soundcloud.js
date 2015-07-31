@@ -1,6 +1,7 @@
 
 function displaySoundCloudPlayer() {
 
+	console.log("WTF");
 	console.log(localStorage.getItem('currPlaying'));
 	checkSize();
 	var uri = encodeURIComponent(localStorage.getItem('currPlaying'));
@@ -12,6 +13,7 @@ function displaySoundCloudPlayer() {
 			nextQueue();
 	});
 	$("#sound-cloud-volume").show();
+	widget.setVolume($('#sound-cloud-volume').val() / 100);
 }
 
 function playSC() {
