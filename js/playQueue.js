@@ -280,9 +280,10 @@ function shuffleQueue() {
       newPosition = shuffle_array[shuffle_position];
     }
     else if((shuffle_array.length - 1) == shuffle_position) {
+      console.log("SHUFFLE ENDED LOOP SHOULD BE FALSE");
       closeAllVideo();
       $("#ppQueue").empty();
-      $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
+      $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
       return;
     }
       
