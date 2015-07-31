@@ -275,17 +275,29 @@ function shuffleQueue() {
     console.log('NEWPOSITION: ' + newPosition);
 
     //Error checking
-    if( (shuffle_array.length - 1) == shuffle_position) {
+    if( (shuffle_array.length - 1) == shuffle_position && loop == true && checkShuffleQueueNotNull()) {
+      shuffleAllQueue();
+      newPosition = shuffle_array[shuffle_position];
+    }
+    else if((shuffle_array.length - 1) == shuffle_position)
       closeAllVideo();
       $("#ppQueue").empty();
       $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
       return;
     }
+      
 
     ++shuffle_position;
   }
   while (localStorage.getItem(newPosition.toString()) == null);
   playQueue(newPosition);
+}
+function checkShuffleQueueNotNull() {
+  for(var i = 0; i < shuffle_array.length; i++) {
+    if(localStorage.getItem(shuffle_array[i].toString) != null)
+      return true;
+  }
+  return false;
 }
 
 function shuffleAllQueue() {
