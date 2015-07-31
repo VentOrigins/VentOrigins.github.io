@@ -6,7 +6,8 @@ function displaySoundCloudPlayer() {
 	checkSize();
 	var uri = encodeURIComponent(localStorage.getItem('currPlaying'));
 	$("#soundCloudPlayer").prepend("<iframe id='sc-widget' src='https://w.soundcloud.com/player/?url=" + uri + "'width='100%' height='200' scrolling='no' frameborder='no'></iframe>");
-	
+	$("#soundCloudPlayer").append("<div id='sound-cloud-logo-and-bar' class='container'> <div id='volume-logo'> <i class='fa fa-volume-up'></i> </div> <div id='sound-cloud-bar-div'> <form action='#'> <p class='range-field'> <input type='range' id='sound-cloud-volume' min='0' max='100' /> </p> </form> </div> </div>");
+
 	var widgetIframe = document.getElementById('sc-widget'),
 	widget = SC.Widget(widgetIframe);
 	widget.bind(SC.Widget.Events.FINISH, function() {
@@ -30,9 +31,7 @@ function playSC() {
 function hideSCPlayer() {
 	//Hide the soundcloud player if made
 	$("#soundCloudPlayer").empty();
-	$("#sound-cloud-volume").hide();
 }
-	
 
 function pauseSCPlayer() {
 	//Pause the SC player
