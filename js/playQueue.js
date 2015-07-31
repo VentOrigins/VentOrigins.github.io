@@ -188,8 +188,9 @@ function prevQueue() {
     if(shuffle_position < 0) {
       shuffle_position = shuffle_array[shuffle_array.length - 1]
     }
-      shuffle_position++;
-    playQueue(shuffle_position);
+    newPosition = shuffle_position;
+    shuffle_position++;
+    playQueue(newPosition);
     return;
 
   }
