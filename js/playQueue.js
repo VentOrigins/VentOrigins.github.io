@@ -280,7 +280,6 @@ function shuffleQueue() {
       $("#ppQueue").empty();
       $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
       return;
-      }
     }
 
     ++shuffle_position;
