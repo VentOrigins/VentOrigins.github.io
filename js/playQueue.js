@@ -183,6 +183,7 @@ function prevQueue() {
   $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
 
   if(shuffle == true) {
+    console.log("Shuffle_position" + shuffle_position);
     //Shuffle position is on next one so we need to minus 2
     shuffle_position = shuffle_position - 2;
     if(shuffle_position < 0) {
