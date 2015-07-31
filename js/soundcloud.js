@@ -11,7 +11,8 @@ function displaySoundCloudPlayer() {
 	var widgetIframe = document.getElementById('sc-widget'),
 	widget = SC.Widget(widgetIframe);
 	widget.bind(SC.Widget.Events.FINISH, function() {
-			nextQueue();
+		hideSCPlayer();
+		nextQueue();
 	});
 	$("#soundCloudPlayer").show();
 	$("#sound-cloud-volume").show();
