@@ -295,7 +295,7 @@ function shuffleQueue() {
 }
 function checkShuffleQueueNotNull() {
   for(var i = 0; i < shuffle_array.length; i++) {
-    if(localStorage.getItem(shuffle_array[i].toString) != null)
+    if(localStorage.getItem(shuffle_array[i].toString()) != null)
       return true;
   }
   return false;
