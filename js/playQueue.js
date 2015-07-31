@@ -276,14 +276,10 @@ function shuffleQueue() {
 
     //Error checking
     if( (shuffle_array.length - 1) == shuffle_position) {
-      if(loop == true) {
-        shuffleAllQueue();
-      }
-      else {
-        closeAllVideo();
-        $("#ppQueue").empty();
-        $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
-        return;
+      closeAllVideo();
+      $("#ppQueue").empty();
+      $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
+      return;
       }
     }
 
