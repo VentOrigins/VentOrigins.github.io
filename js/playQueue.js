@@ -279,7 +279,7 @@ function shuffleQueue() {
       shuffleAllQueue();
       newPosition = shuffle_array[shuffle_position];
     }
-    else if((shuffle_array.length - 1) == shuffle_position)
+    else if((shuffle_array.length - 1) == shuffle_position) {
       closeAllVideo();
       $("#ppQueue").empty();
       $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
