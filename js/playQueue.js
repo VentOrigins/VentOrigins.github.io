@@ -389,6 +389,7 @@ function displayVideoOrTrack(idAndTitle) {
   }
   // Display soundcloud track
   else if (id.indexOf('soundcloud') > -1) {
+    hideSCPlayer();
     hideYTPlayer();
     stopVideo();
     displaySoundCloud();
