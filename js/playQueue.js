@@ -177,6 +177,11 @@ function prevQueue() {
      playQueue(0);
      return;
   }
+  
+  // Unhighlights the previous track to emphasize change of current song
+  $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
+  $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
+
   if(shuffle == true) {
     //Shuffle position is on next one so we need to minus 2
     shuffle_position = shuffle_position - 2;
