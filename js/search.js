@@ -143,10 +143,9 @@ function displayYoutubeOnOverlay(videos) {
     videoID = videos.result.items[i].id.videoId;
     if (videoID != undefined) {
       //Seperating URI and title to parse
-      button = 
       title = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button> </div>";
       thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
-      str = button + title + thumbnail;
+      str = title + thumbnail;
       $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
     }
   }
@@ -173,12 +172,11 @@ function displaySoundCloudOnOverlay(tracks) {
   for (var i = 0; i < tracks.collection.length; ++i) {  
     uri = tracks.collection[i].uri;
     //Seperating URI and title to parse
-    button = 
     title = "<div class='soundCloudTracksText'>" + "<button id='" + uri +"/|" + tracks.collection[i].title  + "' class='addButton' onclick='addSoundCloudToQueue(this)'>" + tracks.collection[i].title + "</button> </div>";
     username = tracks.collection[i].user.username;
     usernameURL = tracks.collection[i].user.permalink_url;
     artwork_url = "<div class='image-thumbnail'><img src='" + tracks.collection[i].artwork_url + "' alt='playlist-image'></div>";;
-    str = button + title + artwork_url;
+    str = title + artwork_url;
     $('#soundCloudTracks').append("<div class='soundCloudTracksRow'>" + str + "<div>");
   }
   next_href = tracks.next_href;
