@@ -189,11 +189,22 @@ function prevQueue() {
     if(shuffle_position < 0) {
       shuffle_position = shuffle_array[shuffle_array.length - 1]
     }
-    newPosition = shuffle_position;
+    newPosition =  shuffle_position;
     shuffle_position++;
     playQueue(newPosition);
     return;
 
+  }
+  if((parseInt(localStorage.getItem('length')) <= currPos) && loop == true) {
+    console.log("looptrue");
+    currPos = 0;
+  }
+  else if((parseInt(localStorage.getItem('length')) <= currPos) && loop == false) {
+    console.log("loopfalse");
+    closeAllVideo();
+    $("#ppQueue").empty();
+    $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
+    return;
   }
   var currPos = parseInt(localStorage.getItem('currPosition')) - 1;
   console.log("Prev Queue currPos" + currPos);

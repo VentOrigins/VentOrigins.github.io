@@ -143,8 +143,8 @@ function displayYoutubeOnOverlay(videos) {
     videoID = videos.result.items[i].id.videoId;
     if (videoID != undefined) {
       //Seperating URI and title to parse
-      button = "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'> + </button> "
-      title = "<div class='youTubeTracksText'>" + "<a href='" + "http://www.youtube.com/watch?v=" + videoID + "'>" + videos.result.items[i].snippet.title + "</a>"+ "</div>";
+      button = 
+      title = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button> </div>";
       thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
       str = button + title + thumbnail;
       $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
@@ -173,8 +173,8 @@ function displaySoundCloudOnOverlay(tracks) {
   for (var i = 0; i < tracks.collection.length; ++i) {  
     uri = tracks.collection[i].uri;
     //Seperating URI and title to parse
-    button = "<button id='" + uri +"/|" + tracks.collection[i].title  + "' class='addButton' onclick='addSoundCloudToQueue(this)'> + </button>"
-    title = "<div class='soundCloudTracksText'>" + "<a href='" + uri + "'>" + tracks.collection[i].title + "</a>" + "</div>";
+    button = 
+    title = "<div class='soundCloudTracksText'>" + "<button id='" + uri +"/|" + tracks.collection[i].title  + "' class='addButton' onclick='addSoundCloudToQueue(this)'>" + tracks.collection[i].title + "</button> </div>";
     username = tracks.collection[i].user.username;
     usernameURL = tracks.collection[i].user.permalink_url;
     artwork_url = "<div class='image-thumbnail'><img src='" + tracks.collection[i].artwork_url + "' alt='playlist-image'></div>";;
