@@ -95,11 +95,15 @@
 .youTubeDuration {
   width: 80%;
   height: 30px;
+
+  position: absolute;
 }
 
 .youTubeChannelTitle {
   width: 80%;
   height: 30px;
+
+  position: absolute;
 }
 
 .youTubeTracksText {

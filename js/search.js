@@ -148,10 +148,11 @@ function displayYoutubeOnOverlay(videos, allVideoContent) {
     if (videoID != undefined) {
       //Seperating URI and title to parse
       thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
-      title = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button> </div>";
-      videoDuration = "<div class='youTubeDuration'>" + allVideoContent.result.items[i].contentDetails.duration + "</div>";
-      channel = "<div class='youTubeChannelTitle'>" + videos.result.items[i].snippet.channelTitle + "</div>";
-      str = thumbnail + title + videoDuration + channel;
+      title = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button> <br>" + allVideoContent.result.items[i].contentDetails.duration + "<br>" + videos.result.items[i].snippet.channelTitle + " </div>";
+      // videoDuration = "<div class='youTubeDuration'>" + allVideoContent.result.items[i].contentDetails.duration + "</div>";
+      // channel = "<div class='youTubeChannelTitle'>" + videos.result.items[i].snippet.channelTitle + "</div>";
+      // str = thumbnail + title + videoDuration + channel;
+      str = thumbnail + title;
       $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
     }
   }
