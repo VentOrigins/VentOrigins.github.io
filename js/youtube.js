@@ -1,5 +1,25 @@
 var player = null;
 var done = false;
+
+
+/*  =============================================================================
+    
+
+    @param      
+    @return     none
+    ========================================================================== */
+function displayYoutube () {
+  showYTPlayer();
+  if(player != null) {
+    loadYTVideo();
+  }
+  else {
+    displayYouTubePlayer();
+  }
+  
+}
+
+
 function displayYouTubePlayer() {
   // 2. This code loads the IFrame Player API code asynchronously.
   var tag = document.createElement('script');
@@ -75,6 +95,7 @@ function showYTPlayer() {
 function loadYTVideo() {
    player.loadVideoById(localStorage.getItem('currPlaying'),0,"large");
 }
+
 
 
 

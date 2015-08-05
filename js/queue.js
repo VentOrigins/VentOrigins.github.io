@@ -117,6 +117,8 @@ function localStorageClear() {
   $('#queues').empty();
   localStorage.clear();
   closeAllVideo();
+  pauseQueue();
+  insertSplashSearchBar();
 }
 
 /*  =============================================================================

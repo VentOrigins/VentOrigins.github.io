@@ -19,6 +19,22 @@ function displaySoundCloudPlayer() {
 	widget.setVolume($('#sound-cloud-volume').val() / 100);
 }
 
+
+
+/*  =============================================================================
+    
+
+    @param      
+    @return     none
+    ========================================================================== */
+function displaySoundCloud () {
+  
+  displaySoundCloudPlayer();
+  
+}
+
+
+
 function playSC() {
 	var widgetIframe = document.getElementById('sc-widget'),
  	widget       = SC.Widget(widgetIframe);

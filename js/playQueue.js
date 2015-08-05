@@ -8,6 +8,42 @@ var shuffle = false; //Check if shuffle true or false
 var shuffle_position;
 var shuffle_array; //Array of numbers to shuffle through
 
+
+/*  =============================================================================
+    When user clicks on the play button, it goes to this function first, checking
+    if the app is in shuffle mode or not. If it is not, start playing first song
+    in top of queue. If app is in shuffle mode, play a randomized song in the
+    queue.
+
+    From: Onclick: play-button
+    To: playQueue.js: playQueue()
+
+    @param      none
+    @return     none
+    ========================================================================== */
+function playShuffleOnClick(){
+  console.log("playSHuffleOnCLick")
+
+  // If the shuffle is off, starts the queue at top of queue
+  if (shuffle == false) {
+    console.log("playSHuffleOnCLick SHUFFLE OFF")
+    playQueue(0);
+  }
+  // If the shuffle is on, starts the queue at a random song
+  else {
+    console.log("playSHuffleOnCLick SHUFFLE ON")
+    var qLength = parseInt(localStorage.getItem('length'));
+    var randomized = Math.floor(Math.random() * qLength);
+    console.log('Randomized:' + randomized);
+    console.log('Randomized:' + Math.floor(Math.random() * qLength));
+    // playQueue(randomized);
+    shuffleQueue();
+  }
+}
+
+
+
+
 // When button is pressed to play queue
 /*  =============================================================================
     
@@ -49,7 +85,6 @@ function playQueue(position) {
     }
 
     if (localStorage.getItem(i.toString()) != null) {
-      console.log("IF2");
       found = true;  
 
       // Go to displaying song if youtube or soundcloud
@@ -65,51 +100,60 @@ function playQueue(position) {
     ++i;
   }
 }
-function pauseQueue() {
-  pauseSCPlayer();
-  pauseVideo();
-  $("#ppQueue").empty();
-  $("#ppQueue").append("<button onclick='resumeQueue()'><i class='fa fa-play'></i></button>");
-}
 
-function resumeQueue() {
-  playVideo();
-  playSCPlayer();
-  $("#ppQueue").empty();
-  $("#ppQueue").append("<button onclick='pauseQueue()'><i class='fa fa-pause'></i></button>");
-}
 
-/*  =============================================================================
-    When user clicks on the play button, it goes to this function first, checking
-    if the app is in shuffle mode or not. If it is not, start playing first song
-    in top of queue. If app is in shuffle mode, play a randomized song in the
-    queue.
-
-    From: Onclick: play-button
-    To: playQueue.js: playQueue()
-
-    @param      none
-    @return     none
-    ========================================================================== */
-function playShuffleOnClick(){
-  console.log("playSHuffleOnCLick")
-
-  // If the shuffle is off, starts the queue at top of queue
-  if (shuffle == false) {
-    console.log("playSHuffleOnCLick SHUFFLE OFF")
-    playQueue(0);
+function prevPlayQueue(position) {
+  //If empty queue, just return
+  if (localStorage.getItem("length") === null) {
+    return;
   }
-  // If the shuffle is on, starts the queue at a random song
-  else {
-    console.log("playSHuffleOnCLick SHUFFLE ON")
-    var qLength = parseInt(localStorage.getItem('length'));
-    var randomized = Math.floor(Math.random() * qLength);
-    console.log('Randomized:' + randomized);
-    console.log('Randomized:' + Math.floor(Math.random() * qLength));
-    // playQueue(randomized);
-    shuffleQueue();
+
+  //If top title doesn't exist insert it
+  if(!$('#top-title').length) {
+    insertTopSearchBar();
+    $("#ppQueue").empty();
+    $("#ppQueue").append("<button onclick='pauseQueue(0)'><i class='fa fa-pause'></i></button>");
+  }
+
+  //Gets top of list on queue
+  var found = false;
+  console.log(position + " Playqueue");
+  console.log(localStorage.getItem('length') + "Length");
+  var i = position;
+
+  while (!found) {
+
+    //At the end of length
+    if(i < 0 && loop == false) {
+      closeAllVideo();
+      $("#ppQueue").empty();
+      $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
+      return;
+    }
+    else if (i < 0 && loop == true) {
+      previousPlayQueue(parseInt(localStorage.getItem("length")));
+      return;
+    }
+
+    if (localStorage.getItem(i.toString()) != null) {
+      found = true;  
+
+      // Go to displaying song if youtube or soundcloud
+      $('#li' + i).css('background-color','#71B500');
+      $('#li' + i + ' button').css('background-color','#71B500');
+      setCurrentPosition(i.toString());
+      displayVideoOrTrack(localStorage.getItem(i.toString()));
+
+      // Highlights top list on queue or etc.
+      
+    }
+
+    --i;
   }
 }
+
+
+
 
 /*  =============================================================================
     
@@ -156,14 +200,6 @@ function nextQueue() {
 }
 
 
-function closeAllVideo() {
-  hideSCPlayer();
-  hideYTPlayer();
-  stopVideo();
-  insertSplashSearchBar();
-  localStorage.removeItem('currPlaying');
-  localStorage.removeItem('currPosition');
-}
 
 /*  =============================================================================
     
@@ -172,186 +208,93 @@ function closeAllVideo() {
     @return     none
     ========================================================================== */
 function prevQueue() {
-
-  if (localStorage.getItem("currPlaying") === null) {
-     playQueue(0);
-     return;
+  if (localStorage.getItem("currPlaying") == null && shuffle == true) {
+    shuffleQueue();
+    return;
+  }
+  else if (localStorage.getItem("currPlaying") == null && shuffle == false) {
+    playQueue(0);
+    return; 
   }
   
   // Unhighlights the previous track to emphasize change of current song
   $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
   $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
-
+  
   if(shuffle == true) {
-    console.log("Shuffle_position" + shuffle_position);
-    //Shuffle position is on next one so we need to minus 2
-    shuffle_position = shuffle_position - 2;
-    if(shuffle_position < 0) {
-      shuffle_position = shuffle_array[shuffle_array.length - 1]
-    }
-    newPosition =  shuffle_position;
-    shuffle_position++;
-    playQueue(newPosition);
-    return;
+    prevShuffleQueue();
+    return;    
+  }
 
-  }
-  if((parseInt(localStorage.getItem('length')) <= currPos) && loop == true) {
+  //Get next on list of queue
+  var currPos = parseInt(localStorage.getItem('currPosition')) - 1;
+  console.log("Prev Queue currPos" + currPos);
+  //check if loop is true then loop if not check if false then stop videos and return
+  if((currPos < 0) && loop == true) {
     console.log("looptrue");
-    currPos = 0;
+    currPos = parseInt(localStorage.getItem('length'));
   }
-  else if((parseInt(localStorage.getItem('length')) <= currPos) && loop == false) {
+  else if(currPos < 0) && loop == false) {
     console.log("loopfalse");
     closeAllVideo();
     $("#ppQueue").empty();
     $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
     return;
   }
-  var currPos = parseInt(localStorage.getItem('currPosition')) - 1;
-  console.log("Prev Queue currPos" + currPos);
-  if(currPos <= 0) {
-    currPos = 0;
-  }
-  playQueue(currPos);
+  prevPlayQueue(currPos);
 
-}
+  
+  // // Unhighlights the previous track to emphasize change of current song
+  // $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
+  // $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
 
-/*  =============================================================================
-    
-
-    @param      
-    @return     none
-    ========================================================================== */
-function removeQueue(position) {
-  var pos = position.toString();
-  $("#li"+pos).remove();
-  localStorage.removeItem(pos);
-  console.log(localStorage.getItem(pos));
-  if(localStorage.getItem('currPosition') == pos) {
-    nextQueue();
-  }
-
- }
-
- /*  =============================================================================
-    
-
-    @param      
-    @return     none
-    ========================================================================== */
-function shuffleQueue() {
-  //Check if array at end if it is then shuffle new queue
-  console.log('Shuffle_position: ' + shuffle_position)
-  if( (shuffle_array.length - 1) == shuffle_position) {
-    if(loop == true) {
-      shuffleAllQueue();
-    }
-    else {
-      closeAllVideo();
-      shuffleAllQueue();
-      $("#ppQueue").empty();
-      $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
-      return;
-    }
-  }
-  //Get new position
-  // console.log('SHUFFLE_POSITION: ' + shuffle_position);
-  // var newPosition = shuffle_array[shuffle_position];
-  // console.log('POSITION: ' + newPosition);
-  // //Position increase
-  // shuffle_position++;
-  // //Make sure song is not null
-  // while(localStorage.getItem(newPosition.toString()) == null) {
-  //   newPosition = shuffle_array[shuffle_position];
-  //   shuffle_position++;
-
-  //   //Error checking
-  //   if( (shuffle_array.length - 1) == shuffle_position - 1) {
-  //     if(loop == true) {
-  //       shuffleAllQueue();
-  //     }
-  //     else {
-  //       closeAllVideo();
-  //       $("#ppQueue").empty();
-  //       $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>'");
-  //       return;
-  //     }
+  // if(shuffle == true) {
+  //   console.log("Shuffle_position" + shuffle_position);
+  //   //Shuffle position is on next one so we need to minus 2
+  //   shuffle_position = shuffle_position - 2;
+  //   if(shuffle_position < 0) {
+  //     shuffle_position = shuffle_array[shuffle_array.length - 1]
   //   }
+  //   newPosition =  shuffle_position;
+  //   shuffle_position++;
+  //   playQueue(newPosition);
+  //   return;
+
   // }
-
-  var newPosition;
-
-  do {
-    console.log('SHUFFLE_POSITION: ' + shuffle_position);
-    newPosition = shuffle_array[shuffle_position];
-    console.log('NEWPOSITION: ' + newPosition);
-
-    //Error checking
-    if( (shuffle_array.length - 1) == shuffle_position && loop == true && checkShuffleQueueNotNull()) {
-      shuffleAllQueue();
-      newPosition = shuffle_array[shuffle_position];
-    }
-    else if((shuffle_array.length - 1) == shuffle_position) {
-      console.log("SHUFFLE ENDED LOOP SHOULD BE FALSE");
-      shuffleAllQueue();
-      closeAllVideo();
-      $("#ppQueue").empty();
-      $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
-      return;
-    }
-      
-
-    ++shuffle_position;
-  }
-  while (localStorage.getItem(newPosition.toString()) == null);
-  playQueue(newPosition);
-}
-function checkShuffleQueueNotNull() {
-  for(var i = 0; i < shuffle_array.length; i++) {
-    if(localStorage.getItem(shuffle_array[i].toString()) != null)
-      return true;
-  }
-  return false;
-}
-
-function shuffleAllQueue() {
-
-  shuffle_array = [];
-  shuffle_position = 0;
-  var qLength = parseInt(localStorage.getItem('length'));
-  for(var i=0; i<qLength; i++) {
-    var newPosition = Math.floor((Math.random() * qLength));
-    while(shuffle_array.indexOf(newPosition) >= 0) {
-      newPosition = Math.floor((Math.random() * qLength));
-    }
-    shuffle_array.push(newPosition);
-  }
-  for (var i = 0; i < shuffle_array.length; ++i) {
-    console.log('i' + shuffle_array[i]);
-  }
+  // if((parseInt(localStorage.getItem('length')) <= currPos) && loop == true) {
+  //   console.log("looptrue");
+  //   currPos = 0;
+  // }
+  // else if((parseInt(localStorage.getItem('length')) <= currPos) && loop == false) {
+  //   console.log("loopfalse");
+  //   closeAllVideo();
+  //   $("#ppQueue").empty();
+  //   $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
+  //   return;
+  // }
+  // var currPos = parseInt(localStorage.getItem('currPosition')) - 1;
+  // console.log("Prev Queue currPos" + currPos);
+  // if(currPos <= 0) {
+  //   currPos = 0;
+  // }
+  // playQueue(currPos);
 
 }
-/*  =============================================================================
-    
 
-    @param      
-    @return     none
-    ========================================================================== */
-function toggleShuffle() {
-  if(shuffle == true) {
-    $('#shuffleButton').css('background-color','#FFFFFF');
-    shuffle = false;
-  }
-  else {
-    shuffle_array = [];
-    shuffle_position = 0;
-    shuffleAllQueue();
-    $('#shuffleButton').css('background-color','#71B500');
-    if (localStorage.getItem("currPosition") != null) {
-      shuffle_array = [parseInt(localStorage.getItem('currPosition'))]
-    }
-    shuffle = true;
-  }
 
+
+function pauseQueue() {
+  pauseSCPlayer();
+  pauseVideo();
+  $("#ppQueue").empty();
+  $("#ppQueue").append("<button onclick='resumeQueue()'><i class='fa fa-play'></i></button>");
+}
+
+function resumeQueue() {
+  playVideo();
+  playSCPlayer();
+  $("#ppQueue").empty();
+  $("#ppQueue").append("<button onclick='pauseQueue()'><i class='fa fa-pause'></i></button>");
 }
 
 
@@ -391,6 +334,23 @@ function queueClick(idAndPosition) {
   playQueue(position);
 }
 
+/*  =============================================================================
+    
+
+    @param      
+    @return     none
+    ========================================================================== */
+function removeQueue(position) {
+  var pos = position.toString();
+  $("#li"+pos).remove();
+  localStorage.removeItem(pos);
+  console.log(localStorage.getItem(pos));
+  if(localStorage.getItem('currPosition') == pos) {
+    nextQueue();
+  }
+
+ }
+
 
 /*  =============================================================================
     
@@ -427,34 +387,17 @@ function displayVideoOrTrack(idAndTitle) {
 
 }
 
-/*  =============================================================================
-    
 
-    @param      
-    @return     none
-    ========================================================================== */
-function displayYoutube () {
-  showYTPlayer();
-  if(player != null) {
-    loadYTVideo();
-  }
-  else {
-    displayYouTubePlayer();
-  }
-  
+function closeAllVideo() {
+  hideSCPlayer();
+  hideYTPlayer();
+  stopVideo();
+  insertSplashSearchBar();
+  localStorage.removeItem('currPlaying');
+  localStorage.removeItem('currPosition');
 }
 
-/*  =============================================================================
-    
 
-    @param      
-    @return     none
-    ========================================================================== */
-function displaySoundCloud () {
-  
-  displaySoundCloudPlayer();
-  
-}
 
 /*  =============================================================================
     
