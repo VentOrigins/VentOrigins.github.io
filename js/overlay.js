@@ -35,7 +35,7 @@ function overlayTracks(divToOverlay) {
     ========================================================================== */
 function insertTopSearchBar() {
   hideSplashQuery();
-  var top_title = "<div id='top-title'> Vent DJ </div>";
+  var top_title = "<div class=left id='top-title'> Vent DJ </div>";
   var top_search_form = "<div id='top-search-form'> <form onsubmit='javascript:search();'> <input id='top-search-box' type='search'> </form>";
   var top_search_button = "<button  onclick='search();'id='top-search-button'><i class='fa fa-search'></i></button></div>";
   $("#top-nav").append(top_title + top_search_form + top_search_button);
