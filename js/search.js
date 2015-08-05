@@ -60,7 +60,7 @@ function youTubeSearch() {
     @return       none
     ========================================================================== */
 function youTubeMakeRequest() {
-  console.log("Making request to Google's API");
+  console.log("Making request to Google's API for Search");
   console.log("Q is " + q);
   var request = gapi.client.youtube.search.list({
     q: q,
@@ -68,8 +68,91 @@ function youTubeMakeRequest() {
     maxResults: 50                      
   });
   request.execute(function(videos) {
-    displayYoutubeOnOverlay(videos);
+    prepareForVideoListRequest(videos);
   });
+}
+
+/*  =============================================================================
+    Prepares to add the parameters of 50 videos into the video API
+    From: youTubeMakeRequest
+    To: none
+
+    @param        the videos response from the API search call
+    @return       none
+    ========================================================================== */
+function prepareForVideoListRequest(videos) {
+  console.log("In prepareForVideoListRequest");
+  var videoID;
+  var allVideoIDForContentDetail = '';
+
+  // Parsing through the videos json response to retrieve each video.
+  for(var i = 0; i < videos.result.items.length; ++i) {
+    // VIDEO ID TO THE URL LINK
+    videoID = videos.result.items[i].id.videoId;
+    if (videoID != undefined) {
+      // Adds all of the video IDs together to parse
+      allVideoIDForContentDetail += videoID;
+
+      // Doesn't add a comma to the end if last video
+      if (i < video.result.items.length - 1) {
+        allVideoIDForContentDetail += ',';
+      }
+    }
+  }
+  youTubeMakeRequestForContentDetail(videos, allVideoIDForContentDetail);
+}
+
+/*  =============================================================================
+    Prepares to add the parameters of 50 videos into the video API
+    From: youTubeMakeRequest
+    To: none
+
+    @param        videos response from the API search call
+    @param        all of the video ID's stringed together with commas
+    @return       none
+    ========================================================================== */
+function youTubeMakeRequestForContentDetail(videos, allVideoIDs) {
+  console.log("Making request to Google's API for Videos");
+  var request = gapi.client.youtube.videos.list({
+    part: 'contentDetails'  
+  });
+  request.execute(function(videoContentDetailResponse) {
+    displayYoutubeOnOverlay(videos, videoContentDetailResponse);
+  });
+}
+
+/*  =============================================================================
+    Displays the Youtube list on the overlay
+    From: youTubeMakeRequestForContentDetail
+    To: none
+
+    @param       
+    @param 
+    @return       none
+    ========================================================================== */
+function displayYoutubeOnOverlay(videos, allVideoContent) {
+  console.log("In displayYoutubeOnOverlay");
+  var videoID;
+  var videoDuration;
+  var title;
+  var thumbnail;
+  var str;
+
+  // Parsing through the videos json response to retrieve each video.
+  for(var i = 0; i < videos.result.items.length; ++i) {
+    // VIDEO ID TO THE URL LINK
+    videoID = videos.result.items[i].id.videoId;
+    videoDuration = allVideoContent.result.items[i].contentDetails.duration;
+    if (videoID != undefined) {
+      //Seperating URI and title to parse
+      title = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button> </div>";
+      thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
+      str = title + thumbnail;
+      $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
+      $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + videoDuration + "</div>");
+    }
+  }
+  checkSize();
 }
 
 /*  =============================================================================
@@ -110,47 +193,11 @@ function soundCloudMakeRequest() {
     }, 
   function(tracks) {
       displaySoundCloudOnOverlay(tracks);
-      // console.log(tracks.collection.length);
-      // console.log(tracks.collection[0].title);
-      // console.log(tracks.collection[0].uri);
-      // console.log(tracks.collection[0].user.username);
-      // console.log(tracks.collection[0].user.permalink_url);
-      // console.log(tracks.next_href);
       var track_url = tracks.collection[0].permalink_url;
       SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
         console.log(oEmbed);
     });
   });
-}
-
-/*  =============================================================================
-    Displays the Youtube list on the overlay
-    From: youTubeMakeRequest
-    To: none
-
-    @param        none
-    @return       none
-    ========================================================================== */
-function displayYoutubeOnOverlay(videos) {
-  var videoID;
-  var title;
-  var thumbnail;
-  var str;
-  var button;
-  console.log(videos.result);
-  for(var i = 0; i < videos.result.items.length; i++) {
-    // VIDEO ID TO THE URL LINK
-    videoID = videos.result.items[i].id.videoId;
-    if (videoID != undefined) {
-      console.log('VIDEO ' + i + ': ' + videos.result.items[i]);
-      //Seperating URI and title to parse
-      title = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button> </div>";
-      thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
-      str = title + thumbnail;
-      $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
-    }
-  }
-  checkSize();
 }
 
 /*  =============================================================================
