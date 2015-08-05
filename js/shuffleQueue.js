@@ -60,6 +60,7 @@ function prevShuffleQueue() {
   if(shuffle_position < 0) {
     if(loop == true) {
       shuffleAllQueue();
+      shuffle_position = shuffle_array.length - 1;
     }
     else {
       closeAllVideo();
