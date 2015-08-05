@@ -99,6 +99,7 @@ function prepareForVideoListRequest(videos) {
       }
     }
   }
+  console.log('prepare: ' + allVideoIDForContentDetail);
   youTubeMakeRequestForContentDetail(videos, allVideoIDForContentDetail);
 }
 
@@ -114,7 +115,8 @@ function prepareForVideoListRequest(videos) {
 function youTubeMakeRequestForContentDetail(videos, allVideoIDs) {
   console.log("Making request to Google's API for Videos");
   var request = gapi.client.youtube.videos.list({
-    part: 'contentDetails'  
+    part: 'contentDetails',
+    id: allVideoIDs  
   });
   request.execute(function(videoContentDetailResponse) {
     displayYoutubeOnOverlay(videos, videoContentDetailResponse);
