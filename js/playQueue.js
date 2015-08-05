@@ -234,7 +234,7 @@ function prevQueue() {
     console.log("looptrue");
     currPos = parseInt(localStorage.getItem('length'));
   }
-  else if(currPos < 0) && loop == false) {
+  else if(currPos < 0 && loop == false) {
     console.log("loopfalse");
     closeAllVideo();
     $("#ppQueue").empty();
@@ -242,42 +242,6 @@ function prevQueue() {
     return;
   }
   prevPlayQueue(currPos);
-
-  
-  // // Unhighlights the previous track to emphasize change of current song
-  // $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
-  // $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
-
-  // if(shuffle == true) {
-  //   console.log("Shuffle_position" + shuffle_position);
-  //   //Shuffle position is on next one so we need to minus 2
-  //   shuffle_position = shuffle_position - 2;
-  //   if(shuffle_position < 0) {
-  //     shuffle_position = shuffle_array[shuffle_array.length - 1]
-  //   }
-  //   newPosition =  shuffle_position;
-  //   shuffle_position++;
-  //   playQueue(newPosition);
-  //   return;
-
-  // }
-  // if((parseInt(localStorage.getItem('length')) <= currPos) && loop == true) {
-  //   console.log("looptrue");
-  //   currPos = 0;
-  // }
-  // else if((parseInt(localStorage.getItem('length')) <= currPos) && loop == false) {
-  //   console.log("loopfalse");
-  //   closeAllVideo();
-  //   $("#ppQueue").empty();
-  //   $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
-  //   return;
-  // }
-  // var currPos = parseInt(localStorage.getItem('currPosition')) - 1;
-  // console.log("Prev Queue currPos" + currPos);
-  // if(currPos <= 0) {
-  //   currPos = 0;
-  // }
-  // playQueue(currPos);
 
 }
 
