@@ -154,7 +154,7 @@ function appendSongsIntoQueue() {
       }
     }
   }
-
+}
 
 /*  =============================================================================
     
@@ -172,9 +172,9 @@ function removeQueue(position) {
     nextQueue();
   }
 
- }
-
 }
+
+
 
 
 
