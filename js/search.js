@@ -140,6 +140,9 @@ function displayYoutubeOnOverlay(videos, allVideoContent) {
   var thumbnail;
   var str;
   console.log(allVideoContent);
+  console.log(allVideoContent);
+  console.log("VIDEOS:");
+  console.log(videos);
 
   // Parsing through the videos json response to retrieve each video.
   for(var i = 0; i < videos.result.items.length; ++i) {
