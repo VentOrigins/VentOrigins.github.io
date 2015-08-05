@@ -21,8 +21,8 @@ function overlayTracks(divToOverlay) {
   }
   var overlay = "<div class='overlay'>";
   var button = "<button id='close-button' onclick='finishedOverlaying()'> x </button>";
-  var youTubeTracks = "<div id='youTubeTracks'></div>";
-  var soundCloudTracks = "<div id='soundCloudTracks'>  </div> </div>";
+  var youTubeTracks = "<div id='youTubeTracks'><i class='fa fa-youtube fa-2x fa-align-center'></i></div>";
+  var soundCloudTracks = "<div id='soundCloudTracks'><i class='fa fa-soundcloud fa-2x fa-align-center'></i>  </div> </div>";
   $(divToOverlay).append(overlay + button + youTubeTracks + soundCloudTracks);
 }
 
