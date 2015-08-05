@@ -166,7 +166,7 @@ function removeQueue(position) {
   var pos = position.toString();
   $("#li"+pos).remove();
   localStorage.removeItem(pos);
-  console.log($.trim($("#queues").text()).length;
+  console.log($.trim($("#queues").text()).length);
 
   if(localStorage.getItem('currPosition') == pos) {
     nextQueue();
