@@ -209,6 +209,7 @@ function nextQueue() {
     ========================================================================== */
 function prevQueue() {
   if (localStorage.getItem("currPlaying") == null && shuffle == true) {
+    shuffle_position = shuffle_array.length - 1;
     prevShuffleQueue();
     return;
   }
