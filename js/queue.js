@@ -154,6 +154,26 @@ function appendSongsIntoQueue() {
       }
     }
   }
+
+
+/*  =============================================================================
+    
+
+    @param      
+    @return     none
+    ========================================================================== */
+function removeQueue(position) {
+  var pos = position.toString();
+  $("#li"+pos).remove();
+  localStorage.removeItem(pos);
+  console.log($("#queues").html());
+
+  if(localStorage.getItem('currPosition') == pos) {
+    nextQueue();
+  }
+
+ }
+
 }
 
 
