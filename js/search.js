@@ -140,7 +140,6 @@ function displayYoutubeOnOverlay(videos, allVideoContent) {
   var channelTitle;
   var thumbnail;
   var str;
-  console.log(allVideoContent);
 
   // Parsing through the videos json response to retrieve each video.
   for(var i = 0; i < videos.result.items.length; ++i) {
@@ -148,11 +147,11 @@ function displayYoutubeOnOverlay(videos, allVideoContent) {
     videoID = videos.result.items[i].id.videoId;
     if (videoID != undefined) {
       //Seperating URI and title to parse
+      thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
       title = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button> </div>";
       videoDuration = "<div class='youTubeDuration'>" + allVideoContent.result.items[i].contentDetails.duration + "</div>";
       channel = "<div class='youTubeChannelTitle'>" + videos.result.items[i].snippet.channelTitle + "</div>";
-      thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
-      str = title + videoDuration + channel + thumbnail;
+      str = thumbnail + title + videoDuration + channel;
       $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
     }
   }
