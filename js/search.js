@@ -94,7 +94,7 @@ function prepareForVideoListRequest(videos) {
       allVideoIDForContentDetail += videoID;
 
       // Doesn't add a comma to the end if last video
-      if (i < video.result.items.length - 1) {
+      if (i < videos.result.items.length - 1) {
         allVideoIDForContentDetail += ',';
       }
     }
