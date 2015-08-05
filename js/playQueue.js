@@ -209,7 +209,7 @@ function nextQueue() {
     ========================================================================== */
 function prevQueue() {
   if (localStorage.getItem("currPlaying") == null && shuffle == true) {
-    shuffleQueue();
+    prevShuffleQueue();
     return;
   }
   else if (localStorage.getItem("currPlaying") == null && shuffle == false) {
