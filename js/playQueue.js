@@ -214,7 +214,6 @@ function prevQueue() {
     return;
   }
   else if (localStorage.getItem("currPlaying") == null && shuffle == false) {
-    playQueue(0);
     return; 
   }
   
