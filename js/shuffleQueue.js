@@ -7,7 +7,7 @@
 function shuffleQueue() {
   //Check if array at end if it is then shuffle new queue
   console.log('Shuffle_position: ' + shuffle_position)
-  if( (shuffle_array.length) >= shuffle_position) {
+  if( (shuffle_array.length) <= shuffle_position) {
     if(loop == true) {
       shuffleAllQueue();
     }
@@ -27,11 +27,11 @@ function shuffleQueue() {
     console.log('NEWPOSITION: ' + newPosition);
 
     //Error checking
-    if( (shuffle_array.length) >= shuffle_position && loop == true && checkShuffleQueueNotNull()) {
+    if( (shuffle_array.length) <= shuffle_position && loop == true && checkShuffleQueueNotNull()) {
       shuffleAllQueue();
       newPosition = shuffle_array[shuffle_position];
     }
-    else if((shuffle_array.length) >= shuffle_position) {
+    else if((shuffle_array.length) <= shuffle_position) {
       console.log("SHUFFLE ENDED LOOP SHOULD BE FALSE");
       shuffleAllQueue();
       closeAllVideo();
