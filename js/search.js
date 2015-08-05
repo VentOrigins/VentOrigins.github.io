@@ -150,9 +150,9 @@ function displayYoutubeOnOverlay(videos, allVideoContent) {
       //Seperating URI and title to parse
       title = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button> </div>";
       videoDuration = "<div class='youTubeDuration'>" + allVideoContent.result.items[i].contentDetails.duration + "</div>";
-      channelTitle = "<div class='youTubeChannelTitle'>" + videos.result.items[i].snippet.channelTitle + "</div>";
+      channel = "<div class='youTubeChannelTitle'>" + videos.result.items[i].channelTitle + "</div>";
       thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
-      str = title + videoDuration + channelTitle + thumbnail;
+      str = title + videoDuration + channel + thumbnail;
       $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
     }
   }
