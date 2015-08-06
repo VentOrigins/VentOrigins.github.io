@@ -18,7 +18,7 @@ function displaySoundCloudPlayer() {
 	//Pause queue when SC is paused
 	widget.bind(SC.Widget.Events.PLAY, function() {
 		console.log("WTF2")
-		// resumeQueue();
+		resumeQueue();
 	});
 
 	$("#soundCloudPlayer").show();
@@ -76,7 +76,7 @@ function playSCPlayer() {
 	if($('#sc-widget').length) {
 		var widgetIframe = document.getElementById('sc-widget'),
 		widget = SC.Widget(widgetIframe);
-		widget.play();
+		widget.toggle();
 	}
 }
 
