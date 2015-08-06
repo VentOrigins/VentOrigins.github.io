@@ -116,11 +116,17 @@
 }
 
 .youTubeTracksText a{
+  padding: 0px;
   color: black;
 }
 
 .youTubeTracksText a:hover {
   text-decoration: underline;
+}
+
+.youTubeTracksText .fa .fa:hover {
+  text-decoration: none;
+  color: red;
 }
 
 /*Right side of overlay of sound cloud tracks*/
