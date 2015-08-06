@@ -17,12 +17,10 @@ function displaySoundCloudPlayer() {
 	});
 	//Pause queue when SC is paused
 	widget.bind(SC.Widget.Events.PAUSE, function() {
-		console.log("WTF2")
 		pauseQueue();
 	});
 	//Play queue when SC is played
 	widget.bind(SC.Widget.Events.PLAY, function() {
-		console.log("WTF")
 		$("#ppQueue").empty();
   	$("#ppQueue").append("<button onclick='pauseQueue()'><i class='fa fa-pause'></i></button>");
 	});
@@ -52,8 +50,7 @@ function playSC() {
  	widget       = SC.Widget(widgetIframe);
 	console.log("CALLED PLAY SC");
 	widget.bind(SC.Widget.Events.READY, function() {
-		console.log("WTF3")
-	  widget.pause();
+	  widget.play();
 	  widget.setVolume($('#sound-cloud-volume').val() / 100);
 	});
 }
