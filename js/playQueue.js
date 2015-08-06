@@ -295,6 +295,7 @@ function queueClick(idAndPosition) {
   //Get title is actually getting the position and not title
   var position = getTitle(idAndPosition);
   console.log(position); 
+  resumeQueue();
   playQueue(position);
 }
 
