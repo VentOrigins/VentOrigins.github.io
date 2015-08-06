@@ -10,12 +10,18 @@ function displaySoundCloudPlayer() {
 
 	var widgetIframe = document.getElementById('sc-widget'),
 	widget = SC.Widget(widgetIframe);
+	//Next Queue with finish
 	widget.bind(SC.Widget.Events.FINISH, function() {
 		hideSCPlayer();
 		nextQueue();
 	});
+	//Pause queue when SC is paused
 	widget.bind(SC.Widget.Events.PAUSE, function() {
 		pauseQueue();
+	});
+	//Play queue when SC is played
+	widget.bind(	SC.Widget.Events.PLAY, function() {
+		resumeQueue();
 	});
 	$("#soundCloudPlayer").show();
 	$("#sound-cloud-volume").show();
