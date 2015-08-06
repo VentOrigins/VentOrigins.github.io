@@ -115,8 +115,11 @@
   overflow: hidden;
 }
 
-.youTubeTracksText a{
+.youTubeTracksText button {
   padding: 0px;
+}
+
+.youTubeTracksText a{
   color: black;
 }
 
@@ -124,7 +127,7 @@
   text-decoration: underline;
 }
 
-.youTubeTracksText .fa .fa:hover {
+.youTubeTracksText .fa:hover {
   text-decoration: none;
   color: red;
 }
