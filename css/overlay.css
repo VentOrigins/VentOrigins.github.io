@@ -78,6 +78,7 @@
   /*Font*/
   color: black;
   font-size: 20px;
+  text-align: center;
 
   overflow: auto;
   
@@ -86,7 +87,6 @@
 }
 
 #youTubeTracks .fa-youtube {
-  text-align: center;
   margin-top: 10px;
 }
 
@@ -95,6 +95,7 @@
   height: 100px;
   /*Displays the track with thumbnail in line*/
   display: inline-flex;
+  text-align: left;
 }
 
 .youTubeDuration {
@@ -150,6 +151,7 @@
   /*FOnt*/
   color: black;
   font-size: 20px;
+  text-align: center;
 
   overflow: auto;
   border-left: 1px solid white;
@@ -159,7 +161,6 @@
 
 #soundCloudTracks .fa-soundcloud {
   margin-top: 10px;
-  text-align: center;
 }
 
 .soundCloudTracksRow {
@@ -167,6 +168,7 @@
   height: 100px;
   /*Displays the track with thumbnail in line*/
   display: inline-flex;
+  text-align: left;
 }
 
 .soundCloudTracksText {
