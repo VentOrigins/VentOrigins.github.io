@@ -1,7 +1,7 @@
 
 function displaySoundCloudPlayer() {
 
-	console.log("WTF");
+	console.log("displaySoundCloudPlayer");
 	console.log(localStorage.getItem('currPlaying'));
 	checkSize();
 	var uri = encodeURIComponent(localStorage.getItem('currPlaying'));
