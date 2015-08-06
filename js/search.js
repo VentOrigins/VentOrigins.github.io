@@ -146,19 +146,26 @@ function displayYoutubeOnOverlay(videos, allVideoContent) {
   console.log('ALLVIDEOCONTENT: ');
   console.log(allVideoContent);
 
+  // Used to increment through the contentDetails
+  var j = 0;
+
   // Parsing through the videos json response to retrieve each video.
   for(var i = 0; i < videos.result.items.length; ++i) {
     // VIDEO ID TO THE URL LINK
     videoID = videos.result.items[i].id.videoId;
     if (videoID != undefined) {
+      
       //Seperating URI and title to parse
       thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
-      title = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button> <br>" + allVideoContent.result.items[i].contentDetails.duration + "<br>" + videos.result.items[i].snippet.channelTitle + " </div>";
+      text = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button> <br>" + ' ' + allVideoContent.result.items[j].contentDetails.duration + "<br>" + ' ' + "<a href='https://www.youtube.com/channel/" + videos.result.items[i].snippet.channeId + "'> <i class='fa fa-television'></i> </a> </div>";
       // videoDuration = "<div class='youTubeDuration'>" + allVideoContent.result.items[i].contentDetails.duration + "</div>";
       // channel = "<div class='youTubeChannelTitle'>" + videos.result.items[i].snippet.channelTitle + "</div>";
       // str = thumbnail + title + videoDuration + channel;
-      str = thumbnail + title;
+      str = thumbnail + text;
       $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
+
+      // Incremements as long as there is a defined video id
+      ++j;
     }
   }
   checkSize();
