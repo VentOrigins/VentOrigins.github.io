@@ -134,7 +134,7 @@ function parseVideoDuration(time) {
   if (time.indexOf('M') != -1) {
     arrayTime = time.split('M')
     parsedMinute = arrayTime[0];
-    if (parseInt(parsedMinute) < 10) {
+    if (parsedHour != '' && parseInt(parsedMinute) < 10) {
       parsedMinute = '0' + parsedMinute;
     }
     time = arrayTime[1];
