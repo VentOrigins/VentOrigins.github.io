@@ -85,6 +85,11 @@
   z-index: 1000;
 }
 
+#youTubeTracks .fa-youtube {
+  text-align: center;
+  margin-top: 10px;
+}
+
 .youTubeTracksRow {
   width: 100%;
   height: 100px;
@@ -150,6 +155,11 @@
   border-left: 1px solid white;
 
   z-index: 1000;
+}
+
+#soundCloudTracks .fa-soundcloud {
+  margin-top: 10px;
+  text-align: center;
 }
 
 .soundCloudTracksRow {
