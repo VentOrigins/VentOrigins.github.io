@@ -103,7 +103,23 @@ function showYTPlayer() {
 }
 
 function loadYTVideo() {
-   player.loadVideoById(localStorage.getItem('currPlaying'),0,"large");
+  player.loadVideoById(localStorage.getItem('currPlaying'),0,"large");
+}
+
+/*  =============================================================================
+    Parses the youtube duration into an actual time.
+    The format is PT H M S, with the white spaces being the times
+    Called from: displayYoutubeOnOverlay    
+
+    @param      string    The time duration to be parsed
+    @return     string    The parsed time duration
+    ========================================================================== */
+function parseVideoDuration(time) {
+  time = time.replace("PT", "");
+  time = time.replace("H", ":");
+  time = time.replace("M", ":");
+  time = time.replace("S", "");
+  return time;  
 }
 
 
