@@ -65,6 +65,7 @@ function hideSCPlayer() {
 
 function pauseSCPlayer() {
 	//Pause the SC player
+	console.log('pauseSCPlayer')
 	if($('#sc-widget').length) {
 		var widgetIframe = document.getElementById('sc-widget'),
 		widget = SC.Widget(widgetIframe);
@@ -75,6 +76,7 @@ function pauseSCPlayer() {
 
 function playSCPlayer() {
 	//Stop the SC player
+	console.log('playSCPlayer');
 	if($('#sc-widget').length) {
 		var widgetIframe = document.getElementById('sc-widget'),
 		widget = SC.Widget(widgetIframe);
