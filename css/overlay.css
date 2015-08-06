@@ -124,11 +124,10 @@
 }
 
 .youTubeTracksText a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .youTubeTracksText .fa:hover {
-  text-decoration: none;
   color: red;
 }
 
