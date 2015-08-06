@@ -16,11 +16,16 @@ function displaySoundCloudPlayer() {
 		nextQueue();
 	});
 	//Pause queue when SC is paused
-	widget.bind(SC.Widget.Events.PLAY, function() {
+	widget.bind(SC.Widget.Events.PAUSE, function() {
 		console.log("WTF2")
-		resumeQueue();
+		pauseQueue();
 	});
-
+	//Play queue when SC is played
+	widget.bind(SC.Widget.Events.PLAY, function() {
+		console.log("WTF")
+		$("#ppQueue").empty();
+  	$("#ppQueue").append("<button onclick='pauseQueue()'><i class='fa fa-pause'></i></button>");
+	});
 	$("#soundCloudPlayer").show();
 	$("#sound-cloud-volume").show();
 	widget.setVolume($('#sound-cloud-volume').val() / 100);
@@ -48,7 +53,7 @@ function playSC() {
 	console.log("CALLED PLAY SC");
 	widget.bind(SC.Widget.Events.READY, function() {
 		console.log("WTF3")
-	  widget.play();
+	  widget.pause();
 	  widget.setVolume($('#sound-cloud-volume').val() / 100);
 	});
 }
@@ -76,7 +81,7 @@ function playSCPlayer() {
 	if($('#sc-widget').length) {
 		var widgetIframe = document.getElementById('sc-widget'),
 		widget = SC.Widget(widgetIframe);
-		widget.toggle();
+		widget.play();
 	}
 }
 
