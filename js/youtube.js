@@ -76,6 +76,7 @@ function onPlayerStateChange(event) {
 
 function stopVideo() {
   if(player != null) {
+    console.log("Player is stopped.");
     player.stopVideo();
   }
 }
