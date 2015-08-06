@@ -52,7 +52,7 @@ function playSC() {
 	console.log("CALLED PLAY SC");
 	widget.bind(SC.Widget.Events.READY, function() {
 		console.log("WTF3")
-	  widget.play();
+	  widget.pause();
 	  widget.setVolume($('#sound-cloud-volume').val() / 100);
 	});
 }
