@@ -89,7 +89,9 @@ function pauseVideo() {
 
 function playVideo() {
   if(player != null) {
-    player.playVideo();
+    if ($('#youTubePlayer').css('display') != 'none') {
+      player.playVideo();
+    } 
   }
 }
 
