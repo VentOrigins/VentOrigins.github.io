@@ -154,7 +154,7 @@ function parseVideoDuration(time) {
   if (parsedHour != '') {
     parsedTime = parsedHour + ':' + parsedMinute + ':' + parsedSecond;
   }
-  else if {
+  else {
     parsedTime = parsedMinute + ':' + parsedSecond; 
   } 
   return parsedTime;
