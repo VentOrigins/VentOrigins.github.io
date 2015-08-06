@@ -121,6 +121,7 @@ function parseVideoDuration(time) {
   var parsedMinute = '0';
   var parsedSecond = '00';
   var arrayTime = [];
+  var parsedTime = '';
 
   // 4H32M3S
   if (time.indexOf('H') != -1) {
@@ -151,11 +152,12 @@ function parseVideoDuration(time) {
   }
 
   if (parsedHour != '') {
-    return parsedHour + ':' + parsedMinute + ':' + parsedSecond;
+    parsedTime = parsedHour + ':' + parsedMinute + ':' + parsedSecond;
   }
   else if {
-    return parsedMinute + ':' + parsedSecond; 
+    parsedTime = parsedMinute + ':' + parsedSecond; 
   } 
+  return parsedTime;
 }
 
 
