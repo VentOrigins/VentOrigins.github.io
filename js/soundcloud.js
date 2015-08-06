@@ -16,7 +16,7 @@ function displaySoundCloudPlayer() {
 	});
 	widget.bind(SC.Widget.Events.PAUSE, function() {
 		pauseQueue();
-	}
+	});
 	$("#soundCloudPlayer").show();
 	$("#sound-cloud-volume").show();
 	widget.setVolume($('#sound-cloud-volume').val() / 100);
