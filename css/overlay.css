@@ -87,7 +87,8 @@
 }
 
 #youTubeTracks .fa-youtube {
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 .youTubeTracksRow {
@@ -160,7 +161,8 @@
 }
 
 #soundCloudTracks .fa-soundcloud {
-  margin-top: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 
 .soundCloudTracksRow {
