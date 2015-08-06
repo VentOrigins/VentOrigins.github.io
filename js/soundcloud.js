@@ -20,11 +20,7 @@ function displaySoundCloudPlayer() {
 		console.log("WTF2")
 		pauseQueue();
 	});
-	//Play queue when SC is played
-	widget.bind(SC.Widget.Events.PLAY, function() {
-		console.log("WTF")
-		resumeQueue();
-	});
+
 	$("#soundCloudPlayer").show();
 	$("#sound-cloud-volume").show();
 	widget.setVolume($('#sound-cloud-volume').val() / 100);
