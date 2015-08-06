@@ -115,11 +115,47 @@ function loadYTVideo() {
     @return     string    The parsed time duration
     ========================================================================== */
 function parseVideoDuration(time) {
+  // PT4H32M3S
   time = time.replace("PT", "");
-  time = time.replace("H", ":");
-  time = time.replace("M", ":");
-  time = time.replace("S", "");
-  return time;  
+  var parsedHour = '';
+  var parsedMinute = '0';
+  var parsedSecond = '00';
+  var arrayTime = [];
+
+  // 4H32M3S
+  if (time.indexOf('H') != -1) {
+    arrayTime = time.split('H');
+    parsedHour = arrayTime[0];
+    time = arrayTime[1];
+  }
+
+  // 32M3S
+  if (time.indexOf('M') != -1) {
+    arrayTime = time.split('M')
+    parsedMinute = arrayTime[0];
+    time = arrayTime[1];
+  }
+  else {
+    if (parsedHour != '') {
+      parsedMinute = '00'
+    }
+  }
+
+  //3S
+  if (time.indexOf('S') != -1) {
+    time = time.replace("S", "");
+    parsedSecond = time;
+    if (parseInt(parsedSecond) < 10) {
+      parsedSecond = '0' + parsedSecond;
+    }
+  }
+
+  if (parsedHour != '') {
+    return parsedHour + ':' + parsedMinute + ':' + parsedSecond;
+  }
+  else if {
+    return parsedMinute + ':' + parsedSecond; 
+  } 
 }
 
 
