@@ -157,16 +157,14 @@ function displayYoutubeOnOverlay(videos, allVideoContent) {
       
       //Seperating URI and title to parse
       thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
-      text = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button> <br>" + ' ' + allVideoContent.result.items[j].contentDetails.duration + "<br>";
+      text = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button> <br>";
       // videoDuration = "<div class='youTubeDuration'>" + allVideoContent.result.items[i].contentDetails.duration + "</div>";
       // channel = "<div class='youTubeChannelTitle'>" + videos.result.items[i].snippet.channelTitle + "</div>";
-      
-      links = "<a href='https://www.youtube.com/channel/" + videos.result.items[i].snippet.channelId + "' target='_blank'> <i class='fa fa-youtube-square fa-lg fa-align-center'></i> </a> </div>"
+      videoDuration = "allVideoContent.result.items[j].contentDetails.duration + '<br>'";
+      playLink = "<a href='https://www.youtube.com/watch?v=" + videoID + "' target='_blank' title='Link to Youtube Video'> <i class='fa fa-youtube-square fa-lg fa-align-center'></i> </a>";
+      channelLink = "<a href='https://www.youtube.com/channel/" + videos.result.items[i].snippet.channelId + "' target='_blank' title='Link to Youtube Channel'> <i class='fa fa-youtube-square fa-lg fa-align-center'></i> </a> </div>";
       // str = thumbnail + title + videoDuration + channel;
-      str = thumbnail + text + links;
-
-      // <i class='fa fa-television'></i>
-      // <i class="fa fa-youtube fa-2x fa-align-center"></i>
+      str = thumbnail + text + videoDuration + playLink + channelLink;
 
       $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
 
