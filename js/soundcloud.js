@@ -16,9 +16,9 @@ function displaySoundCloudPlayer() {
 		nextQueue();
 	});
 	//Pause queue when SC is paused
-	widget.bind(SC.Widget.Events.PAUSE, function() {
+	widget.bind(SC.Widget.Events.PLAY, function() {
 		console.log("WTF2")
-		pauseQueue();
+		resumeQueue();
 	});
 
 	$("#soundCloudPlayer").show();
