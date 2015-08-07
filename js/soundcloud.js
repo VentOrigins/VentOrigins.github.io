@@ -112,24 +112,37 @@ function setSCVolume(volume) {
 
 
 function parseSCDuration(time) {
-	var hour;
-	var minute;
-	var second;
+	var hour = '0';
+	var minute = '0';
+	var second = '00';
+	var stringTime;
 	if(time > 3600000) {
-		hour = Math.floor(time/3600000);
+		hour = Math.floor(time/3600000).toString();
 		time = time % 3600000;
 	}
 	if(time > 60000) {
-		minute = Math.floor(time/60000);
+		minute = Math.floor(time/60000).toString();
+		if(parseInt(minute) <= 9 && hour == '0') {
+			minute = '0' + minute;
+		}
 		time = time % 60000;
 	}
 	if(time > 1000) {
-		second = Math.floor(time/1000);
+		second = Math.floor(time/1000).toString();
+		if(parseInt(second) <= 9) {
+			second = '0' + second;
+		}
 	}
 	console.log("Hour" + hour);
 	console.log("Minute" + minute);
 	console.log("Second" + second);
-
+	if(hour == '0') {
+		stringTime = minute + ':' + second;
+	}
+	else if(hour != '0') {
+		stringTime = hour + ':' + minute + ':' + second;
+	}
+	return stringTime;
 
 }
 
