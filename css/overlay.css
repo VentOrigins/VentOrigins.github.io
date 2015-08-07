@@ -188,12 +188,16 @@
   color: black;
 }
 
+.soundCloudTracksText button {
+  padding: 0px;
+}
+
 .soundCloudTracksText a:hover {
   text-decoration: underline;
 }
 
-.soundCloudTracksText .fa {
-  color: orange;
+.soundCloudTracksText .fa:hover {
+  color: #F96D20;
   text-decoration: none;
 }
 
