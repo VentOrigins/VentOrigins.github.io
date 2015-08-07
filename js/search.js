@@ -232,10 +232,12 @@ function displaySoundCloudOnOverlay(tracks) {
   var usernameURL;
   var str;
   var artwork_url;
+  var duration;
   var next_href;
   console.log(tracks);
   for (var i = 0; i < tracks.collection.length; ++i) {  
     uri = tracks.collection[i].uri;
+    duration = parseSCDuration(tracks.collection[i].duration);
     //Seperating URI and title to parse
     title = "<div class='soundCloudTracksText'>" + "<button id='" + uri +"/|" + tracks.collection[i].title  + "' class='addButton' onclick='addSoundCloudToQueue(this)'>" + tracks.collection[i].title + "</button> </div>";
     username = tracks.collection[i].user.username;

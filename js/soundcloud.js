@@ -110,3 +110,33 @@ function setSCVolume(volume) {
 	widget.setVolume(volume / 100);
 }
 
+
+function parseSCDuration(time) {
+	var hour;
+	var minute;
+	var second;
+	if(time > 3600000) {
+		hour = Math.floor(time/3600000);
+		time = time % 3600000;
+	}
+	if(time > 60000) {
+		minute = Math.floor(time/60000);
+		time = time % 60000;
+	}
+	if(time > 1000) {
+		second = Math.floor(time/1000);
+	}
+	console.log("Hour" + hour);
+	console.log("Minute" + minute);
+	console.log("Second" + second);
+
+
+}
+
+
+
+
+
+
+
+
