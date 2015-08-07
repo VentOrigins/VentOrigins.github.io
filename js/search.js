@@ -236,7 +236,7 @@ function displaySoundCloudOnOverlay(tracks) {
   var next_href;
   console.log(tracks);
   for (var i = 0; i < tracks.collection.length; ++i) {  
-    uri = tracks.collection[i].uri;
+    uri = tracks.collection[i].permalink_url;
     duration = parseSCDuration(tracks.collection[i].duration);
     username = tracks.collection[i].user.username;
     usernameURL = tracks.collection[i].user.permalink_url;
