@@ -193,12 +193,8 @@
 }
 
 .soundCloudTracksText a:hover {
-  text-decoration: underline;
-}
-
-.soundCloudTracksText .fa:hover {
-  color: #F96D20;
   text-decoration: none;
+  color: #F96D20;
 }
 
 .addButton {
