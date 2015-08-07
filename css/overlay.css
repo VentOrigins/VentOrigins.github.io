@@ -176,8 +176,7 @@
 .soundCloudTracksText {
   width: 80%;
 
-  /*Keeps the text vertically centered in row*/
-  margin-top: 36px;
+  text-align: right;
 
   /*Stays in one line and does not overflow*/
   text-overflow: ellipsis;
@@ -191,6 +190,11 @@
 
 .soundCloudTracksText a:hover {
   text-decoration: underline;
+}
+
+.soundCloudTracksText .fa {
+  color: orange;
+  text-decoration: none;
 }
 
 .addButton {
