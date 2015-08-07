@@ -122,7 +122,7 @@ function parseSCDuration(time) {
 	}
 	if(time > 60000) {
 		minute = Math.floor(time/60000).toString();
-		if(parseInt(minute) <= 9 && hour == '0') {
+		if(parseInt(minute) <= 9 && hour != '0') {
 			minute = '0' + minute;
 		}
 		time = time % 60000;
