@@ -39,13 +39,15 @@ function displaySoundCloudPlayer() {
     @return     none
     ========================================================================== */
 function displaySoundCloud () {
-  
   displaySoundCloudPlayer();
-  
 }
 
+/*  =============================================================================
+    
 
-
+    @param      
+    @return     none
+    ========================================================================== */
 function playSC() {
 	var widgetIframe = document.getElementById('sc-widget'),
  	widget       = SC.Widget(widgetIframe);

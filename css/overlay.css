@@ -4,6 +4,7 @@
     By Adrian Mandee and Randy Truong
     ========================================================================== */
 
+/*The entire overlay when user searches*/
 .overlay {
   
   /*Needed to be over another div*/
@@ -19,7 +20,7 @@
   background: white;
 
   /*How transparent the overlay would be when loading*/
-  opacity: .90;
+  opacity: .80;
 
   /*Over everything else*/
   z-index: 1000;
@@ -34,25 +35,38 @@
   display: inline-block;
 }
 
+/*The button to close the overlay*/
 #close-button {
+  /*Size*/
   width: 40px;
   height: 40px;
+
+  /*Font*/
   color: #FFFFFF;
+  font-size: 21px;
+  font-weight: normal;
+
+  /*Set the exact position of the close button*/
   position: absolute;
   right: 15px;
   top: 5px;
-  font-size: 21px;
-  opacity: 1.0;
-  font-weight: normal;
+  
+  /*Color of button*/
   background-color: #FF0000;
+
+  /*Border*/
   border: none;
   border-top-right-radius: 50px 50px;
   border-top-left-radius: 50px 50px;
   border-bottom-right-radius: 50px 50px;
   border-bottom-left-radius: 50px 50px;
-  z-index: 1001; 
+   
+
+  opacity: 1.0;
+  z-index: 1001;
 }
 
+/*Hovering over the close button*/
 #close-button:hover {
   background-color: #990000;
 }
@@ -102,22 +116,10 @@
   text-align: left;
 }
 
-.youTubeDuration {
-  width: 80%;
-  height: 30px;
-
-  position: absolute;
-}
-
-.youTubeChannelTitle {
-  width: 80%;
-  height: 30px;
-
-  position: absolute;
-}
-
 .youTubeTracksText {
   width: 80%;
+
+  font-size: 16px;
 
   /*Stays in one line and does not overflow*/
   text-overflow: ellipsis;
@@ -126,11 +128,20 @@
 }
 
 .youTubeTracksText button {
+  font-size: 20px;
   padding: 0px;
 }
 
 .youTubeTracksText a{
   color: black;
+}
+
+.youTubePlayLink {
+  font-size: 18px;
+}
+
+.youTubeChannelLink {
+  font-size: 18px;
 }
 
 .youTubeTracksText a:hover {
