@@ -117,21 +117,28 @@
 }
 
 .youTubeTracksText {
-  width: 80%;
+  width: 460px;
+  padding-top: 10px;
 
+  /*Font*/
   font-size: 16px;
 
   /*Stays in one line and does not overflow*/
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+
+  /*Set exact position*/
+  position: relative;
+  left: 80px;
 }
 
 .youTubeTracksText button {
   padding: 0px;
 
-  color: #10CCEA;
-  font-size: 20px;
+  color: #1040CF;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .youTubeTracksText a{
@@ -190,7 +197,7 @@
 }
 
 .soundCloudTracksText {
-  width: 80%;
+  width: ;
 
   text-align: right;
 
@@ -229,8 +236,8 @@
 
 /*Thumbnail*/
 .image-thumbnail {
-  width: 20%;
-  height: 100px;
+  width: 220px;
+  height: 150px;
 
   /*To keep it on the right of div*/
   position: relative;
@@ -238,9 +245,9 @@
 }
 
 .image-thumbnail img {
-  width: 100%;
-  height: 100%;
-  
+  width: 220px;
+  height: 150px;
+
   padding-top: 5px;
   padding-bottom: 5px;
   padding-right: 10px;
