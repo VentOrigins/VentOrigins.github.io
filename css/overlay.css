@@ -128,8 +128,10 @@
 }
 
 .youTubeTracksText button {
-  font-size: 20px;
   padding: 0px;
+
+  color: #10CCEA;
+  font-size: 20px;
 }
 
 .youTubeTracksText a{
