@@ -118,7 +118,9 @@
 
 .youTubeTracksText {
   width: 460px;
-  padding-top: 10px;
+
+  /*To vertically center the text*/
+  padding-top: 35px;
 
   /*Font*/
   font-size: 16px;
@@ -196,8 +198,12 @@
 }
 
 .soundCloudTracksText {
-  width: ;
+  width: 600px;
 
+  /*To center the SoundCloud text*/
+  padding-top: 35px;
+
+  /*Font alignment*/
   text-align: right;
 
   /*Stays in one line and does not overflow*/
@@ -244,11 +250,20 @@
 }
 
 .image-thumbnail img {
-  width: 220px;
-  height: 150px;
-
   padding-top: 5px;
   padding-bottom: 5px;
   padding-right: 10px;
   padding-left: 10px;
 }
+
+.youTubeTracksRow .image-thumbnail img {
+  width: 220px;
+  height: 150px;
+}
+
+.soundCloudTracksRow .image-thumbnail img {
+  width: 150px;
+  height: 150px;
+}
+
+
