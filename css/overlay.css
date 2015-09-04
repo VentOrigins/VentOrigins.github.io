@@ -188,6 +188,10 @@
 
 .soundCloudTracksText button {
   padding: 0px;
+
+  color: #1040CF;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .soundCloudTracksText a:hover {
