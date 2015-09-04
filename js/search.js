@@ -4,6 +4,13 @@
     By Adrian Mandee and Randy Truong
     ========================================================================== */
 var q;
+var ifFinishedWIthBothRequests = 0;
+var finalVideos;
+var finalAllVideoCOntent;
+var finalTracks;
+// Used to increment through the contentDetails
+var durationPos = 0;
+
 /*  =============================================================================
     Searches through youtube and soundcloud to return the list of tracks
     From: OnSubmit of query-input
@@ -16,9 +23,7 @@ function search() {
   // Removes defaults
   event.preventDefault();
 
-  console.log("Searched");
   // Puts an overlay over the splash screen to display tracks
-
   overlayTracks("#splash-screen");
 
   if ($('#query-form').css('display') == 'none') {
@@ -119,7 +124,7 @@ function youTubeMakeRequestForContentDetail(videos, allVideoIDs) {
     id: allVideoIDs  
   });
   request.execute(function(videoContentDetailResponse) {
-    displayYoutubeOnOverlay(videos, videoContentDetailResponse);
+    youTubeFinishedWithRequest(videos, videoContentDetailResponse);
   });
 }
 
@@ -132,44 +137,9 @@ function youTubeMakeRequestForContentDetail(videos, allVideoIDs) {
     @param 
     @return       none
     ========================================================================== */
-function displayYoutubeOnOverlay(videos, allVideoContent) {
-  console.log("In displayYoutubeOnOverlay");
-  var videoID;
-  var title;
-  var videoDuration;
-  var channelTitle;
-  var thumbnail;
-  var str;
-
-  console.log('VIDEOS: ');
-  console.log(videos);
-  console.log('ALLVIDEOCONTENT: ');
-  console.log(allVideoContent);
-
-  // Used to increment through the contentDetails
-  var j = 0;
-
-  // Parsing through the videos json response to retrieve each video.
-  for(var i = 0; i < videos.result.items.length; ++i) {
-    // VIDEO ID TO THE URL LINK
-    videoID = videos.result.items[i].id.videoId;
-    if (videoID != undefined) {
-      
-      //Seperating URI and title to parse
-      thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
-      text = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button>";
-      videoDuration = "<div class='youTubeDuration'>" + parseVideoDuration(allVideoContent.result.items[j].contentDetails.duration) + "</div>";
-      playLink = "<a class='youTubePlayLink' href='https://www.youtube.com/watch?v=" + videoID + "' target='_blank' title='Link to Youtube Video'> <i class='fa fa-youtube-play fa-lg fa-align-center'></i> </a>";
-      channelLink = "<a class='youTubeChannelLink' href='https://www.youtube.com/channel/" + videos.result.items[i].snippet.channelId + "' target='_blank' title='Link to Youtube Channel'> <i class='fa fa-youtube-square fa-lg fa-align-center'></i> </a> </div>";
-      str = thumbnail + text + videoDuration + playLink + channelLink;
-
-      $('#youTubeTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
-
-      // Incremements as long as there is a defined video id
-      ++j;
-    }
-  }
-  checkSize();
+function youTubeFinishedWithRequest(videos, allVideoContent) {
+  ++ifFinishedWIthBothRequests;
+  displayBothYoutubeAndSoundCloudOnOverlay(videos, allVideoContent, null);
 }
 
 /*  =============================================================================
@@ -209,7 +179,7 @@ function soundCloudMakeRequest() {
       linked_partitioning: 1
     }, 
   function(tracks) {
-      displaySoundCloudOnOverlay(tracks);
+      soundCloudFinishedWithRequest(tracks);
       var track_url = tracks.collection[0].permalink_url;
       SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
         console.log(oEmbed);
@@ -225,7 +195,56 @@ function soundCloudMakeRequest() {
     @param        none
     @return       none
     ========================================================================== */
-function displaySoundCloudOnOverlay(tracks) {
+function soundCloudFinishedWithRequest(tracks) {
+  ++ifFinishedWIthBothRequests;
+  displayBothYoutubeAndSoundCloudOnOverlay(null, null, tracks);
+}
+
+/*  =============================================================================
+    Displays the Youtube list on the overlay
+    From: youTubeMakeRequestForContentDetail
+    To: none
+
+    @param       
+    @param 
+    @return       none
+    ========================================================================== */
+function displayYoutubeOnOverlay(i, videos, allVideoContent) {
+  var videoID;
+  var title;
+  var videoDuration;
+  var channelTitle;
+  var thumbnail;
+  var str;
+
+  // VIDEO ID TO THE URL LINK
+  videoID = videos.result.items[i].id.videoId;
+  if (videoID != undefined) {
+    
+    //Seperating URI and title to parse
+    thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' alt='playlist-image'></div>";
+    text = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button>";
+    videoDuration = "<div class='youTubeDuration'>" + parseVideoDuration(allVideoContent.result.items[durationPos].contentDetails.duration) + "</div>";
+    playLink = "<a class='youTubePlayLink' href='https://www.youtube.com/watch?v=" + videoID + "' target='_blank' title='Link to Youtube Video'> <i class='fa fa-youtube-play fa-lg fa-align-center'></i> </a>";
+    channelLink = "<a class='youTubeChannelLink' href='https://www.youtube.com/channel/" + videos.result.items[i].snippet.channelId + "' target='_blank' title='Link to Youtube Channel'> <i class='fa fa-youtube-square fa-lg fa-align-center'></i> </a> </div>";
+    str = thumbnail + text + videoDuration + playLink + channelLink;
+
+    $('.overlay').append("<div class='youTubeTracksRow'>" + str + "</div>");
+
+    // Incremements as long as there is a defined video id
+    ++durationPos;
+  }
+}
+
+/*  =============================================================================
+    Displays the SoundCloud list on the overlay
+    From: soundCloudMakeRequest
+    To: none
+
+    @param        none
+    @return       none
+    ========================================================================== */
+function displaySoundCloudOnOverlay(i, tracks) {
   var title;
   var uri;
   var username;
@@ -233,13 +252,14 @@ function displaySoundCloudOnOverlay(tracks) {
   var str;
   var artwork_url;
   var duration;
-  var next_href;
+  
   console.log(tracks);
-  for (var i = 0; i < tracks.collection.length; ++i) {  
+  if (tracks.collection[i] != undefined) {
     uri = tracks.collection[i].permalink_url;
     duration = parseSCDuration(tracks.collection[i].duration);
     username = tracks.collection[i].user.username;
     usernameURL = tracks.collection[i].user.permalink_url;
+
     //Seperating URI and title to parse
     title = "<div class='soundCloudTracksText'>" + "<button id='" + uri +"/|" + tracks.collection[i].title  + "' class='addButton' onclick='addSoundCloudToQueue(this)'>" + tracks.collection[i].title + "</button> <br> ";
     videoDuration = duration + "<br>";
@@ -247,12 +267,47 @@ function displaySoundCloudOnOverlay(tracks) {
     channelLink = "<a href='"+ usernameURL + "' target='_blank' title='Link to Soundcloud Artist'>" + username + " </a> </div>";   
     artwork_url = "<div class='image-thumbnail'><img src='" + tracks.collection[i].artwork_url + "' alt='playlist-image'></div>";;
     str = title + videoDuration + playLink + channelLink + artwork_url;
-    $('#soundCloudTracks').append("<div class='soundCloudTracksRow'>" + str + "<div>");
+    
+    $('.overlay').append("<div class='soundCloudTracksRow'>" + str + "<div>");
   }
-  next_href = tracks.next_href;
+}
+
+function getGreaterLength(i, j) {
+  if (i < j) {
+    return j;
+  }
+  else {
+    return i;
+  }
+}
+
+function displayBothYoutubeAndSoundCloudOnOverlay(videos, allVideosContent, tracks) {
+  if (ifFinishedWIthBothRequests != 2) {
+    return;
+  }
+
+  if (videos == null && allVideosContent == null) {
+    finalTracks = tracks;
+  }
+  else {
+    finalVideos = videos;
+    finalAllVideoCOntent = allVideosContent;
+  }
+
+
+  var displayLength = getGreaterLength(videos.result.items.length, tracks.collection.length);
+  for (var i = 0; i < displayLength; ++i) {
+    displayYoutubeOnOverlay(i, finalVideos, finalAllVideoCOntent);
+    displaySoundCloudOnOverlay(i, finalTracks);
+  }
+
+  //Resets
+  ifFinishedWIthBothRequests = 0;
+  // Used to increment through the contentDetails
+  durationPos = 0;
+
+  // Adjusts the size
   checkSize();
-  //Remove splash screen title
-  
 }
 
 
