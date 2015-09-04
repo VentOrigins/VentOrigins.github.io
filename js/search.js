@@ -295,6 +295,7 @@ function displayBothYoutubeAndSoundCloudOnOverlay(videos, allVideosContent, trac
   }
 
   var displayLength = getGreaterLength(videos.result.items.length, tracks.collection.length);
+  console.log('DisplayLength: ' + displayLength);
   for (var i = 0; i < displayLength; ++i) {
     displayYoutubeOnOverlay(i, finalVideos, finalAllVideoCOntent);
     displaySoundCloudOnOverlay(i, finalTracks);
