@@ -103,10 +103,6 @@
   z-index: 1000;
 }
 
-#youTubeTracks .fa-youtube {
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
 
 .youTubeTracksRow {
   width: 100%;
@@ -117,7 +113,7 @@
 }
 
 .youTubeTracksText {
-  width: 460px;
+  width: 100%;
 
   /*To vertically center the text*/
   padding-top: 35px;
@@ -162,33 +158,6 @@
   color: red;
 }
 
-/*Right side of overlay of sound cloud tracks*/
-#soundCloudTracks {
-  width: 50%;
-
-  /*Moves to right and top side of overlay*/
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  right: 0px;
-  bottom: 0px;
-
-  /*FOnt*/
-  color: black;
-  font-size: 20px;
-  text-align: center;
-
-  overflow: auto;
-  border-left: 1px solid white;
-
-  z-index: 1000;
-}
-
-#soundCloudTracks .fa-soundcloud {
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-
 .soundCloudTracksRow {
   width: 100%;
   height: 150px;
@@ -198,7 +167,7 @@
 }
 
 .soundCloudTracksText {
-  width: 600px;
+  width: 100%;
 
   /*To center the SoundCloud text*/
   padding-top: 35px;
@@ -263,8 +232,10 @@
 }
 
 .soundCloudTracksRow .image-thumbnail img {
-  width: 150px;
+  width: 170px;
   height: 150px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
 

@@ -261,12 +261,12 @@ function displaySoundCloudOnOverlay(i, tracks) {
     usernameURL = tracks.collection[i].user.permalink_url;
 
     //Seperating URI and title to parse
+    artwork_url = "<div class='image-thumbnail'><img src='" + tracks.collection[i].artwork_url + "' alt='playlist-image'></div>";
     title = "<div class='soundCloudTracksText'>" + "<button id='" + uri +"/|" + tracks.collection[i].title  + "' class='addButton' onclick='addSoundCloudToQueue(this)'>" + tracks.collection[i].title + "</button> <br> ";
     videoDuration = duration + "<br>";
     playLink = "<a href='" + uri + "' target='_blank' title='Link to SoundCloud'> <i class='fa fa-soundcloud fa-lg fa-align-center'></i> </a>";
     channelLink = "<a href='"+ usernameURL + "' target='_blank' title='Link to Soundcloud Artist'>" + username + " </a> </div>";   
-    artwork_url = "<div class='image-thumbnail'><img src='" + tracks.collection[i].artwork_url + "' alt='playlist-image'></div>";;
-    str = title + videoDuration + playLink + channelLink + artwork_url;
+    str = artwork_url + title + videoDuration + playLink + channelLink;
     
     $('#youTubeAndSoundCloudTracks').append("<div class='soundCloudTracksRow'>" + str + "<div>");
   }
