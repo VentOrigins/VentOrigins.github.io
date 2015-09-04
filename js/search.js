@@ -282,10 +282,6 @@ function getGreaterLength(i, j) {
 }
 
 function displayBothYoutubeAndSoundCloudOnOverlay(videos, allVideosContent, tracks) {
-  if (ifFinishedWIthBothRequests != 2) {
-    return;
-  }
-
   if (videos == null && allVideosContent == null) {
     finalTracks = tracks;
   }
@@ -294,6 +290,9 @@ function displayBothYoutubeAndSoundCloudOnOverlay(videos, allVideosContent, trac
     finalAllVideoCOntent = allVideosContent;
   }
 
+  if (ifFinishedWIthBothRequests != 2) {
+    return;
+  }
 
   var displayLength = getGreaterLength(videos.result.items.length, tracks.collection.length);
   for (var i = 0; i < displayLength; ++i) {
