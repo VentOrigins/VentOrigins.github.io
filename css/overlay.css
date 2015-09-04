@@ -47,7 +47,7 @@
   font-weight: normal;
 
   /*Set the exact position of the close button*/
-  position: fixed;
+  position: absolute;
   right: 15px;
   top: 5px;
   
