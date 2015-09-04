@@ -14,16 +14,14 @@
 function overlayTracks(divToOverlay) {  
   
   //Check if overlay is made already and empty tracks
-  if($('#youTubeTracks').length) {
-    $('#youTubeTracks').empty();
-    $('#soundCloudTracks').empty();
+  if($('#youTubeAndSoundCloudTracks').length) {
+    $('#youTubeAndSoundCloudTracks').empty();
     return;
   }
   var overlay = "<div class='overlay'>";
   var button = "<button id='close-button' onclick='finishedOverlaying()'> x </button>";
-  var youTubeTracks = "<div id='youTubeTracks'><i class='fa fa-youtube fa-2x fa-align-center'></i></div>";
-  var soundCloudTracks = "<div id='soundCloudTracks'><i class='fa fa-soundcloud fa-2x fa-align-center'></i>  </div> </div>";
-  $(divToOverlay).append(overlay + button);
+  var youTubeAndSoundCloudTracks = "<div id='youTubeAndSoundCloudTracks'></div>";
+  $(divToOverlay).append(overlay + button + youTubeAndSoundCloudTracks);
 }
 
 /*  =============================================================================

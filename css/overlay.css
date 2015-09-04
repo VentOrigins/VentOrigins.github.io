@@ -47,7 +47,7 @@
   font-weight: normal;
 
   /*Set the exact position of the close button*/
-  position: absolute;
+  position: fixed;
   right: 15px;
   top: 5px;
   
@@ -82,8 +82,8 @@
 }
 
 /*Left side for youtube tracks*/
-#youTubeTracks {
-  width: 50%;
+#youTubeAndSoundCloudTracks {
+  width: 100%;
 
   /*Moves to top and left side of overlay*/
   position: absolute;

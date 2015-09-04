@@ -229,7 +229,7 @@ function displayYoutubeOnOverlay(i, videos, allVideoContent) {
     channelLink = "<a class='youTubeChannelLink' href='https://www.youtube.com/channel/" + videos.result.items[i].snippet.channelId + "' target='_blank' title='Link to Youtube Channel'> <i class='fa fa-youtube-square fa-lg fa-align-center'></i> </a> </div>";
     str = thumbnail + text + videoDuration + playLink + channelLink;
 
-    $('.overlay').append("<div class='youTubeTracksRow'>" + str + "</div>");
+    $('#youTubeAndSoundCloudTracks').append("<div class='youTubeTracksRow'>" + str + "</div>");
 
     // Incremements as long as there is a defined video id
     ++durationPos;
@@ -268,7 +268,7 @@ function displaySoundCloudOnOverlay(i, tracks) {
     artwork_url = "<div class='image-thumbnail'><img src='" + tracks.collection[i].artwork_url + "' alt='playlist-image'></div>";;
     str = title + videoDuration + playLink + channelLink + artwork_url;
     
-    $('.overlay').append("<div class='soundCloudTracksRow'>" + str + "<div>");
+    $('#youTubeAndSoundCloudTracks').append("<div class='soundCloudTracksRow'>" + str + "<div>");
   }
 }
 
