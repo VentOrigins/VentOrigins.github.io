@@ -72,9 +72,10 @@ function checkSize() {
     document.getElementById("youTubePlayer").style.height = splashScreenHeight + 'px';
     document.getElementById("splash-screen").style.height = splashScreenHeight + 'px';
 
-    // Adds the title
-    document.getElementById("top-title").style.display = 'inline-block';
-
+    // Adds the title if the title is already on top
+    if (document.getElementById("top-title") != null) {
+      document.getElementById("top-title").style.display = 'inline-block';
+    }
   }
 }
 
