@@ -8,6 +8,7 @@ $(document).ready(function() {
   console.log("Document Ready");
   // FIrst check initial window size and adjusts sizes of divs
   checkSize();
+
   // Removes the current position and current playing
   localStorage.removeItem('currPlaying');
   localStorage.removeItem('currPosition');
@@ -64,7 +65,7 @@ function checkSize() {
 
     // Set the width and height of the youtubePlayer
     document.getElementById("youTubePlayer").style.width = divWidth + 'px';
-    var splashScreenHeight = document.getElementById("splash-screen").offsetHeight - 70;
+    var splashScreenHeight = $(window).height() - 70;
     document.getElementById("youTubePlayer").style.height = splashScreenHeight + 'px';
     document.getElementById("splash-screen").style.height = splashScreenHeight + 'px';
 
