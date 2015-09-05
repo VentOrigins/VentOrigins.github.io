@@ -21,7 +21,8 @@
 #queue-logo {
   height: 70px;
   width: 100%;
-  /*border-bottom: 1px solid #999999*/
+  background-color: #FAFAFF;
+  position: relative;
   box-shadow: 2px 1px 3px #999999;
   z-index: 10001;
 }
