@@ -45,6 +45,9 @@ function checkSize() {
     document.getElementById("page-footer-id").style.width = $(window).width() + 'px';
     document.getElementById("soundCloudPlayer").style.width = $(window).width() + 'px';
     document.getElementById("youTubePlayer").style.width = $(window).width() + 'px';
+
+    // Removes the title
+    document.getElementById("top-title").style.display = 'none';
   }
 
   // When screen is big, starts the div after the queue-bar
@@ -68,6 +71,9 @@ function checkSize() {
     var splashScreenHeight = $(window).height() - 70;
     document.getElementById("youTubePlayer").style.height = splashScreenHeight + 'px';
     document.getElementById("splash-screen").style.height = splashScreenHeight + 'px';
+
+    // Adds the title
+    document.getElementById("top-title").style.display = 'inline-block';
 
   }
 }
