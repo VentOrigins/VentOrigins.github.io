@@ -8,6 +8,7 @@
 #queue-bar {
   /*Size*/
   height: 100vh;
+  width: 300px;
 
   /*Background*/
   background-color: white;
@@ -20,12 +21,15 @@
 #queue-logo {
   height: 70px;
   width: 100%;
-  border-bottom: 1px solid #999999
+  /*border-bottom: 1px solid #999999*/
+  box-shadow: 2px 1px 3px #999999;
+  z-index: 10001;
 }
 
 /*Logo in queue-logo*/
 #div-logo {
-  width: 80%;
+  /*width: 80%;*/
+  width: 100%;
   height: 70px;
   display: inline-block;
 }

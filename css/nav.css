@@ -18,7 +18,10 @@ nav.nav-wrapper {
   height: 70px;
   margin-top: 0px;
   padding-top: 18px;
-  position: relative;
+  position: fixed;
+  background-color: white;
+  box-shadow: 2px 1px 3px #999999;
+  z-index: 1001;
 }
 #top-nav {
   width: 100%;

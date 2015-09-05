@@ -6,8 +6,9 @@
 
 #splash-screen {
   height: 100vh;
-  background-color: white;
+  background-color: #FAFAFF;
   position: relative;
+  padding-top: 70px;
 }
 
 #splash-screen-title {
