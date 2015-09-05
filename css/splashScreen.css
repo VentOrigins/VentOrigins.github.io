@@ -8,7 +8,8 @@
   height: 100vh;
   background-color: #FAFAFF;
   position: relative;
-  padding-top: 70px;
+  top: 70px;
+  margin-bottom: 70px;
 }
 
 #splash-screen-title {

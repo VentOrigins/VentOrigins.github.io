@@ -16,6 +16,9 @@
   left: 0px;
   right: 0px;
 
+  /*Accounts for the space of the nav bar*/
+  margin-top: 70px;
+
   /*Color of overlay*/
   background: white;
 
