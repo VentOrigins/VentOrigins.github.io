@@ -64,7 +64,8 @@ function checkSize() {
 
     // Set the width and height of the youtubePlayer
     document.getElementById("youTubePlayer").style.width = divWidth + 'px';
-    document.getElementById("youTubePlayer").style.height = document.getElementById("splash-screen").offsetHeight + 'px';
+    var splashScreenHeight = document.getElementById("splash-screen").offsetHeight - 70;
+    document.getElementById("youTubePlayer").style.height = splashScreenHeight + 'px';
   }
 }
 
