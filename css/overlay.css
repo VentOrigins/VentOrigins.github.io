@@ -17,7 +17,7 @@
   right: 0px;
 
   /*Color of overlay*/
-  background: #FAFAFA;
+  background-color: #FAFAFA;
 
   /*How transparent the overlay would be when loading*/
   opacity: .80;
@@ -132,7 +132,7 @@
 
 .youTubeTracksText button {
   padding: 0px;
-
+  background-color: #FAFAFA;
   color: #1040CF;
   font-size: 16px;
   font-weight: 500;
@@ -171,6 +171,7 @@
 
   /*To center the SoundCloud text*/
   padding-top: 35px;
+  margin-left: 20px;
 
   /*Font alignment*/
   text-align: left;
@@ -188,7 +189,7 @@
 
 .soundCloudTracksText button {
   padding: 0px;
-
+  background-color: #FAFAFA;
   color: #1040CF;
   font-size: 16px;
   font-weight: 500;
@@ -236,10 +237,15 @@
 }
 
 .soundCloudTracksRow .image-thumbnail img {
-  width: 170px;
-  height: 150px;
-  margin-left: 25px;
-  margin-right: 25px;
+  width: 200px;
+  height: 140px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: black;
+  position: relative;
+  left: 10px;
 }
 
 
