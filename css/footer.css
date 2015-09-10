@@ -9,9 +9,24 @@ footer.page-footer {
   position: relative;
   margin-top: 0px;
   margin-right: 0px;
+  box-shadow: 0px -1px 5px #CCCCCC;
 }
 
 /*Handles the icons in the footers*/
 .page-footer .fa {
   padding: 3px;
+}
+
+.footer-copyright .container {
+  color: grey;
+}
+
+footer.page-footer .fa {
+  margin-top: 10px;
+  font-size: 23px;
+}
+
+footer.page-footer .fa:hover {
+  /*When hovering, icons will be black*/
+  color: black;
 }
