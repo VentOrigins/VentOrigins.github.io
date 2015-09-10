@@ -222,7 +222,7 @@ function displayYoutubeOnOverlay(i, videos, allVideoContent) {
   if (videoID != undefined) {
     
     //Seperating URI and title to parse
-    thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' onerror=\"this.src = 'img/VentOriginsLogoRegular.jpg';\" alt='playlist-image'></div>";
+    thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' onerror=\"this.src = 'img/VentOriginsNoAvailableImage.png';\" alt='playlist-image'></div>";
     text = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button>";
     videoDuration = "<div class='youTubeDuration'>" + parseVideoDuration(allVideoContent.result.items[durationPos].contentDetails.duration) + "</div>";
     playLink = "<a class='youTubePlayLink' href='https://www.youtube.com/watch?v=" + videoID + "' target='_blank' title='Link to Youtube Video'> <i class='fa fa-youtube-play fa-lg fa-align-center'></i> </a>";
