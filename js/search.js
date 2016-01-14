@@ -35,7 +35,7 @@ function search() {
   // Begins Youtube and SoundCloud search
   youTubeSearch();
   soundCloudSearch();
-  if(!$('#top-title').length) {
+  if(!$('#top-search-form').length) {
     insertTopSearchBar();
   }
 }

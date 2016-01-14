@@ -58,7 +58,7 @@ function playQueue(position) {
   }
 
   //If top title doesn't exist insert it
-  if(!$('#top-title').length) {
+  if(!$('#top-search-form').length) {
     insertTopSearchBar();
     $("#ppQueue").empty();
     $("#ppQueue").append("<button onclick='pauseQueue(0)'><i class='fa fa-pause'></i></button>");
@@ -109,7 +109,7 @@ function prevPlayQueue(position) {
   }
 
   //If top title doesn't exist insert it
-  if(!$('#top-title').length) {
+  if(!$('#top-search-form').length) {
     insertTopSearchBar();
     $("#ppQueue").empty();
     $("#ppQueue").append("<button onclick='pauseQueue(0)'><i class='fa fa-pause'></i></button>");
