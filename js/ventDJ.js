@@ -45,6 +45,11 @@ function checkSize() {
     document.getElementById("page-footer-id").style.width = $(window).width() + 'px';
     document.getElementById("soundCloudPlayer").style.width = $(window).width() + 'px';
     document.getElementById("youTubePlayer").style.width = $(window).width() + 'px';
+
+    // Set the height of the players
+    var splashScreenHeight = $(window).height() - 70;
+    document.getElementById("youTubePlayer").style.height = splashScreenHeight + 'px';
+    document.getElementById("splash-screen").style.height = splashScreenHeight + 'px';
   }
 
   // When screen is big, starts the div after the queue-bar
@@ -61,11 +66,10 @@ function checkSize() {
     document.getElementById("nav-bar").style.width = divWidth + 'px';
     document.getElementById("splash-screen").style.width = divWidth + 'px';
     document.getElementById("page-footer-id").style.width = divWidth + 'px';
+    document.getElementById("youTubePlayer").style.width = divWidth + 'px';
     document.getElementById("soundCloudPlayer").style.width = divWidth + 'px';
 
-    // Set the width and height of the youtubePlayer
-    document.getElementById("youTubePlayer").style.width = divWidth + 'px';
-    var splashScreenHeight = $(window).height() - 70;
+    // Set the height of the players    var splashScreenHeight = $(window).height() - 70;
     document.getElementById("youTubePlayer").style.height = splashScreenHeight + 'px';
     document.getElementById("splash-screen").style.height = splashScreenHeight + 'px';
   }

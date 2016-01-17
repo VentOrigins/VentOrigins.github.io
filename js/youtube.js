@@ -1,14 +1,20 @@
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+
 var player = null;
 var done = false;
 
-
 /*  =============================================================================
-    
+    These next couple functions displays the youtube player    
 
-    @param      
+    @param      none 
     @return     none
     ========================================================================== */
-function displayYoutube () {
+// 1, Starts the process of displaying a Youtube player
+function displayYoutube() {
   showYTPlayer();
   if(player != null) {
     loadYTVideo();
@@ -16,23 +22,19 @@ function displayYoutube () {
   else {
     displayYouTubePlayer();
   }
-  
 }
 
-
+// 2. This code loads the IFrame Player API code asynchronously.
 function displayYouTubePlayer() {
-  // 2. This code loads the IFrame Player API code asynchronously.
   var tag = document.createElement('script');
 
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-
 }
       
-  // 3. This function creates an <iframe> (and YouTube player)
-  //    after the API code downloads.
+// 3. This function creates an <iframe> (and YouTube player)
+//    after the API code downloads.
 function onYouTubeIframeAPIReady() {
   checkSize();
   var splashHeight = document.getElementById("splash-screen").offsetHeight;
@@ -58,7 +60,6 @@ function onPlayerReady(event) {
 //    The function indicates that when playing a video (state=1),
 //    the player should play for six seconds and then stop.
 function onPlayerStateChange(event) {
-  
   //Pause queue when YT is paused
   if(event.data == YT.PlayerState.PAUSED) {
     pauseQueue();
@@ -69,14 +70,18 @@ function onPlayerStateChange(event) {
   }
   //Next queue when YT is finished
   if (event.data == YT.PlayerState.ENDED) {
-    console.log("Finish YT");
     nextQueue();
   }
 }
 
+/*  =============================================================================
+    These next functions do exactly what their names intend them to do
+
+    @param      none
+    @return     none
+    ========================================================================== */
 function stopVideo() {
   if(player != null) {
-    console.log("Player is stopped.");
     player.stopVideo();
   }
 }
@@ -95,9 +100,7 @@ function playVideo() {
   }
 }
 
-
-function hideYTPlayer() {
-  
+function hideYTPlayer() { 
   $("#youTubePlayer").hide();
 }
 
@@ -112,6 +115,7 @@ function loadYTVideo() {
 /*  =============================================================================
     Parses the youtube duration into an actual time.
     The format is PT H M S, with the white spaces being the times
+    An example is given below on how the parse is done
     Called from: displayYoutubeOnOverlay    
 
     @param      string    The time duration to be parsed
@@ -126,6 +130,7 @@ function parseVideoDuration(time) {
   var arrayTime = [];
   var parsedTime = '';
 
+  // PARSES THE HOUR
   // 4H32M3S
   if (time.indexOf('H') != -1) {
     arrayTime = time.split('H');
@@ -133,6 +138,7 @@ function parseVideoDuration(time) {
     time = arrayTime[1];
   }
 
+  // PARSES THE MINUTES
   // 32M3S
   if (time.indexOf('M') != -1) {
     arrayTime = time.split('M')
@@ -148,6 +154,7 @@ function parseVideoDuration(time) {
     }
   }
 
+  // PARSES THE SECONDS
   //3S
   if (time.indexOf('S') != -1) {
     time = time.replace("S", "");
@@ -157,6 +164,7 @@ function parseVideoDuration(time) {
     }
   }
 
+  // Puts them all together
   if (parsedHour != '') {
     parsedTime = parsedHour + ':' + parsedMinute + ':' + parsedSecond;
   }

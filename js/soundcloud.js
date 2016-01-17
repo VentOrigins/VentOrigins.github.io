@@ -1,8 +1,16 @@
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
 
+/*  =============================================================================
+    
+
+    @param      
+    @return     none
+    ========================================================================== */
 function displaySoundCloudPlayer() {
-
-	console.log("displaySoundCloudPlayer");
-	console.log(localStorage.getItem('currPlaying'));
 	checkSize();
 	var uri = encodeURIComponent(localStorage.getItem('currPlaying'));
 	$("#soundCloudPlayer").prepend("<iframe id='sc-widget' src='https://w.soundcloud.com/player/?url=" + uri + "'width='100%' height='200' scrolling='no' frameborder='no'></iframe>");
@@ -29,8 +37,6 @@ function displaySoundCloudPlayer() {
 	$("#sound-cloud-volume").show();
 	widget.setVolume($('#sound-cloud-volume').val() / 100);
 }
-
-
 
 /*  =============================================================================
     
@@ -91,7 +97,8 @@ function loadSCVideo() {
 	widget = SC.Widget(widgetIframe);
 	newSoundUrl = localStorage.getItem('currPlaying');
 	widget.load(newSoundUrl, {
-    show_artwork: false,
+		auto_play: true,
+    show_artwork: false
   });
   widget.setVolume($('#sound-cloud-volume').val() / 100);
 }

@@ -18,6 +18,7 @@ function overlayTracks(divToOverlay) {
     $('#youTubeAndSoundCloudTracks').empty();
     return;
   }
+  // Actually creates the overlay if it does not exist yet
   var overlay = "<div class='overlay'>";
   var button = "<button id='close-button' onclick='finishedOverlaying()'> x </button>";
   var youTubeAndSoundCloudTracks = "<div id='youTubeAndSoundCloudTracks'></div>";
@@ -33,16 +34,18 @@ function overlayTracks(divToOverlay) {
     ========================================================================== */
 function insertTopSearchBar() {
   hideSplashQuery();
-  var top_title = "<div class=left id='top-title'> Vent DJ </div>";
+  // This is the title Vent DJ, removed for now because of different screen sizes
+  // var top_title = "<div class=left id='top-title'> Vent DJ </div>";
   var top_search_form = "<div id='top-search-form'> <form onsubmit='javascript:search();'> <input id='top-search-box' type='search'> </form>";
   var top_search_button = "<button  onclick='search();'id='top-search-button'><i class='fa fa-search'></i></button></div>";
-  // $("#top-nav").append(top_title + top_search_form + top_search_button);
+  
   $("#top-nav").append(top_search_form + top_search_button);
 }
 
 /*  =============================================================================
     Called in: overlay.js
-    Inserts the new query into splash screen if no playlist
+    These functions deal with the splash screen and top nav bar coming in and
+    out of the screen.
 
     @param      none
     @return     none
@@ -59,6 +62,7 @@ function hideSplashQuery() {
 }
 
 function removeNavBarQuery() {
+  // This is the title Vent DJ, removed for now because of different screen sizes
   // $("#top-title").remove();
   $("#top-search-form").remove();
 }
@@ -67,29 +71,16 @@ function removeNavBarQuery() {
     Called in: search.js
     Removes the overlay once done
 
-    @param      div     The div to remove the overlay
+    @param      none
     @return     none
     ========================================================================== */
-// For later use for modular function
-// function finishedOverlaying(divToOverlay) {
-//   console.log("hello");
-//   $(divToOverlay + " > div[class='overlay']").remove();
-//   console.log("FINISHED REMOVING OVERLAY\n\n");
-// }
-
-
-
 function finishedOverlaying() {
   $("#splash-screen > div[class='overlay']").remove();
 
-  // If the queue list is empty
+  // If the queue list is empty, adds the splash screen
   if(localStorage.getItem("currPlaying") === null) {
     insertSplashSearchBar();
   }
   
-  // displayYouTubePlayer();
   checkSize();
-
-  console.log("FINISHED REMOVING OVERLAY\n\n");
-
 }

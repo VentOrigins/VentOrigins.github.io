@@ -61,7 +61,6 @@
   border-bottom-right-radius: 50px 50px;
   border-bottom-left-radius: 50px 50px;
    
-
   opacity: 1.0;
   z-index: 1001;
 }
@@ -81,7 +80,7 @@
   background-color: #DCDCDC;
 }
 
-/*Left side for youtube tracks*/
+/* For both youtube and soundcloud tracks */
 #youTubeAndSoundCloudTracks {
   width: 100%;
 
@@ -103,7 +102,7 @@
   z-index: 1000;
 }
 
-
+/* Rows for youtube */
 .youTubeTracksRow {
   width: 100%;
   height: 150px;
@@ -158,6 +157,7 @@
   color: red;
 }
 
+/* Rows for Soundcloud */
 .soundCloudTracksRow {
   width: 100%;
   height: 150px;
@@ -230,6 +230,8 @@
   padding-right: 10px;
   padding-left: 10px;
 }
+
+/* Have both soundcloud and youtube img altered to make them look like the same sizes when on the same overlay */
 
 .youTubeTracksRow .image-thumbnail img {
   width: 220px;
