@@ -4,16 +4,7 @@
     By Adrian Mandee and Randy Truong
     ========================================================================== */
 
-/*nav {
-  position: fixed;
-  z-index: 1002;
-}
-
-nav.nav-wrapper {
-  margin: 0px;
-  padding: 0px;
-}*/
-
+/* The nav bar is the outside container of the top nav */
 #nav-bar {
   height: 70px;
   margin-top: 0px;
@@ -23,6 +14,8 @@ nav.nav-wrapper {
   box-shadow: 2px 1px 3px #999999;
   z-index: 1001;
 }
+
+/* The top nav is contained within the nav bar, it contains the search form */
 #top-nav {
   width: 100%;
   height: 50px;
@@ -31,6 +24,7 @@ nav.nav-wrapper {
   display: inline-block;
 }
 
+/* The top title when opening the overlay, currently does not exist */
 #top-title {
   display: hidden;
   color: #999999;
@@ -38,12 +32,17 @@ nav.nav-wrapper {
   font-size: 20px;
 }
 
+/* Honestly looking back, I don't know why I did it this way */
+
+/* The input search bar */
 #top-search-form {
   width: 250px;
   height:20px;
   display:inline-block;
   float: right;
 }
+
+/* The form of the search bar */
 #top-search-form form {
   width: 180px;
   margin-right: 0px;
@@ -53,6 +52,7 @@ nav.nav-wrapper {
   display: inline-block;
 }
 
+/* The actual box of the search box */
 #top-search-box {
   height: 30px;
   
@@ -71,12 +71,9 @@ nav.nav-wrapper {
   border: 1px solid #AAAAAA;
 }
 
+/* The button that when clicked, displays the overlay */
 #top-search-button {
   width: 30px;
   border: none;
   background: #FAFAFF;
-}
-
-#top-search-button:hover {
-  font: #AAAAAA;
 }

@@ -3,7 +3,7 @@
     Copyright © Vent Origins 
     By Adrian Mandee and Randy Truong
     ========================================================================== */
-var loop = false; //Check to see if loop is true or fals
+var loop = false; //Check to see if loop is true or false
 var shuffle = false; //Check if shuffle true or false
 var shuffle_position;
 var shuffle_array; //Array of numbers to shuffle through
@@ -173,8 +173,9 @@ function nextQueue() {
   }
   
   // Unhighlights the previous track to emphasize change of current song
-  $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
-  $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
+  // Removes the background-color property completely, need to do this in order for the #liNum to not overwrite the #queue li classes
+  $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','');
+  $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','');
   
   if(shuffle == true) {
     shuffleQueue();
@@ -218,8 +219,9 @@ function prevQueue() {
   }
   
   // Unhighlights the previous track to emphasize change of current song
-  $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
-  $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
+  // Removes the background-color property completely, need to do this in order for the #liNum to not overwrite the #queue li classes
+  $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','');
+  $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','');
   
   if(shuffle == true) {
     prevShuffleQueue();
@@ -289,8 +291,9 @@ function loopQueue() {
 function queueClick(idAndPosition) {
   // Unhighlights previous played song if there was one
   if (localStorage.getItem('currPosition') != null) {   
-    $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','#FFFFFF');
-    $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','#FFFFFF');
+    // Removes the background-color property completely, need to do this in order for the #liNum to not overwrite the #queue li classes
+    $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','');
+    $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','');
   }
   //Get title is actually getting the position and not title
   var position = getTitle(idAndPosition);

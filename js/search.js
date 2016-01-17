@@ -4,7 +4,8 @@
     By Adrian Mandee and Randy Truong
     ========================================================================== */
 var q;
-var ifFinishedWIthBothRequests = 0;
+var ifFinishedWithBothRequests = 0;
+// In a way, these have no need to be global, because they are passed as arguments in functions
 var finalVideos;
 var finalAllVideoCOntent;
 var finalTracks;
@@ -26,6 +27,8 @@ function search() {
   // Puts an overlay over the splash screen to display tracks
   overlayTracks("#splash-screen");
 
+  // Takes the query depending on which search box is currently showing (Either the top nav, or the splash query)
+  // q is the query
   if ($('#query-form').css('display') == 'none') {
     q = $('#top-search-box').val();
   }
@@ -35,6 +38,7 @@ function search() {
   // Begins Youtube and SoundCloud search
   youTubeSearch();
   soundCloudSearch();
+  // Adds the top search bar when it does not exist yet
   if(!$('#top-search-form').length) {
     insertTopSearchBar();
   }
@@ -49,7 +53,8 @@ function search() {
     @return       none
     ========================================================================== */
 function youTubeSearch() {
-  console.log("Beginning search through Youtube");
+  // Should not be public, but for this website, oh well
+  // If we wanted to hide it, we would have done it on server side and hidden it  
   gapi.client.setApiKey('AIzaSyDJckImr2TEKtJepdGvM0rFU8vlTw-Pufw');
   gapi.client.load('youtube', 'v3', function() {
     youTubeMakeRequest();
@@ -65,8 +70,6 @@ function youTubeSearch() {
     @return       none
     ========================================================================== */
 function youTubeMakeRequest() {
-  console.log("Making request to Google's API for Search");
-  console.log("Q is " + q);
   var request = gapi.client.youtube.search.list({
     q: q,
     part: 'snippet',  
@@ -86,7 +89,6 @@ function youTubeMakeRequest() {
     @return       none
     ========================================================================== */
 function prepareForVideoListRequest(videos) {
-  console.log("In prepareForVideoListRequest");
   var videoID;
   var allVideoIDForContentDetail = '';
 
@@ -104,7 +106,6 @@ function prepareForVideoListRequest(videos) {
       }
     }
   }
-  console.log('prepare: ' + allVideoIDForContentDetail);
   youTubeMakeRequestForContentDetail(videos, allVideoIDForContentDetail);
 }
 
@@ -118,7 +119,6 @@ function prepareForVideoListRequest(videos) {
     @return       none
     ========================================================================== */
 function youTubeMakeRequestForContentDetail(videos, allVideoIDs) {
-  console.log("Making request to Google's API for Videos");
   var request = gapi.client.youtube.videos.list({
     part: 'contentDetails',
     id: allVideoIDs  
@@ -138,7 +138,7 @@ function youTubeMakeRequestForContentDetail(videos, allVideoIDs) {
     @return       none
     ========================================================================== */
 function youTubeFinishedWithRequest(videos, allVideoContent) {
-  ++ifFinishedWIthBothRequests;
+  ++ifFinishedWithBothRequests;
   displayBothYoutubeAndSoundCloudOnOverlay(videos, allVideoContent, null);
 }
 
@@ -151,7 +151,8 @@ function youTubeFinishedWithRequest(videos, allVideoContent) {
     @return       none
     ========================================================================== */
 function soundCloudSearch() {
-  console.log("Beginning search through SoundCloud");
+  // Should not be public, but for this website, oh well
+  // If we wanted to hide it, we would have done it on server side and hidden it
   SC.initialize({
     client_id: 'bd791d329c430374438075140d3d3163'
   });
@@ -167,8 +168,6 @@ function soundCloudSearch() {
     @return       none
     ========================================================================== */
 function soundCloudMakeRequest() {
-  console.log("Making request to SoundCloud's API");
-  console.log("Q is " + q);
   var page_size = 50;
 
   SC.get(
@@ -182,7 +181,6 @@ function soundCloudMakeRequest() {
       soundCloudFinishedWithRequest(tracks);
       var track_url = tracks.collection[0].permalink_url;
       SC.oEmbed(track_url, { auto_play: true }, function(oEmbed) {
-        console.log(oEmbed);
     });
   });
 }
@@ -196,7 +194,7 @@ function soundCloudMakeRequest() {
     @return       none
     ========================================================================== */
 function soundCloudFinishedWithRequest(tracks) {
-  ++ifFinishedWIthBothRequests;
+  ++ifFinishedWithBothRequests;
   displayBothYoutubeAndSoundCloudOnOverlay(null, null, tracks);
 }
 
@@ -205,11 +203,15 @@ function soundCloudFinishedWithRequest(tracks) {
     From: youTubeMakeRequestForContentDetail
     To: none
 
-    @param       
-    @param 
+    @param        The index of the video within the youtube list
+    @param        The JSON list of the videos
+    @param        The JSON list of all the videos' content
     @return       none
     ========================================================================== */
 function displayYoutubeOnOverlay(i, videos, allVideoContent) {
+  // NOTE: To clarify, allVideoContent is used to return the duration of the video, the duration of the video is in separate JSON's from the actual video's JSON.
+  // Soundcloud has the duration in the same JSON call. Technically 2 API's are called for Youtube, while 1 API is called for Soundcloud to acquire the duration
+
   var videoID;
   var title;
   var videoDuration;
@@ -219,6 +221,7 @@ function displayYoutubeOnOverlay(i, videos, allVideoContent) {
 
   // VIDEO ID TO THE URL LINK
   videoID = videos.result.items[i].id.videoId;
+  // This check was necessary because the index may actually be non videos, but channel names instead
   if (videoID != undefined) {
     
     //Seperating URI and title to parse
@@ -241,7 +244,8 @@ function displayYoutubeOnOverlay(i, videos, allVideoContent) {
     From: soundCloudMakeRequest
     To: none
 
-    @param        none
+    @param        The index of the song within the soundcloud list
+    @param        The JSON list of the tracks
     @return       none
     ========================================================================== */
 function displaySoundCloudOnOverlay(i, tracks) {
@@ -253,7 +257,6 @@ function displaySoundCloudOnOverlay(i, tracks) {
   var artwork_url;
   var duration;
   
-  console.log(tracks);
   if (i < tracks.collection.length) {
     uri = tracks.collection[i].permalink_url;
     duration = parseSCDuration(tracks.collection[i].duration);
@@ -272,6 +275,14 @@ function displaySoundCloudOnOverlay(i, tracks) {
   }
 }
 
+/*  =============================================================================
+    returns the list with the bigger size
+
+    @param        The length of the 1st parameter
+    @param        The length of the 2nd parameter
+    @return       The bigger length
+    ========================================================================== */
+
 function getGreaterLength(i, j) {
   if (i < j) {
     return j;
@@ -281,28 +292,42 @@ function getGreaterLength(i, j) {
   }
 }
 
+/*  =============================================================================
+    Displays both Youtube and SoundCloud ont he overlay. Waits for all the API requests
+    to finish then continues on. After displaying, resets the values
+
+    @param        The JSON list of the videos
+    @param        The JSON list of the videos' content
+    @param        The JSON list of the tracks
+    @return       none
+    ========================================================================== */
 function displayBothYoutubeAndSoundCloudOnOverlay(videos, allVideosContent, tracks) {
+  // If the Soundcloud tracks finished, then do this
   if (videos == null && allVideosContent == null) {
     finalTracks = tracks;
   }
+  // If the youtube video tracks finished, then do this
   else {
     finalVideos = videos;
     finalAllVideoCOntent = allVideosContent;
   }
 
-  if (ifFinishedWIthBothRequests != 2) {
+  // Continues on with the code only when both youtube and soundcloud finished their requests
+  if (ifFinishedWithBothRequests != 2) {
     return;
   }
 
+  // Increments through the size of the songs of youtube and soundcloud, the size is calculated by
+  // checking which size is greater from both the youtube and soundcloud
   var displayLength = getGreaterLength(finalVideos.result.items.length, finalTracks.collection.length);
-  console.log('DisplayLength: ' + displayLength);
+  // Displays the videos and tracks, alternating each one
   for (var i = 0; i < displayLength; ++i) {
     displayYoutubeOnOverlay(i, finalVideos, finalAllVideoCOntent);
     displaySoundCloudOnOverlay(i, finalTracks);
   }
 
   //Resets
-  ifFinishedWIthBothRequests = 0;
+  ifFinishedWithBothRequests = 0;
   // Used to increment through the contentDetails
   durationPos = 0;
 
