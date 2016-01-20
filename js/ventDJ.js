@@ -12,6 +12,8 @@ $(document).ready(function() {
   // Removes the current position and current playing
   localStorage.removeItem('currPlaying');
   localStorage.removeItem('currPosition');
+
+  // Adds the songs in localStorage into the queue
   appendSongsIntoQueue();
 
   // Initialize side nav
@@ -45,11 +47,6 @@ function checkSize() {
     document.getElementById("page-footer-id").style.width = $(window).width() + 'px';
     document.getElementById("soundCloudPlayer").style.width = $(window).width() + 'px';
     document.getElementById("youTubePlayer").style.width = $(window).width() + 'px';
-
-    // Set the height of the players
-    var splashScreenHeight = $(window).height() - 70;
-    document.getElementById("youTubePlayer").style.height = splashScreenHeight + 'px';
-    document.getElementById("splash-screen").style.height = splashScreenHeight + 'px';
   }
 
   // When screen is big, starts the div after the queue-bar
@@ -68,11 +65,12 @@ function checkSize() {
     document.getElementById("page-footer-id").style.width = divWidth + 'px';
     document.getElementById("youTubePlayer").style.width = divWidth + 'px';
     document.getElementById("soundCloudPlayer").style.width = divWidth + 'px';
-
-    // Set the height of the players    var splashScreenHeight = $(window).height() - 70;
-    document.getElementById("youTubePlayer").style.height = splashScreenHeight + 'px';
-    document.getElementById("splash-screen").style.height = splashScreenHeight + 'px';
   }
+
+  // Set the height of the players    
+  var splashScreenHeight = $(window).height() - 70;
+  document.getElementById("youTubePlayer").style.height = splashScreenHeight + 'px';
+  document.getElementById("splash-screen").style.height = splashScreenHeight + 'px';
 }
 
 

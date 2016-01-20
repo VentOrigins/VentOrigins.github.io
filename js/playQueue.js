@@ -8,7 +8,6 @@ var shuffle = false; //Check if shuffle true or false
 var shuffle_position;
 var shuffle_array; //Array of numbers to shuffle through
 
-
 /*  =============================================================================
     When user clicks on the play button, it goes to this function first, checking
     if the app is in shuffle mode or not. If it is not, start playing first song
@@ -21,32 +20,19 @@ var shuffle_array; //Array of numbers to shuffle through
     @param      none
     @return     none
     ========================================================================== */
-function playShuffleOnClick(){
-  console.log("playSHuffleOnCLick")
-
+function playShuffleOnClick() {
   // If the shuffle is off, starts the queue at top of queue
   if (shuffle == false) {
-    console.log("playSHuffleOnCLick SHUFFLE OFF")
     playQueue(0);
   }
   // If the shuffle is on, starts the queue at a random song
   else {
-    console.log("playSHuffleOnCLick SHUFFLE ON")
-    var qLength = parseInt(localStorage.getItem('length'));
-    var randomized = Math.floor(Math.random() * qLength);
-    console.log('Randomized:' + randomized);
-    console.log('Randomized:' + Math.floor(Math.random() * qLength));
-    // playQueue(randomized);
     shuffleQueue();
   }
 }
 
-
-
-
-// When button is pressed to play queue
 /*  =============================================================================
-    
+    When button is pressed to play queue
 
     @param      int   position of next Song
     @return     none
@@ -66,12 +52,10 @@ function playQueue(position) {
 
   //Gets top of list on queue
   var found = false;
-  console.log(position + " Playqueue");
-  console.log(localStorage.getItem('length') + "Length");
   var i = position;
 
+  // Continues to find the next song that is available closest to the position
   while (!found) {
-
     //At the end of length
     if(i == parseInt(localStorage.getItem('length')) && loop == false) {
       closeAllVideo();
@@ -86,21 +70,17 @@ function playQueue(position) {
 
     if (localStorage.getItem(i.toString()) != null) {
       found = true;  
-
-      // Go to displaying song if youtube or soundcloud
+      // Highlights the song on the queue bar
       $('#li' + i).css('background-color','#71B500');
       $('#li' + i + ' button').css('background-color','#71B500');
+      // Set the position to the song currently playing position
       setCurrentPosition(i.toString());
-      displayVideoOrTrack(localStorage.getItem(i.toString()));
-
-      // Highlights top list on queue or etc.
-      
+      // Go to displaying song if youtube or soundcloud
+      displayVideoOrTrack(localStorage.getItem(i.toString()));      
     }
-
     ++i;
   }
 }
-
 
 function prevPlayQueue(position) {
   //If empty queue, just return
@@ -131,7 +111,7 @@ function prevPlayQueue(position) {
       return;
     }
     else if (i < 0 && loop == true) {
-      previousPlayQueue(parseInt(localStorage.getItem("length")));
+      prevPlayQueue(parseInt(localStorage.getItem("length")));
       return;
     }
 
@@ -330,7 +310,7 @@ function displayVideoOrTrack(idAndTitle) {
     hideYTPlayer();
     stopVideo();
     displaySoundCloud();
-    playSC();
+    // playSCAfterLoading();
   }
   else {
     // ERROR, never should get here
@@ -338,7 +318,13 @@ function displayVideoOrTrack(idAndTitle) {
 
 }
 
+/*  =============================================================================
+    Closes the players and clears the localStorages for which is currently playing
+    and the position
 
+    @param      Which song to be currently playing
+    @return     none
+    ========================================================================== */
 function closeAllVideo() {
   hideSCPlayer();
   hideYTPlayer();
@@ -348,20 +334,23 @@ function closeAllVideo() {
   localStorage.removeItem('currPosition');
 }
 
-
-
 /*  =============================================================================
-    
+    Sets the local Storage key currPlaying to the id given
 
-    @param      
+    @param      Which song to be currently playing
     @return     none
     ========================================================================== */
 function setCurrentlyPlaying(id) {
   localStorage.setItem('currPlaying', id);
 }
 
+/*  =============================================================================
+    Sets the local storage key currPosition to the position given
+
+    @param      Song position
+    @return     none
+    ========================================================================== */
 function setCurrentPosition(position) {
-  console.log("Position: " + position);
   localStorage.setItem('currPosition', position); 
 }
 
