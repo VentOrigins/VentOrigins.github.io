@@ -226,7 +226,7 @@ function displayYoutubeOnOverlay(i, videos, allVideoContent) {
     
     //Seperating URI and title to parse
     thumbnail = "<div class='image-thumbnail'><img src='" + videos.result.items[i].snippet.thumbnails.default.url + "' onerror=\"this.src = 'img/VentOriginsNoAvailableImage.png';\" alt='playlist-image'></div>";
-    text = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + videos.result.items[i].snippet.title + "</button>";
+    text = "<div class='youTubeTracksText'>" + "<button id='" + videoID + "/|" + videos.result.items[i].snippet.title + "' class='addButton' onclick='addYoutubeToQueue(this)'>" + "+ " + videos.result.items[i].snippet.title + "</button>";
     videoDuration = "<div class='youTubeDuration'>" + parseVideoDuration(allVideoContent.result.items[durationPos].contentDetails.duration) + "</div>";
     playLink = "<a class='youTubePlayLink' href='https://www.youtube.com/watch?v=" + videoID + "' target='_blank' title='Link to Youtube Video'> <i class='fa fa-youtube-play fa-lg fa-align-center'></i> </a>";
     channelLink = "<a class='youTubeChannelLink' href='https://www.youtube.com/channel/" + videos.result.items[i].snippet.channelId + "' target='_blank' title='Link to Youtube Channel'> <i class='fa fa-youtube-square fa-lg fa-align-center'></i> </a> </div>";
@@ -265,7 +265,7 @@ function displaySoundCloudOnOverlay(i, tracks) {
 
     //Seperating URI and title to parse
     artwork_url = "<div class='image-thumbnail'><img src='" + tracks.collection[i].artwork_url + "' onerror=\"this.src = 'img/VentOriginsNoAvailableImage.png';\" alt='playlist-image'></div>";
-    title = "<div class='soundCloudTracksText'>" + "<button id='" + uri +"/|" + tracks.collection[i].title  + "' class='addButton' onclick='addSoundCloudToQueue(this)'>" + tracks.collection[i].title + "</button> <br> ";
+    title = "<div class='soundCloudTracksText'>" + "<button id='" + uri +"/|" + tracks.collection[i].title  + "' class='addButton' onclick='addSoundCloudToQueue(this)'>" + "+ " + tracks.collection[i].title + "</button> <br> ";
     videoDuration = duration + "<br>";
     playLink = "<a href='" + uri + "' target='_blank' title='Link to SoundCloud'> <i class='fa fa-soundcloud fa-lg fa-align-center'></i> </a>";
     channelLink = "<a href='"+ usernameURL + "' target='_blank' title='Link to Soundcloud Artist'>" + username + " </a> </div>";   
@@ -282,7 +282,6 @@ function displaySoundCloudOnOverlay(i, tracks) {
     @param        The length of the 2nd parameter
     @return       The bigger length
     ========================================================================== */
-
 function getGreaterLength(i, j) {
   if (i < j) {
     return j;
