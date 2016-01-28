@@ -82,6 +82,12 @@ function playQueue(position) {
   }
 }
 
+/*  =============================================================================
+    When previous button is pressed, does the other side of the playQueue function
+
+    @param      int   position of next Song
+    @return     none
+    ========================================================================== */
 function prevPlayQueue(position) {
   //If empty queue, just return
   if (localStorage.getItem("length") === null) {
@@ -97,12 +103,10 @@ function prevPlayQueue(position) {
 
   //Gets top of list on queue
   var found = false;
-  console.log(position + " Playqueue");
-  console.log(localStorage.getItem('length') + "Length");
   var i = position;
 
+  // Continues to find the next song that is available closest to the position
   while (!found) {
-
     //At the end of length
     if(i < 0 && loop == false) {
       closeAllVideo();
@@ -117,36 +121,30 @@ function prevPlayQueue(position) {
 
     if (localStorage.getItem(i.toString()) != null) {
       found = true;  
-
       // Go to displaying song if youtube or soundcloud
+      // Highlights top list on queue or etc.
       $('#li' + i).css('background-color','#71B500');
       $('#li' + i + ' button').css('background-color','#71B500');
       setCurrentPosition(i.toString());
-      displayVideoOrTrack(localStorage.getItem(i.toString()));
-
-      // Highlights top list on queue or etc.
-      
+      displayVideoOrTrack(localStorage.getItem(i.toString()));      
     }
-
     --i;
   }
 }
 
-
-
-
 /*  =============================================================================
-    
+    When the next button is pressed, calls playQueue of the current position
 
-    @param      
+    @param      none
     @return     none
     ========================================================================== */
 function nextQueue() {
-
+  // Goes to shuffle queue
   if (localStorage.getItem("currPlaying") == null && shuffle == true) {
     shuffleQueue();
     return;
   }
+  // Does a regular play queue
   else if (localStorage.getItem("currPlaying") == null && shuffle == false) {
     playQueue(0);
     return; 
@@ -164,14 +162,12 @@ function nextQueue() {
 
   //Get next on list of queue
   var currPos = parseInt(localStorage.getItem('currPosition')) + 1;
-  console.log("Next Queue currPos" + currPos);
   //check if loop is true then loop if not check if false then stop videos and return
   if((parseInt(localStorage.getItem('length')) <= currPos) && loop == true) {
-    console.log("looptrue");
     currPos = 0;
   }
+  // If at the end and not in loop
   else if((parseInt(localStorage.getItem('length')) <= currPos) && loop == false) {
-    console.log("loopfalse");
     closeAllVideo();
     $("#ppQueue").empty();
     $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
@@ -180,12 +176,10 @@ function nextQueue() {
   playQueue(currPos);
 }
 
-
-
 /*  =============================================================================
-    
+    When the previous button is clicked
 
-    @param      
+    @param      nonw
     @return     none
     ========================================================================== */
 function prevQueue() {
@@ -195,6 +189,7 @@ function prevQueue() {
     return;
   }
   else if (localStorage.getItem("currPlaying") == null && shuffle == false) {
+    playQueue(0);
     return; 
   }
   
@@ -208,27 +203,27 @@ function prevQueue() {
     return;    
   }
 
-  //Get next on list of queue
+  //Get prev on list of queue
   var currPos = parseInt(localStorage.getItem('currPosition')) - 1;
-  console.log("Prev Queue currPos" + currPos);
   //check if loop is true then loop if not check if false then stop videos and return
   if((currPos < 0) && loop == true) {
-    console.log("looptrue");
     currPos = parseInt(localStorage.getItem('length'));
   }
   else if(currPos < 0 && loop == false) {
-    console.log("loopfalse");
     closeAllVideo();
     $("#ppQueue").empty();
     $("#ppQueue").append("<button onclick='playQueue(0)'><i class='fa fa-play'></i></button>");
     return;
   }
   prevPlayQueue(currPos);
-
 }
 
+/*  =============================================================================
+    When the queue is paused
 
-
+    @param      nonw
+    @return     none
+    ========================================================================== */
 function pauseQueue() {
   pauseSCPlayer();
   pauseVideo();
@@ -236,6 +231,12 @@ function pauseQueue() {
   $("#ppQueue").append("<button onclick='resumeQueue()'><i class='fa fa-play'></i></button>");
 }
 
+/*  =============================================================================
+    When the queue is resumed
+
+    @param      nonw
+    @return     none
+    ========================================================================== */
 function resumeQueue() {
   playVideo();
   playSCPlayer();
@@ -245,27 +246,28 @@ function resumeQueue() {
 
 
 /*  =============================================================================
-    
+    When the loop button is pressed, alternates the current state of the loop
 
-    @param      
+    @param      none
     @return     none
     ========================================================================== */
 function loopQueue() {
+  // If the loop is on, turn loop off
   if(loop == true) {
     $('#loopButton').css('background-color','#FFFFFF');
     loop = false;
   }
+  // If the loop is off, turn loop on
   else {
     $('#loopButton').css('background-color','#71B500');
     loop = true;
   }
-  console.log(loop);
 }
 
 /*  =============================================================================
     Called when user clicks song on queue list
 
-    @param      
+    @param      The id and position to parse
     @return     none
     ========================================================================== */
 function queueClick(idAndPosition) {
@@ -275,18 +277,18 @@ function queueClick(idAndPosition) {
     $('#li' + parseInt(localStorage.getItem('currPosition'))).css('background-color','');
     $('#li' + parseInt(localStorage.getItem('currPosition')) + ' button').css('background-color','');
   }
-  //Get title is actually getting the position and not title
+  // Get title is actually getting the position and not title
+  // The queue buttons' ID is the position of the song within context of the localStorage
   var position = getTitle(idAndPosition);
-  console.log(position); 
   resumeQueue();
   playQueue(position);
 }
 
 
 /*  =============================================================================
-    
+    Displays the youtube video or soundcloud track
 
-    @param      
+    @param      The id and title to parse
     @return     none
     ========================================================================== */
 function displayVideoOrTrack(idAndTitle) {
@@ -299,7 +301,6 @@ function displayVideoOrTrack(idAndTitle) {
   setCurrentlyPlaying(id);
 
   // Display youtube video
-  console.log("ID:" + id);
   if (id.indexOf('soundcloud') == -1) {
     hideSCPlayer();
     displayYoutube();
@@ -315,14 +316,13 @@ function displayVideoOrTrack(idAndTitle) {
   else {
     // ERROR, never should get here
   }
-
 }
 
 /*  =============================================================================
     Closes the players and clears the localStorages for which is currently playing
     and the position
 
-    @param      Which song to be currently playing
+    @param      none
     @return     none
     ========================================================================== */
 function closeAllVideo() {
