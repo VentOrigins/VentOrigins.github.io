@@ -89,9 +89,9 @@
 
 /*For each individual playlist names, these are actual buttons*/
 #nav-playlist {
-  /*Set width of the playlist nav bar, goes to 100% of the full height of screen*/
+  /*Set width of the playlist nav bar and height is autoed*/
   width: 250px;
-  height: 100vh;
+  height: auto;
   
   /*margins and padding*/
   margin: 0px;
@@ -136,6 +136,11 @@
   background-color: #222226;
 
   border: none;
+
+  /*For names longer than the nav size*/
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /*The music logo*/
