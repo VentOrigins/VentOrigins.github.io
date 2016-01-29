@@ -138,7 +138,10 @@ function goToPlayList(json) {
     //Store the tracks into cookies and then go to new html page
     localStorage.tracks = JSON.stringify(tracks);
 
-    window.location.assign("http://ventorigins.github.io/playlist.html");
+    //Mandee
+    // window.location.assign("file:///Users/MANDEE/ventorigins/spotify/playlist.html");
+    //Randy
+    window.location.assign("file:///Users/Randy/VentOrigins/spotify/playlist.html"); 
   }
 
 
