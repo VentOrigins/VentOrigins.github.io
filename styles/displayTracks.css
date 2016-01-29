@@ -8,8 +8,12 @@
 
 /*Splash Screen for track*/
 #splash-track-list {
-  /*Given height in the*/
+  /*Given and width height for tracks*/
+  width: 100%;
   height: 100vh;
+
+  /*Moves div to right of playlist bar*/
+  left: 250px;
 
   /*For the page number on the bottom to be at the center*/
   text-align: center;
@@ -23,6 +27,9 @@
 
 /*Table for tracks*/
 #track-list table {
+  /*Span the entire track window*/
+  width: 100%;
+
   /*Keeps text at left side in the table*/
 	text-align: left;
 
