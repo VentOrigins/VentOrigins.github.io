@@ -21,6 +21,8 @@ $(document).ready(function() {
   // Document ready for the css
   var splashScreenSize = screen.width - document.getElementById('nav').offsetWidth;
   $("#playlist-name").width(splashScreenSize);
+  $('#splash-track-list').width(nonNavScreenSize);
+  document.getElementById("splash-track-list").style.left = document.getElementById('nav').offsetWidth + 'px';
 
   //Functions to do
   displayPlaylistTracks();

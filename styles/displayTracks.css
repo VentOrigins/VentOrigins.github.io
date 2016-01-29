@@ -8,8 +8,8 @@
 
 /*Splash Screen for track*/
 #splash-track-list {
-  /*Given and width height for tracks*/
-  width: 100%;
+  /*Given width and height for tracks*/
+  width: auto;
   height: 100vh;
 
   /*Moves div to right of playlist bar*/
