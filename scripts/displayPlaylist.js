@@ -19,6 +19,7 @@ $(document).ready(function() {
   arrayPlaylists = JSON.parse(localStorage.currPlaylists);
 
   // Document ready for the css
+  // Sets the width appropriately
   var splashScreenSize = screen.width - document.getElementById('nav').offsetWidth;
   $("#playlist-name").width(splashScreenSize);
   $('#splash-track-list').width(splashScreenSize);
