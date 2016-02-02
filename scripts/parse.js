@@ -127,7 +127,6 @@ function findHashTagsInTracks(trackName, num) {
 	//Finds the query given the constraints
 	trackDB.equalTo("tracks", trackName);
 	trackDB.equalTo("user",localStorage.userID);
-	console.log("findHashTagsInTracks " + num + ": " + trackName);
 
 	trackDB.find({
 	  success: function(results) {
@@ -187,7 +186,6 @@ function findChangePageTrackHT(trackName, num) {
 	    	//If it is empty, have an empty HashTag list
 				rowTrackHashTag = "<td class='class-hashtag-column' id='hash-tag-id" + num + "'>";	
 				rowTrackHashTag += "</td>";
-				console.log("num in findChangePageTrackHT" + num);
 				tracksHashTagArray[num] = rowTrackHashTag;
 				changeDisplayTable();
 				return;
@@ -198,7 +196,6 @@ function findChangePageTrackHT(trackName, num) {
 	    }
 	    //And if all is well so far, this else statement will execute
     	var hashtags = results[0].get("hashtags");
-    	console.log("The Hashtags " + num + ": " + hashtags);
 
     	//Creates the column of hashtags
 			rowTrackHashTag = "<td class='class-hashtag-column' id='hash-tag-id" + num + "'>";
@@ -209,7 +206,6 @@ function findChangePageTrackHT(trackName, num) {
 			} 
 			rowTrackHashTag += "</td>";
 			tracksHashTagArray[num] = rowTrackHashTag;
-			console.log("rowCount: " + rowCount);
 			changeDisplayTable();
 	  },
 		error: function(error) {

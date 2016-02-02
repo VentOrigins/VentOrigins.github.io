@@ -74,8 +74,6 @@ function displayPlaylistTracks() {
 	sort(tracks);
   //Displays the splash screen of the playlists
   displayPlaylistSplashScreen();
-
-  console.log(JSON.stringify(arrayPlaylists));
 }
 
 function displayPlaylistSplashScreen() {

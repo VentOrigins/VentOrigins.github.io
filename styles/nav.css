@@ -1,3 +1,9 @@
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+
 /*Entire playlist bar*/
 #nav {
   width: 250px;
@@ -20,6 +26,21 @@
   border: none;
   z-index: 1000;
 }
+
+/*For the Vent Origins logo in the nav bar*/
+.vent-origins-logo {
+  /*Size*/
+  width: 50px;
+  height: 50px;
+
+  /*Placement of the logo*/
+  /*Centers logo within nav*/
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 /*For each individual playlist names, these are actual buttons*/
 #nav-button {
   /*Set width of the playlist nav bar, goes to 100% of the full height of screen*/

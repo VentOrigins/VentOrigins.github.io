@@ -14,7 +14,6 @@
     @return     none
     ========================================================================== */
 function loadingScreen(divsLoadingScreen) {
-  console.log("\n\nLOADING...");
   $(divsLoadingScreen).append("<div class='overlay'>");
   $(divsLoadingScreen).append("<div class='loadingScreen'> <i class='fa fa-spinner fa-pulse'></i> </div>");
   $(divsLoadingScreen).append("</div>");
@@ -31,5 +30,4 @@ function loadingScreen(divsLoadingScreen) {
 function finishedLoading(divsLoadingScreen) {
   $(divsLoadingScreen + " > div[class='loadingScreen']").remove();
   $(divsLoadingScreen + " > div[class='overlay']").remove();
-  console.log("FINISHED LOADING\n\n");
 }

@@ -20,13 +20,9 @@ function showTracks(hashTag) {
 function deleteHT(hashTag) {
 
 	var num = hashTag.id.substring(5,hashTag.id.length);
-	console.log(hashTag);
 	var firstNum = num.substring(0, num.indexOf("r"));
-	console.log(firstNum);
 	var hashTagValue = $("#ht-button"+num).text().substring(1,$("#ht-button"+num).text().indexOf(" ")).toLowerCase();
 	var trackName = $("#trackName" + firstNum).text().replace(/[\W_]+/g, "").toLowerCase();
-	console.log(trackName);
-	console.log(hashTagValue);
 	hashTagDB.equalTo("hashtags", hashTagValue);
 	hashTagDB.equalTo("user", localStorage.userID);
 	hashTagDB.find({

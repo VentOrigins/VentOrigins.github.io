@@ -1,3 +1,9 @@
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+
 var lastSelectedRow;
 var trs;
 
@@ -10,7 +16,6 @@ function getTRS() {
 }
 
 function rowClick(currenttr, lock) {
-  console.log(currenttr);
   // If the command key or ctrl key is pressed, toggles that row
   if (window.event.metaKey || window.event.ctrlKey) {
     toggleRow(currenttr);

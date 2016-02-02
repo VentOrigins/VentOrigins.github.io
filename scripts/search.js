@@ -45,7 +45,6 @@ function search() {
   document.getElementById("track-list").style.height = '250px';
   console.log("The query input is: " + query);
   if(query.charAt(0) == "#") {
-    console.log("Going #");
     getTracksFromHT(query.toLowerCase());
     return;
   }
@@ -114,7 +113,6 @@ function parseJSON(json) {
     arrayArtistURI = [];
 
   }
-  console.log("\n\nFINISHED PARSING");
   //Sorts
   sort(tracks);
 }
@@ -144,10 +142,10 @@ function sort(tracks) {
     @return     none
     ========================================================================== */
 function printTracks(tracks) {  
-  for (var i = 0; i < tracks.length; ++i) {
-    console.log("\nTracks " + i + ": "+ tracks[i].getTrackName());
-    console.log("\tArtists " + i + ": "+ tracks[i].getTrackArtist());
-  }  
+  // for (var i = 0; i < tracks.length; ++i) {
+  //   console.log("\nTracks " + i + ": "+ tracks[i].getTrackName());
+  //   console.log("\tArtists " + i + ": "+ tracks[i].getTrackArtist());
+  // }  
   displayTracks();
 }
 

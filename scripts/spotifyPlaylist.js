@@ -1,5 +1,10 @@
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+    
 var vars = window.location.href.split("&");
-console.log(vars);
 if(vars.length < 2 || vars.length > 4) {
   goToPlaylistAuthorize();
 }
@@ -9,9 +14,7 @@ else {
     if(i == 0) {
       if(pair[1].indexOf("access_denied") < 0) {  
         accessToken = pair[1];
-        localStorage.accessToken = accessToken;
-        console.log("Access Token = " + accessToken);
-        
+        localStorage.accessToken = accessToken;        
       }
       else {
         console.log("ACCESS DENIED");
@@ -20,11 +23,9 @@ else {
     }
     else if(i == 1) {
       bear = pair[1];
-      console.log("Bear = " + bear);
     }
     else if(i == 3) {
       state = pair[1];
-      console.log("State = " + state);
     }
   }
   $.ajax({

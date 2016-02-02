@@ -93,8 +93,6 @@ function displayTracks() {
 		@return			none
 		========================================================================= */
 function storeRow(i, trackHashTag) {
-	console.log("INCREMENT: displayRow: " + i);
-
 	//Forms the html of the inner table to append
 	buttonID = "<div> <td class='class-addHT-column' id='add-col' class-buttons='active'>  <form id='ht-form'><button class='class-button' onclick='addHT(this)' id='add-button" + i + "'> <h1>+</h1> </button>";
 	slideID = "<div id='slide-input" + i + "' class='class-input'> </form> <form id='ht-form2' > <input class='input-add-HT' id='input-ht" + i + "' type='text'/> <input class='button-add-HT' id='submit-ht" + i + "' type='submit' onclick='submitHT(this)' value='#'/> </div> </form> </td> </div>";
@@ -133,9 +131,7 @@ function storeRow(i, trackHashTag) {
 		@param  		none
 		@return			none
 		========================================================================== */
-function displayTable() {
-	console.log("REACHED THE ENDING, should append everything \n\n\n");
-	
+function displayTable() {	
 	//The entire list to append all of the html
 	for (var j = 0; j < tracksHTML.length; ++j) {
 		$("#list-of-tracks").append(tracksHTML[j]);
@@ -205,10 +201,8 @@ function changeTrackList() {
 		@return			none
 		========================================================================== */
 function changeDisplayTable() {
-	console.log("rowCount in changeTrackList: " + rowCount);
 	var currentLength = $('#list-of-tracks tr').length - 1;
 	if (rowCount >= tracks.length) {
-		console.log("REACHED THE ENDING, should append EVERYTHING \n\n");
 		//Clear ht table
 		//For every track object
 		for(i = 0; i < tracks.length; ++i) {
@@ -258,7 +252,6 @@ function changeDisplayTable() {
 		finishedLoading('#appending-load-screen');
 		$("#appending-load-screen").remove();
 
-		console.log("REMOVED TRACKS AND ADDED NEW ONES, REMOVE LOAD SCREEN");
 		//Finishes the loading overlay
 		var num = tableID - 5;	
 		bottomOfPage = $('#trackName' + num).position().top;

@@ -17,7 +17,6 @@ $(document).ready(function() {
 
   // CHECK USER IS AUTHENTICATED
 	var vars = window.location.href.split("&");
-	console.log(vars);
 	if(vars.length < 2) {
 	  goToAuthorize();
 	}
@@ -27,7 +26,6 @@ $(document).ready(function() {
 			if(pair[1].indexOf("access_denied") < 0) {	
 	  		accessToken = pair[1];
 	      localStorage.accessToken = accessToken;
-	  		console.log("Access Token = " + accessToken);	
 			}
 			else {
 				console.log("ACCESS DENIED");
@@ -36,11 +34,9 @@ $(document).ready(function() {
 		}
 		else if(i == 1) {
 			bear = pair[1];
-			console.log("Bear = " + bear);
 		}
 		else if(i == 3) {
 			state = pair[1];
-			console.log("State = " + state);
 		}
 	}
 
@@ -75,7 +71,6 @@ function findUserID(json){
 
 	userID = json.id;
 	localStorage.userID = userID;
-	console.log(userID + " user ID");
   $.ajax({
 		url: 'https://api.spotify.com/v1/users/' + userID + '/playlists',
 		type:"GET",
@@ -132,7 +127,6 @@ function createPlaylist(name, tracks) {
 	},
 	data: "{\"name\":\"" + name + "\",\"public\":true}",
     success: function (data) {
-    	console.log("Playlist made");
     	addTracksToPlaylist(data.id,tracks)
     	addPlaylistToDB(data,name);
     },
@@ -271,7 +265,6 @@ function findPlaylistsWithTrack(playlistsOfHT, trackName) {
 	var playlistID = "";
 	for(var i = 0; i < playlistsOfHT.length; i++) {
 		playlistID = playlistsOfHT[i];
-		console.log(playlistID + " ID");
 		//Ajax call to get json and then change htmlpage
 		$.ajax({
 			url: 'https://api.spotify.com/v1/users/' + userID + '/playlists/' + playlistID,
@@ -281,7 +274,6 @@ function findPlaylistsWithTrack(playlistsOfHT, trackName) {
 			dataType: 'json',
 			success: function(response) {
 				for(var j = 0; j < response.tracks.items.length; j++) {
-					console.log(response.tracks.items[j].track.name.replace(/[\W_]+/g, "").toLowerCase() + "trackname");
 					if(response.tracks.items[j].track.name.replace(/[\W_]+/g, "").toLowerCase() == trackName) {
 						deleteTrackFromPlaylist(response.id, j,response.tracks.items[j].track.uri);
 					}

@@ -52,17 +52,13 @@ function submitHT(submitID) {
   lengthOfMapHT = $("#hash-tag-id"+num).find(':button').length+1;
   var trackName = $("#trackName" + num).text();
   var href = $("#link"+ num).attr('href');
-  console.log("trackName:" + trackName);
-  console.log("HREF:" + href);
   checkTrackHT(trackName, HTvalue, href);
   findPlaylistID(href, HTvalue);
   //If it already exist, do not append it
   if(lengthOfMapHT == -1) {
-    console.log("Hashtag " +  HTvalue + " already exists for this track.");
   }
   //If hashTag is a new hashTag, appends the hashTag
   else {
-    console.log("Hashtag " +  HTvalue + " is added to the database");
     $("#hash-tag-id"+num).append("<button class='class-ht-button' id='ht-button" + num + 'r' + lengthOfMapHT + "' onclick='showTracks(this)'>" + "#" + HTvalue + "</button>");      
   }     
 

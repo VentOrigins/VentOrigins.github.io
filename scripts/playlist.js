@@ -48,7 +48,6 @@ function displayPlaylist(json) {
 function searchPlaylistTracks(playlist) {
 	//Get id num
 	var num = playlist.id.substring(8,playlist.length);
-  console.log(num);
 	//Get the playlist name
 	var playlistName = $('#playlist' + num).html();
   playlistName = playlistName.substring(27, playlistName.length);
