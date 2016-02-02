@@ -19,9 +19,9 @@ $(document).ready(function() {
   arrayPlaylists = JSON.parse(localStorage.currPlaylists);
 
   // Document ready for the css
-  // var splashScreenSize = screen.width - document.getElementById('nav').offsetWidth;
-  // $("#playlist-name").width(splashScreenSize);
-  // $('#splash-track-list').width(splashScreenSize);
+  var splashScreenSize = screen.width - document.getElementById('nav').offsetWidth;
+  $("#playlist-name").width(splashScreenSize);
+  $('#splash-track-list').width(splashScreenSize);
   document.getElementById("splash-track-list").style.left = document.getElementById('nav').offsetWidth + 'px';
 
   //Functions to do
