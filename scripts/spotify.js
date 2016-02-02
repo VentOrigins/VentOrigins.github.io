@@ -9,9 +9,9 @@ $(document).ready(function() {
 	console.log("Document ready");
 
   //Makes the width of the id's below to be the size of the screen minus the nav bar
-  var nonNavScreenSize = screen.width - document.getElementById('nav').offsetWidth;
-  $('#search-box').width(nonNavScreenSize);
-  $('#track-list table').width(nonNavScreenSize);
+  // var nonNavScreenSize = screen.width - document.getElementById('nav').offsetWidth;
+  // $('#search-box').width(nonNavScreenSize);
+  // $('#track-list table').width(nonNavScreenSize);
   document.getElementById("search-box").style.left = document.getElementById('nav').offsetWidth + 'px';
   document.getElementById("splash-track-list").style.left = document.getElementById('nav').offsetWidth + 'px';
 

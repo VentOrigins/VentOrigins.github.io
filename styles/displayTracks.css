@@ -10,7 +10,7 @@
 #splash-track-list {
   /*Given width and height for tracks*/
   width: auto;
-  height: 100vh;
+  height: auto;
 
   /*Moves div to right of playlist bar*/
   left: 250px;
