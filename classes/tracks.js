@@ -17,7 +17,6 @@
     @return   none
     ========================================================================== */
 var Track = function (trackName, trackArtist, trackNameURI, trackArtistURI) {
-  console.log("Track created");
   this.trackName = trackName;
   this.trackArtist = trackArtist;
   this.trackNameURI = trackNameURI;
