@@ -10,12 +10,13 @@ $(document).ready(function() {
 
   // NOTE: If I had a chance to redo this, I would adjust the sizes depending on the screen changes
   //Makes the width of the id's below to be the size of the screen minus the nav bar
-  var nonNavScreenSize = $(window).width() - document.getElementById('nav').offsetWidth;
-  $('#search-box').width(nonNavScreenSize);
-  $('#search-box').height($(window).height());
-  $('#track-list table').width(nonNavScreenSize);
-  document.getElementById("search-box").style.left = document.getElementById('nav').offsetWidth + 'px';
-  document.getElementById("splash-track-list").style.left = document.getElementById('nav').offsetWidth + 'px';
+  // var nonNavScreenSize = $(window).width() - document.getElementById('nav').offsetWidth;
+  // $('#search-box').width(nonNavScreenSize);
+  // $('#search-box').height($(window).height());
+  // $('#track-list table').width(nonNavScreenSize);
+  // document.getElementById("search-box").style.left = document.getElementById('nav').offsetWidth + 'px';
+  // document.getElementById("splash-track-list").style.left = document.getElementById('nav').offsetWidth + 'px';
+  checkScreenSize();
 
   // CHECK USER IS AUTHENTICATED
 	var vars = window.location.href.split("&");
@@ -58,6 +59,18 @@ $(document).ready(function() {
 	   }
 	});
 });
+
+// Used for when the screen is resized
+$(window).resize(checkScreenSize);
+
+function checkScreenSize() {
+  var nonNavScreenSize = $(window).width() - document.getElementById('nav').offsetWidth;
+  $('#search-box').width(nonNavScreenSize);
+  $('#search-box').height($(window).height());
+  $('#track-list table').width(nonNavScreenSize);
+  document.getElementById("search-box").style.left = document.getElementById('nav').offsetWidth + 'px';
+  document.getElementById("splash-track-list").style.left = document.getElementById('nav').offsetWidth + 'px';
+}
 
 
 
