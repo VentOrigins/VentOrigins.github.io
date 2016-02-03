@@ -1,0 +1,234 @@
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+
+/*The queue bar*/
+#queue-bar {
+  /*Size*/
+  height: 100vh;
+  width: 300px;
+
+  /*Background*/
+  background-color: white;
+
+  padding: 0;
+  z-index: 1001;
+}
+
+/*Logo in queue bar*/
+#queue-logo {
+  height: 70px;
+  width: 100%;
+  background-color: white;
+  position: relative;
+  box-shadow: 2px 1px 3px #999999;
+  z-index: 10001;
+}
+
+/*Logo in queue-logo*/
+#div-logo {
+  /*width: 80%;*/
+  width: 100%;
+  height: 70px;
+  display: inline-block;
+}
+
+/*Logo image*/
+#div-logo img {
+  height: 60px;
+  width: 60px;
+  margin-left: 38%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/*clear div in queue-bar*/
+#clear-queue {
+  width: 20%;
+  height: 70px;
+  float: right;
+}
+
+/*clear button*/
+#clear-queue-button {
+  width: 100%;
+  height: 70px;
+
+  font-size: 12px;
+  color: #000000;
+
+  background-color: white;
+  border: none;
+  border-left: 1px solid #999999;
+  border-bottom: 1px solid #999999;
+}
+
+#clear-queue-button:hover {
+  color: #999999;
+}
+
+#clear-queue-button:active {
+  background-color: #71B500;
+}
+
+/*Actual queue lists in the queue bar*/
+#queues {
+  width: 100%;
+
+  overflow: scroll;
+}
+
+/*Handles the li's for the queues*/
+#queues li {
+  /*Center it in the row for hover*/
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+
+  /*Font*/
+  font-size: 14px;
+  color: black;
+  vertical-align: middle;
+
+  /*Stays in one line and does not overflow*/
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#queues li:hover, 
+#queues li:hover button, 
+#queues button li:hover {
+  background-color: #DCDCDC;
+}
+
+/*Button to delete the track in queuew*/
+.remove-queue-button {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+}
+
+.remove-queue-button button {
+  background-color: white;
+  
+  font-size: 20px;
+
+  position: relative;
+  bottom: 7px;
+
+  display: inline-block;
+
+  border: none;
+}
+
+/*The text and song*/
+.queue-text {
+  position: relative;
+  bottom: 8px;
+
+  display: inline-block;
+  z-index: 1000;
+}
+
+.queue-text button {
+  width: 200px;
+
+  background-color: white;
+  border: none;
+
+  padding-right: 10px;
+
+  text-align: left;
+
+  /*Stays in one line and does not overflow*/
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.queue-text button:hover {
+  text-decoration: underline;
+}
+
+/*Font awesome*/
+#queues i {
+  color: black;
+}
+
+
+/*Youtube Font awesome*/
+#queues .fa-youtube {
+  font-size: 40px;
+  margin-left: 5px;
+  margin-right: 11px;
+  margin-top: 2px;
+  z-index: 1000;
+}
+
+/*SoundCloud Font awesome*/
+#queues .fa-soundcloud {
+  font-size: 34px;
+  margin-right: 7px;
+  margin-top: 6px;
+  margin-bottom: 5px;
+  z-index: 1000;
+}
+
+/*Entire button div*/
+#queue-buttons-all {
+  width: 100%;
+  height: 60px;
+
+  /*Exact location*/
+  position: absolute;
+  bottom: 0;
+
+  box-shadow: 0px 0px 1px #000000;
+  z-index: 1001;
+}
+
+/*Buttons */
+#queue-buttons {
+  /*Positions*/
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+/*Handles the 3 buttons in line order*/
+#queue-buttons li{
+  display: inline;
+  padding: 0;
+}
+
+/*Handles the hover when hovering over the buttons*/
+#queue-buttons:hover li {
+  background-color: white;
+}
+
+#queue-buttons button {
+  width: 40px;
+  height: 40px;
+
+  color: #000000;
+
+  background-color: white;
+  border: none;
+}
+
+#queue-buttons button:hover {
+  color: #999999;
+}
+
+#queue-buttons button:active {
+  color: #71B500;
+  background-color: white;
+  border: none;
+}
+
+
+
+
+

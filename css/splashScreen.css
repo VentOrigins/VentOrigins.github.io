@@ -1,0 +1,45 @@
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+
+#splash-screen {
+  height: 100vh;
+  background-color: #FAFAFA;
+  position: relative;
+  top: 70px;
+  margin-bottom: 70px;
+}
+
+#splash-screen-title {
+  padding-top: 25vh;
+  text-align: center;
+}
+
+#splash-screen-title h1 {
+  /*Font*/
+  color: black;
+  font-size: 10vmin;
+  opacity: 0.5;
+
+  text-shadow: 3px 3px 3px #000000;
+}
+
+#soundCloudPlayer, #youTubePlayer {
+  display: none;
+}
+
+#volume-logo {
+  width: 4%;
+  display: inline-block;
+}
+
+#sound-cloud-bar-div {
+  width: 94%;
+  display: inline-block;
+}
+
+#sound-cloud-volume {
+  width: 100%;
+}

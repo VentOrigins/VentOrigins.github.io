@@ -1,0 +1,253 @@
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+
+/*The entire overlay when user searches*/
+.overlay {
+  
+  /*Needed to be over another div*/
+  position: absolute;
+  
+  /*Used to get the entire div*/
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+  /*Color of overlay*/
+  background-color: #FAFAFA;
+
+  /*How transparent the overlay would be when loading*/
+  opacity: .80;
+
+  /*Over everything else*/
+  z-index: 1000;
+
+  /*Font*/
+  color: black;
+  font-size: 20px;
+
+  /*For scrollbar*/
+  overflow: auto;
+
+  display: inline-block;
+}
+
+/*The button to close the overlay*/
+#close-button {
+  /*Size*/
+  width: 40px;
+  height: 40px;
+
+  /*Font*/
+  color: #FFFFFF;
+  font-size: 21px;
+  font-weight: normal;
+
+  /*Set the exact position of the close button*/
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  
+  /*Color of button*/
+  background-color: #FF0000;
+
+  /*Border*/
+  border: none;
+  border-top-right-radius: 50px 50px;
+  border-top-left-radius: 50px 50px;
+  border-bottom-right-radius: 50px 50px;
+  border-bottom-left-radius: 50px 50px;
+   
+  opacity: 1.0;
+  z-index: 1001;
+}
+
+/*Hovering over the close button*/
+#close-button:hover {
+  background-color: #990000;
+}
+
+/*When hovering over a row*/
+.youTubeTracksRow:hover, 
+.youTubeTracksRow:hover .addButton,
+.youTubeTracksRow:hover .image-thumbnail,
+.soundCloudTracksRow:hover, 
+.soundCloudTracksRow:hover .addButton, 
+.soundCloudTracksRow:hover .image-thumbnail {
+  background-color: #DCDCDC;
+}
+
+/* For both youtube and soundcloud tracks */
+#youTubeAndSoundCloudTracks {
+  width: 100%;
+
+  /*Moves to top and left side of overlay*/
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 50%;
+  bottom: 0px;
+
+  /*Font*/
+  color: black;
+  font-size: 20px;
+  text-align: center;
+
+  overflow: auto;
+  
+  border-right: solid 1px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+/* Rows for youtube */
+.youTubeTracksRow {
+  width: 100%;
+  height: 150px;
+  /*Displays the track with thumbnail in line*/
+  display: inline-flex;
+  text-align: left;
+}
+
+.youTubeTracksText {
+  width: 100%;
+
+  /*To vertically center the text*/
+  padding-top: 35px;
+
+  /*Font*/
+  font-size: 16px;
+
+  /*Stays in one line and does not overflow*/
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
+  /*Set exact position*/
+  position: relative;
+}
+
+.youTubeTracksText button {
+  padding: 0px;
+  background-color: #FAFAFA;
+  color: #1040CF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.youTubeTracksText a{
+  color: black;
+}
+
+.youTubePlayLink {
+  font-size: 18px;
+}
+
+.youTubeChannelLink {
+  font-size: 18px;
+}
+
+.youTubeTracksText a:hover {
+  text-decoration: none;
+}
+
+.youTubeTracksText .fa:hover {
+  color: red;
+}
+
+/* Rows for Soundcloud */
+.soundCloudTracksRow {
+  width: 100%;
+  height: 150px;
+  /*Displays the track with thumbnail in line*/
+  display: inline-flex;
+  text-align: left;
+}
+
+.soundCloudTracksText {
+  width: 100%;
+
+  /*To center the SoundCloud text*/
+  padding-top: 35px;
+  margin-left: 20px;
+
+  /*Font alignment*/
+  text-align: left;
+  font-size: 16px;
+
+  /*Stays in one line and does not overflow*/
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.soundCloudTracksText a{
+  color: black;
+}
+
+.soundCloudTracksText button {
+  padding: 0px;
+  background-color: #FAFAFA;
+  color: #1040CF;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.soundCloudTracksText a:hover {
+  text-decoration: none;
+  color: #F96D20;
+}
+
+.addButton {
+  background-color: white;
+  border: none;
+}
+
+.addButton:hover {
+  text-decoration: underline;
+}
+
+.addButton:active {
+  background-color: white;
+  text-decoration: none;
+}
+
+/*Thumbnail*/
+.image-thumbnail {
+  width: 220px;
+  height: 150px;
+
+  /*To keep it on the right of div*/
+  position: relative;
+  float: right;
+}
+
+.image-thumbnail img {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+/* Have both soundcloud and youtube img altered to make them look like the same sizes when on the same overlay */
+
+.youTubeTracksRow .image-thumbnail img {
+  width: 220px;
+  height: 150px;
+}
+
+.soundCloudTracksRow .image-thumbnail img {
+  width: 200px;
+  height: 140px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: black;
+  position: relative;
+  left: 10px;
+}
+
+
