@@ -1,0 +1,132 @@
+/*  =============================================================================
+    CSS for displaying the track objects in the table, formatted each row having
+    a track object.
+
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+
+/*Splash Screen for track*/
+#splash-track-list {
+  /*Given width and height for tracks*/
+  width: auto;
+  height: auto;
+
+  /*Moves div to right of playlist bar*/
+  left: 250px;
+
+  /*For the page number on the bottom to be at the center*/
+  text-align: center;
+
+  /*Invisible at first*/
+  display: none;
+
+  /*Directly right of the nav bar*/
+  position: relative;
+}
+
+/*Table for tracks*/
+#track-list table {
+  /*Span the entire track window*/
+  width: 100%;
+
+  /*Keeps text at left side in the table*/
+	text-align: left;
+
+  /*Background color*/
+  background-color: #0F1010;
+
+  /*Border at very bottom of table*/
+  border-bottom: solid 2px #222226;
+}
+
+/*Used for first row of track list*/
+#track-list th { 
+  height: 30px;
+  padding-left: 10px;
+
+  /*Font*/
+  color: #757679;
+  font-size: 13px;
+}
+
+/*Every column in the track list*/
+#track-list td {
+  height: 50px;
+  padding-left: 10px;
+
+  /*Font*/
+  color: white;
+  font-size: 13px;
+
+  /*Adds the line for each row*/
+  border-top: solid 2px #222226;
+}
+
+/*
+These next css covers each individual column of the table.
+There are a total of 4 columns:;
+  -Add #
+  -Track Name
+  -Artist(s)
+  -#
+*/
+#track-list .class-addHT-column {
+  width: 160px;
+  overflow: hidden;
+}
+
+#track-list .class-track-column {
+  width: 280px;
+  overflow: hidden;
+}
+
+#track-list .class-artists-column {
+  width: 250px;
+  padding-left: 30px; 
+  overflow: hidden;
+}
+
+#track-list .class-hashtag-column {
+  width: 200px;
+  padding-left: 30px; 
+  overflow: hidden;
+}
+
+/*When hovering over a row, the background color changes*/
+#track-list .not-header-row:hover {
+  background-color: #202024;
+}
+
+/*When hovering over a row, the color of the Add HT button changes with the row*/
+#track-list .not-header-row:hover button {
+  background-color: #202024;
+}
+
+/*When mouse hovers over the row, hashtags are white*/
+#track-list .not-header-row:hover .class-ht-button {
+  background-color: #FFFFFF;
+}
+
+/*When mouse hovers over the hashtags, hashtags are spotify green*/
+#track-list .not-header-row:hover .class-ht-button:hover {
+  background-color: #71B500;
+}
+
+/*Rows that are selected are in this background color*/
+.selected {
+  background-color: #303034;
+}
+
+/*Rows's add hashtag button are in this background color when row is selected*/
+.selected .class-button {
+  background-color: #303034;
+}
+
+/*when appending more tracks, adds a loading screen at the bottom*/
+#appending-load-screen {
+  height: 30px;
+  position: relative;
+}
+
+

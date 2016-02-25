@@ -1,0 +1,11 @@
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+
+#splash-screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+}

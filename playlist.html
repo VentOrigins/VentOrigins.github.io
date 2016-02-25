@@ -1,0 +1,120 @@
+<!-- 
+/*  =============================================================================
+    
+    Copyright © Vent Origins 
+    By Adrian Mandee and Randy Truong
+    ========================================================================== */
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Vent Spotify</title>
+
+  <!-- Tab icon -->
+  <link rel="shortcut icon" href="images/vo_logo3.ico">
+
+  <!-- JQUERY -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+  
+  <!-- Parse -->
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+  
+  <!-- References -->
+  <link rel="stylesheet" type="text/css" href="styles/addHT.css">
+  <link rel="stylesheet" type="text/css" href="styles/playlist.css">
+  <link rel="stylesheet" type="text/css" href="styles/displayTracks.css">
+  <link rel="stylesheet" type="text/css" href="styles/spotify.css">
+  <link rel="stylesheet" type="text/css" href="styles/loadingIcon.css">
+  <link rel="stylesheet" type="text/css" href="styles/nav.css">
+
+  <!-- FONTS -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+  <!-- For icons -->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+<div id='playlist-page'>
+
+  <!-- 
+  Nav Bar
+  -->
+  <div id="nav">
+    <div id="nav-list">
+      <ul id="nav-button">
+        <img class='vent-origins-logo' src='images/vo_logo3.png'>
+        <li><i class="fa fa-home"></i> <a href="index.html">Home</a></li>
+        <li><i class="fa fa-question-circle"></i> <a href="http://www.ventorigins.com">About</a></li>
+      </ul>
+      <ul id="nav-playlist">
+      </ul>
+      <div id="footer">
+        <div id="copyright">
+          <p>Copyright © 2016 Vent Origins</p>
+        </div>
+        <div id="icon">
+          <a href="http://ventorigins.com"> <i class="fa fa-star"></i> </a>
+          <a href="https://github.com/ventorigins"> <i class="fa fa-github"></i> </a>
+          <a href="http://www.facebook.com/ventorigins"> <i class="fa fa-facebook-official"></i> </a>
+          <a href="http://www.twitter.com/ventorigins"> <i class="fa fa-twitter"></i> </a>
+        </div>
+       </div>   
+    </div>
+  </div>
+
+  <!-- Title of playlist -->
+  <div id="playlist-name">
+    
+  </div>
+
+	<!-- 
+	Track Splash Screen
+	 -->
+	<div id="splash-track-list">
+    
+    <!--
+      Track List 
+     -->
+    <div id="track-list">
+      
+      <!-- 
+      Table for Track
+       -->
+      <table id="list-of-tracks" cellspacing="0">
+      </table>
+      
+
+    </div>
+
+
+  </div>
+
+<!-- End of playlist page -->
+</div>
+  
+  <!-- Scripts -->
+  <script type="text/javascript" src="scripts/search.js"></script>
+  <script type="text/javascript" src="scripts/displayTracks.js"></script>
+  <script type="text/javascript" src="scripts/addHT.js"></script>
+  <script type="text/javascript" src="scripts/parse.js"></script>
+  <script type="text/javascript" src="scripts/hashtag.js"></script>
+  <script type="text/javascript" src="scripts/playlist.js"></script>
+  <script type="text/javascript" src="scripts/nav.js"></script>
+  <!--
+  <script type="text/javascript" src="scripts/playButton.js"></script>
+  -->
+  <script type="text/javascript" src="scripts/displayPlaylist.js"></script>
+  <script type="text/javascript" src="scripts/loadingScreen.js"></script>
+  <script type="text/javascript" src="scripts/rowSelection.js"></script>
+  <script type="text/javascript" src="scripts/spotifyPlaylist.js"></script>
+
+
+  <!-- Classes -->
+  <script type="text/javascript" src="classes/tracks.js"></script>
+
+</body>
+
+</html>
