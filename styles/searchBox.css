@@ -14,6 +14,7 @@
 
 #title-splash-screen {
   height: 200px;
+  min-width: 520px;
   text-align: center;
 }
 
@@ -37,7 +38,7 @@
 #title-splash-screen #hash-tag {
   /*Font*/
   color: #71B500;
-  font-size: 150px;
+  /*font-size: 150px;*/
   font-weight: 1000;
   
 
@@ -118,6 +119,12 @@
 #button-query-box:hover {
   border: solid 2px white;
   opacity: 1.0;
+}
+
+@media screen and (max-width: 600px) {
+    #title-splash-screen h1 {
+      font-size: 100px;
+    }
 }
 
 
